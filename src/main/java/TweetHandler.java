@@ -16,12 +16,12 @@ public class TweetHandler {
 
     /**
      * Connects to the Twitter API, Downloads Status Objects, Creates Document JSON, Commits to MongoDB Cluster.
-     * @param username Twitter Screen Name
-     * @param numberOfTweets Quantity to Download (Max 3200)
+     * @param screenName Twitter Screen Name
+     * @param num Quantity to Download (Max 3200)
      */
-    private TweetHandler(String username, int numberOfTweets) {
-        setUsername(username);
-        setNumberOfTweets(numberOfTweets);
+    private TweetHandler(String screenName, int num) {
+        setUsername(screenName);
+        setNumberOfTweets(num);
     }
 
     private String calculateTime(long elapsed) {
@@ -69,7 +69,7 @@ public class TweetHandler {
             }
             System.out.println("Downloading Twitter Status Objects From " + username + "...");
 
-            int pageno = 1;
+            int pageno = 1; //Must be positive integer
             ConfigurationBuilder cb = getConfigurationBuilder();
             Twitter twitter = new TwitterFactory(cb.build()).getInstance();
             boolean notExceededRateLimit = true;
@@ -77,9 +77,12 @@ public class TweetHandler {
             while (notExceededRateLimit) {
                 try {
                     Paging page = new Paging(pageno++, numberOfTweets);
+                    //getUserTimeline() gets 20 most recent
                     statuses.addAll(twitter.getUserTimeline(username, page));
-                    if (statuses.size() == numberOfTweets)
+                    System.out.println("Collecting Statuses: Page " + pageno + " - " + statuses.size() + "/" + numberOfTweets);
+                    if (statuses.size() == numberOfTweets) {
                         break;
+                    }
                 } catch (TwitterException e) {
                     RateLimitStatus rls = e.getRateLimitStatus();
                     System.out.println("Twitter Rate Limit Exceeded!");
@@ -133,7 +136,7 @@ public class TweetHandler {
     }
 
     public static void main(String args[]) throws ExecutionException, InterruptedException {
-        TweetHandler sa = new TweetHandler("Scarlett_Jo", 3200);
+        TweetHandler sa = new TweetHandler("bbc", 3200);
         sa.handleTweets();
     }
 

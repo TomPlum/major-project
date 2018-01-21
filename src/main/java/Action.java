@@ -5,6 +5,6 @@ public class Action {
         for(String str : tr.getAllUsernames()) {
             System.out.println(str);
         }
-        conn.removeDocumentsByKey("user", "Gordon Ramsay");
+        conn.removeDocumentsByKey("user", "Donald J. Trump");
     }
 }

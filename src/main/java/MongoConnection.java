@@ -28,7 +28,7 @@ public class MongoConnection {
 
     public void removeDocumentsByKey(String key, String val) {
         DeleteResult delete = getMongoCollection().deleteMany(eq(key, val));
-        System.out.println("Successfully Deleted " + delete.getDeletedCount() + ".");
+        System.out.println("Successfully Deleted " + delete.getDeletedCount() + " Tweets.");
         System.out.println("Where " + key + " matches '" + val + "'.");
     }
 
