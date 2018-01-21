@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Twitter4J">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../Twitter/Twitter4J Master/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../../Twitter/Twitter4J Master/lib" recursive="false" />
+  </library>
+</component>
