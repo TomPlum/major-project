@@ -1,3 +1,5 @@
+package twitter;
+
 import com.vdurmont.emoji.*;
 
 class TweetSanitiser {

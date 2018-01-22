@@ -1,3 +1,6 @@
+package twitter;
+
+import connection.MongoConnection;
 import com.mongodb.DuplicateKeyException;
 import org.bson.Document;
 import org.bson.types.ObjectId;

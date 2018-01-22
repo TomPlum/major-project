@@ -1,8 +1,10 @@
+package twitter;
+
 import com.mongodb.Block;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import org.bson.Document;
-
+import connection.MongoConnection;
 import java.util.ArrayList;
 import java.util.Date;
 import static com.mongodb.client.model.Filters.eq;
@@ -52,18 +54,18 @@ public class TweetReader {
         return list;
     }
 
-    private ArrayList<Document> getTweetsByDate(Date date) {
+    public ArrayList<Document> getTweetsByDate(Date date) {
         ArrayList<Document> list = new ArrayList<>();
         Block<Document> addBlock = document -> list.add(document);
         conn.getMongoCollection().find(eq("created_at", date)).forEach(addBlock);
         return list;
     }
 
-    private Document getTweetByTweetId(long tweet_id) {
+    public Document getTweetByTweetId(long tweet_id) {
         return conn.getMongoCollection().find(eq("tweet_id", tweet_id)).first();
     }
 
-    private String getTweetTextById(long tweet_id) {
+    public String getTweetTextById(long tweet_id) {
         Document doc = conn.getMongoCollection().find(eq("tweet_id", tweet_id)).first();
         return "" + doc.get("text");
     }
@@ -85,7 +87,7 @@ public class TweetReader {
 
     public static void main(String[] args) {
         TweetReader tr = new TweetReader();
-        //TweetSanitiser ts = new TweetSanitiser(tr.getTweetTextById(950648597221138432L));
+        //twitter.TweetSanitiser ts = new twitter.TweetSanitiser(tr.getTweetTextById(950648597221138432L));
         //System.out.println(ts.getTweet());
         //ts.removeWhiteSpaces();
         //System.out.println(ts.getTweet());

@@ -1,25 +1,40 @@
+package connection;
+
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
-
 import static com.mongodb.client.model.Filters.eq;
 
 public class MongoConnection {
     private final String uri = "mongodb+srv://TomPlum:i7ljjmXIi19PK1CU@twitter-yu9se.mongodb.net/";
     private String database;
     private String collection;
-    private MongoClient mongoClient = new MongoClient(new MongoClientURI(uri));
+    private MongoClient mongoClient;
 
     public MongoConnection(String database, String collection) {
         setDatabase(database);
         setCollection(collection);
+        initConn();
+    }
+
+    private void initConn() {
+        try {
+            mongoClient = new MongoClient(new MongoClientURI(uri));
+        } catch (MongoSocketReadException e) {
+            System.out.println("MongoSocketReadException! Perhaps your IP needs whitelisting.");
+        }
     }
 
     public MongoCollection<Document> getMongoCollection() {
-        MongoDatabase db = mongoClient.getDatabase(getDatabase());
-        return db.getCollection(getCollection());
+        try {
+            MongoDatabase db = mongoClient.getDatabase(getDatabase());
+            return db.getCollection(getCollection());
+        } catch (MongoSocketReadException e) {
+            System.out.println("MongoSocketReadException! Perhaps your IP needs whitelisting.");
+            return null;
+        }
     }
 
     public void insertDocument(Document object) {

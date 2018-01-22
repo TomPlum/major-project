@@ -1,3 +1,5 @@
+package twitter;
+
 public class TweetParser {
     private String tweet;
     private String twitter_user;
