@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Twitter.iml" filepath="$PROJECT_DIR$/.idea/modules/Twitter.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Twitter_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Twitter_main.iml" group="Twitter" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Twitter_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Twitter_test.iml" group="Twitter" />
     </modules>
   </component>
 </project>

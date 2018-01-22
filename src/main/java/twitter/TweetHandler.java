@@ -138,11 +138,6 @@ public class TweetHandler {
         future.get();
     }
 
-    public static void main(String args[]) throws ExecutionException, InterruptedException {
-        TweetHandler sa = new TweetHandler("bbc", 3200);
-        sa.handleTweets();
-    }
-
     /**
      * OAuth Keys - Twitter Application
      */

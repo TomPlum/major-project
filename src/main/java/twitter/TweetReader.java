@@ -87,12 +87,6 @@ public class TweetReader {
 
     public static void main(String[] args) {
         TweetReader tr = new TweetReader();
-        //twitter.TweetSanitiser ts = new twitter.TweetSanitiser(tr.getTweetTextById(950648597221138432L));
-        //System.out.println(ts.getTweet());
-        //ts.removeWhiteSpaces();
-        //System.out.println(ts.getTweet());
-        //tr.printAllTweets();
-        //tr.printTweetsByDate(new Date(2018, 1, 8, 21, 50, 49));
-        //tr.printTweetByTweetId(950648597221138432L);
+        System.out.println(tr.getAllUsernames());
     }
 }

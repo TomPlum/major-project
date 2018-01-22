@@ -20,5 +20,6 @@ public class TweetParser {
 
     }
 
+
     //Add Getters & Setters for each value, above method randomly switches them all from Tweet
 }

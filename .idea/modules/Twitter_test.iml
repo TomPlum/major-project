@@ -10,9 +10,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Twitter_main" />
-    <orderEntry type="library" name="Gradle: org.mongodb:mongo-java-driver:3.6.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.vdurmont:emoji-java:4.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.json:json:20170516" level="project" />
+    <orderEntry type="library" name="MongoJavaDriver-3.6.1" level="project" />
+    <orderEntry type="library" name="EmojiJava-4.0.0" level="project" />
+    <orderEntry type="library" name="JSON" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="Twitter_main" />
 </module>

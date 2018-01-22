@@ -9,36 +9,41 @@ class TweetSanitiser {
         setTweet(tweet);
     }
 
-    TweetSanitiser() {
-
-    }
-
-    void removeWhiteSpaces() {
+    /**
+     * Strips the Tweet of all white-spaces
+     */
+    private void removeWhiteSpaces() {
         if (tweet != null) {
             // \s is space characters (space or tab). Need to escape with \\s for regex engine
             tweet = tweet.replaceAll("\\s","");
         }
     }
 
-    void removeEmoji() {
+    /**
+     * Strips the Tweet of all emoji's
+     */
+    private void removeEmoji() {
         EmojiParser.removeAllEmojis(tweet);
     }
 
-    void removeLineBreaks() {
+    /**
+     * Strips the Tweet of all line breaks.
+     */
+    private void removeLineBreaks() {
         tweet = tweet.replaceAll("\\r|\\n", "");
     }
 
-    public String extractLetters() {
-        String cleanTweet = "";
+    String extractLetters() {
+        StringBuilder cleanTweet = new StringBuilder();
         removeLineBreaks();
         removeWhiteSpaces();
         removeEmoji();
         for (int i = 0; i < tweet.length(); i++) {
             if (Character.isLetter(tweet.charAt(i))) {
-                cleanTweet += tweet.charAt(i);
+                cleanTweet.append(tweet.charAt(i));
             }
         }
-        return cleanTweet;
+        return cleanTweet.toString();
     }
 
     String getTweet() {
