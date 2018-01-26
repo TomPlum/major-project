@@ -1,4 +1,4 @@
-package twitter;
+package university.twitter;
 
 public class TweetParser {
     private String tweet;

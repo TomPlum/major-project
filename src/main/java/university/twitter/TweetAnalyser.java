@@ -1,4 +1,4 @@
-package twitter;
+package university.twitter;
 
 import com.vdurmont.emoji.EmojiParser;
 import java.util.ArrayList;

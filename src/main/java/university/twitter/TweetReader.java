@@ -1,4 +1,4 @@
-package twitter;
+package university.twitter;
 
 import com.mongodb.Block;
 import com.mongodb.client.MongoCollection;
@@ -12,7 +12,11 @@ import static com.mongodb.client.model.Filters.eq;
 public class TweetReader {
     private MongoConnection conn = new MongoConnection("twitter", "tweets");
 
-    private ArrayList<Document> getAllTweets() {
+    /**
+     * Iterates over the database via MongoCursor and return all documents.
+     * @return ArrayList of all Tweets from the database.
+     */
+    public ArrayList<Document> getAllTweets() {
         ArrayList<Document> list = new ArrayList<>();
         MongoCollection<Document> coll = conn.getMongoCollection();
         try (MongoCursor<Document> cursor = coll.find().iterator()) {
@@ -23,13 +27,23 @@ public class TweetReader {
         return list;
     }
 
-    private ArrayList<Document> getTweetsByUser(String username) {
+    /**
+     * Iterates over the database via MongoCursor and returns all documents from the given user.
+     * @param username Twitter ScreenName to download.
+     * @return ArrayList of all Tweets from the given user.
+     */
+    public ArrayList<Document> getTweetsByUser(String username) {
         ArrayList<Document> list = new ArrayList<>();
         Block<Document> addBlock = document -> list.add(document);
         conn.getMongoCollection().find(eq("user", username)).forEach(addBlock);
         return list;
     }
 
+    /**
+     * Iterates over the database via MongoCursor and returns all values from the given key.
+     * @param key Document key to filter by
+     * @return ArrayList of String values that match the provided key.
+     */
     public ArrayList<String> getAllValuesByKey(String key) {
         ArrayList<String> list = new ArrayList<>();
         MongoCollection<Document> coll = conn.getMongoCollection();
@@ -41,6 +55,10 @@ public class TweetReader {
         return list;
     }
 
+    /**
+     * Returns an ArrayList of all users who have Tweets in the database.
+     * @return ArrayList of Strings of all username values.
+     */
     public ArrayList<String> getAllUsernames() {
         ArrayList<String> list = new ArrayList<>();
         MongoCollection<Document> coll = conn.getMongoCollection();
@@ -54,6 +72,11 @@ public class TweetReader {
         return list;
     }
 
+    /**
+     * Returns all Tweets that were posted on the given date.
+     * @param date Date Object representing the date a Tweet was posted.
+     * @return ArrayList of Tweets that were posted on the given date.
+     */
     public ArrayList<Document> getTweetsByDate(Date date) {
         ArrayList<Document> list = new ArrayList<>();
         Block<Document> addBlock = document -> list.add(document);
@@ -61,15 +84,20 @@ public class TweetReader {
         return list;
     }
 
+    /**
+     * Returns a single Tweet that matches the provided, unique Tweet ID.
+     * @param tweet_id Unique Tweet ID (Long)
+     * @return Tweet that matches the given Tweet ID.
+     */
     public Document getTweetByTweetId(long tweet_id) {
         return conn.getMongoCollection().find(eq("tweet_id", tweet_id)).first();
     }
 
-    public String getTweetTextById(long tweet_id) {
-        Document doc = conn.getMongoCollection().find(eq("tweet_id", tweet_id)).first();
-        return "" + doc.get("text");
-    }
-
+    /**
+     * Beautifies a Document and returns the formatted String.
+     * @param doc Document to format
+     * @return Formatted String
+     */
     private String documentToString(Document doc) {
         String s = "";
         try {
@@ -83,10 +111,5 @@ public class TweetReader {
             System.out.println("Document Is Null");
         }
         return s;
-    }
-
-    public static void main(String[] args) {
-        TweetReader tr = new TweetReader();
-        System.out.println(tr.getAllUsernames());
     }
 }

@@ -1,4 +1,4 @@
-package twitter;
+package university.twitter;
 
 import connection.MongoConnection;
 import com.mongodb.DuplicateKeyException;
@@ -14,7 +14,7 @@ import java.util.concurrent.ExecutionException;
 public class TweetHandler {
     private String username;
     private ArrayList<Status> statuses;
-    private MongoConnection conn = new MongoConnection("twitter", "tweets");
+    private MongoConnection conn = new MongoConnection("university/twitter", "tweets");
     private int numberOfTweets;
 
     /**
@@ -22,11 +22,16 @@ public class TweetHandler {
      * @param screenName Twitter Screen Name
      * @param num Quantity to Download (Max 3200)
      */
-    private TweetHandler(String screenName, int num) {
+    public TweetHandler(String screenName, int num) {
         setUsername(screenName);
         setNumberOfTweets(num);
     }
 
+    /**
+     * Formats time into minutes and seconds from a given millisecond duration.
+     * @param elapsed Elapsed Time in Milliseconds
+     * @return Formatted String in Xm Ys
+     */
     private String calculateTime(long elapsed) {
         int minutes = Math.round(elapsed / (60 * 1000F));
         int seconds = Math.round((elapsed % 60000) / 1000);
@@ -62,7 +67,7 @@ public class TweetHandler {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    private void handleTweets() throws ExecutionException, InterruptedException {
+    public void handleTweets() throws ExecutionException, InterruptedException {
         long start = System.currentTimeMillis();
         CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> {
             try {
@@ -151,10 +156,18 @@ public class TweetHandler {
         return cb;
     }
 
+    /**
+     * Sets the username of the Twitter user in which to download Tweets from.
+     * @param username Twitter ScreenName
+     */
     private void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Sets the number of Tweets to download from the provided Twitter ScreenName.
+     * @param numberOfTweets Quantity of Tweets (Max 3200)
+     */
     private void setNumberOfTweets(int numberOfTweets) {
         if (numberOfTweets <= 3200) {
             this.numberOfTweets = numberOfTweets;

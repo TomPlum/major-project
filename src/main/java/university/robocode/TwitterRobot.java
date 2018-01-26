@@ -1,4 +1,4 @@
-package robocodePackage;
+package university.robocode;
 
 import robocode.AdvancedRobot;
 

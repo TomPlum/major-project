@@ -1,18 +1,18 @@
-package twitter;
+package university.twitter;
 
 import com.vdurmont.emoji.*;
 
 class TweetSanitiser {
     private String tweet;
 
-    TweetSanitiser(String tweet) {
+    public TweetSanitiser(String tweet) {
         setTweet(tweet);
     }
 
     /**
      * Strips the Tweet of all white-spaces
      */
-    private void removeWhiteSpaces() {
+    public void removeWhiteSpaces() {
         if (tweet != null) {
             // \s is space characters (space or tab). Need to escape with \\s for regex engine
             tweet = tweet.replaceAll("\\s","");
@@ -22,14 +22,14 @@ class TweetSanitiser {
     /**
      * Strips the Tweet of all emoji's
      */
-    private void removeEmoji() {
+    public void removeEmoji() {
         EmojiParser.removeAllEmojis(tweet);
     }
 
     /**
      * Strips the Tweet of all line breaks.
      */
-    private void removeLineBreaks() {
+    public void removeLineBreaks() {
         tweet = tweet.replaceAll("\\r|\\n", "");
     }
 

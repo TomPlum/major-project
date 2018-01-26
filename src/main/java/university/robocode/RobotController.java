@@ -1,4 +1,4 @@
-package robocodePackage;
+package university.robocode;
 
 public class RobotController {
 
