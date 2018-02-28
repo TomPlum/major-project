@@ -6,6 +6,8 @@ import com.mongodb.client.MongoCursor;
 import org.bson.Document;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.NoSuchElementException;
+
 import static com.mongodb.client.model.Filters.eq;
 
 public class TweetReader {
@@ -83,9 +85,19 @@ public class TweetReader {
         ArrayList<String> list = new ArrayList<>();
         MongoCollection<Document> coll = conn.getMongoCollection();
         try (MongoCursor<Document> cursor = coll.find().iterator()) {
+            int count = 0;
             while (cursor.hasNext()) {
-                if (!list.contains(cursor.next().get("user"))) {
-                    list.add(cursor.next().get("user").toString());
+                Document element = cursor.next();
+                try {
+                    System.out.println(element.get("user") + ": " + count);
+                    count++;
+                    if (!list.contains(element.get("user"))) {
+                        list.add(element.get("user").toString());
+                    }
+                } catch (NullPointerException e) {
+                    System.out.println("Found Null User: " + element.get("tweet_id") + "(tweet_id)");
+                } catch (NoSuchElementException e) {
+                    System.out.println("Error: MongoCursor tried to get an element that doesn't exist.");
                 }
             }
         }

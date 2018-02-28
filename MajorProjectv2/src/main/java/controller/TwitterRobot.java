@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TwitterRobot extends AdvancedRobot {
-    private RobotController rc = new RobotController();
-    private GameConfigurer config = new GameConfigurer();
-
+        /*
     private void initialiseRobot() {
         System.out.println("Available Users: \n");
         ArrayList<String> users = config.getAvailableUsers();
@@ -29,8 +27,10 @@ public class TwitterRobot extends AdvancedRobot {
             }
         }
     }
-
+    */
     public void run() {
+        RobotController rc = new RobotController();
+        GameConfigurer config = new GameConfigurer();
         //rc.randomiseValues();
 
         while (true) {

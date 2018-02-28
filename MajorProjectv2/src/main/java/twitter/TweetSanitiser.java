@@ -2,7 +2,7 @@ package twitter;
 
 import com.vdurmont.emoji.*;
 
-class TweetSanitiser {
+public class TweetSanitiser {
     private String tweet;
 
     public TweetSanitiser(String tweet) {
@@ -50,7 +50,7 @@ class TweetSanitiser {
         return tweet;
     }
 
-    private void setTweet(String tweet) {
+    public void setTweet(String tweet) {
         this.tweet = tweet;
     }
 }

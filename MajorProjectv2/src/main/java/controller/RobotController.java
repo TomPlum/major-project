@@ -1,16 +1,19 @@
 package controller;
 
 import org.bson.Document;
-import twitter.TweetParser;
-import twitter.TweetReader;
-
+import twitter.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RobotController  {
+
+    /*
+     * MAKE ALL MEMBERS INTEGER (WRAPPER CLASS) AND INSTANTIATE TO NULL
+     */
     //Robot Attributes
     private String USER;
-    private double FIRE_POWER;
+    private Double FIRE_POWER;
     private int BATTLEFIELD_W;
     private int BATTLEFIELD_H;
     private int START_X;
@@ -55,6 +58,7 @@ public class RobotController  {
         while(true) {
             if (currentTweetIsNotExhausted()) {
                 if (allValuesValidated()) {
+                    System.out.println("All RobotController Values Validated. Breaking!");
                     break;
                 } else {
                     //Set FIRE_POWER
@@ -75,12 +79,17 @@ public class RobotController  {
     }
 
     private String getTweetChar() {
-        String text = currentTweet.get("text").toString();
-        String newText = text.substring(1, text.length() - 1);
-        String ch = text.substring(0, 1);
-        currentTweet.remove("text");
-        currentTweet.put("key", newText);
-        return ch;
+        try {
+            String text = currentTweet.get("text").toString();
+            String newText = text.substring(1, text.length());
+            String ch = text.substring(0, 1);
+            currentTweet.remove("text");
+            currentTweet.put("text", newText);
+            return ch;
+        } catch (NullPointerException e) {
+            System.out.println("Current Tweet Is Null");
+        }
+        return null;
     }
 
     /**
@@ -89,13 +98,16 @@ public class RobotController  {
      * @param s2 first decimal
      * @return double in format x.y
      */
-    private double createDouble(int s1, int s2) {
+    private Double createDouble(int s1, int s2) {
         return Double.parseDouble(s1 + "." + s2);
     }
 
     private void updateCurrentTweet() {
         if (currentTweetArray != null && currentTweetArray.size() > 0) {
             currentTweet = currentTweetArray.remove(0);
+
+            TweetSanitiser ts = new TweetSanitiser(currentTweet.get("text").toString());
+            currentTweet.put("text", ts.extractLetters());
         } else {
             System.out.println("Current Tweet Array Is Empty!");
         }
@@ -103,21 +115,15 @@ public class RobotController  {
 
     private boolean allValuesValidated() {
         //FIRE_POWER
-        if (FIRE_POWER < 0 || FIRE_POWER > 3) {
+        if (FIRE_POWER < 0 || FIRE_POWER > 3 || FIRE_POWER == null) {
             return false;
         }
-        /*
-        //START_X
-        if (START_X < 0 || START_X > BATTLEFIELD_W) {
-            return false;
-        }
-        */
-        return true;
 
+        return true;
     }
 
     public void invalidateAllValues() {
-        FIRE_POWER = -1;
+        FIRE_POWER = -1.0;
         START_X = -1;
         START_Y = -1;
         MOVE_UP = -1;
@@ -158,5 +164,34 @@ public class RobotController  {
 
     public Document getCurrentTweet() {
         return currentTweet;
+    }
+
+    public static void main(String[] args) {
+        RobotController rc = new RobotController();
+        TweetReader tr = new TweetReader();
+
+        //Get all usernames from cluster
+        ArrayList<String> users = tr.getAllUsernames();
+
+        //Generate Random Number (From 0 - users.size())
+        Random rand = new Random();
+        int n = rand.nextInt(users.size());
+
+        //Get random user string and set RobotController USER
+        String user = users.get(n);
+        rc.setUSER(user);
+        System.out.println("RobotController Username set to " + rc.getUSER());
+
+        //Initialise RobotController Tweets
+        rc.initialiseTweets();
+
+        ArrayList<Document> tweets = rc.getAllTweets();
+        System.out.println("Getting Tweets from Twitter Account: " + rc.getUSER());
+
+        //Check if they have been downloaded and set correctly
+        System.out.println("The RobotController has " + tweets.size() + " Tweets.");
+
+        rc.invalidateAllValues();
+        rc.randomiseValues();
     }
 }
