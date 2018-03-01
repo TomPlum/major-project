@@ -4,8 +4,13 @@ import robocode.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Logger;
+import java.util.logging.LoggingPermission;
 
 public class TwitterRobot extends AdvancedRobot {
+    private RobotController rc = new RobotController();
+    private double robotX;
+    private double robotY;
         /*
     private void initialiseRobot() {
         System.out.println("Available Users: \n");
@@ -28,22 +33,35 @@ public class TwitterRobot extends AdvancedRobot {
         }
     }
     */
+
+    public void onStatus(StatusEvent e) {
+        RobotStatus robotStatus = e.getStatus();
+        this.robotX = robotStatus.getX();
+        this.robotY = robotStatus.getY();
+    }
+
     public void run() {
-        RobotController rc = new RobotController();
-        GameConfigurer config = new GameConfigurer();
-        //rc.randomiseValues();
+        //GameConfigurer config = new GameConfigurer();
 
         while (true) {
-            ahead(100);
-            turnGunRight(360);
-            back(100);
-            turnGunRight(360);
-        }
+            rc.randomiseValues();
 
-        //rc.invalidateAllValues();
+            ahead(rc.getMOVE_UP());
+            if (rc.getROTATE_DIRECTION() == 1) {
+                turnGunRight(rc.getROTATE_GUN());
+            } else {
+                turnGunLeft(rc.getROTATE_GUN() * -1);
+            }
+
+            rc.invalidateAllValues();
+        }
     }
 
     public void onScannedRobot(ScannedRobotEvent e) {
-        fire(1);
+        fire(rc.getFIRE_POWER());
+    }
+
+    public void onHitWall(HitWallEvent e) {
+        back(rc.getMOVE_DOWN());
     }
 }

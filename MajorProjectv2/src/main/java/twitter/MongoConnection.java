@@ -5,6 +5,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static com.mongodb.client.model.Filters.eq;
 
 public class MongoConnection {
@@ -14,6 +16,8 @@ public class MongoConnection {
     private MongoClient mongoClient;
 
     public MongoConnection(String database, String collection) {
+        Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
+        mongoLogger.setLevel(Level.SEVERE);
         setDatabase(database);
         setCollection(collection);
         initConn();

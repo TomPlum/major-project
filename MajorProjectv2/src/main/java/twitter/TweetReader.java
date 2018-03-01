@@ -89,7 +89,7 @@ public class TweetReader {
             while (cursor.hasNext()) {
                 Document element = cursor.next();
                 try {
-                    System.out.println(element.get("user") + ": " + count);
+                    //System.out.println(element.get("user") + ": " + count);
                     count++;
                     if (!list.contains(element.get("user"))) {
                         list.add(element.get("user").toString());
