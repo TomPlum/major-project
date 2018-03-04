@@ -1,0 +1,19 @@
+{
+  "name": "Major Project",
+  "description": "Data Visualisation of Twitter controlled robots",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "forever": "^0.15.3",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7",
+    "pug": "^2.0.0-rc.3",
+    "serve-favicon": "^2.4.3"
+  }
+}
