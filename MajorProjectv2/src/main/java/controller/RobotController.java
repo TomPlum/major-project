@@ -9,6 +9,8 @@ import java.util.Random;
 public class RobotController  {
 
     private String USER;
+    private Double robotX;
+    private Double robotY;
     private Double FIRE_POWER = -1.0;
     private Integer BATTLEFIELD_W = -1;
     private Integer BATTLEFIELD_H = -1;
@@ -16,12 +18,12 @@ public class RobotController  {
     private Integer MOVE_RIGHT = -1;
     private Integer MOVE_DOWN = -1;
     private Integer MOVE_LEFT = -1;
-    private Integer ROTATE = -1;
-    private Integer ROTATE_DIRECTION = -1;
-    private Integer ROTATE_GUN = -1;
-    private Integer ROTATE_GUN_DIRECTION = -1;
-    private Integer ROTATE_SCANNER = -1;
-    private Integer ROTATE_SCANNER_DIRECTION = -1;
+    private Integer ROTATE = 999;
+    private Integer ROTATE_DIRECTION = 99;
+    private Integer ROTATE_GUN = 999;
+    private Integer ROTATE_GUN_DIRECTION = 99;
+    private Integer ROTATE_SCANNER = 999;
+    private Integer ROTATE_SCANNER_DIRECTION = 99;
     private Integer SCAN_FREQUENCY = -1;
     private Integer NO_OF_ROUNDS = -1;
     private Integer GUN_COOLING_RATE = -1;
@@ -36,6 +38,11 @@ public class RobotController  {
 
     private int CHARS_USED = 0;
     private int TWEETS_USED = 0;
+
+    public RobotController() {
+        setRandomUser();
+        initialiseTweets();
+    }
 
     public void initialiseTweets() {
         try {
@@ -237,11 +244,47 @@ public class RobotController  {
     public void invalidateAllValues() {
         FIRE_POWER = -1.0;
         ROTATE_DIRECTION = 99;
-        ROTATE = -1;
+        ROTATE = 999;
         MOVE_UP = -1;
         MOVE_RIGHT = -1;
         MOVE_DOWN = -1;
         MOVE_LEFT = -1;
+        ROTATE_GUN_DIRECTION = 99;
+        ROTATE = 999;
+    }
+
+    private void setRandomUser() {
+        /*
+        GameConfigurer config = new GameConfigurer();
+        System.out.println("Available Users: \n");
+        ArrayList<String> users = config.getAvailableUsers();
+        for (String user : users) {
+            System.out.println(user);
+        }
+        boolean correctUser = false;
+        String robotUser;
+        while(!correctUser) {
+            System.out.println("Please enter a username: ");
+            Scanner sc = new Scanner(System.in);
+            robotUser = sc.nextLine();
+            if (config.userAvailable(robotUser)) {
+                setUSER(robotUser);
+                correctUser = true;
+            } else {
+                System.out.println("User Does Not Exist!");
+            }
+        }
+        */
+        //Get all usernames from cluster
+        ArrayList<String> users = tr.getAllUsernames();
+
+        //Generate Random Number (From 0 - users.size())
+        Random rand = new Random();
+        Integer n = rand.nextInt(users.size());
+
+        //Get random user string and set RobotController USER
+        String user = users.get(n);
+        setUSER(user);
     }
 
     public void setUSER(String USER) {
@@ -326,6 +369,14 @@ public class RobotController  {
 
     public Integer getROTATE_SCANNER_DIRECTION() {
         return ROTATE_SCANNER_DIRECTION;
+    }
+
+    public void setRobotX(Double robotX) {
+        this.robotX = robotX;
+    }
+
+    public void setRobotY(Double robotY) {
+        this.robotY = robotY;
     }
 
     public void setROTATE_SCANNER_DIRECTION(Integer ROTATE_SCANNER_DIRECTION) {

@@ -2,8 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/robocode_master/robots" />
-    <output-test url="file://$MODULE_DIR$/out/test/MajorProjectv2" />
-    <exclude-output />
+    <output-test url="file://$MODULE_DIR$/out/test" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
@@ -30,5 +29,17 @@
     </orderEntry>
     <orderEntry type="library" name="robocode" level="project" />
     <orderEntry type="library" name="org.json" level="project" />
+    <orderEntry type="module-library" scope="TEST">
+      <library name="JUnit5.0">
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.0.0/junit-jupiter-api-5.0.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.0.0/junit-platform-commons-1.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

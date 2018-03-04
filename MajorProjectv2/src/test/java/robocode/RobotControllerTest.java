@@ -57,6 +57,14 @@ class RobotControllerTest {
         System.out.println("Move Right: " + rc.getMOVE_RIGHT());
         System.out.println("Move Down: " + rc.getMOVE_DOWN());
         System.out.println("Move Left: " + rc.getMOVE_LEFT());
+        System.out.println("Gun Rotation: " + rc.getROTATE_GUN() + "deg.");
+        if (rc.getROTATE_GUN_DIRECTION() == 1) {
+            System.out.println("Gun Rotation Direction: Clockwise");
+        } else if (rc.getROTATE_GUN_DIRECTION() == -1) {
+            System.out.println("Gun Rotation Direction: Anti-Clockwise");
+        } else {
+            System.out.println("Gun Rotation Direction: Error, it is " + rc.getROTATE_GUN_DIRECTION());
+        }
 
         System.out.println("\nTweets Used: " + rc.getTWEETS_USED());
         System.out.println("Characters Used: " + rc.getCHARS_USED());
@@ -106,7 +114,7 @@ class RobotControllerTest {
     }
 
     @Test
-    void rotateAngleShouldBeOne() {
+    void rotateDirectionShouldBeOne() {
         //rc.randomiseValues();
         Integer dir = rc.getROTATE_DIRECTION();
         assertTrue(dir == -1 || dir == 1);
@@ -134,5 +142,17 @@ class RobotControllerTest {
     void moveLeftShouldBeInRange() {
         Integer left = rc.getMOVE_LEFT();
         assertTrue(left >= 0 && left < 1000);
+    }
+
+    @Test
+    void gunRotationDirectionShouldBeOne() {
+        Integer gunDir = rc.getROTATE_GUN_DIRECTION();
+        assertTrue(gunDir == 1 || gunDir == -1);
+    }
+
+    @Test
+    void gunRotationAngleShouldBeInRange() {
+        Integer angle = rc.getROTATE_GUN();
+        assertTrue(angle >= -360 && angle <= 360);
     }
 }
