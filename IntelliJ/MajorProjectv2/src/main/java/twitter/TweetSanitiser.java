@@ -50,7 +50,7 @@ public class TweetSanitiser {
         return tweet;
     }
 
-    public void setTweet(String tweet) {
+    private void setTweet(String tweet) {
         this.tweet = tweet;
     }
 }

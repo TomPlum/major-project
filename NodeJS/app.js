@@ -12,25 +12,18 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 //Middleware Stack
-app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')));
+//app.use(favicon(path.join(__dirname, 'public/img', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-const rootRoutes = ["/manage-booking"];
-
 //Express Static Routing
 app.use(express.static(path.join(__dirname, 'public'))); // For /
-app.use(rootRoutes, express.static(path.join(__dirname, 'public'))); //For /x
-
 
 //Page Routing
 const index = require('./routes/index');
-const manage_bookings = require('./routes/manage-bookings');
-
 app.use('/', index);
-app.use('/manage-booking', manage_bookings);
 
 //Handle 404
 app.use(function(req, res) {
