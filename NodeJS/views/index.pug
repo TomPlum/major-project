@@ -6,6 +6,7 @@ html(lang='en')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         link(rel='stylesheet', type='text/css', href='css/bootstrap.css')
         link(rel='stylesheet', type='text/css', href='css/font-awesome.css')
+        link(rel='stylesheet', type='text/css', href='css/animate.css')
         link#camera-css(rel='stylesheet', href='css/camera.css', type='text/css', media='all')
         link(rel='stylesheet', type='text/css', href='css/slicknav.css')
         link(rel='stylesheet', href='css/prettyPhoto.css', type='text/css', media='screen', title='prettyPhoto main stylesheet', charset='utf-8')
@@ -48,23 +49,23 @@ html(lang='en')
                                 .navmenu(style='text-align: center;')
                                     ul#menu
                                         li.active
-                                            a(href='#overview')
+                                            a.page-scroll(href='#overview')
                                                 i.fa.fa-fw.fa-pencil
                                                 |  Overview
                                         li
-                                            a(href='#analysis')
+                                            a.page-scroll(href='#analysis')
                                                 i.fa.fa-fw.fa-search
                                                 |  Analysis
                                         li
-                                            a(href="#data-vis")
+                                            a.page-scroll(href="#data-vis")
                                                 i.fa.fa-fw.fa-bar-chart
                                                 |  Visualisation
                                         li
-                                            a(href='#results')
+                                            a.page-scroll(href='#results')
                                                 i.fa.fa-fw.fa-clipboard
                                                 |  Results
                                         li.last
-                                            a(href='#news')
+                                            a.page-scroll(href='#news')
                                                 i.fa.fa-fw.fa-eye
                                                 |  Reflection
                                         // li><a href="#features">Features</a></li
@@ -75,12 +76,19 @@ html(lang='en')
                                 div(data-thumb='', data-src='images/slides/blank.gif')
                                     .img-responsive.camera_caption.fadeFromBottom
                                         h2 Major Project
+                                        h3 Final year disseration project. By Thomas Plumpton.
                                 div(data-thumb='', data-src='images/slides/blank.gif')
                                     .img-responsive.camera_caption.fadeFromBottom
-                                        h2 Randomness
+                                        h2 Pseudo &amp Truly Random
+                                        h3 Determining whether Twitter's Tweets are Pseudo-Random or Truly-Random.
                                 div(data-thumb='', data-src='images/slides/blank.gif')
                                     .img-responsive.camera_caption.fadeFromBottom
                                         h2 Twitter &amp; Robocode
+                                        h3 Integrating IBM's Robocode Programming Game with the Twitter API.
+                                div(data-thumb='', data-src='images/slides/blank.gif')
+                                    .img-responsive.camera_caption.fadeFromBottom
+                                        h2 D3.JS (Data Driven Documents)
+                                        h3 Data visualisation powered by D3.JS.
                             // #camera_wrap_1
             .container
                 .row
@@ -110,38 +118,225 @@ html(lang='en')
                     .col-md-12.cBusiness
                         h3 Analysing the Randomness of Social Media
                         h4 Statistical Overview
-            .container
+            .container.loading
+                i.fa.fa-fw.fa-lg.fa-4x.fa-pulse.fa-spinner
+                p Analysing Data...
+            .container.characterStatsPie
                 .row
-                    .col-md-12.centPic
-                        img.img-responsive(src='images/bizPic.png')
-        // about start
+                    .col-xs-1.bar
+                        .progB.chart.a(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 A
+                    .col-xs-1.bar
+                        .progB.chart.b(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 B
+                    .col-xs-1.bar
+                        .progB.chart.c(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 C
+                    .col-xs-1.bar
+                        .progB.chart.d(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 D
+                    .col-xs-1.bar
+                        .progB.chart.e(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 E
+                    .col-xs-1.bar
+                        .progB.chart.f(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 F
+                    .col-xs-1.bar
+                        .progB.chart.g(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 G
+                    .col-xs-1.bar
+                        .progB.chart.h(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 H
+                    .col-xs-1.bar
+                        .progB.chart.i(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 I
+                    .col-xs-1.bar
+                        .progB.chart.j(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 J
+                    .col-xs-1.bar
+                        .progB.chart.k(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 K
+                    .col-xs-1.bar
+                        .progB.chart.l(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 L
+                    .col-xs-1.bar
+                        .progB.chart.m(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 M
+                    .col-xs-1.bar
+                        .progB.chart.n(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 N
+                    .col-xs-1.bar
+                        .progB.chart.o(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 O
+                    .col-xs-1.bar
+                        .progB.chart.p(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 P
+                    .col-xs-1.bar
+                        .progB.chart.q(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 Q
+                    .col-xs-1.bar
+                        .progB.chart.r(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 R
+                    .col-xs-1.bar
+                        .progB.chart.s(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 S
+                    .col-xs-1.bar
+                        .progB.chart.t(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 T
+                    .col-xs-1.bar
+                        .progB.chart.u(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 U
+                    .col-xs-1.bar
+                        .progB.chart.v(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 V
+                    .col-xs-1.bar
+                        .progB.chart.w(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 W
+                    .col-xs-1.bar
+                        .progB.chart.x(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 X
+                    .col-xs-1.col-md-offset-5.bar
+                        .progB.chart.y(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 Y
+                    .col-xs-1.bar
+                        .progB.chart.z(data-animate='3500')
+                            .chart.chart-content
+                                .percentage()
+                                    span.percent
+                        .textP
+                            h3 Z
+
+        //Data Analysis
         #analysis
             .line2
                 .container
                     .row.Fresh
-                        .col-md-4.Des
-                            i.fa.fa-heart
-                            h4 Fresh & Clean Design
+                        h1.section-title
+                            i.fa.fa-fw.fa-search
+                            |  Analysis
+                        .col-md-4
+                            i.fa.fa-eye
+                            h4 Visual Analysis
+                            p
+                                | One method of determining the random nature of the data is a simple visual analysis. See the data visualisation below.
+                        .col-md-4
+                            i.fa.fa-flask
+                            h4 Mathematical Analysis
                             p
                                 | Nulla consectetur ornare nibh, a auctor mauris scelerisque eu proin nec urna quis justo adipiscing auctor ut auctor. feugiat
-                        .col-md-4.Ver
-                            i.fa.fa-cog
-                            h4 Very Flexible
+                        .col-md-4
+                            i.fa.fa-times
+                            h4 Statistical Analysis
                             p
                                 | Nulla consectetur ornare nibh, a auctor mauris scelerisque eu proin nec urna quis justo adipiscing auctor ut auctor. feugiat
-                        .col-md-4.Fully
-                            i.fa.fa-tablet
-                            h4 Fully Responsive
-                            p
-                                | Nulla consectetur ornare nibh, a auctor mauris scelerisque eu proin nec urna quis justo adipiscing auctor ut auctor. feugiat
-            .container
+            //.container
                 .row
                     .col-md-12.wwa
                         span(name='about')
                         h3 Who We Are? Meet Our Team!
                         h4
                             | We listen, we discuss, we advise and develop. We love to learn and use the latest technologies.
-            .container
+            //.container
                 .row.team
                     .col-md-4.b1
                         img.img-responsive(src='images/picTeam/picT1.png')
@@ -206,11 +401,11 @@ html(lang='en')
                             li
                                 a(href='#')
                                     i.fa.fa-google-plus-square
-            .container
+            //.container
                 .row
                     .col-md-12.hr1
                         hr
-            .container
+            //.container
                 .row
                     .col-md-3.bar
                         .progB.chart(data-percent='64', data-animate='3500')
@@ -256,11 +451,11 @@ html(lang='en')
                                 | Nulla consectetur ornare nibh, a auctor
                                 br
                                 | mauris scelerisque eu proin nec urna quis.
-            .container
+            //.container
                 .row.aboutUs
                     .col-md-12
                         h3 What Our Customers Say About Us?
-            div(style='position: relative;')
+            //div(style='position: relative;')
                 .container
                     .row.about
                         .col-md-6
@@ -292,7 +487,7 @@ html(lang='en')
                                     | Ornare nibh a auctor, mauris scelerisque eu proin nec urna nec a quis justo adipiscing auctor ut auctor feugiat fermentum quisque eget pharetra felis et venenatis aliquam, nulla nisi lobortis elit, ac eleifend nisl ante nec lorem.
         // project start
         #results
-            .line3
+            //.line3
                 .container
                     #project1
                     .row.Ama
@@ -300,7 +495,7 @@ html(lang='en')
                             span#projectss(name='projects')
                             h3 Our Amazing Works
                             p Right here we've got something you gonna love
-            .container
+            //.container
                 .row
                     // filter_block
                     #options.col-md-12(style='text-align: center;')
@@ -474,13 +669,13 @@ html(lang='en')
                     });
         // news start
         #news
-            .line4
+            //.line4
                 .container
                     .row.Ama
                         .col-md-12
                             h3 What’s New?
                             p Get the latest news from our blog
-            .container
+            //.container
                 .row.news
                     .col-md-6.text-left
                         img.img-responsive.picsGall(src='images/picNews/news1.jpg')
@@ -526,7 +721,7 @@ html(lang='en')
                                 | Read More
                                 i.fa.fa-angle-right
                         hr.hrNews
-            .container
+            //.container
                 .row.news2.news
                     .col-md-6.text-left
                         img.img-responsive.picsGall(src='images/picNews/news3.jpg')
@@ -572,7 +767,7 @@ html(lang='en')
                                 | Read More
                                 i.fa.fa-angle-right
                         hr.hrNews
-            .container
+            //.container
                 .row.news2.news
                     .col-md-6.text-left
                         img.img-responsive.picsGall(src='images/picNews/news5.jpg')
@@ -618,7 +813,7 @@ html(lang='en')
                                 | Read More
                                 i.fa.fa-angle-right
                         hr.hrNews
-            .container.hideObj2(style='display:none;')
+            //.container.hideObj2(style='display:none;')
                 .row.news2.news
                     .col-md-6.text-right
                         img.img-responsive.picsGall(src='images/picNews/news6.jpg')
@@ -664,7 +859,7 @@ html(lang='en')
                                 | Read More
                                 i.fa.fa-angle-right
                         hr.hrNews
-            .container
+            //.container
                 .row.cBtn
                     .col-md-12(style='text-align: center; margin-bottom: -90px; z-index: 10;')
                         ul.mNews
@@ -674,13 +869,13 @@ html(lang='en')
                                     | Load More news
         // contact start
         #reflection
-            .line5
+            //.line5
                 .container
                     .row.Ama
                         .col-md-12
                             h3 Got a Question? We’re Here to Help!
                             p Get in touch with us
-            .container
+            //.container
                 .row
                     .col-md-9.col-xs-12.forma
                         form
@@ -733,9 +928,9 @@ html(lang='en')
                                 a(href='#')
                                     i.fa.fa-youtube-play
                                     | YouTube
-            .line6
+            //.line6
                 iframe(src='https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d48386.401887313725!2d-73.9407136!3d40.7147117!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1402409149092', width='100%', height='750', frameborder='0', style='border:0')
-            .container
+            //.container
                 .row.ftext
                     .col-md-12
                         a#features
@@ -752,7 +947,7 @@ html(lang='en')
                                 a(href='#')
                                     i.fa.fa-download
                                     | Buy This Template
-            .line7
+            //.line7
                 .container
                     .row.footer
                         .col-md-12
@@ -789,22 +984,33 @@ html(lang='en')
                             input#searchPattern(type='search', placeholder='Search the Site')
                             i#iS.glyphicon.glyphicon-search(style='font-size: 13px; color:#a5a5a5;')
                         .col-md-6.text-left.copy
-                            p Copyright © 2014 Timber HTML Template. All Rights Reserved.
+                            p Copyright © 2018 Tom Plumpton. All Rights Reserved.
                         .col-md-6.text-right.dm
                             ul#downMenu
                                 li.active
-                                    a(href='#overview') Overview
+                                    a.page-scroll(href='#overview')
+                                        i.fa.fa-fw.fa-pencil
+                                        |  Overview
                                 li
-                                    a(href='#analysis') Analysis
+                                    a.page-scroll(href='#analysis')
+                                        i.fa.fa-fw.fa-search
+                                        |  Analysis
                                 li
-                                    a(href='#project1') Visualisation
+                                    a.page-scroll(href="#data-vis")
+                                        i.fa.fa-fw.fa-bar-chart
+                                        |  Visualisation
                                 li
-                                    a(href='#news') Results
+                                    a.page-scroll(href='#results')
+                                        i.fa.fa-fw.fa-clipboard
+                                        |  Results
                                 li.last
-                                    a(href='#reflection') Reflection
+                                    a.page-scroll(href='#news')
+                                        i.fa.fa-fw.fa-eye
+                                        |  Reflection
                                 // li><a href="#features">Features</a></li
         script(src='js/jquery.prettyPhoto.js', type='text/javascript', charset='utf-8')
         script(src='js/bootstrap.min.js')
+        script(src='js/characterStats.js')
         script(src='js/jquery.slicknav.js')
         script.
             $(document).ready(function(){
@@ -850,7 +1056,7 @@ html(lang='en')
                             $('#counter').text(curval+15);
                         }
                         if(curval1<= charCount){
-                            $('#counter1').text(sdf_FTS((curval1+500),0,' '));
+                            $('#counter1').text(sdf_FTS((curval1+1000),0,' '));
                         }
                         if(curval2<=emojiCount){
                             $('#counter2').text(curval2+15);

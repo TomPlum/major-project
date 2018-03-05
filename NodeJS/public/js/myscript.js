@@ -1,50 +1,20 @@
 window.jQuery = window.$ = jQuery;
 
 /* Custom Scripts */
-
+$('a.page-scroll').bind('click', function(event) {
+    let $anchor = $(this);
+    $('html, body').stop().animate({
+        scrollTop: $($anchor.attr('href')).offset().top
+    }, 1500, 'easeInOutExpo');
+    event.preventDefault();
+});
 
 
 /*-----------------------------------------------------------------------------------*/
 /*	CHART
 /*-----------------------------------------------------------------------------------*/
 jQuery(document).ready(function(){
-    var chart = $('.chart'),
-        chartNr = $('.chart-content'),
-        chartParent = chart.parent();
 
-    function centerChartsNr() {
-        chartNr.css({
-            top: (chart.height() - chartNr.outerHeight()) / 2
-        });
-    }
-
-    if (chart.length) {
-        centerChartsNr();
-        $(window).resize(centerChartsNr);
-
-        chartParent.each(function () {
-            $(this).onScreen({
-                doIn: function () {
-                    $(this).find('.chart').easyPieChart({
-                       animate: 1000,
-					  lineWidth: 3,
-					  barColor:'#2f2f2f',
-					  trackColor:'#dcdcdc',
-					  lineCap:false,
-					  lineWidth:'2',
-					  size:'72',
-					  scaleColor:false,
-						
-						scaleColor:false,
-                        animate: 2000,
-                        onStep: function (from, to, percent) {
-                            $(this.el).find('.percent').text(Math.round(percent));
-                        }
-                    });
-                },
-            });
-        });
-    }
 });
 
 /**!
