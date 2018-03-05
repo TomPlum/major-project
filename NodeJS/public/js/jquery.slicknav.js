@@ -4,7 +4,7 @@
 	licensed under MIT
 */
 ;(function ($, document, window) {
-	var
+	let
 	// default settings object.
 	defaults = {
 		label: 'MENU',
@@ -41,9 +41,9 @@
 	}
 	
 	Plugin.prototype.init = function () {
-        var $this = this;
-		var menu = $(this.element);
-		var settings = this.settings;
+        let $this = this;
+		let menu = $(this.element);
+		let settings = this.settings;
 		
 		// clone menu if needed
 		if (settings.duplicate) {
@@ -58,7 +58,7 @@
 			$this.mobileNav = menu;
 		
 		// styling class for the button
-		var iconClass = prefix+'_icon';
+		let iconClass = prefix+'_icon';
 		
 		if (settings.label == '') {
 			iconClass += ' '+prefix+'_no-text';
@@ -70,16 +70,16 @@
 		
 		// create menu bar
 		$this.mobileNav.attr('class', prefix+'_nav');
-		var menuBar = $('<div class="'+prefix+'_menu"></div>');
+		let menuBar = $('<div class="'+prefix+'_menu"></div>');
 		$this.btn = $('<'+settings.parentTag+' aria-haspopup="true" tabindex="0" class="'+prefix+'_btn '+prefix+'_collapsed"><span class="'+prefix+'_menutxt">'+settings.label+'</span><span class="'+iconClass+'"><span class="'+prefix+'_icon-bar"></span><span class="'+prefix+'_icon-bar"></span><span class="'+prefix+'_icon-bar"></span></span></a>');
 		$(menuBar).append($this.btn);		
 		$(settings.prependTo).prepend(menuBar);
 		menuBar.append($this.mobileNav);
 		
 		// iterate over structure adding additional structure
-		var items = $this.mobileNav.find('li');
+		let items = $this.mobileNav.find('li');
 		$(items).each(function () {
-			var item = $(this);
+			let item = $(this);
 			data = {};
 			data.children = item.children('ul').attr('role','menu');
 			item.data("menu", data);
@@ -88,8 +88,8 @@
 			if (data.children.length > 0) {
 			
 				// select all text before the child menu
-				var a = item.contents();
-				var nodes = [];
+				let a = item.contents();
+				let nodes = [];
 				$(a).each(function(){
 					if(!$(this).is("ul")) {
 						nodes.push(this);
@@ -100,7 +100,7 @@
 				});
 				
 				// wrap item text with tag and add classes
-				var wrap = $(nodes).wrapAll('<'+settings.parentTag+' role="menuitem" aria-haspopup="true" tabindex="-1" class="'+prefix+'_item"/>').parent();
+				let wrap = $(nodes).wrapAll('<'+settings.parentTag+' role="menuitem" aria-haspopup="true" tabindex="-1" class="'+prefix+'_item"/>').parent();
 				
 				item.addClass(prefix+'_collapsed');
 				item.addClass(prefix+'_parent');
@@ -109,7 +109,7 @@
 				$(nodes).last().before('<span class="'+prefix+'_arrow">'+settings.closedSymbol+'</span>');
 				
 			
-			} else if ( item.children().length == 0) {
+			} else if ( item.children().length === 0) {
 				 item.addClass(prefix+'_txtnode');
 			}
 			
@@ -132,7 +132,7 @@
 		
 		// structure is in place, now hide appropriate items
 		$(items).each(function () {
-			var data = $(this).data("menu");
+			let data = $(this).data("menu");
 			$this._visibilityToggle(data.children, false, null, true);
 		});
 		
@@ -165,7 +165,7 @@
 		
 		// check for enter key on menu button and menu parents
 		$($this.btn).keydown(function (e) {
-			var ev = e || event;
+			let ev = e || event;
 			if(ev.keyCode == 13) {
 				e.preventDefault();
 				$this._menuToggle();
@@ -173,7 +173,7 @@
 		});
 		
 		$this.mobileNav.on('keydown', '.'+prefix+'_item', function(e) {
-			var ev = e || event;
+			let ev = e || event;
 			if(ev.keyCode == 13) {
 				e.preventDefault();
 				$this._itemClick($(e.target));
@@ -190,9 +190,9 @@
 	
 	//toggle menu
 	Plugin.prototype._menuToggle = function(el){
-		var $this = this;
-		var btn = $this.btn;
-		var mobileNav = $this.mobileNav;
+		let $this = this;
+		let btn = $this.btn;
+		let mobileNav = $this.mobileNav;
 		
 		if (btn.hasClass(prefix+'_collapsed')) {
 			btn.removeClass(prefix+'_collapsed');
@@ -207,9 +207,9 @@
 	
 	// toggle clicked items
 	Plugin.prototype._itemClick = function(el) {
-		var $this = this;
-		var settings = $this.settings;
-		var data = el.data("menu");
+		let $this = this;
+		let settings = $this.settings;
+		let data = el.data("menu");
 		if (!data) {
 			data = {};
 			data.arrow = el.children('.'+prefix+'_arrow');
@@ -234,10 +234,10 @@
 
 	// toggle actual visibility and accessibility tags
 	Plugin.prototype._visibilityToggle = function(el, animate, trigger, init) {
-		var $this = this;
-		var settings = $this.settings;
-		var items = $this._getActionItems(el);
-		var duration = 0;
+		let $this = this;
+		let settings = $this.settings;
+		let items = $this._getActionItems(el);
+		let duration = 0;
 		if (animate)
 			duration = settings.duration;
 		
@@ -278,25 +278,25 @@
 
 	// set attributes of element and children based on visibility
 	Plugin.prototype._setVisAttr = function(el, hidden) {
-		var $this = this;
+		let $this = this;
 		
 		// select all parents that aren't hidden
-		var nonHidden = el.children('li').children('ul').not('.'+prefix+'_hidden');
+		let nonHidden = el.children('li').children('ul').not('.'+prefix+'_hidden');
 		
 		// iterate over all items setting appropriate tags
 		if (!hidden) {
 			nonHidden.each(function(){
-				var ul = $(this);
+				let ul = $(this);
 				ul.attr('aria-hidden','false');
-				var items = $this._getActionItems(ul);
+				let items = $this._getActionItems(ul);
 				items.attr('tabindex', '0');
 				$this._setVisAttr(ul, hidden);
 			});
 		} else {
 			nonHidden.each(function(){
-				var ul = $(this);
+				let ul = $(this);
 				ul.attr('aria-hidden','true');
-				var items = $this._getActionItems(ul);
+				let items = $this._getActionItems(ul);
 				items.attr('tabindex', '-1');
 				$this._setVisAttr(ul, hidden);
 			});
@@ -305,11 +305,11 @@
 
 	// get all 1st level items that are clickable
 	Plugin.prototype._getActionItems = function(el) {
-		var data = el.data("menu");
+		let data = el.data("menu");
 		if (!data) {
 			data = {};
-			var items = el.children('li');
-			var anchors = items.children('a');
+			let items = el.children('li');
+			let anchors = items.children('a');
 			data.links = anchors.add(items.children('.'+prefix+'_item'));
 			el.data("menu", data);
 		}
@@ -343,7 +343,7 @@
 	}
 	
 	$.fn[mobileMenu] = function ( options ) {
-		var args = arguments;
+		let args = arguments;
 
 		// Is the first parameter an object (options), or was omitted, instantiate a new instance
 		if (options === undefined || typeof options === 'object') {
@@ -362,10 +362,10 @@
 		} else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
 
 			// Cache the method call to make it possible to return a value
-			var returns;
+			let returns;
 
 			this.each(function () {
-				var instance = $.data(this, 'plugin_' + mobileMenu);
+				let instance = $.data(this, 'plugin_' + mobileMenu);
 
 				// Tests that there's already a plugin-instance and checks that the requested public method exists
 				if (instance instanceof Plugin && typeof instance[options] === 'function') {
