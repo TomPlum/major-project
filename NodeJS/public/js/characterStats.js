@@ -48,17 +48,13 @@ function animatePieCharts() {
             $(this).onScreen({
                 doIn: function () {
                     $(this).find('.chart').easyPieChart({
-                        animate: 1000,
-                        lineWidth: 3,
-                        barColor:'#2f2f2f',
-                        trackColor:'#dcdcdc',
-                        lineCap:false,
-                        lineWidth:'2',
-                        size:'72',
-                        scaleColor:false,
-
-                        scaleColor:false,
-                        animate: 2000,
+                        barColor: '#2f2f2f',
+                        trackColor: '#dcdcdc',
+                        lineCap: false,
+                        lineWidth: '3',
+                        size: '72',
+                        scaleColor: false,
+                        animate: 1500,
                         onStep: function (from, to, percent) {
                             $(this.el).find('.percent').text(percent.toFixed(2));
                         }

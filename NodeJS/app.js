@@ -12,7 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 //Middleware Stack
-app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico'), { maxAge: 2592000000 }));
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -24,6 +24,14 @@ app.use(express.static(path.join(__dirname, 'public'))); // For /
 //Page Routing
 const index = require('./routes/index');
 app.use('/', index);
+
+app.get('/*', function (req, res, next) {
+    if (req.url.indexOf("/images/") === 0 || req.url.indexOf("/css/") === 0) {
+        res.setHeader("Cache-Control", "public, max-age=2592000");
+        res.setHeader("Expires", new Date(Date.now() + 2592000000).toUTCString());
+    }
+    next();
+});
 
 //Handle 404
 app.use(function(req, res) {

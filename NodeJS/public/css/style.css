@@ -357,7 +357,7 @@ body{
     width: 100%;
     overflow: hidden;
     height:100%;
-    background: url(../images/analysis_dark.png) center center no-repeat;
+    background: url(../images/analysis_dark.jpg) center center no-repeat;
     /*background:url(../images/line2.png) center center no-repeat;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -693,7 +693,7 @@ body{
     width: 100%;
     overflow: hidden;
     height:100%;
-    background: url(../images/data-vis-dark.png) center center no-repeat;
+    background: url(../images/data-vis-dark.jpg) center center no-repeat;
     /*background: url(../images/line3Bg.jpg) center center no-repeat;*/
     /*background:#3f2d28;*/
     -webkit-background-size: cover;
@@ -707,7 +707,7 @@ body{
     width: 100%;
     overflow: hidden;
     height:100%;
-    background: url(../images/results_dark.png) center center no-repeat;
+    background: url(../images/results_dark.jpg) center center no-repeat;
     /*background: url(../images/line3Bg.jpg) center center no-repeat;*/
     /*background:#3f2d28;*/
     -webkit-background-size: cover;
@@ -721,7 +721,7 @@ body{
     width: 100%;
     overflow: hidden;
     height:100%;
-    background: url(../images/reflection_dark.png) center center no-repeat;
+    background: url(../images/reflection_dark.jpg) center center no-repeat;
     /*background: url(../images/line5Bg.jpg) center center no-repeat;	*/
     /*background:#3f2d28;*/
     -webkit-background-size: cover;
