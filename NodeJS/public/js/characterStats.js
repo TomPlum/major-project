@@ -7,12 +7,110 @@ $(document).ready(() => {
            stopLoadingAnimation();
            updatePieCharts(data);
            animatePieCharts();
+           renderBarChart(data);
        },
        error: function(err) {
           console.log(err);
        }
    });
 });
+
+function renderBarChart(data) {
+    //Setting The Dimensions Of The Canvas
+    let margin = {top: 20, right: 20, bottom: 90, left: 50},
+        width = 1000 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+    //Setting X & Y Ranges
+    let x = d3.scaleBand().range([1, width], 0.1, 0).paddingInner(0.15).paddingOuter(0.15);
+    let y = d3.scaleLinear().range([height, 0]);
+
+    //Set X & Y Domains
+    x.domain(data.map(function(d) {return d.letter;}));
+    y.domain([0, d3.max(data, function(d) {return d.percentage;})]);
+
+    //Define The Axes
+    let xAxis = d3.axisBottom().scale(x);
+    let yAxis = d3.axisLeft().scale(y).ticks(5);
+
+    //Add The SVG Element
+    let svg = d3.select("#characterFrequencyBarChart")
+        .append("svg").attr("class", "svg-element")
+        .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
+        .attr("width", "100%")
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    //Adding The Bars
+    let bars = svg.selectAll("bar").data(data).enter().append("rect").attr("class", "bar")
+        .attr("x", function(d) {return x(d.letter);})
+        .attr("width", x.bandwidth())
+        .attr("y", height - 1)
+        .attr("height", 0);
+
+    bars.transition().duration(3500).delay(200)
+        .attr("y", function(d) {return y(d.percentage);})
+        .attr("height", function(d) {return height - y(d.percentage);})
+        .style("fill", "#1fcdff");
+
+    //Adding X-Axis
+    svg.append("g").attr("class", "x-axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.select(".x-axis").selectAll("text")
+        .style("text-anchor", "middle")
+        .attr("font-family", 'Roboto').attr("font-size", "1.3em")
+        .attr("font-weight", "500");
+
+    //Adding Y-Axis
+    svg.append("g").attr("class", "y-axis").call(yAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", 0 - (height / 2)).attr("y", 0 - margin.left + 10)
+        .style("text-anchor", "middle")
+        .style("font-family", 'Roboto')
+        .style("font-size", "1.3em")
+        .attr("font-weight", "500")
+        .text("Frequency Percentage");
+    /*
+    //Bind Floating Information Div
+    bars.on("mouseover", function(d) {
+        $(document).bind('mousemove', function (e) {
+            //Add CSS
+            $("#cfbcFloatingDiv").css({
+                left: e.pageX + 15,
+                top: e.pageY + 25,
+                height: "75px",
+                width: "100px",
+                'box-shadow': "0 0 4px rgba(0,0,0,0.75)",
+                border: "1px gray solid",
+                background: "-webkit-linear-gradient(top, #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%)",
+                'border-radius': "5px"
+            });
+        });
+
+        $("#cfbcFloatingDiv").html("<p class='floating-text'>" + d.letter + "</p><p class='floating-text'><span>Frequency:</span> " + d.percentage.toFixed(2) + "</p>")
+    });
+
+    bars.on("mouseout", function() {
+        $(document).unbind("mousemove");
+
+        let floating = $("#cfbcFloatingDiv");
+        //Remove CSS
+        floating.css({
+            height: "0px",
+            width: "0px",
+            border: "none",
+            background: "none",
+            'box-shadow': "none"
+        });
+
+        //Remove HTML From Floating Div
+        floating.html("");
+    });
+    */
+}
 
 function updatePieCharts(alpha) {
     //const a = $(".a");

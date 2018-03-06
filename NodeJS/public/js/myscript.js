@@ -10,6 +10,11 @@ $(document).ready(() => {
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });
+
+    $("a[href^=#]").on("click", function(e) {
+        e.preventDefault();
+        history.pushState({}, "", this.href);
+    });
 });
 
 
