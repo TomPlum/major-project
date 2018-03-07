@@ -14,6 +14,26 @@ html{
 body{
     font-family: 'Roboto', 'sans-serif';
 }
+
+.back-to-main {
+    text-align: right;
+    margin-top: 8px;
+}
+.back-to-main li a {
+    color: #FFF;
+    font-family: 'Roboto', 'sans-serif';
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all ease 0.5s;
+}
+.back-to-main:hover a {
+    text-decoration: none;
+    color: #1FCDFF;
+}
+.back-to-main:active a {
+    text-decoration: none;
+    color: #FFF;
+}
 .headerLine{
     position: relative;
     width: 100%;
