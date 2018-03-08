@@ -5,3 +5,32 @@
 .bar:hover {
     fill: #2F2F2F !important;
 }
+
+#cfbcFloatingDiv {
+    visibility: hidden;
+    position: absolute;
+    background-color: #FFF;
+    border: 1px solid #2F2F2F;
+    border-radius: 6px;
+    box-shadow: 0 0 5px #000;
+    width: 75px;
+    z-index: 999;
+}
+
+#cfbcFloatingDiv p {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+#cfbcFloatingDiv .letter {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.y-axis text {
+    font-size: 1.4em;
+}

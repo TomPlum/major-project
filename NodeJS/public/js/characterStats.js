@@ -27,11 +27,11 @@ function renderBarChart(data) {
 
     //Set X & Y Domains
     x.domain(data.map(function(d) {return d.letter;}));
-    y.domain([0, d3.max(data, function(d) {return d.percentage;})]);
+    y.domain([0, d3.max(data, function(d) {return d.percentage;})]).nice();
 
     //Define The Axes
     let xAxis = d3.axisBottom().scale(x);
-    let yAxis = d3.axisLeft().scale(y).ticks(5);
+    let yAxis = d3.axisLeft().scale(y).ticks(6).tickFormat(d => {return d + "%"});
 
     //Add The SVG Element
     let svg = d3.select("#characterFrequencyBarChart")
@@ -46,7 +46,8 @@ function renderBarChart(data) {
         .attr("x", function(d) {return x(d.letter);})
         .attr("width", x.bandwidth())
         .attr("y", height - 1)
-        .attr("height", 0);
+        .attr("height", 0)
+        .style("fill", "#1fcdff");
 
     bars.transition().duration(3500).delay(200)
         .attr("y", function(d) {return y(d.percentage);})
@@ -70,10 +71,9 @@ function renderBarChart(data) {
         .attr("x", 0 - (height / 2)).attr("y", 0 - margin.left + 10)
         .style("text-anchor", "middle")
         .style("font-family", 'Roboto')
-        .style("font-size", "1.3em")
         .attr("font-weight", "500")
         .text("Frequency Percentage");
-    /*
+
     //Bind Floating Information Div
     bars.on("mouseover", function(d) {
         $(document).bind('mousemove', function (e) {
@@ -81,16 +81,11 @@ function renderBarChart(data) {
             $("#cfbcFloatingDiv").css({
                 left: e.pageX + 15,
                 top: e.pageY + 25,
-                height: "75px",
-                width: "100px",
-                'box-shadow': "0 0 4px rgba(0,0,0,0.75)",
-                border: "1px gray solid",
-                background: "-webkit-linear-gradient(top, #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%)",
-                'border-radius': "5px"
+                "visibility": "visible"
             });
         });
 
-        $("#cfbcFloatingDiv").html("<p class='floating-text'>" + d.letter + "</p><p class='floating-text'><span>Frequency:</span> " + d.percentage.toFixed(2) + "</p>")
+        $("#cfbcFloatingDiv").html("<p class='letter'>" + d.letter + "</p><p class='floating-text'>" + d.percentage.toFixed(2) + "%</p>")
     });
 
     bars.on("mouseout", function() {
@@ -98,18 +93,11 @@ function renderBarChart(data) {
 
         let floating = $("#cfbcFloatingDiv");
         //Remove CSS
-        floating.css({
-            height: "0px",
-            width: "0px",
-            border: "none",
-            background: "none",
-            'box-shadow': "none"
-        });
+        floating.css("visibility", "hidden");
 
         //Remove HTML From Floating Div
         floating.html("");
     });
-    */
 }
 
 function updatePieCharts(alpha) {

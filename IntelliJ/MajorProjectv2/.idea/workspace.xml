@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d06cb7df-8c9e-4bfc-a32e-c7b16540e8df" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/config/robocode.properties" afterPath="$PROJECT_DIR$/robocode_master/config/robocode.properties" />
       <change beforePath="$PROJECT_DIR$/robocode_master/config/window.properties" afterPath="$PROJECT_DIR$/robocode_master/config/window.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RobotControllerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RobotControllerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="36" column="26" lean-forward="false" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+            <state relative-caret-position="408">
+              <caret line="59" column="37" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -84,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TweetSanitiser.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TweetSanitiser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSanitiser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="42" />
+            <state relative-caret-position="850">
+              <caret line="52" column="39" lean-forward="false" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
               <folding>
                 <element signature="e#551#552#0" expanded="true" />
                 <element signature="e#601#602#0" expanded="true" />
@@ -96,6 +97,8 @@
                 <element signature="e#754#755#0" expanded="true" />
                 <element signature="e#1179#1180#0" expanded="true" />
                 <element signature="e#1207#1208#0" expanded="true" />
+                <element signature="e#1250#1251#0" expanded="true" />
+                <element signature="e#1284#1285#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -185,10 +188,12 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="2133" />
+    <option name="width" value="2215" />
     <option name="height" value="1417" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -204,9 +209,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,102 +219,26 @@
             <path>
               <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
               <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
               <item name="robocode_master" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
               <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
               <item name="robocode_master" type="462c0819:PsiDirectoryNode" />
-              <item name="robots" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="twitter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="robocode" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MajorProjectv2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="twitter" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="mongo-java-driver-3.6.1" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="MajorProjectv2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="mongo-java-driver-3.6.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="mongo-java-driver-3.6.1.jar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -322,7 +248,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/robocode_master/libs/mongo.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -366,8 +292,8 @@
     <configuration name="Start Robocode" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="robocode.Robocode" />
-      <option name="VM_PARAMETERS" value="-Xmx512M -Dsun.io.useCanonCaches=false -Ddebug=true -DNOSECURITY=true -cp libs/robocode.jar" />
-      <option name="PROGRAM_PARAMETERS" />
+      <option name="VM_PARAMETERS" value="-Xmx512M -Dsun.io.useCanonCaches=false -Ddebug=true -DNOSECURITY=true -cp libs/mongo.jar; libs/robocode.jar" />
+      <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/robocode_master" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -377,7 +303,7 @@
       <module name="MajorProjectv2" />
       <envs />
     </configuration>
-    <configuration name="TweetAnalyser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TweetAnalyser" type="Application" factoryName="Application" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
           <option name="PATTERN" value="twitter.*" />
@@ -410,7 +336,7 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="RobotControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RobotControllerTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
           <option name="PATTERN" value="robocode.*" />
@@ -572,19 +498,17 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Start Robocode" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.RobotControllerTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest.stringsShouldNotContainAnyEmoji" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest.stringsShouldOnlyContainLetters" />
-      <item index="5" class="java.lang.String" itemvalue="Application.TweetAnalyser" />
+      <item index="1" class="java.lang.String" itemvalue="Application.TweetAnalyser" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.RobotControllerTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest.stringsShouldNotContainAnyEmoji" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest.stringsShouldOnlyContainLetters" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.RobotControllerTest" />
-        <item index="1" class="java.lang.String" itemvalue="Application.TweetAnalyser" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest.stringsShouldOnlyContainLetters" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest.stringsShouldNotContainAnyEmoji" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest.stringsShouldOnlyContainLetters" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest.stringsShouldNotContainAnyEmoji" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TweetSanitiserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -617,6 +541,7 @@
       <workItem from="1520332812080" duration="1417000" />
       <workItem from="1520345723017" duration="1546000" />
       <workItem from="1520369395316" duration="633000" />
+      <workItem from="1520515113464" duration="2292000" />
     </task>
     <servers />
   </component>
@@ -653,10 +578,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76442000" />
+    <option name="totallyTimeSpent" value="78734000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="2133" height="1417" extended-state="0" />
+    <frame x="-7" y="0" width="2215" height="1417" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -668,11 +593,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298887" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39315003" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39303944" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17993246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17447796" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977736" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -975,21 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSanitiser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#699#700#0" expanded="true" />
-            <element signature="e#754#755#0" expanded="true" />
-            <element signature="e#1179#1180#0" expanded="true" />
-            <element signature="e#1207#1208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/twitter/TweetSanitiserTest.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/twitter/TweetAnalyserTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1047,9 +957,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="36" column="26" lean-forward="false" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+        <state relative-caret-position="408">
+          <caret line="59" column="37" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSanitiser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="52" column="39" lean-forward="false" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+          <folding>
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#754#755#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+            <element signature="e#1207#1208#0" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1284#1285#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1082,6 +1009,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>emoji-java-4.0.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1093,7 +1021,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>9</last-edited>
+          <last-edited>9.0.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1117,7 +1045,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.json</last-edited>
+          <last-edited>mongo-java-driver-3.6.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
