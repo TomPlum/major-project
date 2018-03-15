@@ -34,3 +34,13 @@
 .y-axis text {
     font-size: 1.4em;
 }
+
+.bar-chart-sort input {
+    transform: scale(1.2);
+}
+
+.sort {
+    line-height: 16px;
+    vertical-align: middle;
+    margin: auto 6px;
+}

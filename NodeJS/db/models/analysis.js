@@ -21,7 +21,8 @@ const analysis_schema = new Schema({
     //emoji: Array,
     emojiCount: Integer,
     alpha: Array,
-    totalPercentage: String
+    totalPercentage: String,
+    users: Array
 });
 
 module.exports = twitter.model('analysis', analysis_schema, 'analysis');

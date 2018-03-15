@@ -1,4 +1,6 @@
 $(document).ready(() => {
+    renderTwitterUsers();
+
    $.ajax({
        url: "/character-analysis",
        type: "POST",
@@ -17,7 +19,7 @@ $(document).ready(() => {
 
 function renderBarChart(data) {
     //Setting The Dimensions Of The Canvas
-    let margin = {top: 20, right: 20, bottom: 90, left: 50},
+    let margin = {top: 20, right: 20, bottom: 25, left: 50},
         width = 1000 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 
@@ -98,12 +100,54 @@ function renderBarChart(data) {
         //Remove HTML From Floating Div
         floating.html("");
     });
+
+    function sortAscending() {
+        let x0 = x.domain(data.sort(function(a, b) {return a.percentage - b.percentage;}).map(function(d){return d.letter;})).copy();
+        svg.selectAll(".bar").sort(function(a,b){return x0(a.letter) - x0(b.letter);});
+        let transition = svg.transition().duration(500);
+        let delay = function(d, i) { return i * 50;};
+        transition.selectAll(".bar").delay(delay).attr("x", function(d){return x0(d.letter);});
+        transition.select(".x-axis").call(xAxis).selectAll("g").delay(delay);
+    }
+
+    function sortDescending() {
+        let x0 = x.domain(data.sort(function(a, b) {return b.percentage - a.percentage;}).map(function(d){return d.letter;})).copy();
+        svg.selectAll(".bar").sort(function(a,b){return x0(a.letter) - x0(b.letter);});
+        let transition = svg.transition().duration(500);
+        let delay = function(d, i) { return i * 50;};
+        transition.selectAll(".bar").delay(delay).attr("x", function(d){return x0(d.letter);});
+        transition.select(".x-axis").call(xAxis).selectAll("g").delay(delay);
+    }
+
+    function sortAlphabetical() {
+        let x0 = x.domain(data.sort(function(a, b) {return d3.ascending(a.letter, b.letter);}).map(function(d){return d.letter;})).copy();
+        svg.selectAll(".bar").sort(function(a,b){return d3.ascending(a.letter, b.letter);});
+        let transition = svg.transition().duration(500);
+        let delay = function(d, i) { return i * 50;};
+        transition.selectAll(".bar").delay(delay).attr("x", function(d){return x0(d.letter);});
+        transition.select(".x-axis").call(xAxis).selectAll("g").delay(delay);
+    }
+
+    //Bind On-Click Events
+    $("#sort-alpha").on("click", sortAlphabetical);
+    $("#sort-asc").on("click", sortAscending);
+    $("#sort-desc").on("click", sortDescending);
+}
+
+function renderTwitterUsers() {
+    for (let i = 0; i < users.length; i++) {
+        $("#twitterUsers").append($("<option>", {
+            value: users[i],
+            text: users[i].toString()
+        }));
+    }
+}
+
+function expandTwitterUserInfo(user) {
+    
 }
 
 function updatePieCharts(alpha) {
-    //const a = $(".a");
-    //a.attr("data-percent", alpha[0].percentage);
-
     for (let i = 0; i < alpha.length; i++) {
         const el = eval($("." + alpha[i].letter.toLowerCase()));
         el.attr("data-percent", parseFloat(alpha[i].percentage).toFixed(2));
@@ -112,7 +156,7 @@ function updatePieCharts(alpha) {
 
 function stopLoadingAnimation() {
     $(".loading").html("");
-    $(".characterStatsPie").css("display", "inherit");
+    $(".characterStatsPie, .characterStatsBar").css("display", "inherit");
 }
 
 function animatePieCharts() {

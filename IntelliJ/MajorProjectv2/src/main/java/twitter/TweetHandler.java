@@ -63,8 +63,8 @@ public class TweetHandler {
     /**
      * Downloads Twitter User Timeline by ScreenName. Created Document Objects, Committs them to MongoDB Cluster,
      * Closes the Connection. Operations happen asynchronously.
-     * @throws ExecutionException
-     * @throws InterruptedException
+     * @throws ExecutionException ExecutionException
+     * @throws InterruptedException InterreputedException
      */
     public void handleTweets() throws ExecutionException, InterruptedException {
         long start = System.currentTimeMillis();
@@ -84,7 +84,7 @@ public class TweetHandler {
             while (notExceededRateLimit) {
                 try {
                     Paging page = new Paging(pageno++, numberOfTweets);
-                    //getUserTimeline() gets 20 most recent
+                    //getUserTimeline() gets 200 most recent
                     statuses.addAll(twitter.getUserTimeline(username, page));
                     System.out.println("Collecting Statuses: Page " + pageno + " - " + statuses.size() + "/" + numberOfTweets);
 
@@ -187,7 +187,8 @@ public class TweetHandler {
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        TweetHandler ta = new TweetHandler("realDonaldTrump", 3200);
+        //
+        TweetHandler ta = new TweetHandler("hollywills", 3200);
         ta.handleTweets();
     }
 }

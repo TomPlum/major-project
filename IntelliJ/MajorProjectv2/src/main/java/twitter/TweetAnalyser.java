@@ -103,9 +103,10 @@ public class TweetAnalyser {
         System.out.println("EMOJI: " + emoji.size() + " in total.");
     }
 
-    public void saveToDatabase() {
+    private void saveToDatabase() {
         MongoConnection mc = new MongoConnection("twitter", "analysis");
         Document stats = new Document();
+        TweetReader tr = new TweetReader();
         stats.put("tweetCount", tweetCount);
         stats.put("characterCount", totalCharacters);
         stats.put("min", minLength);
@@ -116,16 +117,14 @@ public class TweetAnalyser {
         ArrayList<Document> jsonArray = new ArrayList<>(26);
         for (int i = 0; i < percentages.length; i++) {
             Document json = new Document();
-
-                json.put("letter", alphabetLetters[i].toUpperCase());
-                json.put("count", alphabet[i]);
-                json.put("percentage", percentages[i]);
-
-
+            json.put("letter", alphabetLetters[i].toUpperCase());
+            json.put("count", alphabet[i]);
+            json.put("percentage", percentages[i]);
             jsonArray.add(json);
         }
         stats.put("alpha", jsonArray);
         stats.put("totalPercentage", totalPercentage);
+        stats.put("users", tr.getAllUsernames());
         mc.insertDocument(stats);
     }
 

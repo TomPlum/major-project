@@ -8,11 +8,13 @@ router.get('/', function(req, res) {
       if (err) {
           console.log(err);
       }
+
       res.render('index', {
           title: "Major Project",
           tweetCount: data[0].tweetCount,
           charCount: data[0].characterCount,
-          emojiCount: data[0].emojiCount
+          emojiCount: data[0].emojiCount,
+          users: data[0].users
       });
    });
 });
@@ -22,7 +24,6 @@ router.post('/character-analysis', function(req, res) {
         if (err) {
             console.log(err);
         }
-        console.log(data[0].alpha);
         res.status(200).send(data[0].alpha);
     });
 });
