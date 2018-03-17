@@ -144,7 +144,7 @@ function renderTwitterUsers() {
 }
 
 function expandTwitterUserInfo(user) {
-    
+
 }
 
 function updatePieCharts(alpha) {

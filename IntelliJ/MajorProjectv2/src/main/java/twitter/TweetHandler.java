@@ -188,7 +188,7 @@ public class TweetHandler {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //
-        TweetHandler ta = new TweetHandler("hollywills", 3200);
+        TweetHandler ta = new TweetHandler("RockstarGames", 3200);
         ta.handleTweets();
     }
 }
