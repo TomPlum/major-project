@@ -9,12 +9,14 @@ router.get('/', function(req, res) {
           console.log(err);
       }
 
+      console.log(data[0].users[0].username);
+
       res.render('index', {
           title: "Major Project",
           tweetCount: data[0].tweetCount,
           charCount: data[0].characterCount,
           emojiCount: data[0].emojiCount,
-          users: data[0].users
+          users: JSON.stringify(data[0].users)
       });
    });
 });

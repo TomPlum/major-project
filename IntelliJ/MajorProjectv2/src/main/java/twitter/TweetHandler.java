@@ -26,6 +26,10 @@ public class TweetHandler {
         setNumberOfTweets(num);
     }
 
+    public TweetHandler() {
+
+    }
+
     /**
      * Formats time into minutes and seconds from a given millisecond duration.
      * @param elapsed Elapsed Time in Milliseconds
@@ -58,6 +62,39 @@ public class TweetHandler {
         }
 
         return username.length() > 0;
+    }
+
+    public ArrayList<Document> getUserDetails(ArrayList<String> users) {
+        try {
+            ConfigurationBuilder cb = getConfigurationBuilder();
+            Twitter twitter = new TwitterFactory(cb.build()).getInstance();
+            UsersResources ur = twitter.users();
+            ArrayList<Document> userDetails = new ArrayList<>();
+            for (String handle : users) {
+                if (userExists(handle)) {
+                    User user = ur.showUser(handle);
+                    Document json = new Document();
+                    json.put("twitter_id", user.getId());
+                    json.put("username", user.getName());
+                    json.put("screen_name", user.getScreenName());
+                    json.put("followers", user.getFollowersCount());
+                    json.put("profile", user.getBiggerProfileImageURL());
+                    json.put("profile_https", user.getBiggerProfileImageURLHttps());
+                    json.put("desc", user.getDescription());
+                    json.put("favourites", user.getFavouritesCount());
+                    json.put("statuses", user.getStatusesCount());
+                    json.put("url", user.getURL());
+
+                    userDetails.add(json);
+                } else {
+                    System.out.println("User: " + handle + " does not exist!");
+                }
+            }
+            return userDetails;
+        } catch (TwitterException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -122,6 +159,8 @@ public class TweetHandler {
                     json.append("created_at", status.getCreatedAt());
                     json.append("text", status.getText());
                     json.append("user", status.getUser().getName());
+                    json.append("screenName", status.getUser().getScreenName());
+                    json.append("user_id", status.getUser().getId());
                     //json.put("country", status.getPlace());
                     json.append("language", status.getLang());
                 } catch (NullPointerException e) {

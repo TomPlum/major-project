@@ -3,8 +3,13 @@ package twitter;
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
+import org.bson.conversions.Bson;
+
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static com.mongodb.client.model.Filters.eq;
@@ -46,6 +51,20 @@ public class MongoConnection {
         getMongoCollection().insertOne(object);
     }
 
+    private void updateUserDetails(String username, String screenName) {
+        TweetReader tr = new TweetReader();
+        UpdateOptions upsert = new UpdateOptions().upsert(true);
+        ArrayList<Document> tweets = tr.getTweetsByUser(username);
+        int count = 0;
+        for (Document status : tweets) {
+            count++;
+            Bson idFilter = Filters.eq("_id", status.getObjectId("_id"));
+            status.append("screenName", screenName);
+            System.out.println("Adding ScreenName '" + screenName + "' for '" + username + "' [" + count + "/" + tweets.size() + "]");
+            getMongoCollection().replaceOne(idFilter, status, upsert);
+        }
+    }
+
     public void removeDocumentsByKey(String key, String val) {
         DeleteResult delete = getMongoCollection().deleteMany(eq(key, val));
         System.out.println("Successfully Deleted " + delete.getDeletedCount() + " Tweets.");
@@ -77,5 +96,10 @@ public class MongoConnection {
 
     private void setCollection(String collection) {
         this.collection = collection;
+    }
+
+    public static void main (String[] args) {
+        MongoConnection mc = new MongoConnection("twitter", "tweets");
+        mc.updateUserDetails("BBC", "BBC");
     }
 }

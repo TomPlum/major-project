@@ -107,6 +107,7 @@ public class TweetAnalyser {
         MongoConnection mc = new MongoConnection("twitter", "analysis");
         Document stats = new Document();
         TweetReader tr = new TweetReader();
+        TweetHandler th = new TweetHandler();
         stats.put("tweetCount", tweetCount);
         stats.put("characterCount", totalCharacters);
         stats.put("min", minLength);
@@ -124,7 +125,7 @@ public class TweetAnalyser {
         }
         stats.put("alpha", jsonArray);
         stats.put("totalPercentage", totalPercentage);
-        stats.put("users", tr.getAllUsernames());
+        stats.put("users", th.getUserDetails(tr.getAllUsernames()));
         mc.insertDocument(stats);
     }
 

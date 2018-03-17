@@ -163,7 +163,7 @@ html(lang='en')
                                     label.sort Descending
                                     input#sort-desc(type="radio" name="sort-bar-chart" value="Desc")
                     #2.tab-pane
-                        .container.characterStatsPie
+                        .container-fluid.characterStatsPie
                             .row
                                 .col-xs-4.col-md-1.bar
                                     .progB.chart.a(data-animate='3500')
@@ -348,12 +348,20 @@ html(lang='en')
                                     .textP
                                         h3 Z
                     #3.tab-pane
-                        h3 add clearfix to tab-content (see the css)
+                        h3 Line Chart To Go Here
         section.section-padding
             .container
                 .row
                     .col-md-4
+                        label Select Twitter User
                         select#twitterUsers.form-control(name="twitterUsers")
+                    .col-md-6
+                        .selectedTwitterUser
+                            #username
+                            #screenName
+                            #followers
+                            #following
+                            #tweets
         //Data Analysis
         section#analysis
             .line2
@@ -489,7 +497,7 @@ html(lang='en')
             let charCount = !{charCount};
             let tweetCount = !{tweetCount};
             let emojiCount = !{emojiCount};
-            let users = "!{users}".split(",");
+            let users = !{users};
 
             $(document).ready(function(){
                 function sdf_FTS(_number,_decimal,_separator) {

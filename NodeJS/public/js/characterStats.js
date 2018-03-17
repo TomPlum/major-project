@@ -135,12 +135,46 @@ function renderBarChart(data) {
 }
 
 function renderTwitterUsers() {
+    let twitterUsers = $("#twitterUsers");
     for (let i = 0; i < users.length; i++) {
-        $("#twitterUsers").append($("<option>", {
-            value: users[i],
-            text: users[i].toString()
+        twitterUsers.append($("<option>", {
+            value: users[i].username,
+            text: formatUsername(users[i].username.toString())
         }));
     }
+
+    function findUser(name) {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].username === name) {
+                return users[i];
+            }
+        }
+    }
+
+    twitterUsers.change(() => {
+        let selectedUser = $("#twitterUsers").val();
+        let userObject = findUser(selectedUser);
+        $("#username").html(userObject.username);
+        $("#screenName").html("@" + userObject.screen_name);
+        $("#followers").html(userObject.followers);
+    });
+}
+
+
+function formatUsername(name) {
+    if (name.length <= 3) {
+        return name.toUpperCase();
+    }
+    let arr = name.split(" ");
+    let formattedName = "";
+    for (let i = 0; i < arr.length; i++) {
+        formattedName += arr[i].substring(0, 1).toUpperCase();
+        formattedName += arr[i].substring(1, arr[i].length).toLowerCase();
+        if (i !== arr.length - 1) {
+            formattedName += " ";
+        }
+    }
+    return formattedName;
 }
 
 function expandTwitterUserInfo(user) {

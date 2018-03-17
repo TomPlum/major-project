@@ -91,8 +91,8 @@ public class TweetReader {
                 try {
                     //System.out.println(element.get("user") + ": " + count);
                     count++;
-                    if (!list.contains(element.get("user"))) {
-                        list.add(element.get("user").toString());
+                    if (!list.contains(element.get("screenName"))) {
+                        list.add(element.get("screenName").toString());
                     }
                 } catch (NullPointerException e) {
                     System.out.println("Found Null User: " + element.get("tweet_id") + "(tweet_id)");

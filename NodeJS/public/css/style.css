@@ -65,6 +65,14 @@ body{
     border-bottom: 150px solid white;
     border-left: 3000px solid transparent;
 }
+
+.tab-content {
+    border: 1px solid #DDD;
+    border-top: none;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    padding: 10px 10px 25px 10px;
+}
 /*.container{
 	outline:1px solid #fc0;
 }
