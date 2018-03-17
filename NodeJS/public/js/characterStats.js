@@ -154,9 +154,10 @@ function renderTwitterUsers() {
     twitterUsers.change(() => {
         let selectedUser = $("#twitterUsers").val();
         let userObject = findUser(selectedUser);
-        $("#username").html(userObject.username);
-        $("#screenName").html("@" + userObject.screen_name);
-        $("#followers").html(userObject.followers);
+        $("#username").html(formatUsername(userObject.username));
+        $("#screenName").html("<a href='" + userObject.url + "'> @" + userObject.screen_name + "</a>");
+        $("#stats").html("<i class='fa fa-twitter'></i><p title='Tweets'>" + formatLargeNumber(userObject.statuses) + "</p>" + "<i class='fa fa-fw fa-user'></i>" + formatLargeNumber(userObject.followers));
+        $("#profile-image").html("<img src='" + userObject.profile_https + "' title='" + userObject.username + "' alt='" + userObject.username + " Profile Picture'/>");
     });
 }
 
@@ -177,8 +178,8 @@ function formatUsername(name) {
     return formattedName;
 }
 
-function expandTwitterUserInfo(user) {
-
+function formatLargeNumber(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function updatePieCharts(alpha) {

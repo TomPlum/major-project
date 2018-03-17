@@ -352,16 +352,21 @@ html(lang='en')
         section.section-padding
             .container
                 .row
-                    .col-md-4
+                    .col-md-3
                         label Select Twitter User
                         select#twitterUsers.form-control(name="twitterUsers")
                     .col-md-6
                         .selectedTwitterUser
-                            #username
-                            #screenName
-                            #followers
-                            #following
-                            #tweets
+                            .row
+                                .col-md-2
+                                    #profile-image
+                                .col-md-6
+                                    #username
+                                    #screenName
+                                    #stats
+                            .row
+                                .col-md-12
+                                    hr
         //Data Analysis
         section#analysis
             .line2
