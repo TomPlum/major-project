@@ -1,15 +1,7 @@
 package twitter;
 
-import com.mongodb.BasicDBObject;
 import com.vdurmont.emoji.EmojiParser;
-import org.bson.BSON;
-import org.bson.BSONObject;
 import org.bson.Document;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,8 +65,6 @@ public class TweetAnalyser {
 
         for (int i = 0; i < alphabet.length; i++) {
             //ASCII Value. Letter a starts at 97
-            char c = (char) (i+97);
-            String letter = Character.toString(c).toUpperCase();
             float percentage = (alphabet[i] * 100.0f) / total;
             percentages[i] = percentage;
             totalPercentage += percentage;

@@ -1,5 +1,7 @@
 $(document).ready(() => {
     renderTwitterUsers();
+    $("#twitterUsers").change();
+    if ($.browser.mozilla) $("form").attr("autocomplete", "off");
 
    $.ajax({
        url: "/character-analysis",
@@ -158,7 +160,67 @@ function renderTwitterUsers() {
         $("#screenName").html("<a href='" + userObject.url + "'> @" + userObject.screen_name + "</a>");
         $("#stats").html("<i class='fa fa-twitter'></i><p title='Tweets'>" + formatLargeNumber(userObject.statuses) + "</p>" + "<i class='fa fa-fw fa-user'></i>" + formatLargeNumber(userObject.followers));
         $("#profile-image").html("<img src='" + userObject.profile_https + "' title='" + userObject.username + "' alt='" + userObject.username + " Profile Picture'/>");
+
+        startCharacterLoading(formatUsername(userObject.username));
+        $.ajax({
+            /*
+            xhr: function () {
+                let xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        let percentComplete = evt.loaded / evt.total;
+                        console.log(percentComplete);
+                        $('.progress').css({
+                            width: percentComplete * 100 + '%'
+                        });
+                        if (percentComplete === 1) {
+                            $('.progress').addClass('hide');
+                        }
+                    }
+                }, false);
+                xhr.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        let percentComplete = evt.loaded / evt.total;
+                        console.log(percentComplete);
+                        $('.progress').css({
+                            width: percentComplete * 100 + '%'
+                        });
+                    }
+                }, false);
+                return xhr;
+            },
+            */
+            url: "/calculate-user-stats",
+            type: "POST",
+            async: true,
+            data: {username: userObject.username},
+            success: function(data) {
+                stopCharacterLoading();
+                renderUserStats(data);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
     });
+}
+
+function renderUserStats(data) {
+    //Hyperlinks
+    $('.tweet-percentage').data('easyPieChart').update(calculatePercentage(data.links, data.userTweetCount));
+
+    $(".longest-tweet p").text(data.longestTweet);
+    $(".longest-tweet .progress-bar").css("width", calculatePercentage(data.longestTweet, 280) + "%");
+
+    $(".shortest-tweet p").text(data.shortestTweet);
+    $(".shortest-tweet .progress-bar").css("width", calculatePercentage(data.shortestTweet, 280) + "%");
+
+    $(".average-tweet p").text(data.averageTweet);
+    $(".average-tweet .progress-bar").css("width", calculatePercentage(data.averageTweet, 280) + "%");
+}
+
+function calculatePercentage(variable, divisor) {
+    return (variable / divisor) * 100;
 }
 
 
@@ -194,6 +256,18 @@ function stopLoadingAnimation() {
     $(".characterStatsPie, .characterStatsBar").css("display", "inherit");
 }
 
+function startCharacterLoading(username) {
+    let el = $(".character-loading");
+    el.html("<i class='fa fa-lg fa-fw fa-3x fa-pulse fa-spinner'></i><p>Analysing " + username + "'s Data...</p>");
+    el.css("display", "inline");
+    $(".selectedTwitterUserAnalysis").css("display", "none");
+}
+
+function stopCharacterLoading() {
+    $(".character-loading").css("display", "none");
+    $(".selectedTwitterUserAnalysis").css("display", "inline");
+}
+
 function animatePieCharts() {
     let chart = $('.chart'),
         chartNr = $('.chart-content'),
@@ -210,21 +284,17 @@ function animatePieCharts() {
         $(window).resize(centerChartsNr);
 
         chartParent.each(function () {
-            $(this).onScreen({
-                doIn: function () {
-                    $(this).find('.chart').easyPieChart({
-                        barColor: '#2f2f2f',
-                        trackColor: '#dcdcdc',
-                        lineCap: false,
-                        lineWidth: '3',
-                        size: '72',
-                        scaleColor: false,
-                        animate: 1500,
-                        onStep: function (from, to, percent) {
-                            $(this.el).find('.percent').text(percent.toFixed(2));
-                        }
-                    });
-                },
+            $(this).find('.chart').easyPieChart({
+                barColor: '#2f2f2f',
+                trackColor: '#dcdcdc',
+                lineCap: false,
+                lineWidth: '3',
+                size: '72',
+                scaleColor: false,
+                animate: 1500,
+                onStep: function (from, to, percent) {
+                    $(this.el).find('.percent').text(percent.toFixed(1));
+                }
             });
         });
     }

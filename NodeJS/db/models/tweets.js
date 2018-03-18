@@ -3,14 +3,6 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 const twitter = require('../databases/twitter');
 
-const Integer = {
-    type: Number,
-    validate: {
-        validator: Number.isInteger,
-        message: "{VALUE} is not an integer."
-    }
-};
-
 const tweets = new Schema({
     _id: ObjectId,
     tweet_id: String,
@@ -18,7 +10,8 @@ const tweets = new Schema({
     text: String,
     user: String,
     country: String,
-    language: String
+    language: String,
+    screenName: String
 });
 
 module.exports = twitter.model('tweets', tweets, 'tweets');

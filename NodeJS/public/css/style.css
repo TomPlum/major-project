@@ -151,6 +151,22 @@ body{
     display: inline;
 }
 
+.character-loading {
+    display: none;
+    text-align: center;
+}
+
+.selectedTwitterUserAnalysis {
+    display: none;
+}
+
+.character-loading p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    font-size: 1.6em;
+}
+
 .characterStatsPie, .characterStatsBar {
     display: none;
 }
