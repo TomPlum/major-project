@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const analysis = require("../db/models/analysis");
 const tweets = require("../db/models/tweets");
+const countryNames = require('i18n-iso-countries');
+
 
 router.get('/', function(req, res) {
     analysis.find().exec({}, function(err, data) {
@@ -31,16 +33,19 @@ router.post('/character-analysis', function(req, res) {
 });
 
 router.post('/calculate-user-stats', function(req, res) {
-    console.log(req.body.username);
     tweets.find({user: req.body.username}, (err, data) => {
         if (err) { console.log(err);}
 
         let linkNo = 0;
+        let twitterNo = 0;
+        let hashtags = 0;
+        let mentions = 0;
         let lang = {};
         let shortestTweet = 9999;
         let longestTweet = 0;
         let averageTweet = 0;
 
+        console.log("TEST: " + countryNames.getName("EN", "en"));
         for (let i = 0; i < data.length; i++) {
             //Extract Tweet
             let tweet = data[i].text;
@@ -51,10 +56,29 @@ router.post('/calculate-user-stats', function(req, res) {
             }
 
             //Count Language Types
-            if (!lang.hasOwnProperty(data[i].language)) {
-                lang[data[i].language] = 1;
+            console.log(data[i].language);
+            let country = countryNames.getName(data[i].language.toString().toUpperCase(), "en");
+            console.log(country);
+
+            if (!lang.hasOwnProperty(country)) {
+                lang[country] = 1;
             } else {
-                lang[data[i].language]++;
+                lang[country]++;
+            }
+
+            //Count Hastags
+            if (tweet.includes("#")) {
+                hashtags++;
+            }
+
+            //Count Times Twitter is Used
+            if (tweet.includes("twitter") || tweet.includes("Twitter")) {
+                twitterNo++;
+            }
+
+            //Count Mentions
+            if (tweet.includes("@")) {
+                mentions++;
             }
 
             //Find Longest, Shortest & Average Tweet Length
@@ -70,6 +94,9 @@ router.post('/calculate-user-stats', function(req, res) {
         res.status(200).send({
             userTweetCount: data.length,
             links: linkNo,
+            twitterUsed: twitterNo,
+            mentions: mentions,
+            hashtags: hashtags,
             language: lang,
             shortestTweet: shortestTweet,
             longestTweet: longestTweet,

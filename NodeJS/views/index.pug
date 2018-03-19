@@ -369,32 +369,70 @@ html(lang='en')
                         hr
                         .container.character-loading
                     .selectedTwitterUserAnalysis
-                        .col-sm-2
-                            .progB.chart.tweet-percentage(data-animate='3500')
-                                .chart.chart-content
-                                    .percentage()
-                                        span.percent
-                            p
-                                i.fa.fa-fw.fa-lg.fa-link
-                                |  Hyperlinks
-                        .col-sm-2
-                        .col-sm-4
-                            label Maximum Characters
-                            .progress.progress-striped.active.maximum-tweet-length
-                                .progress-bar.progress-bar-info(role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%")
-                                    p 280
-                            label Longest Tweet
-                            .progress.progress-striped.active.longest-tweet
-                                .progress-bar.progress-bar-success(role="progressbar" aria-valuemin="0" aria-valuemax="100")
-                                    p
-                            label Average Tweet
-                            .progress.progress-striped.active.average-tweet
-                                .progress-bar.progress-bar-warning(role="progressbar" aria-valuemin="0" aria-valuemax="100")
+                        .row
+                            .col-md-6
+                                .row
+                                    .col-sm-6.col-sm-offset-1
+                                        label Percentages of Tweet's that Included...
+                                .row
+                                    .col-sm-4
+                                        .progB.chart.tweet-percentage(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
                                         p
-                            label Shortest Tweet
-                            .progress.progress-striped.active.shortest-tweet
-                                .progress-bar.progress-bar-danger(role="progressbar" aria-valuemin="0" aria-valuemax="100")
-                                    p
+                                            i.fa.fa-fw.fa-lg.fa-link
+                                            |  Hyperlinks
+                                    .col-sm-4
+                                        .progB.chart.twitter-used-percentage(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        p
+                                            i.fa.fa-fw.fa-lg.fa-twitter
+                                            |  Twitter Mentioned
+                                    .col-sm-4
+                                        .progB.chart.hashtags-percentage(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        p
+                                            i.fa.fa-fw.fa-lg.fa-hashtag
+                                            |  Hashtags
+                                    .col-sm-4
+                                        .progB.chart.mentions-percentage(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        p
+                                            i.fa.fa-fw.fa-lg.fa-at
+                                            |  Mentions
+                            .col-md-6
+                                .row
+                                    .col-sm-12
+                                        label Twitter's Maximum Tweet Length (Characters)
+                                        .progress.progress-striped.active.maximum-tweet-length
+                                            .progress-bar.progress-bar-info(role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%")
+                                                p 280
+                                        label Longest Tweet
+                                        .progress.progress-striped.active.longest-tweet
+                                            .progress-bar.progress-bar-success(role="progressbar" aria-valuemin="0" aria-valuemax="100")
+                                                p
+                                        label Average Tweet
+                                        .progress.progress-striped.active.average-tweet
+                                            .progress-bar.progress-bar-warning(role="progressbar" aria-valuemin="0" aria-valuemax="100")
+                                                    p
+                                        label Shortest Tweet
+                                        .progress.progress-striped.active.shortest-tweet
+                                            .progress-bar.progress-bar-danger(role="progressbar" aria-valuemin="0" aria-valuemax="100")
+                                                p
+                        .row
+                            .col-sm-12
+                                label Language's Used
+                                .language-breakdown
+                                    .progress
+
+
         //Data Analysis
         section#analysis
             .line2

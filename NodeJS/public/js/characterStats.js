@@ -163,33 +163,6 @@ function renderTwitterUsers() {
 
         startCharacterLoading(formatUsername(userObject.username));
         $.ajax({
-            /*
-            xhr: function () {
-                let xhr = new window.XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function (evt) {
-                    if (evt.lengthComputable) {
-                        let percentComplete = evt.loaded / evt.total;
-                        console.log(percentComplete);
-                        $('.progress').css({
-                            width: percentComplete * 100 + '%'
-                        });
-                        if (percentComplete === 1) {
-                            $('.progress').addClass('hide');
-                        }
-                    }
-                }, false);
-                xhr.addEventListener("progress", function (evt) {
-                    if (evt.lengthComputable) {
-                        let percentComplete = evt.loaded / evt.total;
-                        console.log(percentComplete);
-                        $('.progress').css({
-                            width: percentComplete * 100 + '%'
-                        });
-                    }
-                }, false);
-                return xhr;
-            },
-            */
             url: "/calculate-user-stats",
             type: "POST",
             async: true,
@@ -206,17 +179,97 @@ function renderTwitterUsers() {
 }
 
 function renderUserStats(data) {
-    //Hyperlinks
-    $('.tweet-percentage').data('easyPieChart').update(calculatePercentage(data.links, data.userTweetCount));
+    //Reset Previous Pie Charts
+    let hasthtagPie = $(".hashtags-percentage");
+    let tweetPie = $('.tweet-percentage');
+    let twitterPie = $(".twitter-used-percentage");
+    let mentionsPie = $(".mentions-percentage");7676767
+    hasthtagPie.data("easyPieChart").update(0);
+    tweetPie.data("easyPieChart").update(0);
+    twitterPie.data("easyPieChart").update(0);
+    mentionsPie.data("easyPieChart").update(0);
 
+    //Reset Previous Language Breakdown
+    $(".language-breakdown .progress").html("");
+
+    //Hyperlinks
+    tweetPie.data('easyPieChart').update(calculatePercentage(data.links, data.userTweetCount));
+
+    //Times Twitter Mentioned
+    twitterPie.data("easyPieChart").update(calculatePercentage(data.twitterUsed, data.userTweetCount));
+
+    //Hashtags Used
+    hasthtagPie.data("easyPieChart").update(calculatePercentage(data.hashtags, data.userTweetCount));
+
+    //Mentions
+    mentionsPie.data("easyPieChart").update(calculatePercentage(data.mentions, data.userTweetCount));
+
+    //Longest Tweet
     $(".longest-tweet p").text(data.longestTweet);
     $(".longest-tweet .progress-bar").css("width", calculatePercentage(data.longestTweet, 280) + "%");
 
+    //Shortest Tweet
     $(".shortest-tweet p").text(data.shortestTweet);
-    $(".shortest-tweet .progress-bar").css("width", calculatePercentage(data.shortestTweet, 280) + "%");
+    if (data.shortestTweet < 20) {
+        $(".shortest-tweet .progress-bar").css("width", calculatePercentage(22, 280) + "%");
+    } else {
+        $(".shortest-tweet .progress-bar").css("width", calculatePercentage(data.shortestTweet, 280) + "%");
+    }
 
+    //Average Tweet
     $(".average-tweet p").text(data.averageTweet);
     $(".average-tweet .progress-bar").css("width", calculatePercentage(data.averageTweet, 280) + "%");
+
+    console.log(data.language);
+
+    //Language Breakdown
+    let lang = Object.keys(data.language);
+    console.log(lang);
+    let sparePercentage = 0;
+    let widths = [];
+    let classes = ["progress-bar-info", "progress-bar-success", "progress-bar-warning", "progress-bar-danger", "progress-bar-info", "progress-bar-success", "progress-bar-warning", "progress-bar-danger"];
+    for(let i = 0; i < lang.length; i++) {
+        let width = calculatePercentage(data.language[lang[i]], data.userTweetCount);
+        if (width < 10) {
+            sparePercentage += 10 - width;
+            width = 10;
+            $(".language-breakdown .progress").append("<div class='progress-bar " + classes[i] + "' role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow='" + width + "' style='width: " + width + "%'><p>" + lang[i] + " (" + data.language[lang[i]] + ")</p></div>");
+            delete lang[lang[i]];
+        } else {
+            widths.push(width);
+        }
+    }
+
+    if (widths.length > 0) {
+        for (let i = 0; i < widths.length; i++) {
+            if (i !== widths.length - 1) {
+                sparePercentage = sparePercentage / 2;
+            }
+
+            let width = widths[i] - sparePercentage;
+            $(".language-breakdown .progress").append("<div class='progress-bar " + classes[i] + "' role='progressbar' aria-valuemin='0' aria-valuemax='100' aria-valuenow='" + width + "' style='width: " + width + "%'><p>" + lang[i] + " (" + data.language[lang[i]] + ")</p></div>");
+        }
+    }
+}
+
+
+function getLanguage(code) {
+    switch(code) {
+        case "en":
+            return "English";
+        case "da":
+            return "Danish";
+        case "und":
+            return "Undetermined";
+        case "cy":
+            return "Welsh";
+        case "fr":
+            return "French";
+        case "fi":
+            return "Finnish";
+        default:
+            return "N/A";
+    }
 }
 
 function calculatePercentage(variable, divisor) {
