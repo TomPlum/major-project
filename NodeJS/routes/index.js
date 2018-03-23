@@ -45,7 +45,7 @@ router.post('/calculate-user-stats', function(req, res) {
         let longestTweet = 0;
         let averageTweet = 0;
 
-        console.log("TEST: " + countryNames.getName("EN", "en"));
+        console.log("TEST: " + countryNames.getName("ar", "en"));
         for (let i = 0; i < data.length; i++) {
             //Extract Tweet
             let tweet = data[i].text;
@@ -56,9 +56,9 @@ router.post('/calculate-user-stats', function(req, res) {
             }
 
             //Count Language Types
-            console.log(data[i].language);
-            let country = countryNames.getName(data[i].language.toString().toUpperCase(), "en");
-            console.log(country);
+            //console.log(data[i].language);
+            let country = data[i].language === "en" ? "English" : countryNames.getName(data[i].language, "en");
+            //console.log(country);
 
             if (!lang.hasOwnProperty(country)) {
                 lang[country] = 1;

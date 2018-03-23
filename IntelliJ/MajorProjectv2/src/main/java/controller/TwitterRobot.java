@@ -34,4 +34,8 @@ public class TwitterRobot extends AdvancedRobot {
     public void onHitWall(HitWallEvent e) {
         back(rc.getMOVE_DOWN());
     }
+
+    public void onDeath(DeathEvent e) {
+
+    }
 }

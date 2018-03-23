@@ -12,8 +12,6 @@ public class RobotController  {
     private Double robotX;
     private Double robotY;
     private Double FIRE_POWER = -1.0;
-    private Integer BATTLEFIELD_W = -1;
-    private Integer BATTLEFIELD_H = -1;
     private Integer MOVE_UP = -1;
     private Integer MOVE_RIGHT = -1;
     private Integer MOVE_DOWN = -1;
@@ -25,7 +23,6 @@ public class RobotController  {
     private Integer ROTATE_SCANNER = 999;
     private Integer ROTATE_SCANNER_DIRECTION = 99;
     private Integer SCAN_FREQUENCY = -1;
-    private Integer NO_OF_ROUNDS = -1;
     private Integer GUN_COOLING_RATE = -1;
     private Integer INACTIVITY_TIME = -1;
     private Integer SENTRY_BORDER_SIZE = -1;

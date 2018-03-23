@@ -1,20 +1,43 @@
 package controller;
 
-import twitter.TweetReader;
-import java.util.ArrayList;
+import robocode.control.*;
 
 public class GameConfigurer {
-    private int BATTLEFIELD_W;
-    private int BATTLEFIELD_X;
+    private static final int BATTLEFIELD_W = 1000;
+    private static final int BATTLEFIELD_H = 1000;
+    private static final int NO_OF_ROUNDS = 5;
 
-    private TweetReader tr = new TweetReader();
-    private ArrayList<String> users = tr.getAllUsernames();
+    public static void startBattle() {
+        //Robocode Messages & Errors
+        RobocodeEngine.setLogMessagesEnabled(true);
+        RobocodeEngine.setLogErrorsEnabled(true);
 
-    public ArrayList<String> getAvailableUsers() {
-        return users;
-    }
+        // Create the RobocodeEngine
+        RobocodeEngine engine = new RobocodeEngine(new java.io.File("C:/Users/thoma/Dropbox (University)/Year 3/CPU6001 - Major Project (Amanda & Louise)/IntelliJ/MajorProjectv2/robocode_master"));
+        System.out.println("Running Robocode Version: " + engine.getVersion());
 
-    public boolean userAvailable(String user) {
-        return users.contains(user);
+        //Add BattleObserver TO Engine
+        engine.addBattleListener(new BattleObserver());
+
+        //Show Robocode Battle View (GUI Window)
+        engine.setVisible(true);
+
+        System.out.println("Working Dir: " + RobocodeEngine.getCurrentWorkingDir());
+        System.out.println("Robots Dir: " + RobocodeEngine.getRobotsDir());
+
+        //Setup Battle Specification
+        BattlefieldSpecification battlefield = new BattlefieldSpecification(BATTLEFIELD_W, BATTLEFIELD_H);
+        RobotSpecification[] selectedRobots = engine.getLocalRepository("sample.Crazy, sample.RobotJDK6");
+
+        BattleSpecification battleSpec = new BattleSpecification(NO_OF_ROUNDS, battlefield, selectedRobots);
+
+        // Run our specified battle and let it run till it is over
+        engine.runBattle(battleSpec, true); // waits till the battle finishes
+
+        //Clean Up Our RobocodeEngine
+        engine.close();
+
+        //Ensure JVM Is Shut-Down Properly
+        System.exit(0);
     }
 }
