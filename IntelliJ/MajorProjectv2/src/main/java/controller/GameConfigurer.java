@@ -16,7 +16,7 @@ public class GameConfigurer {
         RobocodeEngine engine = new RobocodeEngine(new java.io.File("C:/Users/thoma/Dropbox (University)/Year 3/CPU6001 - Major Project (Amanda & Louise)/IntelliJ/MajorProjectv2/robocode_master"));
         System.out.println("Running Robocode Version: " + engine.getVersion());
 
-        //Add BattleObserver TO Engine
+        //Add BattleObserver To Engine
         engine.addBattleListener(new BattleObserver());
 
         //Show Robocode Battle View (GUI Window)
@@ -27,12 +27,12 @@ public class GameConfigurer {
 
         //Setup Battle Specification
         BattlefieldSpecification battlefield = new BattlefieldSpecification(BATTLEFIELD_W, BATTLEFIELD_H);
-        RobotSpecification[] selectedRobots = engine.getLocalRepository("sample.Crazy, sample.RobotJDK6");
+        RobotSpecification[] selectedRobots = engine.getLocalRepository("sample.Crazy, sample.TwitterRobot");
 
         BattleSpecification battleSpec = new BattleSpecification(NO_OF_ROUNDS, battlefield, selectedRobots);
 
-        // Run our specified battle and let it run till it is over
-        engine.runBattle(battleSpec, true); // waits till the battle finishes
+        //Start Battle
+        engine.runBattle(battleSpec, true); //Wait Until Battle Finished
 
         //Clean Up Our RobocodeEngine
         engine.close();

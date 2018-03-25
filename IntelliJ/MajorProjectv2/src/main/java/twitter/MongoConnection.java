@@ -100,6 +100,6 @@ public class MongoConnection {
 
     public static void main (String[] args) {
         MongoConnection mc = new MongoConnection("twitter", "tweets");
-        mc.updateUserDetails("BBC", "BBC");
+
     }
 }
