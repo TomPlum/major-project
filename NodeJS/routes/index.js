@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const analysis = require("../db/models/analysis");
 const tweets = require("../db/models/tweets");
+const results = require("../db/models/results");
 const countryNames = require('i18n-iso-countries');
 
 
@@ -102,6 +103,13 @@ router.post('/calculate-user-stats', function(req, res) {
             longestTweet: longestTweet,
             averageTweet: parseInt(averageTweet / data.length)
         });
+    });
+});
+
+router.post('/get-robocode-results', function(req, res) {
+    results.find({}, function(err, data) {
+       if (err) {console.log(err);}
+       res.status(200).send(data);
     });
 });
 

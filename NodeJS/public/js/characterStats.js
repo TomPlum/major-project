@@ -183,7 +183,7 @@ function renderUserStats(data) {
     let hasthtagPie = $(".hashtags-percentage");
     let tweetPie = $('.tweet-percentage');
     let twitterPie = $(".twitter-used-percentage");
-    let mentionsPie = $(".mentions-percentage");7676767
+    let mentionsPie = $(".mentions-percentage");
     hasthtagPie.data("easyPieChart").update(0);
     tweetPie.data("easyPieChart").update(0);
     twitterPie.data("easyPieChart").update(0);
@@ -206,21 +206,37 @@ function renderUserStats(data) {
 
     //Longest Tweet
     $(".longest-tweet p").text(data.longestTweet);
-    $(".longest-tweet .progress-bar").css("width", calculatePercentage(data.longestTweet, 280) + "%");
+    let longTweet = $(".longest-tweet .progress-bar");
+    let longPercentage = calculatePercentage(data.longestTweet, 280);
+    longTweet.css("width", longPercentage + "%");
+    longTweet.attr("aria-valuenow", parseInt(longPercentage));
 
     //Shortest Tweet
     $(".shortest-tweet p").text(data.shortestTweet);
+    let shortTweet = $(".shortest-tweet .progress-bar");
+    let shortPercentage;
     if (data.shortestTweet < 20) {
-        $(".shortest-tweet .progress-bar").css("width", calculatePercentage(22, 280) + "%");
+        shortPercentage = calculatePercentage(22, 280);
+        shortTweet.css("width", shortPercentage + "%");
+        shortTweet.attr("aria-valuenow", parseInt(shortPercentage));
     } else {
-        $(".shortest-tweet .progress-bar").css("width", calculatePercentage(data.shortestTweet, 280) + "%");
+        shortPercentage = calculatePercentage(data.shortestTweet, 280);
+        shortTweet.css("width", shortPercentage + "%");
+        shortTweet.attr("aria-valuenow", parseInt(shortPercentage));
     }
 
     //Average Tweet
+    let averageTweet = $(".average-tweet .progress-bar");
     $(".average-tweet p").text(data.averageTweet);
-    $(".average-tweet .progress-bar").css("width", calculatePercentage(data.averageTweet, 280) + "%");
+    let averagePercentage = calculatePercentage(data.averageTweet, 280);
+    averageTweet.css("width", averagePercentage + "%");
+    averageTweet.attr("aria-valuenow", parseInt(averagePercentage));
 
-    console.log(data.language);
+    //Animate Progress Bar Widths (Left ---> Right)
+    $('.progress-bar').each(function() {
+        let bar_value = $(this).attr('aria-valuenow') + '%';
+        $(this).animate({ width: bar_value }, { duration: 2000, easing: 'easeOutCirc' });
+    });
 
     //Language Breakdown
     let lang = Object.keys(data.language);

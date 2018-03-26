@@ -216,6 +216,17 @@ body{
     text-align: center;
 }
 
+.tweet-length-analysis p {
+    margin: 0;
+}
+
+.tweet-length-analysis .progress {
+    margin-bottom: 2px;
+}
+
+.tweet-length-analysis label {
+    margin: 0;
+}
 /* ----- End of Twitter Selected User ------- */
 
 #menu li{

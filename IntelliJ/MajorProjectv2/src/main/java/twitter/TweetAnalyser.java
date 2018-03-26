@@ -25,6 +25,14 @@ public class TweetAnalyser {
     private int tweetCount;
     private int totalCharacters = 0;
 
+    /**
+     * Calculates several statistics of the Tweets from the MongoDB Atlas Cluster. Including;
+     * - Character Statistics: Frequency of Use + Relative Percentage
+     * - Minimum Tweet Length
+     * - Average Tweet Length
+     * - Maximum Tweet Length
+     * - Frequency of Emoji Usage
+     */
     public void analyse() {
         ArrayList<String> tweets = tr.getAllValuesByKey("text");
         tweetCount = tweets.size();
@@ -81,6 +89,9 @@ public class TweetAnalyser {
         avgLength = avgLength / tweets.size();
     }
 
+    /**
+     * Prints the results of analyse() to the console.
+     */
     public void printResults() {
         for (int num : alphabet) {
             totalCharacters += num;
@@ -100,6 +111,9 @@ public class TweetAnalyser {
         System.out.println("EMOJI: " + emoji.size() + " in total.");
     }
 
+    /**
+     * Saves the results from analyse() into the MongoDB Atlas Cluster
+     */
     private void saveToDatabase() {
         MongoConnection mc = new MongoConnection("twitter", "analysis");
         Document stats = new Document();
