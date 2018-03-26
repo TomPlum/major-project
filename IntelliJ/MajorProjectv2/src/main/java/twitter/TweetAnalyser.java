@@ -5,6 +5,13 @@ import org.bson.Document;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * -----------------------------------------------------------------------------------------------------------
+ * This class analyses the 'text' attributes from all the Twitter Status objects in the MongoDB Atlas Cluster.
+ * -----------------------------------------------------------------------------------------------------------
+ * @author Thomas Plumpton
+ * @version 1.0.0
+ */
 public class TweetAnalyser {
     private TweetReader tr = new TweetReader();
     private int[] alphabet = new int[26];
