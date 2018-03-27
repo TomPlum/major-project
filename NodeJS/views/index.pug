@@ -436,7 +436,7 @@ html(lang='en')
         //Data Analysis
         section#analysis
             .line2
-                .container
+                .container-fluid
                     .row.Fresh
                         h1.section-title
                             i.fa.fa-fw.fa-search
@@ -456,9 +456,34 @@ html(lang='en')
                             h4 Statistical Analysis
                             p
                                 | A statistical method useful to the analysis of the data is linear regression, specifically the method of least squares.
-                .container
-                    .row
-                        //Analysis Section Here
+            .container.section-padding
+                .row
+                    #resultAnalysisMenu.container
+                        ul.nav.nav-tabs.nav-justified
+                            li.active
+                                a(href='#results-overview', data-toggle='tab')
+                                    i.fa.fa-fw.fa-lg.fa-tachometer
+                                    |  Overview
+                            li
+                                a(href='#', data-toggle='tab')
+                                    i.fa.fa-fw.fa-lg.fa-pie-chart
+                                    |  Menu 2
+                            li
+                                a(href='#', data-toggle='tab')
+                                    i.fa.fa-fw.fa-lg.fa-line-chart
+                                    |  Menu 3
+                        .tab-content
+                            #results-overview.tab-pane.active
+                                .container.results-loading
+                                .container-fluid
+                                    .row
+                                        .col-sm-3.noOfBattles.text-center
+                                            .value
+                                            label No. of Battles
+                                        .col-sm-3.noOfRobots.text-center
+                                            .value
+                                            label No. of Robots
+
         section#data-vis
             .line3
                 .container

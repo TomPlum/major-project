@@ -2,11 +2,21 @@ package controller;
 
 import robocode.control.*;
 
+/**
+ * ----------------------------------------------------------------------------------------------
+ * This class establishes the configuration options for the RobocodeEngine and launches the game.
+ * ----------------------------------------------------------------------------------------------
+ * @author Thomas Plumpton
+ * @version 1.0.0
+ */
 public class GameConfigurer {
     private static final int BATTLEFIELD_W = 1000;
     private static final int BATTLEFIELD_H = 1000;
     private static final int NO_OF_ROUNDS = 5;
 
+    /**
+     * Starts a Robocode Battle with the specified configuration options.
+     */
     public static void startBattle() {
         //Robocode Messages & Errors
         RobocodeEngine.setLogMessagesEnabled(true);
@@ -36,7 +46,12 @@ public class GameConfigurer {
 
         //Clean Up Our RobocodeEngine
         engine.close();
+    }
 
+    /**
+     * Closes the JVM (Java Virtual Machine)
+     */
+    public static void closeJVM() {
         //Ensure JVM Is Shut-Down Properly
         System.exit(0);
     }

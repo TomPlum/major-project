@@ -23,9 +23,6 @@ public class RobotController  {
     private Integer ROTATE_SCANNER = 999;
     private Integer ROTATE_SCANNER_DIRECTION = 99;
     private Integer SCAN_FREQUENCY = -1;
-    private Integer GUN_COOLING_RATE = -1;
-    private Integer INACTIVITY_TIME = -1;
-    private Integer SENTRY_BORDER_SIZE = -1;
 
     private TweetReader tr = new TweetReader();
     private ArrayList<Document> allTweets;
@@ -356,18 +353,6 @@ public class RobotController  {
         this.ROTATE_GUN_DIRECTION = ROTATE_GUN_DIRECTION;
     }
 
-    public Integer getROTATE_SCANNER() {
-        return ROTATE_SCANNER;
-    }
-
-    public void setROTATE_SCANNER(Integer ROTATE_SCANNER) {
-        this.ROTATE_SCANNER = ROTATE_SCANNER;
-    }
-
-    public Integer getROTATE_SCANNER_DIRECTION() {
-        return ROTATE_SCANNER_DIRECTION;
-    }
-
     public void setRobotX(Double robotX) {
         this.robotX = robotX;
     }
@@ -376,9 +361,6 @@ public class RobotController  {
         this.robotY = robotY;
     }
 
-    public void setROTATE_SCANNER_DIRECTION(Integer ROTATE_SCANNER_DIRECTION) {
-        this.ROTATE_SCANNER_DIRECTION = ROTATE_SCANNER_DIRECTION;
-    }
 
     public double getFIRE_POWER() {
         return FIRE_POWER;
@@ -394,14 +376,6 @@ public class RobotController  {
 
     public Integer getROTATE() {
         return ROTATE;
-    }
-
-    public ArrayList<Document> getCurrentTweetArray() {
-        return currentTweetArray;
-    }
-
-    public Document getCurrentTweet() {
-        return currentTweet;
     }
 
     public int getCHARS_USED() {

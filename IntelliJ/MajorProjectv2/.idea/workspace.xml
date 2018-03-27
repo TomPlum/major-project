@@ -2,16 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d06cb7df-8c9e-4bfc-a32e-c7b16540e8df" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../NodeJS/db/models/results.js" />
+      <change beforePath="$PROJECT_DIR$/../../Assessed Work/CPU6001 - Final Report.docx" afterPath="$PROJECT_DIR$/../../Assessed Work/CPU6001 - Final Report.docx" />
+      <change beforePath="$PROJECT_DIR$/../../Assessed Work/~$U6001 - Final Report.docx" afterPath="$PROJECT_DIR$/../../Assessed Work/~$U6001 - Final Report.docx" />
+      <change beforePath="$PROJECT_DIR$/../../Disseration Screenshots/Robocode Results Data Structure Example.PNG" afterPath="$PROJECT_DIR$/../../Disseration Screenshots/Robocode Results Data Structure Example.PNG" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/config/robocode.properties" afterPath="$PROJECT_DIR$/robocode_master/config/robocode.properties" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/config/window.properties" afterPath="$PROJECT_DIR$/robocode_master/config/window.properties" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/BattleObserver.class" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/BattleObserver.class" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/BattleResultLogger.class" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/BattleResultLogger.class" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/GameConfigurer.class" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/GameConfigurer.class" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/StartRobocode.class" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/StartRobocode.class" />
-      <change beforePath="$PROJECT_DIR$/robocode_master/robots/twitter/MongoConnection.class" afterPath="$PROJECT_DIR$/robocode_master/robots/twitter/MongoConnection.class" />
-      <change beforePath="$PROJECT_DIR$/robocode_master/robots/twitter/TweetAnalyser.class" afterPath="$PROJECT_DIR$/robocode_master/robots/twitter/TweetAnalyser.class" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobot.class" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobot.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BattleObserver.java" afterPath="$PROJECT_DIR$/src/main/java/controller/BattleObserver.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java" afterPath="$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" afterPath="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/twitter/TweetAnalyser.java" afterPath="$PROJECT_DIR$/src/main/java/twitter/TweetAnalyser.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RobotController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/RobotController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/StartRobocode.java" afterPath="$PROJECT_DIR$/src/main/java/controller/StartRobocode.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java" afterPath="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java" />
       <change beforePath="$PROJECT_DIR$/../../NodeJS/public/css/style.css" afterPath="$PROJECT_DIR$/../../NodeJS/public/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/../../NodeJS/public/js/characterStats.js" afterPath="$PROJECT_DIR$/../../NodeJS/public/js/characterStats.js" />
+      <change beforePath="$PROJECT_DIR$/../../NodeJS/public/js/robocodeResults.js" afterPath="$PROJECT_DIR$/../../NodeJS/public/js/robocodeResults.js" />
       <change beforePath="$PROJECT_DIR$/../../NodeJS/views/index.pug" afterPath="$PROJECT_DIR$/../../NodeJS/views/index.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -41,38 +50,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RobotController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TweetReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="20" column="49" lean-forward="false" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TwitterRobot.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="49" lean-forward="false" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+            <state relative-caret-position="612">
+              <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
               <folding>
-                <element signature="e#789#790#0" expanded="true" />
-                <element signature="e#829#830#0" expanded="true" />
-                <element signature="e#874#875#0" expanded="true" />
-                <element signature="e#913#914#0" expanded="true" />
+                <element signature="e#1794#1795#0" expanded="true" />
+                <element signature="e#1834#1835#0" expanded="true" />
+                <element signature="e#2004#2005#0" expanded="true" />
+                <element signature="e#2043#2044#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,14 +68,26 @@
       <file leaf-file-name="BattleObserver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleObserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="18" column="72" lean-forward="false" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+            <state relative-caret-position="527">
+              <caret line="33" column="132" lean-forward="false" selection-start-line="33" selection-start-column="132" selection-end-line="33" selection-end-column="132" />
               <folding>
-                <element signature="e#581#582#0" expanded="true" />
-                <element signature="e#641#642#0" expanded="true" />
-                <element signature="e#767#768#0" expanded="true" />
-                <element signature="e#825#826#0" expanded="true" />
+                <element signature="e#899#900#0" expanded="true" />
+                <element signature="e#953#954#0" expanded="true" />
+                <element signature="e#1686#1687#0" expanded="true" />
+                <element signature="e#1746#1747#0" expanded="true" />
+                <element signature="e#1930#1931#0" expanded="true" />
+                <element signature="e#1988#1989#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TweetHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="52" column="64" lean-forward="false" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="64" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,8 +95,8 @@
       <file leaf-file-name="BattleResultLogger.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="15" column="59" lean-forward="false" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+            <state relative-caret-position="221">
+              <caret line="13" column="102" lean-forward="false" selection-start-line="13" selection-start-column="102" selection-end-line="13" selection-end-column="102" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,11 +104,141 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameConfigurer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JAVA/twitter" pinned="false" current-in-tab="true">
+        <entry file="uml://JAVA/twitter">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>twitter</OriginalElement>
+              <nodes>
+                <node x="0.0" y="739.6927804777113">twitter.TweetSanitiser</node>
+                <node x="785.3828187356992" y="911.9500191669308">twitter.TweetReader</node>
+                <node x="885.292062081802" y="334.1198779843297">twitter.MongoConnection</node>
+                <node x="341.02861779238685" y="938.5997031321562">twitter.TweetParser</node>
+                <node x="422.341161756454" y="0.0">twitter.TweetHandler</node>
+                <node x="48.184080137666" y="242.14474949974226">twitter.TweetAnalyser</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="twitter.TweetAnalyser" target="twitter.TweetSanitiser">
+                  <point x="4.978487732706071" y="0.4633140352886471" />
+                  <point x="4.978487732706071" y="0.4633140352886471" />
+                </edge>
+                <edge source="twitter.TweetReader" target="twitter.MongoConnection">
+                  <point x="-5.124699584178359" y="0.0" />
+                  <point x="-5.124699584178302" y="0.0" />
+                </edge>
+                <edge source="twitter.MongoConnection" target="twitter.TweetReader">
+                  <point x="4.878334737353839" y="1.096289282227474" />
+                  <point x="4.878334737353839" y="1.096289282227474" />
+                </edge>
+                <edge source="twitter.TweetAnalyser" target="twitter.TweetReader">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="twitter.TweetParser" target="twitter.TweetSanitiser">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="twitter.TweetAnalyser" target="twitter.TweetHandler">
+                  <point x="0.0" y="5.701182438518714" />
+                  <point x="0.0" y="5.701182438518686" />
+                </edge>
+                <edge source="twitter.TweetAnalyser" target="twitter.MongoConnection">
+                  <point x="0.5008125407617854" y="-4.974855455087663" />
+                  <point x="0.5008125407617854" y="-4.974855455087692" />
+                </edge>
+                <edge source="twitter.TweetHandler" target="twitter.MongoConnection">
+                  <point x="3.0113335730042756" y="-3.9914746788746243" />
+                  <point x="3.011333573004265" y="-3.9914746788746243" />
+                </edge>
+                <edge source="twitter.TweetParser" target="twitter.TweetReader">
+                  <point x="0.0" y="5.184071082991238" />
+                  <point x="0.0" y="5.184071082991238" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.8565340909090909" x="620.5" y="694.0" />
+              <SelectedNodes>
+                <node>twitter.TweetSanitiser</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+              </Categories>
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JAVA/controller" pinned="false" current-in-tab="false">
+        <entry file="uml://JAVA/controller">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>controller</OriginalElement>
+              <nodes>
+                <node x="331.0" y="202.0">controller.BattleObserver</node>
+                <node x="224.0" y="725.0">controller.RobotController</node>
+                <node x="929.0" y="113.0">controller.StartRobocode</node>
+                <node x="707.0" y="135.0">controller.GameConfigurer</node>
+                <node x="238.0" y="522.0">controller.TwitterRobot</node>
+                <node x="0.0" y="0.0">controller.BattleResultLogger</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="controller.StartRobocode" target="controller.GameConfigurer">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="controller.TwitterRobot" target="controller.BattleObserver">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="controller.BattleObserver" target="controller.BattleResultLogger">
+                  <point x="-3.227946215375141" y="3.818424181602296" />
+                  <point x="-3.227946215375141" y="3.8184241816023246" />
+                </edge>
+                <edge source="controller.TwitterRobot" target="controller.RobotController">
+                  <point x="-5.00053746219109" y="0.0" />
+                  <point x="-5.000537462191119" y="0.0" />
+                </edge>
+                <edge source="controller.GameConfigurer" target="controller.BattleObserver">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.8143146522619852" x="-2.701907131011694" y="1116.726368159204" />
+              <SelectedNodes>
+                <node>controller.TwitterRobot</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+              </Categories>
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RobotController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameConfigurer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="114" lean-forward="false" selection-start-line="29" selection-start-column="114" selection-end-line="29" selection-end-column="114" />
+            <state relative-caret-position="867">
+              <caret line="51" column="44" lean-forward="false" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -118,8 +247,8 @@
       <file leaf-file-name="MongoConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/twitter/MongoConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="37" column="30" lean-forward="false" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+            <state relative-caret-position="68">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="22" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2803#2804#0" expanded="true" />
@@ -137,22 +266,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TweetAnalyser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetAnalyser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1887">
-              <caret line="114" column="70" lean-forward="false" selection-start-line="114" selection-start-column="70" selection-end-line="114" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="StartRobocode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/StartRobocode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#277#278#0" expanded="true" />
+                <element signature="e#320#321#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -212,15 +334,15 @@
         <option value="$PROJECT_DIR$/src/test/java/twitter/TweetAnalyserTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/twitter/TweetHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/twitter/TweetReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/RobotController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/TestRobot.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/BattleObserver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/StartRobocode.java" />
         <option value="$PROJECT_DIR$/src/main/java/twitter/MongoConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/twitter/TweetAnalyser.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/StartRobocode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/BattleObserver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/RobotController.java" />
       </list>
     </option>
   </component>
@@ -232,7 +354,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="2118" />
+    <option name="width" value="2095" />
     <option name="height" value="1417" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -253,9 +375,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -317,6 +436,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -326,7 +448,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/robocode_master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -667,10 +789,24 @@
       <workItem from="1521920872779" duration="2876000" />
       <workItem from="1522004726155" duration="157000" />
       <workItem from="1522069574570" duration="3026000" />
+      <workItem from="1522136960695" duration="8375000" />
+      <workItem from="1522157996907" duration="1958000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="RobotControllerTest - 2018.03.06 at 10h 42m 28s.xml">
+      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 15m 58s.xml">
+      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 16m 13s.xml">
+      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 17m 14s.xml">
+      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="TweetSanitiserTest - 2018.03.04 at 21h 57m 47s.xml">
       <configuration name="TweetSanitiserTest" configurationId="JUnit" />
     </history-entry>
@@ -689,54 +825,42 @@
     <history-entry file="TweetSanitiserTest_stringsShouldOnlyContainLetters - 2018.03.04 at 22h 17m 21s.xml">
       <configuration name="TweetSanitiserTest.stringsShouldOnlyContainLetters" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RobotControllerTest - 2018.03.06 at 10h 42m 28s.xml">
-      <configuration name="RobotControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 15m 58s.xml">
-      <configuration name="RobotControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 16m 13s.xml">
-      <configuration name="RobotControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 17m 14s.xml">
-      <configuration name="RobotControllerTest" configurationId="JUnit" />
-    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133267000" />
+    <option name="totallyTimeSpent" value="143600000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="2118" height="1417" extended-state="0" />
+    <frame x="-7" y="0" width="2095" height="1417" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298887" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2992629" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2993197" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17006803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17493857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977736" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37973484" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -757,44 +881,16 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="109" column="107" lean-forward="false" selection-start-line="109" selection-start-column="107" selection-end-line="109" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2159">
-          <caret line="138" column="50" lean-forward="false" selection-start-line="138" selection-start-column="50" selection-end-line="138" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="70" column="5" lean-forward="false" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/twitter/Test.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
           <folding>
-            <element signature="e#789#790#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#913#914#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1834#1835#0" expanded="true" />
+            <element signature="e#2004#2005#0" expanded="true" />
+            <element signature="e#2043#2044#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -833,10 +929,10 @@
         <state relative-caret-position="544">
           <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
           <folding>
-            <element signature="e#789#790#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#913#914#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1834#1835#0" expanded="true" />
+            <element signature="e#2004#2005#0" expanded="true" />
+            <element signature="e#2043#2044#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -940,40 +1036,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="116" column="64" lean-forward="false" selection-start-line="116" selection-start-column="64" selection-end-line="116" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/twitter/TweetAnalyserTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="49" lean-forward="false" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
-          <folding>
-            <element signature="e#789#790#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#913#914#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -995,29 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="72" lean-forward="false" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
-          <folding>
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#767#768#0" expanded="true" />
-            <element signature="e#825#826#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="59" lean-forward="false" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1057,18 +1100,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/StartRobocode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetAnalyser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        <state relative-caret-position="1887">
+          <caret line="114" column="70" lean-forward="false" selection-start-line="114" selection-start-column="70" selection-end-line="114" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/twitter/MongoConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="37" column="30" lean-forward="false" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        <state relative-caret-position="68">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="22" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2803#2804#0" expanded="true" />
@@ -1085,19 +1128,256 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetAnalyser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1887">
-          <caret line="114" column="70" lean-forward="false" selection-start-line="114" selection-start-column="70" selection-end-line="114" selection-end-column="70" />
+        <state relative-caret-position="867">
+          <caret line="51" column="44" lean-forward="false" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/StartRobocode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="114" lean-forward="false" selection-start-line="29" selection-start-column="114" selection-end-line="29" selection-end-column="114" />
+        <state relative-caret-position="204">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#277#278#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+          <folding>
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1834#1835#0" expanded="true" />
+            <element signature="e#2004#2005#0" expanded="true" />
+            <element signature="e#2043#2044#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="52" column="64" lean-forward="false" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="64" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="33" column="132" lean-forward="false" selection-start-line="33" selection-start-column="132" selection-end-line="33" selection-end-column="132" />
+          <folding>
+            <element signature="e#899#900#0" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#1686#1687#0" expanded="true" />
+            <element signature="e#1746#1747#0" expanded="true" />
+            <element signature="e#1930#1931#0" expanded="true" />
+            <element signature="e#1988#1989#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/controller.BattleResultLogger">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>controller.BattleResultLogger</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">controller.BattleResultLogger</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="74.0" y="15.0" />
+          <SelectedNodes>
+            <node>controller.BattleResultLogger</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="0.0" y="449.0">com</node>
+            <node x="0.0" y="79.0">controller</node>
+            <node x="179.0" y="227.0">netscape</node>
+            <node x="0.0" y="375.0">oracle</node>
+            <node x="436.0" y="449.0">org</node>
+            <node x="0.0" y="0.0">robocode</node>
+            <node x="350.0" y="227.0">twitter4j</node>
+            <node x="0.0" y="301.0">gl4java</node>
+            <node x="293.0" y="449.0">sun</node>
+            <node x="0.0" y="227.0">META-INF</node>
+            <node x="141.0" y="523.0">jdk</node>
+            <node x="322.0" y="301.0">twitter</node>
+            <node x="211.0" y="153.0">groovyjarjarasm</node>
+            <node x="148.0" y="449.0">java</node>
+            <node x="161.0" y="301.0">groovy</node>
+            <node x="310.0" y="375.0">javax</node>
+            <node x="175.0" y="0.0">groovyjarjarcommonscli</node>
+            <node x="156.0" y="375.0">javafx</node>
+            <node x="0.0" y="523.0">net</node>
+            <node x="0.0" y="153.0">groovyjarjarantlr</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="controller" target="robocode">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="267.0" y="276.0" />
+          <SelectedNodes>
+            <node>com</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="102" lean-forward="false" selection-start-line="13" selection-start-column="102" selection-end-line="13" selection-end-column="102" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/controller">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>controller</OriginalElement>
+          <nodes>
+            <node x="331.0" y="202.0">controller.BattleObserver</node>
+            <node x="224.0" y="725.0">controller.RobotController</node>
+            <node x="929.0" y="113.0">controller.StartRobocode</node>
+            <node x="707.0" y="135.0">controller.GameConfigurer</node>
+            <node x="238.0" y="522.0">controller.TwitterRobot</node>
+            <node x="0.0" y="0.0">controller.BattleResultLogger</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="controller.StartRobocode" target="controller.GameConfigurer">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="controller.TwitterRobot" target="controller.BattleObserver">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="controller.BattleObserver" target="controller.BattleResultLogger">
+              <point x="-3.227946215375141" y="3.818424181602296" />
+              <point x="-3.227946215375141" y="3.8184241816023246" />
+            </edge>
+            <edge source="controller.TwitterRobot" target="controller.RobotController">
+              <point x="-5.00053746219109" y="0.0" />
+              <point x="-5.000537462191119" y="0.0" />
+            </edge>
+            <edge source="controller.GameConfigurer" target="controller.BattleObserver">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8143146522619852" x="-2.701907131011694" y="1116.726368159204" />
+          <SelectedNodes>
+            <node>controller.TwitterRobot</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/twitter">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>twitter</OriginalElement>
+          <nodes>
+            <node x="0.0" y="739.6927804777113">twitter.TweetSanitiser</node>
+            <node x="785.3828187356992" y="911.9500191669308">twitter.TweetReader</node>
+            <node x="885.292062081802" y="334.1198779843297">twitter.MongoConnection</node>
+            <node x="341.02861779238685" y="938.5997031321562">twitter.TweetParser</node>
+            <node x="422.341161756454" y="0.0">twitter.TweetHandler</node>
+            <node x="48.184080137666" y="242.14474949974226">twitter.TweetAnalyser</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="twitter.TweetAnalyser" target="twitter.TweetSanitiser">
+              <point x="4.978487732706071" y="0.4633140352886471" />
+              <point x="4.978487732706071" y="0.4633140352886471" />
+            </edge>
+            <edge source="twitter.TweetReader" target="twitter.MongoConnection">
+              <point x="-5.124699584178359" y="0.0" />
+              <point x="-5.124699584178302" y="0.0" />
+            </edge>
+            <edge source="twitter.MongoConnection" target="twitter.TweetReader">
+              <point x="4.878334737353839" y="1.096289282227474" />
+              <point x="4.878334737353839" y="1.096289282227474" />
+            </edge>
+            <edge source="twitter.TweetAnalyser" target="twitter.TweetReader">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="twitter.TweetParser" target="twitter.TweetSanitiser">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="twitter.TweetAnalyser" target="twitter.TweetHandler">
+              <point x="0.0" y="5.701182438518714" />
+              <point x="0.0" y="5.701182438518686" />
+            </edge>
+            <edge source="twitter.TweetAnalyser" target="twitter.MongoConnection">
+              <point x="0.5008125407617854" y="-4.974855455087663" />
+              <point x="0.5008125407617854" y="-4.974855455087692" />
+            </edge>
+            <edge source="twitter.TweetHandler" target="twitter.MongoConnection">
+              <point x="3.0113335730042756" y="-3.9914746788746243" />
+              <point x="3.011333573004265" y="-3.9914746788746243" />
+            </edge>
+            <edge source="twitter.TweetParser" target="twitter.TweetReader">
+              <point x="0.0" y="5.184071082991238" />
+              <point x="0.0" y="5.184071082991238" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8565340909090909" x="620.5" y="694.0" />
+          <SelectedNodes>
+            <node>twitter.TweetSanitiser</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
