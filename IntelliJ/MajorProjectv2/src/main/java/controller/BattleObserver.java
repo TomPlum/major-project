@@ -13,7 +13,7 @@ import robocode.control.events.*;
 public class BattleObserver extends BattleAdaptor {
     private BattleResultLogger resultLogger = new BattleResultLogger();
     private static long startTime;
-    public static int numberOfTurns = 0;
+    static int numberOfTurns = 0;
 
     /**
      * This method is called when a new battle has started.

@@ -1,0 +1,35 @@
+<component name="libraryTable">
+  <library name="robocode">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/robocode_master/libs/robocode.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/plugins/dotnet/robocode.dotnet.host/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/plugins/dotnet/robocode.dotnet.host/src/test/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/plugins/dotnet/robocode.dotnet.installer/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/plugins/dotnet/robocode.dotnet.tests/src/test/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/plugins/testing/robocode.testing.api/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/plugins/testing/robocode.testing.installer/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/plugins/testing/robocode.testing.samples/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.api/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.battle/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.content/src/main/resources/compilers" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.core/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.core/src/test/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.host/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.host/src/test/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.installer/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.repository/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.roborumble/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.samples/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.sound/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.tests.robots/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.tests/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.tests/src/test/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.ui.editor/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.ui/src/main/java" />
+      <root url="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/tools/loader" />
+    </SOURCES>
+  </library>
+</component>

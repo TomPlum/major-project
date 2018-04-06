@@ -37,7 +37,7 @@ public class GameConfigurer {
 
         //Setup Battle Specification
         BattlefieldSpecification battlefield = new BattlefieldSpecification(BATTLEFIELD_W, BATTLEFIELD_H);
-        RobotSpecification[] selectedRobots = engine.getLocalRepository("sample.Crazy, sample.Corners, sample.Fire");
+        RobotSpecification[] selectedRobots = engine.getLocalRepository("controller.TwitterRobot, controller.TwitterRobot");
 
         BattleSpecification battleSpec = new BattleSpecification(NO_OF_ROUNDS, battlefield, selectedRobots);
 

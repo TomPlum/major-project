@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d06cb7df-8c9e-4bfc-a32e-c7b16540e8df" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/MajorProjectv2$RobotControllerTest_firePowerShouldBeInRange.coverage" NAME="RobotControllerTest.firePowerShouldBeInRange Coverage Results" MODIFIED="1518372702363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>robocode.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="StartRobocode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/StartRobocode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameConfigurer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>int</find>
+      <find>null</find>
+      <find>RobotController(</find>
+      <find>Iterator</find>
+      <find>\\</find>
+      <find>repositoryItems</find>
+      <find>removedItems</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Integer</replace>
+      <replace>-1</replace>
+      <replace>/</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/twitter/TweetAnalyser.java" />
+        <option value="$PROJECT_DIR$/src/twitter/MongoConnection.java" />
+        <option value="$PROJECT_DIR$/src/twitter/TweetHandler.java" />
+        <option value="$PROJECT_DIR$/src/twitter/TweetParser.java" />
+        <option value="$PROJECT_DIR$/src/twitter/TweetReader.java" />
+        <option value="$PROJECT_DIR$/src/twitter/TweetSanitiser.java" />
+        <option value="$PROJECT_DIR$/test/robocode/RobotControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/robocode/RobotControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robocode/GameConfigurer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/robocode/RobotController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/twitter/TweetHandlerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/robocode/TestRunner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/twitter/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/twitter/TweetParser.java" />
+        <option value="$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/twitter/TweetSanitiser.java" />
+        <option value="$PROJECT_DIR$/src/test/java/twitter/TweetSanitiserTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/twitter/TweetAnalyserTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/twitter/TweetHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/twitter/TweetReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/twitter/TweetAnalyser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/RobotController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/TestRobot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/BattleObserver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/twitter/MongoConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/StartRobocode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="width" value="2099" />
+    <option name="height" value="1417" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MajorProjectv3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MajorProjectv3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MajorProjectv3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MajorProjectv3" type="462c0819:PsiDirectoryNode" />
+              <item name="robocode_master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MajorProjectv3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MajorProjectv3" type="462c0819:PsiDirectoryNode" />
+              <item name="robocode_master" type="462c0819:PsiDirectoryNode" />
+              <item name="robots" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MajorProjectv3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MajorProjectv3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="Repo&#9;FILE&#9;jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.repository/src/main/java/net/sf/robocode/repository/Repository.java" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="twitter" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\RobocodeEngineProblem\MajorProjectv2\robocode_master\libs" />
+      <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2\robocode_master\robots\com\mongodb" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2\src" />
+      <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.StartRobocodeEngine">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HEIGHT" value="0" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="WIDTH" value="0" />
+    </configuration>
+    <configuration name="MongoConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="twitter.MongoConnection" />
+      <module name="MajorProjectv2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="twitter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="Start Robocode" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="robocode.Robocode" />
+      <module name="MajorProjectv2" />
+      <option name="VM_PARAMETERS" value="-Xmx512M -Dsun.io.useCanonCaches=false -Ddebug=true -DNOSECURITY=true -XX:+IgnoreUnrecognizedVMOptions -cp libs/robocode.jar &quot;--add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED&quot; &quot;--add-opens=java.base/java.lang.reflect=ALL-UNNAMED&quot; &quot;--add-opens=java.desktop/sun.awt=ALL-UNNAMED&quot;" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/robocode_master" />
+    </configuration>
+    <configuration name="StartRobocodeEngine" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="controller.StartRobocode" />
+      <module name="MajorProjectv2" />
+      <option name="VM_PARAMETERS" value="-Xmx1024M -DNOSECURITY=true -XX:+IgnoreUnrecognizedVMOptions &quot;--add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED&quot; &quot;--add-opens=java.base/java.lang.reflect=ALL-UNNAMED&quot; &quot;--add-opens=java.desktop/sun.awt=ALL-UNNAMED&quot;" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/robocode_master" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TweetAnalyser" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="twitter.TweetAnalyser" />
+      <module name="MajorProjectv2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="twitter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="TweetHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="twitter.TweetHandler" />
+      <module name="MajorProjectv2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="twitter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="RobotControllerTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="MajorProjectv2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="robocode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="robocode" />
+      <option name="MAIN_CLASS_NAME" value="robocode.RobotControllerTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="TweetSanitiserTest.stringsShouldNotContainAnyEmoji" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MajorProjectv2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="twitter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="twitter" />
+      <option name="MAIN_CLASS_NAME" value="twitter.TweetSanitiserTest" />
+      <option name="METHOD_NAME" value="stringsShouldNotContainAnyEmoji" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="TweetSanitiserTest.stringsShouldOnlyContainLetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MajorProjectv2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="twitter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="twitter" />
+      <option name="MAIN_CLASS_NAME" value="twitter.TweetSanitiserTest" />
+      <option name="METHOD_NAME" value="stringsShouldOnlyContainLetters" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Start Robocode" />
+      <item itemvalue="Application.TweetAnalyser" />
+      <item itemvalue="JUnit.RobotControllerTest" />
+      <item itemvalue="Application.TweetHandler" />
+      <item itemvalue="Application.MongoConnection" />
+      <item itemvalue="Application.StartRobocodeEngine" />
+      <item itemvalue="JUnit.TweetSanitiserTest.stringsShouldNotContainAnyEmoji" />
+      <item itemvalue="JUnit.TweetSanitiserTest.stringsShouldOnlyContainLetters" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StartRobocodeEngine" />
+        <item itemvalue="Application.MongoConnection" />
+        <item itemvalue="Application.TweetHandler" />
+        <item itemvalue="JUnit.TweetSanitiserTest.stringsShouldOnlyContainLetters" />
+        <item itemvalue="JUnit.TweetSanitiserTest.stringsShouldNotContainAnyEmoji" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d06cb7df-8c9e-4bfc-a32e-c7b16540e8df" name="Default" comment="" />
+      <created>1518343376352</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518343376352</updated>
+      <workItem from="1518343397743" duration="4285000" />
+      <workItem from="1518359251717" duration="11092000" />
+      <workItem from="1518963818254" duration="4059000" />
+      <workItem from="1519294515049" duration="2707000" />
+      <workItem from="1519581439900" duration="2266000" />
+      <workItem from="1519676677047" duration="5057000" />
+      <workItem from="1519837146726" duration="20703000" />
+      <workItem from="1519981791464" duration="8031000" />
+      <workItem from="1520074120949" duration="1067000" />
+      <workItem from="1520075216027" duration="6000" />
+      <workItem from="1520111636331" duration="642000" />
+      <workItem from="1520159059634" duration="7946000" />
+      <workItem from="1520239015017" duration="4985000" />
+      <workItem from="1520332812080" duration="1417000" />
+      <workItem from="1520345723017" duration="1546000" />
+      <workItem from="1520369395316" duration="633000" />
+      <workItem from="1520515113464" duration="2292000" />
+      <workItem from="1520845366050" duration="3837000" />
+      <workItem from="1520933282289" duration="2060000" />
+      <workItem from="1521113654611" duration="11851000" />
+      <workItem from="1521287947502" duration="13956000" />
+      <workItem from="1521377553640" duration="801000" />
+      <workItem from="1521535336933" duration="1675000" />
+      <workItem from="1521714221733" duration="1292000" />
+      <workItem from="1521792970403" duration="13002000" />
+      <workItem from="1521920872779" duration="2876000" />
+      <workItem from="1522004726155" duration="157000" />
+      <workItem from="1523055087893" duration="498000" />
+      <workItem from="1523055608422" duration="298000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="RobotControllerTest - 2018.03.06 at 10h 42m 28s.xml">
+      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 15m 58s.xml">
+      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 16m 13s.xml">
+      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 17m 14s.xml">
+      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TweetSanitiserTest - 2018.03.04 at 21h 57m 47s.xml">
+      <configuration name="TweetSanitiserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TweetSanitiserTest - 2018.03.04 at 21h 58m 58s.xml">
+      <configuration name="TweetSanitiserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TweetSanitiserTest - 2018.03.04 at 22h 01m 25s.xml">
+      <configuration name="TweetSanitiserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TweetSanitiserTest - 2018.03.04 at 22h 12m 43s.xml">
+      <configuration name="TweetSanitiserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TweetSanitiserTest_stringsShouldNotContainAnyEmoji - 2018.03.04 at 22h 15m 29s.xml">
+      <configuration name="TweetSanitiserTest.stringsShouldNotContainAnyEmoji" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TweetSanitiserTest_stringsShouldOnlyContainLetters - 2018.03.04 at 22h 17m 21s.xml">
+      <configuration name="TweetSanitiserTest.stringsShouldOnlyContainLetters" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="131037000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="0" width="2099" height="1417" extended-state="0" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Messages" order="6" weight="0.34448162" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3298887" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="0" />
+      <window_info anchor="right" id="Run" order="11" weight="0.2447278" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17753801" />
+      <window_info anchor="right" id="Database" order="7" weight="0.32977736" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Debug" order="10" weight="0.4173774" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3297491" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.32998884" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.repository/src/main/java/net/sf/robocode/repository/RepositoryManager.java</url>
+          <line>295</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.repository/src/main/java/net/sf/robocode/repository/Repository.java</url>
+          <line>186</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="NONE" type="java-line">
+          <url>jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.repository/src/main/java/net/sf/robocode/repository/Repository.java</url>
+          <line>129</line>
+          <properties />
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="28" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/Test.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/MongoConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/robocode/GameConfigurer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/robocode/RobotController.java" />
+    <entry file="jar://$PROJECT_DIR$/robocode_master/libs/robocode.jar!/net/sf/robocode/security/SafeComponent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/robocode/TestRunner.java" />
+    <entry file="jar://$PROJECT_DIR$/robocode_master/libs/robocode.jar!/robocode/Robocode.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/Test.java" />
+    <entry file="jar://D:/TwitterResources/mongo-java-driver-3.6.1.jar!/org/bson/Document.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.0.0/junit-platform-commons-1.0.0.jar!/org/junit/platform/commons/util/ReflectionUtils.class" />
+    <entry file="file://$PROJECT_DIR$/robocode_master/robots/com/mongodb/MongoClient.class" />
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/lang/Class.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/io/FileInputStream.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/twitter/TweetHandlerTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/twitter/TweetSanitiserTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSanitiser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="116" column="64" selection-start-line="116" selection-start-column="64" selection-end-line="116" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetAnalyser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="794">
+          <caret line="109" column="43" lean-forward="true" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robocode_master/robots/sample/Crazy.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TestRobot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="43" lean-forward="true" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robocode_master/robots/sample/RobotJDK6.class" />
+    <entry file="file://$PROJECT_DIR$/robocode_master/robots/sample/Crazy.class" />
+    <entry file="file://$PROJECT_DIR$/robocode_master/robots/sample/Crazy.properties" />
+    <entry file="file://$PROJECT_DIR$/robocode_master/robots/sample/Corners.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/MongoConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="78" column="31" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/twitter/TweetAnalyserTest.java" />
+    <entry file="jar://$PROJECT_DIR$/robocode_master/libs/robocode.jar!/net/sf/robocode/security/HiddenAccess.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/robocode_master/libs/robocode.jar!/net/sf/robocode/core/ContainerBase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-476">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="49" lean-forward="true" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/StartRobocode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/robocode_master/libs/robocode.jar!/robocode/control/BattleSpecification.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/robocode_master/libs/robocode.jar!/robocode/control/RobocodeEngine.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="132" selection-start-line="132" selection-end-line="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.api/src/main/java/net/sf/robocode/repository/IRepositoryManagerBase.java" />
+    <entry file="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.api/src/main/java/robocode/control/BattleSpecification.java" />
+    <entry file="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.api/src/main/java/net/sf/robocode/core/ContainerBase.java" />
+    <entry file="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.api/src/main/java/robocode/control/RobocodeEngine.java" />
+    <entry file="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.repository/src/main/java/net/sf/robocode/repository/RepositoryManager.java" />
+    <entry file="jar://D:/robocode-work/robocode.distribution/target/robocode-1.9.3.2-src.zip!/robocode-1.9.3.2/robocode.repository/src/main/java/net/sf/robocode/repository/Repository.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>emoji-java-4.0.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>6u45</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>MajorProjectv2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>emoji-java-4.0.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
