@@ -6,50 +6,101 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class RobotController  {
-
-    private String USER;
-    private Double robotX;
-    private Double robotY;
-    private Double FIRE_POWER = -1.0;
-    private Integer MOVE_UP = -1;
-    private Integer MOVE_RIGHT = -1;
-    private Integer MOVE_DOWN = -1;
-    private Integer MOVE_LEFT = -1;
-    private Integer ROTATE = 999;
-    private Integer ROTATE_DIRECTION = 99;
-    private Integer ROTATE_GUN = 999;
-    private Integer ROTATE_GUN_DIRECTION = 99;
+public class RobotController implements Runnable {
+    private static String USER;
+    private static Double robotX;
+    private static Double robotY;
+    private static Double FIRE_POWER = -1.0;
+    private static Integer MOVE_UP = -1;
+    private static Integer MOVE_RIGHT = -1;
+    private static Integer MOVE_DOWN = -1;
+    private static Integer MOVE_LEFT = -1;
+    private static Integer ROTATE = 999;
+    private static Integer ROTATE_DIRECTION = 99;
+    private static Integer ROTATE_GUN = 999;
+    private static Integer ROTATE_GUN_DIRECTION = 99;
     private Integer ROTATE_SCANNER = 999;
     private Integer ROTATE_SCANNER_DIRECTION = 99;
     private Integer SCAN_FREQUENCY = -1;
 
-    private TweetReader tr = new TweetReader();
-    private ArrayList<Document> allTweets;
-    private ArrayList<Document> currentTweetArray;
-    private Document currentTweet;
-    private DecimalFormat dp1 = new DecimalFormat(".#");
+    private static TweetReader tr = new TweetReader();
+    private static ArrayList<Document> allTweets;
+    private static ArrayList<Document> currentTweetArray;
+    private static Document currentTweet;
+    private static DecimalFormat dp1 = new DecimalFormat(".#");
 
-    private int CHARS_USED = 0;
-    private int TWEETS_USED = 0;
+    private static int CHARS_USED = 0;
+    private static int TWEETS_USED = 0;
 
-    public RobotController() {
-        setRandomUser();
-        initialiseTweets();
-    }
+    private volatile boolean running = true;
+    private volatile boolean paused = false;
+    private final Object pauseLock = new Object();
 
-    public void initialiseTweets() {
-        try {
-            allTweets = tr.getTweetsByUser(USER);
-            currentTweetArray = new ArrayList<>(allTweets);
-        } catch (NullPointerException e) {
-            if (USER == null) {
-                System.out.println("RobotController User is not defined!");
+    @Override
+    public void run() {
+        while (running){
+            synchronized (pauseLock) {
+                if (!running) {
+                    break;
+                }
+                if (paused) {
+                    try {
+                        pauseLock.wait();
+                    } catch (InterruptedException ex) {
+                        break;
+                    }
+                    if (!running) {
+                        break;
+                    }
+                }
             }
+            System.out.println("RobotController Running...");
+            pause();
+            System.out.println("Retrieving Users From MongoDB Cluster...");
+            setRandomUser();
+            System.out.println("Initialising " + getUSER() + "'s Tweets...");
+            initialiseTweets();
+            resume();
+            stop();
         }
     }
 
-    public void randomiseValues() {
+    public void stop() {
+        running = false;
+        // you might also want to interrupt() the Thread that is
+        // running this Runnable, too, or perhaps call:
+        resume();
+        // to unblock
+    }
+
+    public void pause() {
+        // you may want to throw an IllegalStateException if !running
+        paused = true;
+    }
+
+    public void resume() {
+        synchronized (pauseLock) {
+            paused = false;
+            pauseLock.notifyAll(); // Unblocks thread
+        }
+    }
+
+    public RobotController() {
+        //run();
+        //setRandomUser();
+        //initialiseTweets();
+    }
+
+    public void initialiseTweets() {
+        if (USER == null) {
+            System.out.println("RobotController User is not defined!");
+        } else {
+            allTweets = tr.getTweetsByUser(USER);
+            currentTweetArray = new ArrayList<>(allTweets);
+        }
+    }
+
+    public static void randomiseValues() {
         TweetParser parser = new TweetParser();
         updateCurrentTweet(); //Instantiate currentTweet.
         while(true) {
@@ -135,11 +186,11 @@ public class RobotController  {
         }
     }
 
-    private boolean currentTweetIsNotExhausted() {
+    private static boolean currentTweetIsNotExhausted() {
         return currentTweet.get("text").toString().length() > 0;
     }
 
-    private String getTweetChar() {
+    private static String getTweetChar() {
         try {
             String text = currentTweet.get("text").toString();
             String newText = text.substring(1, text.length());
@@ -162,7 +213,7 @@ public class RobotController  {
      * @param s2 first decimal
      * @return double in format x.y
      */
-    private Double createDouble(Integer s1, Integer s2) {
+    private static Double createDouble(Integer s1, Integer s2) {
         if (s1 > 10) {
             String num1 = s1.toString().substring(0, 1);
             String num2 = s1.toString().substring(1, 2);
@@ -177,7 +228,7 @@ public class RobotController  {
         return Double.parseDouble(s1 + "." + s2);
     }
 
-    private Integer createAngle(Integer i1, Integer i2) {
+    private static Integer createAngle(Integer i1, Integer i2) {
         String intString = i1.toString() + i2.toString();
         Integer concatInt = Integer.parseInt(intString);
         if (concatInt <= 360) {
@@ -189,14 +240,14 @@ public class RobotController  {
         return  Math.round(concatInt / 7.013888888888889f);
     }
 
-    private Integer createDirection(Integer num) {
+    private static Integer createDirection(Integer num) {
         if (num >= 0 || num <= 11) {
             return -1;
         }
         return 1;
     }
 
-    private Integer createMovement(Integer mv1, Integer mv2) {
+    private static Integer createMovement(Integer mv1, Integer mv2) {
         String moveString = mv1.toString() + mv2.toString();
         Integer concatInt = Integer.parseInt(moveString);
 
@@ -209,7 +260,7 @@ public class RobotController  {
         return Math.round(concatInt / 2.525f);
     }
 
-    private void updateCurrentTweet() {
+    private static void updateCurrentTweet() {
         if (currentTweetArray != null && currentTweetArray.size() > 0) {
             currentTweet = currentTweetArray.remove(0);
 
@@ -222,7 +273,7 @@ public class RobotController  {
         }
     }
 
-    private boolean allValuesValidated() {
+    private static boolean allValuesValidated() {
         //FIRE_POWER
         return FIRE_POWERisValid() &&
                 ROTATE_DIRECTIONisValid(ROTATE_DIRECTION) &&
@@ -235,7 +286,7 @@ public class RobotController  {
                 ROTATEisValid(ROTATE_GUN);
     }
 
-    public void invalidateAllValues() {
+    public static void invalidateAllValues() {
         FIRE_POWER = -1.0;
         ROTATE_DIRECTION = 99;
         ROTATE = 999;
@@ -279,6 +330,7 @@ public class RobotController  {
         //Get random user string and set RobotController USER
         String user = users.get(n);
         setUSER(user);
+        System.out.println("User set to " + user);
     }
 
     public void setUSER(String USER) {
@@ -289,80 +341,71 @@ public class RobotController  {
      * Robot Firepower. Min 0.1, Max 3.0
      * @param FIRE_POWER Firepower (0.1 - 3.0)
      */
-    public void setFIRE_POWER(double FIRE_POWER) {
-        this.FIRE_POWER = Double.parseDouble(dp1.format(FIRE_POWER));
+    public static void setFIRE_POWER(double FIRE_POWER) {
+        RobotController.FIRE_POWER = Double.parseDouble(dp1.format(FIRE_POWER));
     }
 
-    public void setROTATE(Integer ROTATE) {
-        this.ROTATE = ROTATE;
+    public static void setROTATE(Integer ROTATE) {
+        RobotController.ROTATE = ROTATE;
     }
 
-    public Integer getMOVE_UP() {
+    public static Integer getMOVE_UP() {
         return MOVE_UP;
     }
 
-    public void setMOVE_UP(Integer MOVE_UP) {
-        this.MOVE_UP = MOVE_UP;
+    public static void setMOVE_UP(Integer MOVE_UP) {
+        RobotController.MOVE_UP = MOVE_UP;
     }
 
     public Integer getMOVE_RIGHT() {
         return MOVE_RIGHT;
     }
 
-    public void setMOVE_RIGHT(Integer MOVE_RIGHT) {
-        this.MOVE_RIGHT = MOVE_RIGHT;
+    public static void setMOVE_RIGHT(Integer MOVE_RIGHT) {
+        RobotController.MOVE_RIGHT = MOVE_RIGHT;
     }
 
-    public Integer getMOVE_DOWN() {
+    public static Integer getMOVE_DOWN() {
         return MOVE_DOWN;
     }
 
-    public void setMOVE_DOWN(Integer MOVE_DOWN) {
-        this.MOVE_DOWN = MOVE_DOWN;
+    public static void setMOVE_DOWN(Integer MOVE_DOWN) {
+        RobotController.MOVE_DOWN = MOVE_DOWN;
     }
 
     public Integer getMOVE_LEFT() {
         return MOVE_LEFT;
     }
 
-    public void setMOVE_LEFT(Integer MOVE_LEFT) {
-        this.MOVE_LEFT = MOVE_LEFT;
+    public static void setMOVE_LEFT(Integer MOVE_LEFT) {
+        RobotController.MOVE_LEFT = MOVE_LEFT;
     }
 
-    public Integer getROTATE_DIRECTION() {
+    public static Integer getROTATE_DIRECTION() {
         return ROTATE_DIRECTION;
     }
 
-    public void setROTATE_DIRECTION(Integer ROTATE_DIRECTION) {
-        this.ROTATE_DIRECTION = ROTATE_DIRECTION;
+    public static void setROTATE_DIRECTION(Integer ROTATE_DIRECTION) {
+        RobotController.ROTATE_DIRECTION = ROTATE_DIRECTION;
     }
 
-    public Integer getROTATE_GUN() {
+    public static Integer getROTATE_GUN() {
         return ROTATE_GUN;
     }
 
-    public void setROTATE_GUN(Integer ROTATE_GUN) {
-        this.ROTATE_GUN = ROTATE_GUN;
+    public static void setROTATE_GUN(Integer ROTATE_GUN) {
+        RobotController.ROTATE_GUN = ROTATE_GUN;
     }
 
     public Integer getROTATE_GUN_DIRECTION() {
         return ROTATE_GUN_DIRECTION;
     }
 
-    public void setROTATE_GUN_DIRECTION(Integer ROTATE_GUN_DIRECTION) {
-        this.ROTATE_GUN_DIRECTION = ROTATE_GUN_DIRECTION;
+    public static void setROTATE_GUN_DIRECTION(Integer ROTATE_GUN_DIRECTION) {
+        RobotController.ROTATE_GUN_DIRECTION = ROTATE_GUN_DIRECTION;
     }
 
-    public void setRobotX(Double robotX) {
-        this.robotX = robotX;
-    }
-
-    public void setRobotY(Double robotY) {
-        this.robotY = robotY;
-    }
-
-
-    public double getFIRE_POWER() {
+    public static double getFIRE_POWER() {
         return FIRE_POWER;
     }
 
@@ -370,7 +413,7 @@ public class RobotController  {
         return allTweets;
     }
 
-    public String getUSER() {
+    public static String getUSER() {
         return USER;
     }
 
@@ -386,28 +429,37 @@ public class RobotController  {
         return TWEETS_USED;
     }
 
+    public static void setRobotX(Double robotX) {
+        RobotController.robotX = robotX;
+    }
+
+    public static void setRobotY(Double robotY) {
+        RobotController.robotY = robotY;
+    }
+
     /*---------------------------------------------------
     /*--------------- VALIDATION METHODS ----------------
     /*-------------------------------------------------*/
 
-    private boolean FIRE_POWERisValid() {
+    private static boolean FIRE_POWERisValid() {
         return FIRE_POWER >= 0.0 && FIRE_POWER <= 3.0;
     }
 
-    private boolean ROTATE_DIRECTIONisValid(Integer dir) {
+    private static boolean ROTATE_DIRECTIONisValid(Integer dir) {
         return dir == 1 || dir == -1;
     }
 
-    private boolean ROTATEisValid(Integer angle) {
+    private static boolean ROTATEisValid(Integer angle) {
         return angle >= -360 && angle <= 360;
     }
 
-    private boolean MOVEVEMENTisValid(Integer movement) {
+    private static boolean MOVEVEMENTisValid(Integer movement) {
         return movement >= 0 && movement < 1000;
     }
 
 
     public static void main(String[] args) {
+        /*
         RobotController rc = new RobotController();
         TweetReader tr = new TweetReader();
 
@@ -441,5 +493,6 @@ public class RobotController  {
             System.out.println("Rotate Direction: " + rc.getROTATE_DIRECTION() + " (Clockwise)");
         }
         System.out.println("Rotate: " + rc.getROTATE());
+        */
     }
 }

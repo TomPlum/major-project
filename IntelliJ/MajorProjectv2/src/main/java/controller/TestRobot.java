@@ -5,6 +5,7 @@ import robocode.AdvancedRobot;
 import robocode.*;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class TestRobot extends AdvancedRobot {
     boolean movingForward;

@@ -12,7 +12,7 @@ import robocode.*;
  * @version 1.0.0
  */
 public class TwitterRobot extends AdvancedRobot {
-    private RobotController rc = new RobotController();
+    private int turns = 0;
 
     /**
      * Called whenever the Robot's status changes.
@@ -21,8 +21,8 @@ public class TwitterRobot extends AdvancedRobot {
     public void onStatus(StatusEvent e) {
         //Update Robot's Current Coordinates
         RobotStatus robotStatus = e.getStatus();
-        rc.setRobotX(robotStatus.getX());
-        rc.setRobotY(robotStatus.getY());
+        RobotController.setRobotX(robotStatus.getX());
+        RobotController.setRobotY(robotStatus.getY());
     }
 
     /**
@@ -31,16 +31,17 @@ public class TwitterRobot extends AdvancedRobot {
      */
     public void run() {
         while (true) {
-            rc.randomiseValues();
+            turns++;
+            RobotController.randomiseValues();
 
-            ahead(rc.getMOVE_UP());
-            if (rc.getROTATE_DIRECTION() == 1) {
-                turnGunRight(rc.getROTATE_GUN());
+            ahead(RobotController.getMOVE_UP());
+            if (RobotController.getROTATE_DIRECTION() == 1) {
+                turnGunRight(RobotController.getROTATE_GUN());
             } else {
-                turnGunLeft(rc.getROTATE_GUN() * -1);
+                turnGunLeft(RobotController.getROTATE_GUN() * -1);
             }
 
-            rc.invalidateAllValues();
+            RobotController.invalidateAllValues();
             BattleObserver.numberOfTurns++;
         }
     }
@@ -50,7 +51,7 @@ public class TwitterRobot extends AdvancedRobot {
      * @param e Robocode ScannedRobotEvent
      */
     public void onScannedRobot(ScannedRobotEvent e) {
-        fire(rc.getFIRE_POWER());
+        fire(RobotController.getFIRE_POWER());
     }
 
     /**
@@ -58,7 +59,7 @@ public class TwitterRobot extends AdvancedRobot {
      * @param e Robocode HitWallEvent
      */
     public void onHitWall(HitWallEvent e) {
-        back(rc.getMOVE_DOWN());
+        back(RobotController.getMOVE_DOWN());
     }
 
     /**
