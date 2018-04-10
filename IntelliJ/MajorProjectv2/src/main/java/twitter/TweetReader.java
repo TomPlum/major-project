@@ -41,7 +41,7 @@ public class TweetReader {
         }
         ArrayList<Document> list = new ArrayList<>();
         Block<Document> addBlock = document -> list.add(document);
-        conn.getMongoCollection().find(eq("user", username)).forEach(addBlock);
+        conn.getMongoCollection().find(eq("screenName", username)).forEach(addBlock);
         return list;
     }
 

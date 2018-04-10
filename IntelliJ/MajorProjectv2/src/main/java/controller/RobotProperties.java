@@ -11,10 +11,10 @@ public class RobotProperties {
         OutputStream output = null;
 
         try {
-            output = new FileOutputStream("TwitterRobot.properties");
+            output = new FileOutputStream("C:/Users/thoma/Dropbox (University)/Year 3/CPU6001 - Major Project (Amanda & Louise)/IntelliJ/MajorProjectv2/robocode_master/robots/controller/TwitterRobot.properties");
 
             //Set Properties
-            prop.setProperty("robot.description", "This robot's actions are entirely dependent on the character values from Twitter Tweets stored in a MongoDB Atlas Cluster. It is controller via the RobotController that parses Tweets from the TweetParser. A Twitter user is chosen at random to represent it and therefore choose its actions.");
+            prop.setProperty("robot.description", "Controlled by Twitter");
             prop.setProperty("robot.webpage", "https://major-project.tomplumpton.me");
             prop.setProperty("robocode.version", "1.9.3.2");
             prop.setProperty("robot.author.name", "Thomas Plumpton");
@@ -29,6 +29,7 @@ public class RobotProperties {
             if (output != null) {
                 try {
                     output.close();
+                    System.out.println("Successfully written TwitterRobot.properties");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

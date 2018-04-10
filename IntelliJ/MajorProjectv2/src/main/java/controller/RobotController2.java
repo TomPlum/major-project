@@ -10,34 +10,37 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class RobotController2 implements Runnable{
-    private static String USER;
-    private static Double robotX;
-    private static Double robotY;
-    private static Double FIRE_POWER = -1.0;
-    private static Integer MOVE_UP = -1;
-    private static Integer MOVE_RIGHT = -1;
-    private static Integer MOVE_DOWN = -1;
-    private static Integer MOVE_LEFT = -1;
-    private static Integer ROTATE = 999;
-    private static Integer ROTATE_DIRECTION = 99;
-    private static Integer ROTATE_GUN = 999;
-    private static Integer ROTATE_GUN_DIRECTION = 99;
+    private String USER;
+    private Double robotX;
+    private Double robotY;
+    private Double FIRE_POWER = -1.0;
+    private Integer MOVE_UP = -1;
+    private Integer MOVE_RIGHT = -1;
+    private Integer MOVE_DOWN = -1;
+    private Integer MOVE_LEFT = -1;
+    private Integer ROTATE = 999;
+    private Integer ROTATE_DIRECTION = 99;
+    private Integer ROTATE_GUN = 999;
+    private Integer ROTATE_GUN_DIRECTION = 99;
     private Integer ROTATE_SCANNER = 999;
     private Integer ROTATE_SCANNER_DIRECTION = 99;
     private Integer SCAN_FREQUENCY = -1;
 
     private static TweetReader tr = new TweetReader();
-    private static ArrayList<Document> allTweets;
-    private static ArrayList<Document> currentTweetArray;
-    private static Document currentTweet;
+    private static ArrayList<String> takenUsers = new ArrayList<>();
+    private ArrayList<Document> allTweets;
+    private ArrayList<Document> currentTweetArray;
+    private Document currentTweet;
     private static DecimalFormat dp1 = new DecimalFormat(".#");
 
-    private static int CHARS_USED = 0;
-    private static int TWEETS_USED = 0;
+    private int CHARS_USED = 0;
+    private int TWEETS_USED = 0;
 
     private volatile boolean running = true;
     private volatile boolean paused = false;
     private final Object pauseLock = new Object();
+
+    public static boolean isWaiting = true;
 
     @Override
     public void run() {
@@ -95,18 +98,17 @@ public class RobotController2 implements Runnable{
     }
 
     public void initialiseTweets() {
-        try {
+        if (USER == null) {
+            System.out.println("RobotController2 User is not defined!");
+        } else {
             allTweets = tr.getTweetsByUser(USER);
             currentTweetArray = new ArrayList<>(allTweets);
             System.out.println("Tweets Initialised.");
-        } catch (NullPointerException e) {
-            if (USER == null) {
-                System.out.println("RobotController2 User is not defined!");
-            }
+            isWaiting = false;
         }
     }
 
-    public static void randomiseValues() {
+    public void randomiseValues() {
         TweetParser parser = new TweetParser();
         updateCurrentTweet(); //Instantiate currentTweet.
         while(true) {
@@ -192,11 +194,11 @@ public class RobotController2 implements Runnable{
         }
     }
 
-    private static boolean currentTweetIsNotExhausted() {
+    private boolean currentTweetIsNotExhausted() {
         return currentTweet.get("text").toString().length() > 0;
     }
 
-    private static String getTweetChar() {
+    private String getTweetChar() {
         try {
             String text = currentTweet.get("text").toString();
             String newText = text.substring(1, text.length());
@@ -219,7 +221,7 @@ public class RobotController2 implements Runnable{
      * @param s2 first decimal
      * @return double in format x.y
      */
-    private static Double createDouble(Integer s1, Integer s2) {
+    private Double createDouble(Integer s1, Integer s2) {
         if (s1 > 10) {
             String num1 = s1.toString().substring(0, 1);
             String num2 = s1.toString().substring(1, 2);
@@ -234,7 +236,7 @@ public class RobotController2 implements Runnable{
         return Double.parseDouble(s1 + "." + s2);
     }
 
-    private static Integer createAngle(Integer i1, Integer i2) {
+    private Integer createAngle(Integer i1, Integer i2) {
         String intString = i1.toString() + i2.toString();
         Integer concatInt = Integer.parseInt(intString);
         if (concatInt <= 360) {
@@ -246,14 +248,14 @@ public class RobotController2 implements Runnable{
         return  Math.round(concatInt / 7.013888888888889f);
     }
 
-    private static Integer createDirection(Integer num) {
+    private Integer createDirection(Integer num) {
         if (num >= 0 || num <= 11) {
             return -1;
         }
         return 1;
     }
 
-    private static Integer createMovement(Integer mv1, Integer mv2) {
+    private Integer createMovement(Integer mv1, Integer mv2) {
         String moveString = mv1.toString() + mv2.toString();
         Integer concatInt = Integer.parseInt(moveString);
 
@@ -266,7 +268,7 @@ public class RobotController2 implements Runnable{
         return Math.round(concatInt / 2.525f);
     }
 
-    private static void updateCurrentTweet() {
+    private void updateCurrentTweet() {
         if (currentTweetArray != null && currentTweetArray.size() > 0) {
             currentTweet = currentTweetArray.remove(0);
 
@@ -279,7 +281,7 @@ public class RobotController2 implements Runnable{
         }
     }
 
-    private static boolean allValuesValidated() {
+    private boolean allValuesValidated() {
         //FIRE_POWER
         return FIRE_POWERisValid() &&
                 ROTATE_DIRECTIONisValid(ROTATE_DIRECTION) &&
@@ -292,7 +294,7 @@ public class RobotController2 implements Runnable{
                 ROTATEisValid(ROTATE_GUN);
     }
 
-    public static void invalidateAllValues() {
+    public void invalidateAllValues() {
         FIRE_POWER = -1.0;
         ROTATE_DIRECTION = 99;
         ROTATE = 999;
@@ -305,28 +307,7 @@ public class RobotController2 implements Runnable{
     }
 
     private void setRandomUser() {
-        /*
-        GameConfigurer config = new GameConfigurer();
-        System.out.println("Available Users: \n");
-        ArrayList<String> users = config.getAvailableUsers();
-        for (String user : users) {
-            System.out.println(user);
-        }
-        boolean correctUser = false;
-        String robotUser;
-        while(!correctUser) {
-            System.out.println("Please enter a username: ");
-            Scanner sc = new Scanner(System.in);
-            robotUser = sc.nextLine();
-            if (config.userAvailable(robotUser)) {
-                setUSER(robotUser);
-                correctUser = true;
-            } else {
-                System.out.println("User Does Not Exist!");
-            }
-        }
-        */
-        //Get all usernames from cluster
+       //Get all usernames from cluster
         ArrayList<String> users = tr.getAllUsernames();
 
         //Generate Random Number (From 0 - users.size())
@@ -335,7 +316,23 @@ public class RobotController2 implements Runnable{
 
         //Get random user string and set RobotController2 USER
         String user = users.get(n);
+
+        //Check If User Already Taken
+        boolean foundAvailableUser = false;
+        while(!foundAvailableUser) {
+            if (!takenUsers.contains(user)) {
+                foundAvailableUser = true;
+            } else {
+                //Regenerate Random Number
+                n = rand.nextInt(users.size());
+
+                //Try Again
+                user = users.get(n);
+            }
+        }
+
         setUSER(user);
+        takenUsers.add(user);
         System.out.println("User set to " + user);
     }
 
@@ -347,71 +344,71 @@ public class RobotController2 implements Runnable{
      * Robot Firepower. Min 0.1, Max 3.0
      * @param FIRE_POWER Firepower (0.1 - 3.0)
      */
-    public static void setFIRE_POWER(double FIRE_POWER) {
-        RobotController2.FIRE_POWER = Double.parseDouble(dp1.format(FIRE_POWER));
+    public void setFIRE_POWER(double FIRE_POWER) {
+        this.FIRE_POWER = Double.parseDouble(dp1.format(FIRE_POWER));
     }
 
-    public static void setROTATE(Integer ROTATE) {
-        RobotController2.ROTATE = ROTATE;
+    public void setROTATE(Integer ROTATE) {
+        this.ROTATE = ROTATE;
     }
 
-    public static Integer getMOVE_UP() {
+    public Integer getMOVE_UP() {
         return MOVE_UP;
     }
 
-    public static void setMOVE_UP(Integer MOVE_UP) {
-        RobotController2.MOVE_UP = MOVE_UP;
+    public void setMOVE_UP(Integer MOVE_UP) {
+        this.MOVE_UP = MOVE_UP;
     }
 
     public Integer getMOVE_RIGHT() {
         return MOVE_RIGHT;
     }
 
-    public static void setMOVE_RIGHT(Integer MOVE_RIGHT) {
-        RobotController2.MOVE_RIGHT = MOVE_RIGHT;
+    public void setMOVE_RIGHT(Integer MOVE_RIGHT) {
+        this.MOVE_RIGHT = MOVE_RIGHT;
     }
 
-    public static Integer getMOVE_DOWN() {
+    public Integer getMOVE_DOWN() {
         return MOVE_DOWN;
     }
 
-    public static void setMOVE_DOWN(Integer MOVE_DOWN) {
-        RobotController2.MOVE_DOWN = MOVE_DOWN;
+    public void setMOVE_DOWN(Integer MOVE_DOWN) {
+        this.MOVE_DOWN = MOVE_DOWN;
     }
 
     public Integer getMOVE_LEFT() {
         return MOVE_LEFT;
     }
 
-    public static void setMOVE_LEFT(Integer MOVE_LEFT) {
-        RobotController2.MOVE_LEFT = MOVE_LEFT;
+    public void setMOVE_LEFT(Integer MOVE_LEFT) {
+        this.MOVE_LEFT = MOVE_LEFT;
     }
 
-    public static Integer getROTATE_DIRECTION() {
+    public Integer getROTATE_DIRECTION() {
         return ROTATE_DIRECTION;
     }
 
-    public static void setROTATE_DIRECTION(Integer ROTATE_DIRECTION) {
-        RobotController2.ROTATE_DIRECTION = ROTATE_DIRECTION;
+    public void setROTATE_DIRECTION(Integer ROTATE_DIRECTION) {
+        this.ROTATE_DIRECTION = ROTATE_DIRECTION;
     }
 
-    public static Integer getROTATE_GUN() {
+    public Integer getROTATE_GUN() {
         return ROTATE_GUN;
     }
 
-    public static void setROTATE_GUN(Integer ROTATE_GUN) {
-        RobotController2.ROTATE_GUN = ROTATE_GUN;
+    public void setROTATE_GUN(Integer ROTATE_GUN) {
+        this.ROTATE_GUN = ROTATE_GUN;
     }
 
     public Integer getROTATE_GUN_DIRECTION() {
         return ROTATE_GUN_DIRECTION;
     }
 
-    public static void setROTATE_GUN_DIRECTION(Integer ROTATE_GUN_DIRECTION) {
-        RobotController2.ROTATE_GUN_DIRECTION = ROTATE_GUN_DIRECTION;
+    public void setROTATE_GUN_DIRECTION(Integer ROTATE_GUN_DIRECTION) {
+        this.ROTATE_GUN_DIRECTION = ROTATE_GUN_DIRECTION;
     }
 
-    public static double getFIRE_POWER() {
+    public double getFIRE_POWER() {
         return FIRE_POWER;
     }
 
@@ -419,7 +416,7 @@ public class RobotController2 implements Runnable{
         return allTweets;
     }
 
-    public static String getUSER() {
+    public String getUSER() {
         return USER;
     }
 
@@ -435,31 +432,31 @@ public class RobotController2 implements Runnable{
         return TWEETS_USED;
     }
 
-    public static void setRobotX(Double robotX) {
-        RobotController2.robotX = robotX;
+    public void setRobotX(Double robotX) {
+        this.robotX = robotX;
     }
 
-    public static void setRobotY(Double robotY) {
-        RobotController2.robotY = robotY;
+    public void setRobotY(Double robotY) {
+        this.robotY = robotY;
     }
 
     /*---------------------------------------------------
     /*--------------- VALIDATION METHODS ----------------
     /*-------------------------------------------------*/
 
-    private static boolean FIRE_POWERisValid() {
+    private boolean FIRE_POWERisValid() {
         return FIRE_POWER >= 0.0 && FIRE_POWER <= 3.0;
     }
 
-    private static boolean ROTATE_DIRECTIONisValid(Integer dir) {
+    private boolean ROTATE_DIRECTIONisValid(Integer dir) {
         return dir == 1 || dir == -1;
     }
 
-    private static boolean ROTATEisValid(Integer angle) {
+    private boolean ROTATEisValid(Integer angle) {
         return angle >= -360 && angle <= 360;
     }
 
-    private static boolean MOVEVEMENTisValid(Integer movement) {
+    private boolean MOVEVEMENTisValid(Integer movement) {
         return movement >= 0 && movement < 1000;
     }
 

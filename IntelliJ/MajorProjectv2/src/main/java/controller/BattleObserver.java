@@ -1,5 +1,6 @@
 package controller;
 
+import robocode.BattleRules;
 import robocode.control.events.*;
 
 /**
@@ -21,6 +22,15 @@ public class BattleObserver extends BattleAdaptor {
      */
     public void onBattleStarted(BattleStartedEvent e) {
         startTime = System.currentTimeMillis();
+
+        //Print Rules
+        BattleRules rules = e.getBattleRules();
+        System.out.println("Battle Rules:");
+        System.out.println("Inactivity Time: " + rules.getInactivityTime());
+        System.out.println("Gun Cooling Rate: " + rules.getGunCoolingRate());
+        System.out.println("No. of Rounds: " + rules.getNumRounds());
+        System.out.println("Sentry Border Size: " + rules.getSentryBorderSize());
+        System.out.println("Battlefield Dimensions: (" + rules.getBattlefieldWidth() + " x " + rules.getBattlefieldHeight() + ")");
     }
 
     /**

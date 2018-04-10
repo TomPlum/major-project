@@ -1,7 +1,8 @@
 package controller;
 
-import robocode.Robot;
 import robocode.control.*;
+import twitter.TweetSerialiser;
+import view.RobotObserver;
 
 /**
  * ----------------------------------------------------------------------------------------------
@@ -14,7 +15,6 @@ public class GameConfigurer {
     private static final int BATTLEFIELD_W = 1000;
     private static final int BATTLEFIELD_H = 1000;
     private static final int NO_OF_ROUNDS = 5;
-    public static RobotController controller = new RobotController();
 
     /**
      * Starts a Robocode Battle with the specified configuration options.
@@ -39,15 +39,16 @@ public class GameConfigurer {
 
         //Setup Battle Specification
         BattlefieldSpecification battlefield = new BattlefieldSpecification(BATTLEFIELD_W, BATTLEFIELD_H);
-        RobotSpecification[] selectedRobots = engine.getLocalRepository("controller.TestRobot, controller.TwitterRobot");
+        RobotSpecification[] selectedRobots = engine.getLocalRepository("controller.TwitterRobot2, controller.TwitterRobot2");
 
-        BattleSpecification battleSpec = new BattleSpecification(NO_OF_ROUNDS, battlefield, selectedRobots);
+        BattleSpecification battleSpec = new BattleSpecification(NO_OF_ROUNDS, 2000, 0.1, false, battlefield, selectedRobots);
 
-        //Before We Start The Battle - Initialise Tweets
-        //RobotController controller = new RobotController();
-        //RobotController2 controller2 = new RobotController2();
-        controller.run();
-        //controller2.run();
+        //Open RobotObserver GUI
+        RobotObserver.startObserving();
+
+        //Get Tweets & Serialise
+        TweetSerialiser tweetSerialiser = new TweetSerialiser();
+        tweetSerialiser.serialiseTweets();
 
         //Start Battle
         engine.runBattle(battleSpec, true); //Wait Until Battle Finished

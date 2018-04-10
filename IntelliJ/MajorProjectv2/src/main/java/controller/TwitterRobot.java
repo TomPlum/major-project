@@ -1,6 +1,9 @@
 package controller;
 
 import robocode.*;
+import view.RobotObserver;
+
+import java.awt.*;
 
 /**
  * ---------------------------------------------------------------------------------------------------
@@ -11,9 +14,8 @@ import robocode.*;
  * @author Thomas Plumpton
  * @version 1.0.0
  */
+@SuppressWarnings("unused")
 public class TwitterRobot extends AdvancedRobot {
-    private int turns = 0;
-
     /**
      * Called whenever the Robot's status changes.
      * @param e Robocode StatusEvent
@@ -23,25 +25,43 @@ public class TwitterRobot extends AdvancedRobot {
         RobotStatus robotStatus = e.getStatus();
         RobotController.setRobotX(robotStatus.getX());
         RobotController.setRobotY(robotStatus.getY());
+
+        //Update RobotObserver GUI
+        RobotObserver.updateRobot1x(robotStatus.getX());
     }
 
     /**
      * The robots main event loop. This method is called every turn and contains
      * the robots main functionality for moving, turning, scanning and firing.
      */
+    @SuppressWarnings("InfiniteLoopStatement")
     public void run() {
+        //Set Twitter Palette Colours
+        setBodyColor(new Color(29, 202, 255));
+        setGunColor(new Color(0, 172, 237));
+        setRadarColor(new Color(0, 132, 180));
+        setBulletColor(new Color(29, 202, 255));
+        setScanColor(new Color(192, 222, 237));
+
+        //Loop Indefinitely
         while (true) {
-            turns++;
+            //Randomise Robot Values
             RobotController.randomiseValues();
 
+            //Move Ahead
             ahead(RobotController.getMOVE_UP());
+
+            //Rotate Robot Body
             if (RobotController.getROTATE_DIRECTION() == 1) {
                 turnGunRight(RobotController.getROTATE_GUN());
             } else {
                 turnGunLeft(RobotController.getROTATE_GUN() * -1);
             }
 
+            //Invalidate All RobotController Values
             RobotController.invalidateAllValues();
+
+            //Increment Number of Turns
             BattleObserver.numberOfTurns++;
         }
     }
