@@ -7,12 +7,14 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class TwitterRobot extends AdvancedRobot {
-    protected static int skippedTurns = 0;
-    protected static RobotController2 rc = new RobotController2();
-    protected static TweetSerialiser serialiser = new TweetSerialiser();
+    private static int skippedTurns = 0;
+    static RobotController2 rc = new RobotController2();
+    private static TweetSerialiser serialiser = new TweetSerialiser();
     protected static ArrayList<Document> tweets;
+
     /**
-     * Called whenever the Robot's status changes.
+     * This method is called every turn in a battle round in order to provide the
+     * robot status as a complete snapshot of the robot's current state at that specific time.
      * @param e Robocode StatusEvent
      */
     public void onStatus(StatusEvent e) {
@@ -20,17 +22,16 @@ public abstract class TwitterRobot extends AdvancedRobot {
         RobotStatus robotStatus = e.getStatus();
         rc.setRobotX(robotStatus.getX());
         rc.setRobotY(robotStatus.getY());
+
+        //Update RobotObserver GUI
+        updateRobotObserver();
     }
 
-    /**
-     * The robots main event loop. This method is called every turn and contains
-     * the robots main functionality for moving, turning, scanning and firing.
-     */
-    @SuppressWarnings("InfiniteLoopStatement")
-    public void run() {
+    void initialConfiguration(int id) {
         //De-Serialise Tweets & Pass Them To RobotController
-        tweets = serialiser.readTweets(2);
+        tweets = serialiser.readTweets(id);
         rc.initialiseTweets(tweets);
+        rc.setUSER(tweets.get(0).get("screenName").toString());
 
         //Set Twitter Palette Colours
         setBodyColor(new Color(29, 202, 255));
@@ -38,7 +39,14 @@ public abstract class TwitterRobot extends AdvancedRobot {
         setRadarColor(new Color(0, 132, 180));
         setBulletColor(new Color(29, 202, 255));
         setScanColor(new Color(192, 222, 237));
+    }
 
+    /**
+     * The robots main event loop. This method is called every turn and contains
+     * the robots main functionality for moving, turning, scanning and firing.
+     */
+    @SuppressWarnings("InfiniteLoopStatement")
+    void doTurn() {
         //Loop Indefinitely
         while (true) {
             //Randomise Robot Values
@@ -90,5 +98,9 @@ public abstract class TwitterRobot extends AdvancedRobot {
     public void onSkippedTurn(SkippedTurnEvent e) {
         System.out.println("Doing Nothing. Skipping Turn.");
         skippedTurns++;
+    }
+
+    protected synchronized void updateRobotObserver() {
+        //Overridden In Sub-Classes
     }
 }

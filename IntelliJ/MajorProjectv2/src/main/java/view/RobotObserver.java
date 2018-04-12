@@ -24,7 +24,7 @@ public class RobotObserver {
     private static JLabel numberOfTweetsTwo, userTwo;
 
     //Header: JTextFields for Robot One's Tweet Information
-    private static JTextField numberOfTweetsOneField, userOneField;
+    private volatile static JTextField numberOfTweetsOneField, userOneField;
 
     //Header: JTextFields for Robot Two's Twitter Information
     private static JTextField numberOfTweetsTwoField, userTwoField;
@@ -38,11 +38,14 @@ public class RobotObserver {
     //Body: JTextFields for Robot Two's Information
     private static JTextField xOrdinateTwoField, yOrdinateTwoField;
 
-    public static void startObserving() {
+    //Variables
+    private static volatile int numberOfTweetsOneValue;
+
+    public synchronized static void startObserving() {
         javax.swing.SwingUtilities.invokeLater(RobotObserver::createAndShowGUI);
     }
 
-    private static JPanel createContentPane()  {
+    private synchronized static JPanel createContentPane()  {
         GUI = new JPanel();
         header = new JPanel();
         robotOne = new JPanel();
@@ -134,7 +137,7 @@ public class RobotObserver {
         return GUI;
     }
 
-    private static void createAndShowGUI() {
+    private synchronized static void createAndShowGUI() {
         //Set Overall GUI JFrame Settings
         JFrame frame = new JFrame("TwitterRobot Observer");
         frame.setContentPane(RobotObserver.createContentPane());
@@ -143,47 +146,47 @@ public class RobotObserver {
         frame.setVisible(true);
     }
 
-    public static void setXOrdinateOne(double x) {
+    public synchronized static void setXOrdinateOne(double x) {
         System.out.println("Setting RobotOne X-Ordinate: " + x);
         xOrdinateOneField.setText(String.valueOf(x));
     }
 
-    public static void setNumberOfTweetsOne(int number) {
+    public synchronized static void setNumberOfTweetsOne(int number) {
         System.out.println("Setting Number of Tweets One: " + number);
-        SwingUtilities.invokeLater(
-            () -> {
-                numberOfTweetsOneField.setText(String.valueOf(number));
-            }
-        );
-        refresh(numberOfTweetsOneField);
+        numberOfTweetsOneField.setText(String.valueOf(number));
+        //refresh(numberOfTweetsOneField);
     }
 
-    public static void setUserOne(String name) {
+    public synchronized static void setUserOne(String name) {
         userOneField.setText(name);
         refresh(userOneField);
     }
 
-    public static void setRoundNumber(int round) {
+    public synchronized static void setRoundNumber(int round) {
         roundNumberField.setText(String.valueOf(round));
         refresh(roundNumberField);
     }
 
-    public static void setTurnNumber(int turn) {
+    public synchronized static void setTurnNumber(int turn) {
         turnNumberField.setText(String.valueOf(turn));
         refresh(turnNumberField);
     }
 
-    private static void refresh(JTextField field) {
+    public synchronized static void setSkippedTurnsOne(int skipped) {
+
+    }
+
+    private synchronized static void refresh(JTextField field) {
         field.setVisible(true);
         field.repaint();
         field.validate();
     }
 
-    public static void stopObserving() {
+    public synchronized static void stopObserving() {
 
     }
 
-    public static void main(String[] args) {
+    public synchronized static void main(String[] args) {
         createContentPane();
         createAndShowGUI();
         setNumberOfTweetsOne(3200);

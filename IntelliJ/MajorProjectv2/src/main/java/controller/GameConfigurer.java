@@ -3,9 +3,7 @@ package controller;
 import robocode.control.*;
 import twitter.TweetSerialiser;
 import view.RobotObserver;
-
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * ----------------------------------------------------------------------------------------------
@@ -14,19 +12,18 @@ import java.util.ArrayList;
  * @author Thomas Plumpton
  * @version 1.0.0
  */
-public class GameConfigurer {
+class GameConfigurer {
     private static final int BATTLEFIELD_W = 1000; //Pixels
     private static final int BATTLEFIELD_H = 1000; //Pixels
     private static final int NO_OF_ROUNDS = 5; //Default: 10
     private static final int INACTIVITY_TIME = 2000; //Default: 450 (Turns)
     private static final double GUN_COOLING_RATE = 0.1; //Default: 0.1
     private static final boolean HIDE_ENEMY_NAMES = false; //Default: false
-    public static ArrayList<String> TwitterRobotOneTweets;
 
     /**
      * Starts a Robocode Battle with the specified configuration options.
      */
-    public static void startBattle() {
+    static void startBattle() {
         //Robocode Messages & Errors
         RobocodeEngine.setLogMessagesEnabled(true);
         RobocodeEngine.setLogErrorsEnabled(true);
@@ -46,7 +43,7 @@ public class GameConfigurer {
 
         //Setup Battle Specification
         BattlefieldSpecification battlefield = new BattlefieldSpecification(BATTLEFIELD_W, BATTLEFIELD_H);
-        RobotSpecification[] selectedRobots = engine.getLocalRepository("controller.TwitterRobot1, controller.TwitterRobot2");
+        RobotSpecification[] selectedRobots = engine.getLocalRepository("controller.CompetitorOne, controller.CompetitorTwo");
 
         BattleSpecification battleSpec = new BattleSpecification(NO_OF_ROUNDS, INACTIVITY_TIME, GUN_COOLING_RATE, HIDE_ENEMY_NAMES, battlefield, selectedRobots);
 
@@ -61,7 +58,6 @@ public class GameConfigurer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //RobotController.setNewTweets(tweetSerialiser.readTweets());
 
         //Start Battle
         engine.runBattle(battleSpec, true); //Wait Until Battle Finished
@@ -73,7 +69,7 @@ public class GameConfigurer {
     /**
      * Closes the JVM (Java Virtual Machine)
      */
-    public static void closeJVM() {
+    static void closeJVM() {
         //Ensure JVM Is Shut-Down Properly
         System.exit(0);
     }
