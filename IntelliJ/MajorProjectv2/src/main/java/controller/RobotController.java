@@ -26,6 +26,7 @@ public class RobotController implements Runnable {
     private static TweetReader tr = new TweetReader();
     private static ArrayList<Document> allTweets;
     private static ArrayList<Document> currentTweetArray;
+    private static ArrayList<String> newTweets;
     private static Document currentTweet;
     private static DecimalFormat dp1 = new DecimalFormat(".#");
 
@@ -35,6 +36,14 @@ public class RobotController implements Runnable {
     private volatile boolean running = true;
     private volatile boolean paused = false;
     private final Object pauseLock = new Object();
+
+    public static void setNewTweets(ArrayList<String> tweets) {
+        RobotController.newTweets = tweets;
+    }
+
+    public static ArrayList<String> getNewTweets() {
+        return newTweets;
+    }
 
     @Override
     public void run() {

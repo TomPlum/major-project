@@ -140,10 +140,22 @@ public class TweetAnalyser {
         mc.insertDocument(stats);
     }
 
+    private void saveUsersToDatabase() {
+        MongoConnection mc = new MongoConnection("twitter", "users");
+        ArrayList<String> users = tr.getAllUsernames();
+        for (String user : users) {
+            Document doc = new Document();
+            doc.put("name", user);
+            mc.insertDocument(doc);
+        }
+    }
+
     public static void main(String[] args) {
         TweetAnalyser ta = new TweetAnalyser();
-        ta.analyse();
-        ta.printResults();
-        ta.saveToDatabase();
+        //ta.analyse();
+        //ta.printResults();
+        //ta.saveToDatabase();
+
+        ta.saveUsersToDatabase();
     }
 }

@@ -1,21 +1,16 @@
 package controller;
 
+import org.bson.Document;
 import robocode.*;
-import view.RobotObserver;
-
+import twitter.TweetSerialiser;
 import java.awt.*;
+import java.util.ArrayList;
 
-/**
- * ---------------------------------------------------------------------------------------------------
- * This robot's actions are entirely dependent on the character values from Twitter Tweets stored in a
- * MongoDB Atlas Cluster. It is controller via the RobotController that parses Tweets from the
- * TweetParser. A Twitter user is chosen at random to represent it and therefore choose its actions.
- * ---------------------------------------------------------------------------------------------------
- * @author Thomas Plumpton
- * @version 1.0.0
- */
-@SuppressWarnings("unused")
-public class TwitterRobot extends AdvancedRobot {
+public abstract class TwitterRobot extends AdvancedRobot {
+    protected static int skippedTurns = 0;
+    protected static RobotController2 rc = new RobotController2();
+    protected static TweetSerialiser serialiser = new TweetSerialiser();
+    protected static ArrayList<Document> tweets;
     /**
      * Called whenever the Robot's status changes.
      * @param e Robocode StatusEvent
@@ -23,11 +18,8 @@ public class TwitterRobot extends AdvancedRobot {
     public void onStatus(StatusEvent e) {
         //Update Robot's Current Coordinates
         RobotStatus robotStatus = e.getStatus();
-        RobotController.setRobotX(robotStatus.getX());
-        RobotController.setRobotY(robotStatus.getY());
-
-        //Update RobotObserver GUI
-        RobotObserver.updateRobot1x(robotStatus.getX());
+        rc.setRobotX(robotStatus.getX());
+        rc.setRobotY(robotStatus.getY());
     }
 
     /**
@@ -36,6 +28,10 @@ public class TwitterRobot extends AdvancedRobot {
      */
     @SuppressWarnings("InfiniteLoopStatement")
     public void run() {
+        //De-Serialise Tweets & Pass Them To RobotController
+        tweets = serialiser.readTweets(2);
+        rc.initialiseTweets(tweets);
+
         //Set Twitter Palette Colours
         setBodyColor(new Color(29, 202, 255));
         setGunColor(new Color(0, 172, 237));
@@ -46,23 +42,20 @@ public class TwitterRobot extends AdvancedRobot {
         //Loop Indefinitely
         while (true) {
             //Randomise Robot Values
-            RobotController.randomiseValues();
+            rc.randomiseValues();
 
             //Move Ahead
-            ahead(RobotController.getMOVE_UP());
+            ahead(rc.getMOVE_UP());
 
             //Rotate Robot Body
-            if (RobotController.getROTATE_DIRECTION() == 1) {
-                turnGunRight(RobotController.getROTATE_GUN());
+            if (rc.getROTATE_DIRECTION() == 1) {
+                turnGunRight(rc.getROTATE_GUN());
             } else {
-                turnGunLeft(RobotController.getROTATE_GUN() * -1);
+                turnGunLeft(rc.getROTATE_GUN() * -1);
             }
 
-            //Invalidate All RobotController Values
-            RobotController.invalidateAllValues();
-
-            //Increment Number of Turns
-            BattleObserver.numberOfTurns++;
+            //Invalidate All rc Values
+            rc.invalidateAllValues();
         }
     }
 
@@ -71,7 +64,7 @@ public class TwitterRobot extends AdvancedRobot {
      * @param e Robocode ScannedRobotEvent
      */
     public void onScannedRobot(ScannedRobotEvent e) {
-        fire(RobotController.getFIRE_POWER());
+        fire(rc.getFIRE_POWER());
     }
 
     /**
@@ -79,7 +72,7 @@ public class TwitterRobot extends AdvancedRobot {
      * @param e Robocode HitWallEvent
      */
     public void onHitWall(HitWallEvent e) {
-        back(RobotController.getMOVE_DOWN());
+        back(rc.getMOVE_DOWN());
     }
 
     /**
@@ -88,5 +81,14 @@ public class TwitterRobot extends AdvancedRobot {
      */
     public void onDeath(DeathEvent e) {
         //Count time up until, then record time taken to die. Save in DB.
+    }
+
+    /**
+     * Called whenever the robot performs no action and skips the turn/
+     * @param e Robocode SkippedTurnEvent
+     */
+    public void onSkippedTurn(SkippedTurnEvent e) {
+        System.out.println("Doing Nothing. Skipping Turn.");
+        skippedTurns++;
     }
 }

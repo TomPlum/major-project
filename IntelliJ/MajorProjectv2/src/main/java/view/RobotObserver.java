@@ -1,13 +1,43 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class RobotObserver {
-    private static JPanel GUI, header, robot1, robot2, footer;
-    private static JLabel robot1x, robot1y;
-    private static JLabel robot2x, robot2y;
-    private static JTextField robot1xField, robot1yField;
+    //JPanel's for the overall GUI Layout
+    private static JPanel GUI, header, robotOne, robotTwo, footer, tweetInfoOne, tweetInfoTwo;
+
+    //Footer: JLabels for the Robocode Battle Information
+    private static JLabel roundNumber, turnNumber;
+
+    //Body: JLabels for Robot One's Information
+    private static JLabel xOrdinateOne, yOrdinateOne;
+
+    //Body: JLabels for Robot Two's Information
+    private static JLabel xOrdinateTwo, yOrdinateTwo;
+
+    //Header: JLabels for Robot One's Tweet Information
+    private static JLabel numberOfTweetsOne, userOne;
+
+    //Header: JLabels for Robot Two's Tweet Information
+    private static JLabel numberOfTweetsTwo, userTwo;
+
+    //Header: JTextFields for Robot One's Tweet Information
+    private static JTextField numberOfTweetsOneField, userOneField;
+
+    //Header: JTextFields for Robot Two's Twitter Information
+    private static JTextField numberOfTweetsTwoField, userTwoField;
+
+    //Footer: JTextFields for the Robocode Battle Information
+    private static JTextField roundNumberField, turnNumberField;
+
+    //Body: JTextFields for Robot One's Information
+    private static JTextField xOrdinateOneField, yOrdinateOneField;
+
+    //Body: JTextFields for Robot Two's Information
+    private static JTextField xOrdinateTwoField, yOrdinateTwoField;
+
     public static void startObserving() {
         javax.swing.SwingUtilities.invokeLater(RobotObserver::createAndShowGUI);
     }
@@ -15,44 +45,89 @@ public class RobotObserver {
     private static JPanel createContentPane()  {
         GUI = new JPanel();
         header = new JPanel();
-        robot1 = new JPanel();
-        robot2 = new JPanel();
+        robotOne = new JPanel();
+        robotTwo = new JPanel();
         footer = new JPanel();
+        tweetInfoOne = new JPanel();
+        tweetInfoTwo = new JPanel();
 
         //Setting LayoutManager Types
         GUI.setLayout(new BorderLayout());
-        header.setLayout(new FlowLayout());
-        robot1.setLayout(new FlowLayout());
-        robot2.setLayout(new FlowLayout());
+        header.setLayout(new BorderLayout());
+        robotOne.setLayout(new FlowLayout());
+        robotTwo.setLayout(new FlowLayout());
         footer.setLayout(new FlowLayout());
+        tweetInfoOne.setLayout(new FlowLayout());
+        tweetInfoTwo.setLayout(new FlowLayout());
 
         //Set JLabels
-        robot1x = new JLabel("X-Ordinate");
-        robot2x = new JLabel("X-Ordinate");
-        robot2y = new JLabel("Y-Ordinate");
-        robot1y = new JLabel("Y-Ordinate");
+        xOrdinateOne = new JLabel("X-Ordinate");
+        xOrdinateTwo = new JLabel("X-Ordinate");
+        yOrdinateTwo = new JLabel("Y-Ordinate");
+        yOrdinateOne = new JLabel("Y-Ordinate");
+
+        //Robocode Battle Information
+        roundNumber = new JLabel("Round Number");
+        turnNumber = new JLabel("Turn Number");
+
+        //Twitter Information
+        numberOfTweetsOne = new JLabel("Number of Tweets");
+        numberOfTweetsTwo = new JLabel("Number of Tweets");
+        userOne = new JLabel("Twitter ScreenName");
+        userTwo = new JLabel("Twitter ScreenName");
 
         //Set Value Fields
-        robot1xField = new JTextField();
-        robot1yField = new JTextField();
+        xOrdinateOneField = new JTextField(10);
+        yOrdinateOneField = new JTextField(10);
+        xOrdinateTwoField = new JTextField(10);
+        yOrdinateTwoField = new JTextField(10);
+
+        numberOfTweetsOneField = new JTextField("0", 10);
+        numberOfTweetsTwoField = new JTextField("0", 10);
+        userOneField = new JTextField("N/A", 10);
+        userTwoField = new JTextField("N/A", 10);
+
+        roundNumberField = new JTextField("0", 10);
+        turnNumberField = new JTextField("0", 10);
 
         //Set JPanel Borders
-        header.setBorder(BorderFactory.createTitledBorder("Header"));
-        robot1.setBorder(BorderFactory.createTitledBorder("TwitterRobot 1"));
-        robot2.setBorder(BorderFactory.createTitledBorder("TwitterRobot 2"));
-        footer.setBorder(BorderFactory.createTitledBorder("Footer"));
+        header.setBorder(BorderFactory.createTitledBorder("Tweet Information"));
+        robotOne.setBorder(BorderFactory.createTitledBorder("TwitterRobot 1"));
+        robotTwo.setBorder(BorderFactory.createTitledBorder("TwitterRobot 2"));
+        footer.setBorder(BorderFactory.createTitledBorder("Robocode Battle Information"));
 
         //Add Components To JPanels
-        robot1.add(robot1x);
-        robot1.add(robot1xField);
-        robot1.add(robot1y);
-        robot1.add(robot1yField);
+        robotOne.add(xOrdinateOne);
+        robotOne.add(xOrdinateOneField);
+        robotOne.add(yOrdinateOne);
+        robotOne.add(yOrdinateOneField);
+
+        robotTwo.add(xOrdinateTwo);
+        robotTwo.add(xOrdinateTwoField);
+        robotTwo.add(yOrdinateTwo);
+        robotTwo.add(yOrdinateTwoField);
+
+        tweetInfoOne.add(numberOfTweetsOne);
+        tweetInfoOne.add(numberOfTweetsOneField);
+        tweetInfoTwo.add(numberOfTweetsTwo);
+        tweetInfoTwo.add(numberOfTweetsTwoField);
+        tweetInfoOne.add(userOne);
+        tweetInfoOne.add(userOneField);
+        tweetInfoTwo.add(userTwo);
+        tweetInfoTwo.add(userTwoField);
+
+        footer.add(roundNumber);
+        footer.add(roundNumberField);
+        footer.add(turnNumber);
+        footer.add(turnNumberField);
 
         //Adding JPanel Containers To Overall GUI Container
         GUI.add(header, BorderLayout.PAGE_START);
-        GUI.add(robot1, BorderLayout.LINE_START);
-        GUI.add(robot2, BorderLayout.LINE_END);
+        GUI.add(robotOne, BorderLayout.LINE_START);
+        GUI.add(robotTwo, BorderLayout.LINE_END);
         GUI.add(footer, BorderLayout.PAGE_END);
+        header.add(tweetInfoOne, BorderLayout.LINE_START);
+        header.add(tweetInfoTwo, BorderLayout.LINE_END);
 
         //Make It Visible & Return
         GUI.setOpaque(true);
@@ -68,11 +143,49 @@ public class RobotObserver {
         frame.setVisible(true);
     }
 
-    public static void updateRobot1x(double x) {
-        robot1xField.setText(String.valueOf(x));
+    public static void setXOrdinateOne(double x) {
+        System.out.println("Setting RobotOne X-Ordinate: " + x);
+        xOrdinateOneField.setText(String.valueOf(x));
+    }
+
+    public static void setNumberOfTweetsOne(int number) {
+        System.out.println("Setting Number of Tweets One: " + number);
+        SwingUtilities.invokeLater(
+            () -> {
+                numberOfTweetsOneField.setText(String.valueOf(number));
+            }
+        );
+        refresh(numberOfTweetsOneField);
+    }
+
+    public static void setUserOne(String name) {
+        userOneField.setText(name);
+        refresh(userOneField);
+    }
+
+    public static void setRoundNumber(int round) {
+        roundNumberField.setText(String.valueOf(round));
+        refresh(roundNumberField);
+    }
+
+    public static void setTurnNumber(int turn) {
+        turnNumberField.setText(String.valueOf(turn));
+        refresh(turnNumberField);
+    }
+
+    private static void refresh(JTextField field) {
+        field.setVisible(true);
+        field.repaint();
+        field.validate();
     }
 
     public static void stopObserving() {
 
+    }
+
+    public static void main(String[] args) {
+        createContentPane();
+        createAndShowGUI();
+        setNumberOfTweetsOne(3200);
     }
 }

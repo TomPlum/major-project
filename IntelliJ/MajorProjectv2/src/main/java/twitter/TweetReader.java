@@ -53,7 +53,7 @@ public class TweetReader {
     public ArrayList<String> getAllTweetTextByUser(String username) {
         ArrayList<String> list = new ArrayList<>();
         MongoCollection<Document> coll = conn.getMongoCollection();
-        try (MongoCursor<Document> cursor = coll.find().iterator()) {
+        try (MongoCursor<Document> cursor = coll.find(eq("screenName", username)).iterator()) {
             while (cursor.hasNext()) {
                 list.add(cursor.next().get("text").toString());
             }
@@ -102,6 +102,19 @@ public class TweetReader {
             }
         }
         return list;
+    }
+
+    public ArrayList<String> getAllScreenames() {
+        ArrayList<String> screenNames = new ArrayList<>();
+        MongoConnection mc = new MongoConnection("twitter", "users");
+        MongoCollection<Document> coll = mc.getMongoCollection();
+        try (MongoCursor<Document> cursor = coll.find().iterator()) {
+            while(cursor.hasNext()) {
+                Document element = cursor.next();
+                screenNames.add(element.get("name").toString());
+            }
+        }
+        return screenNames;
     }
 
     /**

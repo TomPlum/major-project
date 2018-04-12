@@ -97,6 +97,11 @@ public class RobotController2 implements Runnable{
         //initialiseTweets();
     }
 
+    public void initialiseTweets(ArrayList<Document> allTweetsByUser) {
+        allTweets = allTweetsByUser;
+        currentTweetArray = allTweetsByUser;
+    }
+
     public void initialiseTweets() {
         if (USER == null) {
             System.out.println("RobotController2 User is not defined!");
@@ -438,6 +443,10 @@ public class RobotController2 implements Runnable{
 
     public void setRobotY(Double robotY) {
         this.robotY = robotY;
+    }
+
+    public ArrayList<Document> getCurrentTweetArray() {
+        return currentTweetArray;
     }
 
     /*---------------------------------------------------
