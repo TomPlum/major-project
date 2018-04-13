@@ -1,7 +1,6 @@
 package view;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class RobotObserver {
@@ -37,9 +36,6 @@ public class RobotObserver {
 
     //Body: JTextFields for Robot Two's Information
     private static JTextField xOrdinateTwoField, yOrdinateTwoField;
-
-    //Variables
-    private static volatile int numberOfTweetsOneValue;
 
     public synchronized static void startObserving() {
         javax.swing.SwingUtilities.invokeLater(RobotObserver::createAndShowGUI);
@@ -149,6 +145,11 @@ public class RobotObserver {
     public synchronized static void setXOrdinateOne(double x) {
         System.out.println("Setting RobotOne X-Ordinate: " + x);
         xOrdinateOneField.setText(String.valueOf(x));
+    }
+
+    public synchronized static void setyOrdinateOne(double y) {
+        System.out.println("Setting RobotOne Y-Ordinate: " + y);
+        yOrdinateOneField.setText(String.valueOf(y));
     }
 
     public synchronized static void setNumberOfTweetsOne(int number) {

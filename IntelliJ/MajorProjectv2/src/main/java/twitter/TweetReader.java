@@ -157,4 +157,12 @@ public class TweetReader {
         }
         return s;
     }
+
+    /**
+     * Get the MongoConnection Object used to read Tweets.
+     * @return MongoConnection
+     */
+    public MongoConnection getConn() {
+        return conn;
+    }
 }

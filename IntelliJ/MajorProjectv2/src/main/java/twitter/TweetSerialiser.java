@@ -86,4 +86,8 @@ public class TweetSerialiser implements Serializable {
     private void setUSER(String USER) {
         this.USER = USER;
     }
+
+    public TweetReader getTweetReader() {
+        return tweetReader;
+    }
 }

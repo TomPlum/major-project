@@ -7,7 +7,7 @@ package controller;
  * TweetParser. A Twitter user is chosen at random to represent it and therefore choose its actions.
  * ---------------------------------------------------------------------------------------------------
  * @author Thomas Plumpton
- * @version 1.0.0
+ * @version 2.0.0
  */
 @SuppressWarnings("unused")
 public class CompetitorTwo extends TwitterRobot implements ITwitterRobot {

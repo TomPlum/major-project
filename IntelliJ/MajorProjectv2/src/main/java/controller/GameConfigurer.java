@@ -58,6 +58,8 @@ class GameConfigurer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //Close Connection To MongoDB Atlas Cluster
+        tweetSerialiser.getTweetReader().getConn().disconnect();
 
         //Start Battle
         engine.runBattle(battleSpec, true); //Wait Until Battle Finished

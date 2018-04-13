@@ -4,12 +4,10 @@ import org.bson.Document;
 import twitter.TweetParser;
 import twitter.TweetReader;
 import twitter.TweetSanitiser;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Random;
 
-public class RobotController2 implements Runnable{
+public class RobotController2 {
     private String USER;
     private Double robotX;
     private Double robotY;
@@ -26,8 +24,8 @@ public class RobotController2 implements Runnable{
     private Integer ROTATE_SCANNER_DIRECTION = 99;
     private Integer SCAN_FREQUENCY = -1;
 
-    private static TweetReader tr = new TweetReader();
-    private static ArrayList<String> takenUsers = new ArrayList<>();
+    private TweetReader tr = new TweetReader();
+    private TweetParser parser = new TweetParser();
     private ArrayList<Document> allTweets;
     private ArrayList<Document> currentTweetArray;
     private Document currentTweet;
@@ -36,70 +34,11 @@ public class RobotController2 implements Runnable{
     private int CHARS_USED = 0;
     private int TWEETS_USED = 0;
 
-    private volatile boolean running = true;
-    private volatile boolean paused = false;
-    private final Object pauseLock = new Object();
-
-    public static boolean isWaiting = true;
-
-    @Override
-    public void run() {
-        while (running){
-            synchronized (pauseLock) {
-                if (!running) {
-                    break;
-                }
-                if (paused) {
-                    try {
-                        pauseLock.wait();
-                    } catch (InterruptedException ex) {
-                        break;
-                    }
-                    if (!running) {
-                        break;
-                    }
-                }
-            }
-            System.out.println("RobotController2 Running...");
-            pause();
-            System.out.println("Retrieving Users From MongoDB Cluster...");
-            setRandomUser();
-            System.out.println("Initialising " + getUSER() + "'s Tweets...");
-            initialiseTweets();
-            resume();
-            stop();
-        }
-    }
-
-    public void stop() {
-        running = false;
-        // you might also want to interrupt() the Thread that is
-        // running this Runnable, too, or perhaps call:
-        resume();
-        // to unblock
-    }
-
-    public void pause() {
-        // you may want to throw an IllegalStateException if !running
-        paused = true;
-    }
-
-    public void resume() {
-        synchronized (pauseLock) {
-            paused = false;
-            pauseLock.notifyAll(); // Unblocks thread
-        }
-    }
-
-    public RobotController2() {
-        //run();
-        //setRandomUser();
-        //initialiseTweets();
-    }
 
     public void initialiseTweets(ArrayList<Document> allTweetsByUser) {
         allTweets = allTweetsByUser;
         currentTweetArray = allTweetsByUser;
+        updateCurrentTweet(); //Set Current Tweet so randomiseValues() has a starting value
     }
 
     public void initialiseTweets() {
@@ -109,13 +48,10 @@ public class RobotController2 implements Runnable{
             allTweets = tr.getTweetsByUser(USER);
             currentTweetArray = new ArrayList<>(allTweets);
             System.out.println("Tweets Initialised.");
-            isWaiting = false;
         }
     }
 
     public void randomiseValues() {
-        TweetParser parser = new TweetParser();
-        updateCurrentTweet(); //Instantiate currentTweet.
         while(true) {
             if (currentTweetIsNotExhausted()) {
                 if (allValuesValidated()) {
@@ -126,14 +62,14 @@ public class RobotController2 implements Runnable{
                     if (!FIRE_POWERisValid()) {
                         Integer fp1 = parser.getValue(getTweetChar());
                         Integer fp2 = parser.getValue(getTweetChar());
-                        System.out.println("FIRE_POWER: fp1(" + fp1 + "), fp2(" + fp2 + ").");
+                        //System.out.println("FIRE_POWER: fp1(" + fp1 + "), fp2(" + fp2 + ").");
                         setFIRE_POWER(createDouble(fp1, fp2));
                     }
 
                     //SET ROTATE_DIRECTION
                     if (!ROTATE_DIRECTIONisValid(ROTATE_DIRECTION)) {
                         Integer rd = parser.getValue(getTweetChar());
-                        System.out.println("ROTATE DIRECTION: rd(" + rd + ").");
+                        //System.out.println("ROTATE DIRECTION: rd(" + rd + ").");
                         setROTATE_DIRECTION(createDirection(rd));
                     }
 
@@ -141,7 +77,7 @@ public class RobotController2 implements Runnable{
                     if (!ROTATEisValid(ROTATE)) {
                         Integer r1 = parser.getValue(getTweetChar());
                         Integer r2 = parser.getValue(getTweetChar());
-                        System.out.println("ROTATE: r1(" + r1 + "), r2(" + r2 + ").");
+                        //System.out.println("ROTATE: r1(" + r1 + "), r2(" + r2 + ").");
                         setROTATE(createAngle(r1, r2) * ROTATE_DIRECTION);
                     }
 
@@ -149,7 +85,7 @@ public class RobotController2 implements Runnable{
                     if (!MOVEVEMENTisValid(MOVE_UP)) {
                         Integer mvup1 = parser.getValue(getTweetChar());
                         Integer mvup2 = parser.getValue(getTweetChar());
-                        System.out.println("MOVE_UP: mvup1(" + mvup1 + "), mvup2(" + mvup2 + ").");
+                        //System.out.println("MOVE_UP: mvup1(" + mvup1 + "), mvup2(" + mvup2 + ").");
                         setMOVE_UP(createMovement(mvup1, mvup2));
                     }
 
@@ -157,7 +93,7 @@ public class RobotController2 implements Runnable{
                     if (!MOVEVEMENTisValid(MOVE_RIGHT)) {
                         Integer mvright1 = parser.getValue(getTweetChar());
                         Integer mvright2 = parser.getValue(getTweetChar());
-                        System.out.println("MOVE_RIGHT: mvright1(" + mvright1 + "), mvright2(" + mvright2 + ").");
+                        //System.out.println("MOVE_RIGHT: mvright1(" + mvright1 + "), mvright2(" + mvright2 + ").");
                         setMOVE_RIGHT(createMovement(mvright1, mvright2));
                     }
 
@@ -165,7 +101,7 @@ public class RobotController2 implements Runnable{
                     if (!MOVEVEMENTisValid(MOVE_DOWN)) {
                         Integer mvdown1 = parser.getValue(getTweetChar());
                         Integer mvdown2 = parser.getValue(getTweetChar());
-                        System.out.println("MOVE_DOWN: mvdown1(" + mvdown1 + "), mvdown2(" + mvdown2 + ").");
+                        //System.out.println("MOVE_DOWN: mvdown1(" + mvdown1 + "), mvdown2(" + mvdown2 + ").");
                         setMOVE_DOWN(createMovement(mvdown1, mvdown2));
                     }
 
@@ -173,14 +109,14 @@ public class RobotController2 implements Runnable{
                     if (!MOVEVEMENTisValid(MOVE_LEFT)) {
                         Integer mvleft1 = parser.getValue(getTweetChar());
                         Integer mvleft2 = parser.getValue(getTweetChar());
-                        System.out.println("MOVE_LEFT: mvleft1(" + mvleft1 + "), mvleft2(" + mvleft2 + ").");
+                        //System.out.println("MOVE_LEFT: mvleft1(" + mvleft1 + "), mvleft2(" + mvleft2 + ").");
                         setMOVE_LEFT(createMovement(mvleft1, mvleft2));
                     }
 
                     //Set ROTATE_GUN_DIRECTION
                     if (!ROTATE_DIRECTIONisValid(ROTATE_GUN_DIRECTION)) {
                         Integer rd = parser.getValue(getTweetChar());
-                        System.out.println("ROTATE_GUN_DIRECTION: rd1(" + rd + ").");
+                        //System.out.println("ROTATE_GUN_DIRECTION: rd1(" + rd + ").");
                         setROTATE_GUN_DIRECTION(createDirection(rd));
                     }
 
@@ -188,7 +124,7 @@ public class RobotController2 implements Runnable{
                     if (!ROTATEisValid(ROTATE_GUN)) {
                         Integer rg1 = parser.getValue(getTweetChar());
                         Integer rg2 = parser.getValue(getTweetChar());
-                        System.out.println("ROTATE_GUN: rg1(" + rg1 + "), rg2(" + rg2 + ").");
+                        //System.out.println("ROTATE_GUN: rg1(" + rg1 + "), rg2(" + rg2 + ").");
                         setROTATE_GUN(createAngle(rg1, rg2));
                     }
                 }
@@ -199,21 +135,48 @@ public class RobotController2 implements Runnable{
         }
     }
 
+    /**
+     * Checks if the current Tweet has been used by the TweetParser
+     * @return If Tweet is exhausted
+     */
     private boolean currentTweetIsNotExhausted() {
         return currentTweet.get("text").toString().length() > 0;
     }
 
+    /**
+     * Gets the first character from the current Tweet, trims the string and replaces
+     * the current Tweet. Increments characters used.
+     * @return First character from current Tweet
+     */
     private String getTweetChar() {
         try {
+            //Get The Text Element From Current Tweet (Status)
             String text = currentTweet.get("text").toString();
-            String newText = text.substring(1, text.length());
-            String ch = text.substring(0, 1);
-            currentTweet.remove("text");
-            currentTweet.put("text", newText);
+            System.out.println(text);
 
+            //Increment Characters used for data analysis
             CHARS_USED++;
 
-            return ch;
+            //If Tweet length is 1, we skip this statement and just return
+            //the first character. It will catch as exhausted on the next loop.
+            if (currentTweet.get("text").toString().length() > 1) {
+                //Since we're going to remove the first character for parsing,
+                //take from the 2nd char to the end and store in newText.
+                String newText = text.substring(1, text.length());
+                currentTweet.remove("text"); //Remove text element from current status
+                currentTweet.put("text", newText); //Replace with the newText
+
+                //Return the first character from the current tweets for parsing
+                return text.substring(0, 1);
+            } else {
+                //If we're on the last char of the Tweet (length = 1) then we
+                //need to set the currentTweet text element to nothing
+                currentTweet.remove("text");
+                currentTweet.put("text", ""); //String of length 0
+
+                //Only one character left, return it.
+                return text;
+            }
         } catch (NullPointerException e) {
             System.out.println("Current Tweet Is Null");
         }
@@ -309,36 +272,6 @@ public class RobotController2 implements Runnable{
         MOVE_LEFT = -1;
         ROTATE_GUN_DIRECTION = 99;
         ROTATE = 999;
-    }
-
-    private void setRandomUser() {
-       //Get all usernames from cluster
-        ArrayList<String> users = tr.getAllUsernames();
-
-        //Generate Random Number (From 0 - users.size())
-        Random rand = new Random();
-        Integer n = rand.nextInt(users.size());
-
-        //Get random user string and set RobotController2 USER
-        String user = users.get(n);
-
-        //Check If User Already Taken
-        boolean foundAvailableUser = false;
-        while(!foundAvailableUser) {
-            if (!takenUsers.contains(user)) {
-                foundAvailableUser = true;
-            } else {
-                //Regenerate Random Number
-                n = rand.nextInt(users.size());
-
-                //Try Again
-                user = users.get(n);
-            }
-        }
-
-        setUSER(user);
-        takenUsers.add(user);
-        System.out.println("User set to " + user);
     }
 
     public void setUSER(String USER) {

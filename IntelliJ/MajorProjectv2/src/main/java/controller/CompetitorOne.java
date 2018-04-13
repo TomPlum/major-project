@@ -9,7 +9,7 @@ import view.RobotObserver;
  * TweetParser. A Twitter user is chosen at random to represent it and therefore choose its actions.
  * ---------------------------------------------------------------------------------------------------
  * @author Thomas Plumpton
- * @version 1.0.0
+ * @version 2.0.0
  */
 @SuppressWarnings("unused")
 public class CompetitorOne extends TwitterRobot implements ITwitterRobot {
@@ -28,7 +28,7 @@ public class CompetitorOne extends TwitterRobot implements ITwitterRobot {
      * Updates the values in the RobotObserver GUI Swing/AWT Panel.
      */
     public synchronized void updateRobotObserver() {
-        RobotObserver.setNumberOfTweetsOne(3200);
+        //RobotObserver.setNumberOfTweetsOne(rc.getCurrentTweetArray().size());
         //setNumberOfTweetsOne(rc.getCurrentTweetArray().size());
         //setTurnNumber(numberOfTurns);
         //setRoundNumber(getRoundNum());

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public abstract class TwitterRobot extends AdvancedRobot {
     private static int skippedTurns = 0;
-    static RobotController2 rc = new RobotController2();
+    private RobotController2 rc = new RobotController2();
     private static TweetSerialiser serialiser = new TweetSerialiser();
     protected static ArrayList<Document> tweets;
 
@@ -89,6 +89,14 @@ public abstract class TwitterRobot extends AdvancedRobot {
      */
     public void onDeath(DeathEvent e) {
         //Count time up until, then record time taken to die. Save in DB.
+    }
+
+    /**
+     * Called when the robot wins the round
+     * @param e Robocode WinEvent
+     */
+    public void onWin(WinEvent e) {
+        stop();
     }
 
     /**
