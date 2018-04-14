@@ -31,6 +31,8 @@ public abstract class TwitterRobot extends AdvancedRobot {
         //De-Serialise Tweets & Pass Them To RobotController
         tweets = serialiser.readTweets(id);
         rc.initialiseTweets(tweets);
+
+        //Set Username
         rc.setUSER(tweets.get(0).get("screenName").toString());
 
         //Set Twitter Palette Colours

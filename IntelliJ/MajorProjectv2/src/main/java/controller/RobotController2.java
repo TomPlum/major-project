@@ -190,14 +190,26 @@ public class RobotController2 {
      * @return double in format x.y
      */
     private Double createDouble(Integer s1, Integer s2) {
-        if (s1 > 10) {
-            String num1 = s1.toString().substring(0, 1);
-            String num2 = s1.toString().substring(1, 2);
-            return Double.parseDouble(Integer.parseInt(num1) + "." + Integer.parseInt(num2));
-        } else if (s2 > 10) {
-            String num1 = s2.toString().substring(0, 1);
-            String num2 = s2.toString().substring(1, 2);
-            return Double.parseDouble(Integer.parseInt(num1) + "." + Integer.parseInt(num2));
+        try {
+            if (s1 > 10 && s2 > 10) {
+                //If both integers are 2 digits, take first digit from each and concat into double.
+                String num1 = s1.toString().substring(0, 1);
+                String num2 = s2.toString().substring(0, 1);
+                return Double.parseDouble(Integer.parseInt(num1) + "." + Integer.parseInt(num2));
+            } else if (s1 > 10) {
+                //If s1 is 2 digits, split them and parse as double. I.e 13 would become 1.3
+                String num1 = s1.toString().substring(0, 1);
+                String num2 = s1.toString().substring(1, 2);
+                return Double.parseDouble(Integer.parseInt(num1) + "." + Integer.parseInt(num2));
+            } else if (s2 > 10) {
+                //Same here but for s2
+                String num1 = s2.toString().substring(0, 1);
+                String num2 = s2.toString().substring(1, 2);
+                return Double.parseDouble(Integer.parseInt(num1) + "." + Integer.parseInt(num2));
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("createDouble() parsing error. Integer 1: " + s1 + ", Integer 2: " + s2);
+            e.printStackTrace();
         }
 
         //If Both < 10, just concat into Double
@@ -224,16 +236,22 @@ public class RobotController2 {
     }
 
     private Integer createMovement(Integer mv1, Integer mv2) {
-        String moveString = mv1.toString() + mv2.toString();
-        Integer concatInt = Integer.parseInt(moveString);
+        try {
+            String moveString = mv1.toString() + mv2.toString();
+            Integer concatInt = Integer.parseInt(moveString);
 
-        if (concatInt < 1000) {
-            return concatInt;
+            if (concatInt < 1000) {
+                return concatInt;
+            }
+
+            //Max concat Int is if mv1 and mv2 were 25. so it would be 2525
+            //2525 / 1000 = 2.525. So we divide by that to make sure always < 1000
+            return Math.round(concatInt / 2.525f);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            //Default to 250
+            return 250;
         }
-
-        //Max concat Int is if mv1 and mv2 were 25. so it would be 2525
-        //2525 / 1000 = 2.525. So we divide by that to make sure always < 1000
-        return Math.round(concatInt / 2.525f);
     }
 
     private void updateCurrentTweet() {
