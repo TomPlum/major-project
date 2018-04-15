@@ -1,8 +1,6 @@
 package twitter;
 
 import org.bson.Document;
-import view.RobotObserver;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;

@@ -3,34 +3,26 @@ package controller;
 import org.bson.Document;
 import robocode.*;
 import twitter.TweetSerialiser;
+import view.RobotObserver;
 import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class TwitterRobot extends AdvancedRobot {
     private static int skippedTurns = 0;
-    private RobotController2 rc = new RobotController2();
+    RobotController2 rc = new RobotController2();
     private static TweetSerialiser serialiser = new TweetSerialiser();
     protected static ArrayList<Document> tweets;
-
-    /**
-     * This method is called every turn in a battle round in order to provide the
-     * robot status as a complete snapshot of the robot's current state at that specific time.
-     * @param e Robocode StatusEvent
-     */
-    public void onStatus(StatusEvent e) {
-        //Update Robot's Current Coordinates
-        RobotStatus robotStatus = e.getStatus();
-        rc.setRobotX(robotStatus.getX());
-        rc.setRobotY(robotStatus.getY());
-
-        //Update RobotObserver GUI
-        updateRobotObserver();
-    }
+    RobotObserver observer = new RobotObserver();
 
     void initialConfiguration(int id) {
         //De-Serialise Tweets & Pass Them To RobotController
         tweets = serialiser.readTweets(id);
         rc.initialiseTweets(tweets);
+
+        //Open RobotObserver GUI
+        if (id == 1) {
+            observer.startObserving();
+        }
 
         //Set Username
         rc.setUSER(tweets.get(0).get("screenName").toString());
@@ -70,6 +62,21 @@ public abstract class TwitterRobot extends AdvancedRobot {
     }
 
     /**
+     * This method is called every turn in a battle round in order to provide the
+     * robot status as a complete snapshot of the robot's current state at that specific time.
+     * @param e Robocode StatusEvent
+     */
+    public void onStatus(StatusEvent e) {
+        //Update Robot's Current Coordinates
+        RobotStatus robotStatus = e.getStatus();
+        rc.setRobotX(robotStatus.getX());
+        rc.setRobotY(robotStatus.getY());
+
+        //Update RobotObserver GUI
+        updateRobotObserver();
+    }
+
+    /**
      * Called whenever the robots scanner finds another robot.
      * @param e Robocode ScannedRobotEvent
      */
@@ -98,7 +105,7 @@ public abstract class TwitterRobot extends AdvancedRobot {
      * @param e Robocode WinEvent
      */
     public void onWin(WinEvent e) {
-        stop();
+        observer.stopObserving();
     }
 
     /**

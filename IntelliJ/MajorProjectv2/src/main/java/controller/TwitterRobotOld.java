@@ -25,9 +25,6 @@ public class TwitterRobotOld extends AdvancedRobot {
         RobotStatus robotStatus = e.getStatus();
         RobotController.setRobotX(robotStatus.getX());
         RobotController.setRobotY(robotStatus.getY());
-
-        //Update RobotObserver GUI
-        RobotObserver.setXOrdinateOne(robotStatus.getX());
     }
 
     /**

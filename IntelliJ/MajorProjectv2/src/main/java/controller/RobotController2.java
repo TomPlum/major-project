@@ -8,6 +8,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class RobotController2 {
+    //Robot Attribute Values
     private String USER;
     private Double robotX;
     private Double robotY;
@@ -24,13 +25,15 @@ public class RobotController2 {
     private Integer ROTATE_SCANNER_DIRECTION = 99;
     private Integer SCAN_FREQUENCY = -1;
 
+    //Components
     private TweetReader tr = new TweetReader();
     private TweetParser parser = new TweetParser();
     private ArrayList<Document> allTweets;
     private ArrayList<Document> currentTweetArray;
     private Document currentTweet;
-    private static DecimalFormat dp1 = new DecimalFormat(".#");
+    private DecimalFormat dp1 = new DecimalFormat(".#");
 
+    //Data Analysis
     private int CHARS_USED = 0;
     private int TWEETS_USED = 0;
 
@@ -366,6 +369,18 @@ public class RobotController2 {
 
     public double getFIRE_POWER() {
         return FIRE_POWER;
+    }
+
+    public Double getRobotX() {
+        return robotX;
+    }
+
+    public Double getRobotY() {
+        return robotY;
+    }
+
+    public Document getCurrentTweet() {
+        return currentTweet;
     }
 
     public ArrayList<Document> getAllTweets() {

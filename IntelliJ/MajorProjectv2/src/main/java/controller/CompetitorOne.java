@@ -1,6 +1,5 @@
 package controller;
 
-import view.RobotObserver;
 
 /**
  * ---------------------------------------------------------------------------------------------------
@@ -9,7 +8,7 @@ import view.RobotObserver;
  * TweetParser. A Twitter user is chosen at random to represent it and therefore choose its actions.
  * ---------------------------------------------------------------------------------------------------
  * @author Thomas Plumpton
- * @version 2.0.0
+ * @version 2.1.0
  */
 @SuppressWarnings("unused")
 public class CompetitorOne extends TwitterRobot implements ITwitterRobot {
@@ -27,11 +26,21 @@ public class CompetitorOne extends TwitterRobot implements ITwitterRobot {
     /**
      * Updates the values in the RobotObserver GUI Swing/AWT Panel.
      */
-    public synchronized void updateRobotObserver() {
-        //RobotObserver.setNumberOfTweetsOne(rc.getCurrentTweetArray().size());
-        //setNumberOfTweetsOne(rc.getCurrentTweetArray().size());
-        //setTurnNumber(numberOfTurns);
-        //setRoundNumber(getRoundNum());
-        //setUserOne(rc.getUSER());
+    public void updateRobotObserver() {
+        observer.setNumberOfTweetsOne(tweets.size());
+        observer.setRoundNumber(getRoundNum());
+        observer.setXOrdinateOne(rc.getRobotX());
+        observer.setYOrdinateOne(rc.getRobotY());
+        observer.setUserOne(rc.getUSER());
+        observer.setFirePowerOne(rc.getFIRE_POWER());
+        observer.setMoveUpOne(rc.getMOVE_UP());
+        observer.setMoveRightOne(rc.getMOVE_RIGHT());
+        observer.setMoveDownOne(rc.getMOVE_DOWN());
+        observer.setMoveLeftOne(rc.getMOVE_LEFT());
+        observer.setRotateOne(rc.getROTATE());
+        observer.setRotateGunOne(rc.getROTATE_GUN());
+        observer.setRotateDirectionOne(rc.getROTATE_DIRECTION());
+        observer.setRotateGunDirectionOne(rc.getROTATE_GUN_DIRECTION());
+        observer.setCurrentTweetOne(rc.getCurrentTweet().get("text").toString());
     }
 }

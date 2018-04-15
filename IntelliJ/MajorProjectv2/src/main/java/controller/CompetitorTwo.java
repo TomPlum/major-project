@@ -23,7 +23,9 @@ public class CompetitorTwo extends TwitterRobot implements ITwitterRobot {
         doTurn();
     }
 
-    public synchronized void updateRobotObserver() {
-
+    public void updateRobotObserver() {
+        observer.setNumberOfTweetsTwo(tweets.size());
+        observer.setXOrdinateTwo(rc.getRobotX());
+        observer.setYOrdinateTwo(rc.getRobotY());
     }
 }

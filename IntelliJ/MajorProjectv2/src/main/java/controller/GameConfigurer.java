@@ -48,7 +48,7 @@ class GameConfigurer {
         BattleSpecification battleSpec = new BattleSpecification(NO_OF_ROUNDS, INACTIVITY_TIME, GUN_COOLING_RATE, HIDE_ENEMY_NAMES, battlefield, selectedRobots);
 
         //Open RobotObserver GUI
-        RobotObserver.startObserving();
+        //RobotObserver.startObserving();
 
         //Get Tweets & Serialise
         TweetSerialiser tweetSerialiser = new TweetSerialiser();
