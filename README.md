@@ -8,7 +8,7 @@ https://www.major-project.tomplumpton.me
 
 ## StartRobocodeEngine Run Configuration
 **Main Class:** `controller.startRobocode`\
-**VM Options:** `-Xmx1024M -DNOSECURITY=true -XX:+IgnoreUnrecognizedVMOptions "--add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.desktop/sun.awt=ALL-UNNAMED"`
+**VM Options:** `-Xmx1024M -DNOSECURITY=true -XX:+IgnoreUnrecognizedVMOptions "--add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.desktop/sun.awt=ALL-UNNAMED"`\
 **Program Arguments:** *Leave Blank*\
 **Working Directory:** `*PATH_TO_YOUR_REPO*\IntelliJ\MajorProjectv2\robocode_master`\
 **Environment Variables:** *Leave Blank*\
