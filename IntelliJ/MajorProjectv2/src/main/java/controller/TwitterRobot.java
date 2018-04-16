@@ -4,25 +4,31 @@ import org.bson.Document;
 import robocode.*;
 import twitter.TweetSerialiser;
 import view.RobotObserver;
+import view.RobotObserver2;
+
 import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class TwitterRobot extends AdvancedRobot {
     private static int skippedTurns = 0;
-    RobotController2 rc = new RobotController2();
-    private static TweetSerialiser serialiser = new TweetSerialiser();
-    protected static ArrayList<Document> tweets;
-    RobotObserver observer = new RobotObserver();
+    RobotController rc = new RobotController();
+    private TweetSerialiser serialiser = new TweetSerialiser();
+    protected ArrayList<Document> tweets;
+    //static RobotObserver observer = new RobotObserver();
+    RobotObserver2 observer = RobotObserver2.getInstance();
 
     void initialConfiguration(int id) {
         //De-Serialise Tweets & Pass Them To RobotController
         tweets = serialiser.readTweets(id);
         rc.initialiseTweets(tweets);
 
-        //Open RobotObserver GUI
-        if (id == 1) {
+        //Start Observing
+        /*
+        if (!observer.isOpen()) {
             observer.startObserving();
+            observer.setOpen(true);
         }
+        */
 
         //Set Username
         rc.setUSER(tweets.get(0).get("screenName").toString());
@@ -105,7 +111,11 @@ public abstract class TwitterRobot extends AdvancedRobot {
      * @param e Robocode WinEvent
      */
     public void onWin(WinEvent e) {
-        observer.stopObserving();
+        //RobotObserver.stopObserving();
+    }
+
+    public void onBattleEnded(BattleEndedEvent e) {
+        //Stop MongoConnection Threads?
     }
 
     /**

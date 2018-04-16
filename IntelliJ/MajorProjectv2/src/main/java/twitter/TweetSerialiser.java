@@ -20,6 +20,7 @@ public class TweetSerialiser implements Serializable {
             //C:/Users/thoma/Dropbox%20(University)/Year%203/CPU6001%20-%20Major%20Project%20(Amanda%20&%20Louise)/IntelliJ/MajorProjectv2/robocode_master/robots/
             //String path = TweetSerialiser.class.getProtectionDomain().getCodeSource().getLocation().getPath();
             String path = "./robots/controller/";
+            //String path = "./";
             FileOutputStream fileOut = new FileOutputStream(path + "TwitterRobotData" + robot + ".ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(tweets);
@@ -35,6 +36,7 @@ public class TweetSerialiser implements Serializable {
         ArrayList<Document> tweets = new ArrayList<>();
         try {
             FileInputStream fileIn = new FileInputStream("./robots/controller/TwitterRobotData" + robot + ".ser");
+            //FileInputStream fileIn = new FileInputStream("./TwitterRobotData" + robot + ".ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             tweets = (ArrayList<Document>) in.readObject();
             in.close();

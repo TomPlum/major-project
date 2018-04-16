@@ -2,6 +2,7 @@ package controller;
 
 import robocode.BattleRules;
 import robocode.control.events.*;
+import view.RobotObserver;
 
 /**
  * ---------------------------------------------------------------------------------------------------------
@@ -14,7 +15,7 @@ import robocode.control.events.*;
 public class BattleObserver extends BattleAdaptor {
     private BattleResultLogger resultLogger = new BattleResultLogger();
     private static long startTime;
-    static int numberOfTurns = 0;
+    private static int numberOfTurns = 0;
 
     /**
      * This method is called when a new battle has started.

@@ -1,46 +1,78 @@
 package robocode;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
-
 import controller.RobotController;
 import org.bson.Document;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import twitter.TweetReader;
+import twitter.TweetSerialiser;
+import view.RobotObserver;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RobotControllerTest {
-    private static TweetReader tr = new TweetReader();
     private static RobotController rc = new RobotController();
+    private static TweetSerialiser serialiser = new TweetSerialiser();
+    private static RobotObserver observer =new RobotObserver();
+    private static ArrayList<Document> tweets;
+    private static int roundNumber = 1;
 
     @BeforeAll
+    @SuppressWarnings("unused")
     private static void init() {
         System.out.println("Initialising RobotController Test Suite...");
-        //Get All Usernames From MongoDB Cluster
-        ArrayList<String> users = tr.getAllUsernames();
+        try {
+            serialiser.serialiseTweets(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        //Generate Random Number (From 0 - users.size())
-        Random rand = new Random();
-        int n = rand.nextInt(users.size());
+        tweets = serialiser.readTweets(1);
 
-        //Get random user string and set RobotController USER
-        String user = users.get(n);
-        rc.setUSER(user);
-        System.out.println("RobotController Username set to " + rc.getUSER());
+        rc.setUSER(tweets.get(0).get("screenName").toString());
 
         //Initialise RobotController Tweets
-        rc.initialiseTweets();
-        System.out.println("Successfully Downloaded " + rc.getAllTweets().size() + " Tweets.");
-
-        //Randomise Values
-        rc.randomiseValues();
-
+        rc.initialiseTweets(tweets);
+        observer.startObserving();
+        System.out.println("Successfully Read " + rc.getAllTweets().size() + " Tweets.");
         System.out.println("Running Tests...");
     }
 
+    private static void updateObserver() {
+        observer.setNumberOfTweetsOne(tweets.size());
+        observer.setRoundNumber(roundNumber++);
+        observer.setXOrdinateOne(1);
+        observer.setYOrdinateOne(1);
+        observer.setUserOne(rc.getUSER());
+        observer.setFirePowerOne(rc.getFIRE_POWER());
+        observer.setMoveUpOne(rc.getMOVE_UP());
+        observer.setMoveRightOne(rc.getMOVE_RIGHT());
+        observer.setMoveDownOne(rc.getMOVE_DOWN());
+        observer.setMoveLeftOne(rc.getMOVE_LEFT());
+        observer.setRotateOne(rc.getROTATE());
+        observer.setRotateGunOne(rc.getROTATE_GUN());
+        observer.setRotateDirectionOne(rc.getROTATE_DIRECTION());
+        observer.setRotateGunDirectionOne(rc.getROTATE_GUN_DIRECTION());
+        observer.setCurrentTweetOne(rc.getCurrentTweet().get("text").toString());
+    }
+
+    @Test
+    void testFunctionality() {
+        for(int i = 0; i < 50; i++) {
+            try {
+                Thread.sleep(1000);
+                rc.randomiseValues();
+                updateObserver();
+                rc.invalidateAllValues();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @AfterAll
+    @SuppressWarnings("unused")
     private static void finish() {
         System.out.println("Tests Finished.\n");
         System.out.println("RobotController Values:");
@@ -68,25 +100,6 @@ class RobotControllerTest {
 
         System.out.println("\nTweets Used: " + rc.getTWEETS_USED());
         System.out.println("Characters Used: " + rc.getCHARS_USED());
-    }
-
-    private void initController(RobotController rc) {
-        TweetReader tr = new TweetReader();
-
-        //Get all usernames from cluster
-        ArrayList<String> users = tr.getAllUsernames();
-
-        //Generate Random Number (From 0 - users.size())
-        Random rand = new Random();
-        int n = rand.nextInt(users.size());
-
-        //Get random user string and set RobotController USER
-        String user = users.get(n);
-        rc.setUSER(user);
-        System.out.println("RobotController Username set to " + rc.getUSER());
-
-        //Initialise RobotController Tweets
-        rc.initialiseTweets();
     }
 
     @Test

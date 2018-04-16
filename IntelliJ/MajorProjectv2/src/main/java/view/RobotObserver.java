@@ -12,58 +12,58 @@ import java.awt.*;
  * @version 2.1.4
  */
 public class RobotObserver {
-    private boolean observerIsOpen = false;
+    private static boolean isOpen = false;
 
-    private JFrame frame = new JFrame("TwitterRobot Observer");
+    private static JFrame frame = new JFrame("TwitterRobot Observer");
 
     //JPanel's for the overall GUI Layout
-    private JPanel GUI, headerOne, headerTwo, robotOne, robotTwo, footer, bodyOneLeft, bodyOneRight, bodyOneContainer;
-    private JPanel bodyTwoLeft, bodyTwoRight, bodyTwoContainer;
+    private static JPanel GUI, headerOne, headerTwo, robotOne, robotTwo, footer, bodyOneLeft, bodyOneRight, bodyOneContainer;
+    private static JPanel bodyTwoLeft, bodyTwoRight, bodyTwoContainer;
 
     //Footer: JLabels for the Robocode Battle Information
-    private JLabel roundNumber, turnNumber;
+    private static JLabel roundNumber, turnNumber;
 
     //Body: JLabels for Robot One's Information
-    private JLabel xOrdinateOne, yOrdinateOne, firePowerOne, moveUpOne, moveRightOne, moveDownOne, moveLeftOne, rotateOne, rotateDirectionOne;
-    private JLabel rotateGunOne, rotateGunDirectionOne;
+    private static JLabel xOrdinateOne, yOrdinateOne, firePowerOne, moveUpOne, moveRightOne, moveDownOne, moveLeftOne, rotateOne, rotateDirectionOne;
+    private static JLabel rotateGunOne, rotateGunDirectionOne;
 
     //Body: JLabels for Robot Two's Information
-    private JLabel xOrdinateTwo, yOrdinateTwo;
+    private static JLabel xOrdinateTwo, yOrdinateTwo;
 
-    //Header: JLabels for Robot One's Tweet Information
-    private JLabel numberOfTweetsOne, userOne, currentTweetOne;
+    //Header: static JLabels for Robot One's Tweet Information
+    private static JLabel numberOfTweetsOne, userOne, currentTweetOne;
 
-    //Header: JLabels for Robot Two's Tweet Information
-    private JLabel numberOfTweetsTwo, userTwo;
+    //Header: static JLabels for Robot Two's Tweet Information
+    private static JLabel numberOfTweetsTwo, userTwo;
 
     //Header: JTextFields for Robot One's Tweet Information
-    private volatile JTextField numberOfTweetsOneField, userOneField, currentTweetOneField;
+    private static JTextField numberOfTweetsOneField, userOneField, currentTweetOneField;
 
     //Header: JTextFields for Robot Two's Twitter Information
-    private JTextField numberOfTweetsTwoField, userTwoField;
+    private static JTextField numberOfTweetsTwoField, userTwoField;
 
     //Footer: JTextFields for the Robocode Battle Information
-    private JTextField roundNumberField, turnNumberField;
+    private static JTextField roundNumberField, turnNumberField;
 
     //Body: JTextFields for Robot One's Information
-    private JTextField xOrdinateOneField, yOrdinateOneField, firePowerOneField, moveUpOneField, moveRightOneField, moveDownOneField, moveLeftOneField;
-    private JTextField rotateOneField, rotateDirectionOneField, rotateGunOneField, rotateGunDirectionOneField;
+    private static JTextField xOrdinateOneField, yOrdinateOneField, firePowerOneField, moveUpOneField, moveRightOneField, moveDownOneField, moveLeftOneField;
+    private static JTextField rotateOneField, rotateDirectionOneField, rotateGunOneField, rotateGunDirectionOneField;
 
     //Body: JTextFields for Robot Two's Information
-    private JTextField xOrdinateTwoField, yOrdinateTwoField;
+    private static JTextField xOrdinateTwoField, yOrdinateTwoField;
 
-    public void startObserving() {
+    public static void startObserving() {
         createAndShowGUI();
     }
 
-    private void configureMainPanels() {
+    private static void configureMainPanels() {
         GUI = new JPanel();
         footer = new JPanel();
         GUI.setLayout(new BorderLayout());
         footer.setLayout(new FlowLayout());
     }
 
-    private void configureRobotOnePanels() {
+    private static void configureRobotOnePanels() {
         //Instantiate Panels
         robotOne = new JPanel();
         headerOne = new JPanel();
@@ -81,7 +81,7 @@ public class RobotObserver {
         headerOne.setLayout(new FlowLayout());
     }
 
-    private void configureRobotTwoPanels() {
+    private static void configureRobotTwoPanels() {
         //Instantiate Panels
         robotTwo = new JPanel();
         headerTwo = new JPanel();
@@ -99,7 +99,7 @@ public class RobotObserver {
         headerTwo.setLayout(new FlowLayout());
     }
 
-    private void configureRobotOneLabels() {
+    private static void configureRobotOneLabels() {
         //Twitter Information
         numberOfTweetsOne = new JLabel("Number of Tweets");
         userOne = new JLabel("Twitter ScreenName");
@@ -119,24 +119,24 @@ public class RobotObserver {
         rotateGunDirectionOne = new JLabel("Rotate Gun Direction");
     }
 
-    private void configureFooterLabels() {
+    private static void configureFooterLabels() {
         roundNumber = new JLabel("Round Number");
         turnNumber = new JLabel("Turn Number");
     }
 
-    private void configureFooterFields() {
+    private static void configureFooterFields() {
         roundNumberField = new JTextField("0", 10);
         turnNumberField = new JTextField("0", 10);
     }
 
-    private void addFooterLabelsAndFields() {
+    private static void addFooterLabelsAndFields() {
         footer.add(roundNumber);
         footer.add(roundNumberField);
         footer.add(turnNumber);
         footer.add(turnNumberField);
     }
 
-    private void addRobotOneLabelsAndFields() {
+    private static void addRobotOneLabelsAndFields() {
         //Header
         headerOne.add(numberOfTweetsOne);
         headerOne.add(numberOfTweetsOneField);
@@ -172,7 +172,7 @@ public class RobotObserver {
         bodyOneRight.add(firePowerOneField);
     }
     
-    private void addRobotTwoLabelsAndFields() {
+    private static void addRobotTwoLabelsAndFields() {
         //Header
         headerTwo.add(numberOfTweetsTwo);
         headerTwo.add(numberOfTweetsTwoField);
@@ -188,7 +188,7 @@ public class RobotObserver {
         //Right
     }
 
-    private void configureRobotTwoLabels() {
+    private static void configureRobotTwoLabels() {
         //Twitter Information
         numberOfTweetsTwo = new JLabel("Number of Tweets");
         userTwo = new JLabel("Twitter ScreenName");
@@ -198,7 +198,7 @@ public class RobotObserver {
         yOrdinateTwo = new JLabel("Y-Ordinate");
     }
 
-    private void configureBorders() {
+    private static void configureBorders() {
         headerOne.setBorder(BorderFactory.createTitledBorder("Tweet Information"));
         headerTwo.setBorder(BorderFactory.createTitledBorder("Tweet Information"));
         robotOne.setBorder(BorderFactory.createTitledBorder("TwitterRobot 1"));
@@ -208,7 +208,7 @@ public class RobotObserver {
         footer.setBorder(BorderFactory.createTitledBorder("Robocode Battle Information"));
     }
 
-    private void configureRobotOneFields() {
+    private static void configureRobotOneFields() {
         numberOfTweetsOneField = new JTextField("0", 10);
         userOneField = new JTextField("N/A", 10);
         xOrdinateOneField = new JTextField(10);
@@ -225,14 +225,14 @@ public class RobotObserver {
         currentTweetOneField = new JTextField(50);
     }
     
-    private void configureRobotTwoFields() {
+    private static void configureRobotTwoFields() {
         numberOfTweetsTwoField = new JTextField("0", 10);
         userTwoField = new JTextField("N/A", 10);
         xOrdinateTwoField = new JTextField(10);
         yOrdinateTwoField = new JTextField(10);
     }
 
-    private JPanel createContentPane()  {
+    private static JPanel createContentPane()  {
         //Panels
         configureMainPanels();
         configureRobotTwoPanels();
@@ -275,7 +275,7 @@ public class RobotObserver {
         return GUI;
     }
 
-    private void createAndShowGUI() {
+    private static void createAndShowGUI() {
         //Set Overall GUI JFrame Settings
         frame.setContentPane(createContentPane());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -283,63 +283,63 @@ public class RobotObserver {
         frame.setVisible(true);
     }
 
-    public void setXOrdinateOne(double x) {
-        SwingUtilities.invokeLater(() -> xOrdinateOneField.setText(String.valueOf(Math.round(x * 1000.0) / 1000.0)));
+    public static void setXOrdinateOne(double x) {
+        SwingUtilities.invokeLater(() -> xOrdinateOneField.setText(String.valueOf(Math.round(x * 100.0) / 100.0)));
     }
 
-    public void setXOrdinateTwo(double x) {
-        SwingUtilities.invokeLater(() -> xOrdinateTwoField.setText(String.valueOf(Math.round(x * 1000.0) / 1000.0)));
+    public static void setXOrdinateTwo(double x) {
+        SwingUtilities.invokeLater(() -> xOrdinateTwoField.setText(String.valueOf(Math.round(x * 100.0) / 100.0)));
     }
 
-    public void setYOrdinateOne(double y) {
-        SwingUtilities.invokeLater(() -> yOrdinateOneField.setText(String.valueOf(y)));
+    public static void setYOrdinateOne(double y) {
+        SwingUtilities.invokeLater(() -> yOrdinateOneField.setText(String.valueOf(Math.round(y * 100.0) / 100.0)));
     }
 
-    public void setYOrdinateTwo(double y) {
-        SwingUtilities.invokeLater(() -> yOrdinateTwoField.setText(String.valueOf(y)));
+    public static void setYOrdinateTwo(double y) {
+        SwingUtilities.invokeLater(() -> yOrdinateTwoField.setText(String.valueOf(Math.round(y * 100.0) / 100.0)));
     }
 
-    public void setNumberOfTweetsOne(int number) {
+    public static void setNumberOfTweetsOne(int number) {
         SwingUtilities.invokeLater(() -> numberOfTweetsOneField.setText(String.valueOf(number)));
     }
 
-    public void setNumberOfTweetsTwo(int number) {
+    public static void setNumberOfTweetsTwo(int number) {
         SwingUtilities.invokeLater(() -> numberOfTweetsTwoField.setText(String.valueOf(number)));
     }
 
-    public void setUserOne(String name) {
+    public static void setUserOne(String name) {
         SwingUtilities.invokeLater(() -> userOneField.setText(name));
     }
 
-    public void setRoundNumber(int round) {
+    public static void setRoundNumber(int round) {
         SwingUtilities.invokeLater(() -> roundNumberField.setText(String.valueOf(round)));
     }
 
-    public void setFirePowerOne(double power) {
+    public static void setFirePowerOne(double power) {
         SwingUtilities.invokeLater(() -> firePowerOneField.setText(String.valueOf(power)));
     }
 
-    public void setMoveUpOne(int up) {
+    public static void setMoveUpOne(int up) {
         SwingUtilities.invokeLater(() -> moveUpOneField.setText(String.valueOf(up)));
     }
 
-    public void setMoveRightOne(int right) {
+    public static void setMoveRightOne(int right) {
         SwingUtilities.invokeLater(() -> moveRightOneField.setText(String.valueOf(right)));
     }
 
-    public void setMoveDownOne(int down) {
+    public static void setMoveDownOne(int down) {
         SwingUtilities.invokeLater(() -> moveDownOneField.setText(String.valueOf(down)));
     }
 
-    public void setMoveLeftOne(int left) {
+    public static void setMoveLeftOne(int left) {
         SwingUtilities.invokeLater(() -> moveLeftOneField.setText(String.valueOf(left)));
     }
 
-    public void setRotateOne(int rotate) {
+    public static void setRotateOne(int rotate) {
         SwingUtilities.invokeLater(() -> rotateOneField.setText(String.valueOf(rotate)));
     }
 
-    public void setRotateDirectionOne(int direction) {
+    public static void setRotateDirectionOne(int direction) {
         SwingUtilities.invokeLater(() -> {
             if (direction == 1) {
                 rotateDirectionOneField.setText("Clockwise");
@@ -351,11 +351,11 @@ public class RobotObserver {
         });
     }
 
-    public void setRotateGunOne(int rotate) {
+    public static void setRotateGunOne(int rotate) {
         SwingUtilities.invokeLater(() -> rotateGunOneField.setText(String.valueOf(rotate)));
     }
 
-    public void setRotateGunDirectionOne(int direction) {
+    public static void setRotateGunDirectionOne(int direction) {
         SwingUtilities.invokeLater(() -> {
             if (direction == 1) {
                 rotateGunDirectionOneField.setText("Clockwise");
@@ -367,15 +367,15 @@ public class RobotObserver {
         });
     }
 
-    public void setCurrentTweetOne(String tweet) {
+    public static void setCurrentTweetOne(String tweet) {
         SwingUtilities.invokeLater(() -> currentTweetOneField.setText(tweet));
     }
 
-    public void setTurnNumber(int turn) {
+    public static void setTurnNumber(int turn) {
         SwingUtilities.invokeLater(() -> turnNumberField.setText(String.valueOf(turn)));
     }
 
-    public void setSkippedTurnsOne(int skipped) {
+    public static void setSkippedTurnsOne(int skipped) {
 
     }
 
@@ -388,17 +388,17 @@ public class RobotObserver {
         }
     }
 
-    public boolean getObserverIsOpen() {
-        return observerIsOpen;
-    }
-
-    public void setObserverIsOpen(boolean observerIsOpen) {
-        this.observerIsOpen = observerIsOpen;
-    }
-
     public static void main(String[] args) {
         RobotObserver ro = new RobotObserver();
         ro.createContentPane();
         ro.createAndShowGUI();
+    }
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public void setOpen(boolean open) {
+        isOpen = open;
     }
 }

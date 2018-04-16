@@ -1,5 +1,6 @@
 package controller;
 
+import robocode.Robot;
 import robocode.control.*;
 import twitter.TweetSerialiser;
 import view.RobotObserver;

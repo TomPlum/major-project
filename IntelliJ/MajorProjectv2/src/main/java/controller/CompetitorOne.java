@@ -1,5 +1,6 @@
 package controller;
 
+import view.RobotObserver;
 
 /**
  * ---------------------------------------------------------------------------------------------------
@@ -30,6 +31,7 @@ public class CompetitorOne extends TwitterRobot implements ITwitterRobot {
         observer.setNumberOfTweetsOne(tweets.size());
         observer.setRoundNumber(getRoundNum());
         observer.setXOrdinateOne(rc.getRobotX());
+        observer.setXOrdinateOne(rc.getRobotX());
         observer.setYOrdinateOne(rc.getRobotY());
         observer.setUserOne(rc.getUSER());
         observer.setFirePowerOne(rc.getFIRE_POWER());
@@ -42,5 +44,6 @@ public class CompetitorOne extends TwitterRobot implements ITwitterRobot {
         observer.setRotateDirectionOne(rc.getROTATE_DIRECTION());
         observer.setRotateGunDirectionOne(rc.getROTATE_GUN_DIRECTION());
         observer.setCurrentTweetOne(rc.getCurrentTweet().get("text").toString());
+        
     }
 }

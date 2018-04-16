@@ -1,5 +1,7 @@
 package controller;
 
+import view.RobotObserver;
+
 /**
  * ---------------------------------------------------------------------------------------------------
  * This robot's actions are entirely dependent on the character values from Twitter Tweets stored in a
@@ -23,7 +25,7 @@ public class CompetitorTwo extends TwitterRobot implements ITwitterRobot {
         doTurn();
     }
 
-    public void updateRobotObserver() {
+    public void updateobserver() {
         observer.setNumberOfTweetsTwo(tweets.size());
         observer.setXOrdinateTwo(rc.getRobotX());
         observer.setYOrdinateTwo(rc.getRobotY());

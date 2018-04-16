@@ -2,28 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d06cb7df-8c9e-4bfc-a32e-c7b16540e8df" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/RobotController.java.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/RobotObserver2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assessed Work/CPU6001 - Final Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assessed Work/CPU6001 - Final Report.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/robocode/RobotControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/robocode/RobotControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/config/robocode.properties" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/config/robocode.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/BattleObserver.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/BattleObserver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/CompetitorOne.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/CompetitorOne.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/CompetitorTwo.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/CompetitorTwo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/GameConfigurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/GameConfigurer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/ITwitterRobot.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/ITwitterRobot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/RobotController2.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/RobotController2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/RobotController.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/RobotController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/RobotController2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobot.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotData1.ser" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotData1.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotData2.ser" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotData2.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotOld.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotOld.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotOld.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/robots/robot.database" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/robot.database" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/twitter/TweetSerialiser.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/twitter/TweetSerialiser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/view/RobotObserver.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/view/RobotObserver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BattleObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BattleObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/CompetitorOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CompetitorOne.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/CompetitorTwo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CompetitorTwo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ITwitterRobot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ITwitterRobot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RobotController2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RobotController2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RobotController2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RobotController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TwitterRobotOld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TwitterRobotOld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TwitterRobotOld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/twitter/TweetSerialiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/twitter/TweetSerialiser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/RobotObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RobotObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/robocode/TestRunner.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,23 +63,90 @@
       <file leaf-file-name="CompetitorOne.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/CompetitorOne.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="408">
+              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
               <folding>
-                <element signature="e#607#634#0" expanded="true" />
+                <element signature="e#580#607#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompetitorTwo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CompetitorTwo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/CompetitorTwo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+            <state relative-caret-position="221">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="e#579#606#0" expanded="true" />
                 <element signature="e#906#948#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TwitterRobot.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1330#1372#1" expanded="true" />
+                <element signature="e#2686#2687#0" expanded="true" />
+                <element signature="e#2726#2727#0" expanded="true" />
+                <element signature="e#2896#2897#0" expanded="true" />
+                <element signature="e#2935#2936#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BattleObserver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleObserver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="33" column="131" selection-start-line="33" selection-start-column="131" selection-end-line="33" selection-end-column="131" />
+              <folding>
+                <element signature="e#2263#2264#0" expanded="true" />
+                <element signature="e#2323#2324#0" expanded="true" />
+                <element signature="e#2507#2508#0" expanded="true" />
+                <element signature="e#2565#2566#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RobotObserver2.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/view/RobotObserver2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+              <folding>
+                <element signature="e#679#680#0" expanded="true" />
+                <element signature="e#711#712#0" expanded="true" />
+                <element signature="e#2970#2971#0" expanded="true" />
+                <element signature="e#3004#3005#0" expanded="true" />
+                <element signature="e#12147#12148#0" expanded="true" />
+                <element signature="e#12223#12224#0" expanded="true" />
+                <element signature="e#12552#12553#0" expanded="true" />
+                <element signature="e#12644#12645#0" expanded="true" />
+                <element signature="e#14936#14937#0" expanded="true" />
+                <element signature="e#14965#14966#0" expanded="true" />
+                <element signature="e#15006#15007#0" expanded="true" />
+                <element signature="e#15035#15036#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameConfigurer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="779">
+              <caret line="62" column="64" selection-start-line="62" selection-start-column="64" selection-end-line="62" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,26 +156,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/ITwitterRobot.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TwitterRobot.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1400#1442#1" expanded="true" />
-                <element signature="e#2394#2395#0" expanded="true" />
-                <element signature="e#2434#2435#0" expanded="true" />
-                <element signature="e#2604#2605#0" expanded="true" />
-                <element signature="e#2643#2644#0" expanded="true" />
-                <element signature="e#3148#3149#0" expanded="true" />
-                <element signature="e#3188#3189#0" expanded="true" />
-              </folding>
+              <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -120,37 +176,18 @@
       <file leaf-file-name="RobotObserver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/view/RobotObserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5066">
-              <caret line="298" column="10" selection-start-line="298" selection-start-column="10" selection-end-line="298" selection-end-column="10" />
+            <state relative-caret-position="221">
+              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1890#1891#0" expanded="true" />
-                <element signature="e#1924#1925#0" expanded="true" />
-                <element signature="e#10767#10768#0" expanded="true" />
-                <element signature="e#10843#10844#0" expanded="true" />
-                <element signature="e#11172#11173#0" expanded="true" />
-                <element signature="e#11264#11265#0" expanded="true" />
-                <element signature="e#13403#13404#0" expanded="true" />
-                <element signature="e#13440#13441#0" expanded="true" />
-                <element signature="e#13501#13502#0" expanded="true" />
-                <element signature="e#13553#13554#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RobotController2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5865">
-              <caret line="381" column="39" selection-start-line="381" selection-start-column="39" selection-end-line="381" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#13940#13941#0" expanded="true" />
-                <element signature="e#13969#13970#0" expanded="true" />
-                <element signature="e#14002#14003#0" expanded="true" />
-                <element signature="e#14031#14032#0" expanded="true" />
-                <element signature="e#14079#14080#0" expanded="true" />
+                <element signature="e#2489#2490#0" expanded="true" />
+                <element signature="e#2523#2524#0" expanded="true" />
+                <element signature="e#11684#11685#0" expanded="true" />
+                <element signature="e#11760#11761#0" expanded="true" />
+                <element signature="e#14512#14513#0" expanded="true" />
+                <element signature="e#14541#14542#0" expanded="true" />
+                <element signature="e#14582#14583#0" expanded="true" />
+                <element signature="e#14611#14612#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,26 +196,8 @@
       <file leaf-file-name="TweetSerialiser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSerialiser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TweetSanitiser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSanitiser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TweetReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="272">
+              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -199,7 +218,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>int</find>
       <find>null</find>
       <find>RobotController(</find>
       <find>Iterator</find>
@@ -208,9 +226,7 @@
       <find>rc</find>
       <find>RobotController22</find>
       <find />
-      <find>RobotController2</find>
       <find>RobotController</find>
-      <find>JFrame</find>
       <find>xOrindateOne</find>
       <find>robot2y</find>
       <find>robot1yField</find>
@@ -218,18 +234,25 @@
       <find>setXOr</find>
       <find>static</find>
       <find>synchronized</find>
-      <find>static</find>
       <find>robotOne</find>
       <find>bodyOne</find>
       <find>valuesOne</find>
       <find>robotTwo</find>
       <find>tweetInfoTwo</find>
+      <find>RobotController2</find>
+      <find>void</find>
+      <find>void</find>
+      <find>JFrame</find>
+      <find>JTextField</find>
+      <find>static</find>
+      <find>start</find>
+      <find>observer</find>
+      <find>RobotObserver</find>
     </findStrings>
     <replaceStrings>
       <replace>Integer</replace>
       <replace>-1</replace>
       <replace>/</replace>
-      <replace>RobotController</replace>
       <replace>RobotController2</replace>
       <replace>this</replace>
       <replace>rc</replace>
@@ -241,6 +264,12 @@
       <replace>bodyOne</replace>
       <replace>bodyTwoLeft</replace>
       <replace>headerTwo</replace>
+      <replace>RobotController</replace>
+      <replace>static void</replace>
+      <replace>static JFrame</replace>
+      <replace>static JTextField</replace>
+      <replace>RobotObserver</replace>
+      <replace>observer</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2\src\main\java</dir>
@@ -266,7 +295,6 @@
         <option value="$PROJECT_DIR$/src/test/java/robocode/TestRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/twitter/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/twitter/TweetParser.java" />
-        <option value="$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/twitter/TweetSanitiser.java" />
         <option value="$PROJECT_DIR$/src/test/java/twitter/TweetSanitiserTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/twitter/TweetAnalyserTest.java" />
@@ -277,24 +305,26 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/TestRobot.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/RobotProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/StartRobocode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/BattleObserver.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/BattleManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/FirstCountDown.java" />
         <option value="$PROJECT_DIR$/src/main/java/twitter/TweetAnalyser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/RobotController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/TwitterRobot1.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/TwitterRobot2.java" />
         <option value="$PROJECT_DIR$/src/main/java/twitter/TweetReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/TwitterRobotOld.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/TestObserver.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/RobotController2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/twitter/TweetSerialiser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/CompetitorOne.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/ITwitterRobot.java" />
+        <option value="$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/RobotController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/BattleObserver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/CompetitorOne.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/CompetitorTwo.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/RobotObserver.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/CompetitorTwo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/RobotObserver2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/twitter/TweetSerialiser.java" />
       </list>
     </option>
   </component>
@@ -307,10 +337,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="2183" />
-    <option name="height" value="1418" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="width" value="2440" />
+    <option name="height" value="1417" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -320,6 +350,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -417,9 +449,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -431,7 +461,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MajorProjectv3root/MajorProjectv3" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -440,20 +470,21 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="twitter" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2\robocode_master\robots\sample" />
-      <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2\src" />
-      <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="controller" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2\robocode_master\robots\controller" />
       <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2\robocode_master\robots\com\mongodb" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="view" />
+      <recent name="controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2\robocode_master\robots\sample" />
+      <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2\src" />
+      <recent name="C:\Users\thoma\Dropbox (University)\Year 3\CPU6001 - Major Project (Amanda &amp; Louise)\IntelliJ\MajorProjectv2" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -562,6 +593,29 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="RobotControllerTest.testFunctionality" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MajorProjectv2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="robocode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="robocode" />
+      <option name="MAIN_CLASS_NAME" value="robocode.RobotControllerTest" />
+      <option name="METHOD_NAME" value="testFunctionality" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -621,10 +675,12 @@
       <item itemvalue="Application.StartRobocodeEngine" />
       <item itemvalue="Application.RobotProperties" />
       <item itemvalue="Application.RobotObserver" />
+      <item itemvalue="JUnit.RobotControllerTest.testFunctionality" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.StartRobocodeEngine" />
+        <item itemvalue="JUnit.RobotControllerTest.testFunctionality" />
         <item itemvalue="Application.RobotObserver" />
         <item itemvalue="Application.RobotProperties" />
         <item itemvalue="Application.TweetHandler" />
@@ -684,47 +740,47 @@
       <workItem from="1523516667581" duration="17466000" />
       <workItem from="1523603534323" duration="7001000" />
       <workItem from="1523698934393" duration="2818000" />
+      <workItem from="1523904421908" duration="8462000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RobotControllerTest - 2018.03.06 at 10h 42m 28s.xml">
-      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 34m 34s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 15m 58s.xml">
-      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 35m 13s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 16m 13s.xml">
-      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 35m 43s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RobotControllerTest - 2018.03.06 at 14h 17m 14s.xml">
-      <configuration name="RobotControllerTest" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 36m 37s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TweetSanitiserTest - 2018.03.04 at 21h 57m 47s.xml">
-      <configuration name="TweetSanitiserTest" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 37m 03s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TweetSanitiserTest - 2018.03.04 at 21h 58m 58s.xml">
-      <configuration name="TweetSanitiserTest" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 37m 35s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TweetSanitiserTest - 2018.03.04 at 22h 01m 25s.xml">
-      <configuration name="TweetSanitiserTest" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 39m 03s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TweetSanitiserTest - 2018.03.04 at 22h 12m 43s.xml">
-      <configuration name="TweetSanitiserTest" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 42m 02s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TweetSanitiserTest_stringsShouldNotContainAnyEmoji - 2018.03.04 at 22h 15m 29s.xml">
-      <configuration name="TweetSanitiserTest.stringsShouldNotContainAnyEmoji" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 43m 09s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TweetSanitiserTest_stringsShouldOnlyContainLetters - 2018.03.04 at 22h 17m 21s.xml">
-      <configuration name="TweetSanitiserTest.stringsShouldOnlyContainLetters" configurationId="JUnit" />
+    <history-entry file="RobotControllerTest_testFunctionality - 2018.04.16 at 20h 43m 57s.xml">
+      <configuration name="RobotControllerTest.testFunctionality" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230599000" />
+    <option name="totallyTimeSpent" value="239696000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="2232" height="1417" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="0" width="2440" height="1417" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="5" />
@@ -736,46 +792,25 @@
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="right" id="Run" order="10" visible="true" weight="0.29788214" />
+      <window_info anchor="right" id="Run" order="10" weight="0.29789916" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17449355" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1592437" />
       <window_info anchor="right" id="Database" order="7" weight="0.32977736" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="right" id="Debug" order="11" weight="0.37888783" />
-      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Debug" order="11" weight="0.37857142" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3297491" />
-      <window_info id="Designer" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="right" id="Run" order="10" weight="0.2979305" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Debug" order="11" weight="0.37888783" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Database" order="7" weight="0.32977736" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3298887" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32961783" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11089418" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -794,7 +829,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="25" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -813,24 +848,10 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/robocode_master/libs/robocode.jar!/net/sf/robocode/security/HiddenAccess.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-201">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/robocode_master/libs/robocode.jar!/net/sf/robocode/security/SafeComponent.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/robocode/TestRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -854,13 +875,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/twitter/TweetSanitiserTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="59" column="37" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/twitter/TweetAnalyserTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1117,43 +1131,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="32" column="131" selection-start-line="32" selection-start-column="131" selection-end-line="32" selection-end-column="131" />
-          <folding>
-            <element signature="e#2263#2264#0" expanded="true" />
-            <element signature="e#2323#2324#0" expanded="true" />
-            <element signature="e#2507#2508#0" expanded="true" />
-            <element signature="e#2565#2566#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="742">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1445#1446#0" expanded="true" />
-            <element signature="e#1495#1496#0" expanded="true" />
-            <element signature="e#1549#1550#0" expanded="true" />
-            <element signature="e#1581#1582#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/lang/Runnable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -1161,44 +1138,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobotOld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-          <folding>
-            <element signature="e#1359#1401#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/TestObserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding>
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/TestObserver.java" />
     <entry file="file://$USER_HOME$/Dropbox (Personal)/Year 2/Semester 2/CPU5007 - Object Orientated Methods (Abdul)/Assignment 1/new-workspace/workspace/PetAssignment2/Cyberpet/src/presentation/UserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4403">
           <caret line="263" column="60" lean-forward="true" selection-start-line="263" selection-start-column="60" selection-end-line="263" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4725#4757#0" expanded="true" />
-            <element signature="e#5696#5697#0" expanded="true" />
-            <element signature="e#5721#5722#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSerialiser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1219,17 +1163,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController2.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java.old">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5865">
-          <caret line="381" column="39" selection-start-line="381" selection-start-column="39" selection-end-line="381" selection-end-column="39" />
+        <state relative-caret-position="742">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#13940#13941#0" expanded="true" />
-            <element signature="e#13969#13970#0" expanded="true" />
-            <element signature="e#14002#14003#0" expanded="true" />
-            <element signature="e#14031#14032#0" expanded="true" />
-            <element signature="e#14079#14080#0" expanded="true" />
+            <element signature="e#1445#1446#0" expanded="true" />
+            <element signature="e#1495#1496#0" expanded="true" />
+            <element signature="e#1549#1550#0" expanded="true" />
+            <element signature="e#1581#1582#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/robocode/TestRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java.old">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="33" column="46" lean-forward="true" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="246" column="55" selection-start-line="246" selection-start-column="55" selection-end-line="246" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#12641#12642#0" expanded="true" />
+            <element signature="e#12673#12674#0" expanded="true" />
+            <element signature="e#12446#12447#0" expanded="true" />
+            <element signature="e#12522#12523#0" expanded="true" />
+            <element signature="e#12567#12568#0" expanded="true" />
+            <element signature="e#12603#12604#0" expanded="true" />
+            <element signature="e#12638#12639#0" expanded="true" />
+            <element signature="e#12668#12669#0" expanded="true" />
+            <element signature="e#12715#12716#0" expanded="true" />
+            <element signature="e#12753#12754#0" expanded="true" />
+            <element signature="e#12791#12792#0" expanded="true" />
+            <element signature="e#12824#12825#0" expanded="true" />
+            <element signature="e#12877#12878#0" expanded="true" />
+            <element signature="e#12921#12922#0" expanded="true" />
+            <element signature="e#12958#12959#0" expanded="true" />
+            <element signature="e#12990#12991#0" expanded="true" />
+            <element signature="e#13041#13042#0" expanded="true" />
+            <element signature="e#13083#13084#0" expanded="true" />
+            <element signature="e#13120#13121#0" expanded="true" />
+            <element signature="e#13152#13153#0" expanded="true" />
+            <element signature="e#13203#13204#0" expanded="true" />
+            <element signature="e#13245#13246#0" expanded="true" />
+            <element signature="e#13289#13290#0" expanded="true" />
+            <element signature="e#13328#13329#0" expanded="true" />
+            <element signature="e#13393#13394#0" expanded="true" />
+            <element signature="e#13449#13450#0" expanded="true" />
+            <element signature="e#13487#13488#0" expanded="true" />
+            <element signature="e#13520#13521#0" expanded="true" />
+            <element signature="e#13573#13574#0" expanded="true" />
+            <element signature="e#13617#13618#0" expanded="true" />
+            <element signature="e#13665#13666#0" expanded="true" />
+            <element signature="e#13708#13709#0" expanded="true" />
+            <element signature="e#13882#13883#0" expanded="true" />
+            <element signature="e#13915#13916#0" expanded="true" />
+            <element signature="e#13948#13949#0" expanded="true" />
+            <element signature="e#13977#13978#0" expanded="true" />
+            <element signature="e#14010#14011#0" expanded="true" />
+            <element signature="e#14039#14040#0" expanded="true" />
+            <element signature="e#14080#14081#0" expanded="true" />
+            <element signature="e#14115#14116#0" expanded="true" />
+            <element signature="e#14164#14165#0" expanded="true" />
+            <element signature="e#14196#14197#0" expanded="true" />
+            <element signature="e#14227#14228#0" expanded="true" />
+            <element signature="e#14254#14255#0" expanded="true" />
+            <element signature="e#14288#14289#0" expanded="true" />
+            <element signature="e#14317#14318#0" expanded="true" />
+            <element signature="e#14351#14352#0" expanded="true" />
+            <element signature="e#14384#14385#0" expanded="true" />
+            <element signature="e#14419#14420#0" expanded="true" />
+            <element signature="e#14453#14454#0" expanded="true" />
+            <element signature="e#14497#14498#0" expanded="true" />
+            <element signature="e#14533#14534#0" expanded="true" />
+            <element signature="e#14577#14578#0" expanded="true" />
+            <element signature="e#14613#14614#0" expanded="true" />
+            <element signature="e#14670#14671#0" expanded="true" />
+            <element signature="e#14710#14711#0" expanded="true" />
+            <element signature="e#14928#14929#0" expanded="true" />
+            <element signature="e#14989#14990#0" expanded="true" />
+            <element signature="e#15049#15050#0" expanded="true" />
+            <element signature="e#15093#15094#0" expanded="true" />
+            <element signature="e#15145#15146#0" expanded="true" />
+            <element signature="e#15197#15198#0" expanded="true" />
+            <element signature="e#15256#15257#0" expanded="true" />
+            <element signature="e#15311#15312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="62" column="64" selection-start-line="62" selection-start-column="64" selection-end-line="62" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1244,67 +1285,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ITwitterRobot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="68">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/robocode/RobotControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1400#1442#1" expanded="true" />
-            <element signature="e#2394#2395#0" expanded="true" />
-            <element signature="e#2434#2435#0" expanded="true" />
-            <element signature="e#2604#2605#0" expanded="true" />
-            <element signature="e#2643#2644#0" expanded="true" />
-            <element signature="e#3148#3149#0" expanded="true" />
-            <element signature="e#3188#3189#0" expanded="true" />
+            <element signature="e#802#829#0" expanded="true" />
+            <element signature="e#2629#2656#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/view/RobotObserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5066">
-          <caret line="298" column="10" selection-start-line="298" selection-start-column="10" selection-end-line="298" selection-end-column="10" />
+        <state relative-caret-position="221">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1890#1891#0" expanded="true" />
-            <element signature="e#1924#1925#0" expanded="true" />
-            <element signature="e#10767#10768#0" expanded="true" />
-            <element signature="e#10843#10844#0" expanded="true" />
-            <element signature="e#11172#11173#0" expanded="true" />
-            <element signature="e#11264#11265#0" expanded="true" />
-            <element signature="e#13403#13404#0" expanded="true" />
-            <element signature="e#13440#13441#0" expanded="true" />
-            <element signature="e#13501#13502#0" expanded="true" />
-            <element signature="e#13553#13554#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/ITwitterRobot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/CompetitorOne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#607#634#0" expanded="true" />
+            <element signature="e#2489#2490#0" expanded="true" />
+            <element signature="e#2523#2524#0" expanded="true" />
+            <element signature="e#11684#11685#0" expanded="true" />
+            <element signature="e#11760#11761#0" expanded="true" />
+            <element signature="e#14512#14513#0" expanded="true" />
+            <element signature="e#14541#14542#0" expanded="true" />
+            <element signature="e#14582#14583#0" expanded="true" />
+            <element signature="e#14611#14612#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/CompetitorTwo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#579#606#0" expanded="true" />
             <element signature="e#906#948#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="33" column="131" selection-start-line="33" selection-start-column="131" selection-end-line="33" selection-end-column="131" />
+          <folding>
+            <element signature="e#2263#2264#0" expanded="true" />
+            <element signature="e#2323#2324#0" expanded="true" />
+            <element signature="e#2507#2508#0" expanded="true" />
+            <element signature="e#2565#2566#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/CompetitorOne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="e#580#607#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSerialiser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1330#1372#1" expanded="true" />
+            <element signature="e#2686#2687#0" expanded="true" />
+            <element signature="e#2726#2727#0" expanded="true" />
+            <element signature="e#2896#2897#0" expanded="true" />
+            <element signature="e#2935#2936#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/RobotObserver2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#2970#2971#0" expanded="true" />
+            <element signature="e#3004#3005#0" expanded="true" />
+            <element signature="e#12147#12148#0" expanded="true" />
+            <element signature="e#12223#12224#0" expanded="true" />
+            <element signature="e#12552#12553#0" expanded="true" />
+            <element signature="e#12644#12645#0" expanded="true" />
+            <element signature="e#14936#14937#0" expanded="true" />
+            <element signature="e#14965#14966#0" expanded="true" />
+            <element signature="e#15006#15007#0" expanded="true" />
+            <element signature="e#15035#15036#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1350,7 +1443,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>9</last-edited>
+          <last-edited>6u45</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
