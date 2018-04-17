@@ -530,8 +530,20 @@ html(lang='en')
                                     .row
                                         .col-sm-12
                                             h3 Simple Linear Regression
+                                            .row.text-center.bar-chart-sort
+                                                .col-sm-3.col-sm-offset-2
+                                                    label.sort Include All
+                                                    input#include-all(type="radio" name="filter-linear-reg" value="All" checked)
+                                                .col-sm-3
+                                                    label.sort Include Twitter Sentry
+                                                    input#include-sentry(type="radio" name="filter-linear-reg" value="Include")
+                                                .col-sm-3
+                                                    label.sort Exclude Twitter Sentry
+                                                    input#exclude-sentry(type="radio" name="filter-linear-reg" value="Exclude")
                                         .col-sm-12
                                             #simple-linear-regression-graph
+                                        .col-sm-12
+                                            input(type="range" min="1" max="100" value="50")
                                         .col-sm-12
                                             .equation
                                             .equation

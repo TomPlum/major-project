@@ -21,6 +21,7 @@ public class CompetitorOne extends TwitterRobot implements ITwitterRobot {
      */
     public void run() {
         initialConfiguration(ROBOT_ID);
+        BattleResultLogger.setCompetitorOneScreenName(rc.getUSER());
         doTurn();
     }
 

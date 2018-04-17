@@ -22,6 +22,7 @@ public class CompetitorTwo extends TwitterRobot implements ITwitterRobot {
     @SuppressWarnings("InfiniteLoopStatement")
     public void run() {
         initialConfiguration(ROBOT_ID);
+        BattleResultLogger.setCompetitorTwoScreenName(rc.getUSER());
         doTurn();
     }
 

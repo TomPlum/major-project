@@ -43,7 +43,7 @@ class GameConfigurer {
 
         //Setup Battle Specification
         BattlefieldSpecification battlefield = new BattlefieldSpecification(BATTLEFIELD_W, BATTLEFIELD_H);
-        RobotSpecification[] selectedRobots = engine.getLocalRepository("controller.CompetitorOne, controller.CompetitorTwo, controller.TwitterSentry");
+        RobotSpecification[] selectedRobots = engine.getLocalRepository("controller.CompetitorOne, controller.CompetitorTwo");
         BattleSpecification battleSpec = new BattleSpecification(battlefield, NO_OF_ROUNDS, INACTIVITY_TIME, GUN_COOLING_RATE, SENTRY_BORDER_SIZE, HIDE_ENEMY_NAMES, selectedRobots);
 
         //Get Tweets & Serialise

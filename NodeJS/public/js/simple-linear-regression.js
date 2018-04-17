@@ -1,3 +1,10 @@
+$(document).ready(() => {
+   //Bind Radio Button Events
+   $("#include-sentry").on("click", includeTwitterSentry);
+   $("#exclude-sentry").on("click", excludeTwitterSentry);
+   $("#include-all").on("click", includeAllRecords);
+});
+
 //Setting The Dimensions Of The Canvas
 const margin = {top: 20, right: 20, bottom: 90, left: 50},
     width = 1000 - margin.left - margin.right,
@@ -18,17 +25,105 @@ let svg = d3.select('#simple-linear-regression-graph').append("svg").attr("class
 
 let valueline = d3.line().x(function(d) {return x(d._id);}).y(function(d) {return y(d.percentage);});
 
-function renderSimpleLinearRegression(data) {
-    //Build Data Structure
-    let scatterPlotData = [];
+let scatterPlotData = [];
+let rawResultData;
+let dynamicScatterPlotData;
+
+function updateSimpleLinearRegression() {
+    console.log("Dynamic Data Length: " + dynamicScatterPlotData.length);
+
+    //Re-Define Domains
+    x.domain(d3.extent(dynamicScatterPlotData, function(d) {return d.x}));
+    y.domain(d3.extent(dynamicScatterPlotData, function(d) {return d.y}));
+
+    //Select All Circles, Bind New Data
+    let circles = svg.selectAll(".point").data(dynamicScatterPlotData);
+
+    //Remove Redundant Circles
+    circles.exit().remove();
+
+    //Add New Circles
+    circles.enter().append("circle")
+        .attr("class", "point")
+        .attr("r", 6)
+        .attr("cy", function(d){ return y(d.y); })
+        .attr("cx", function(d){ return x(d.x); });
+
+    console.log("Number of Circles: " + $(".point").length + "\n");
+
+    //Transition Remaining Dataset Circles To New Positions
+    circles.transition().duration(1000).delay(function(d, i) {
+        return i / dynamicScatterPlotData.length * 500;
+    }).attr("cx", function(d) { return x(d.x); }).attr("cy", function(d) { return y(d.y); });
+
+    //Update Axes
+    svg.select(".x-axis").transition().duration(1000).call(xAxis);
+    svg.select(".y-axis").transition().duration(1000).call(yAxis);
+}
+
+function includeTwitterSentry() {
+    //Copy Original Raw Data Into Dynamic Variable
+    dynamicScatterPlotData = rawResultData.slice(0);
+
+    //Remove Results With No TwitterSentry
+    for (let i = 0; i < dynamicScatterPlotData.length; i++) {
+        if (dynamicScatterPlotData[i].results.length !== 3) {
+            dynamicScatterPlotData.splice(i, 1);
+        }
+    }
+
+    //Convert Into Graph Format To Be Updated
+    dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
+    updateSimpleLinearRegression();
+}
+
+function includeAllRecords() {
+    //Copy Original Raw Data Into Dynamic Variable
+    dynamicScatterPlotData = rawResultData.slice(0);
+
+    //Convert Into Graph Format To Be Updated
+    dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
+    updateSimpleLinearRegression();
+}
+
+function excludeTwitterSentry() {
+    //Copy Original Raw Data Into Dynamic Variable
+    dynamicScatterPlotData = rawResultData.slice(0);
+
+    //Remove Results With TwitterSentry
+    for (let i = 0; i < dynamicScatterPlotData.length; i++) {
+        if (dynamicScatterPlotData[i].results.length === 3) {
+            dynamicScatterPlotData.splice(i, 1);
+        }
+    }
+
+    //Convert Into Graph Format To Be Updated
+    dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
+    updateSimpleLinearRegression();
+}
+
+function convertRawToGraphFormat(data) {
+    let result = [];
     for (let i = 0; i < data.length; i++) {
-        scatterPlotData.push({
+        result.push({
             _id: data[i]._id,
             x: parseInt(data[i].results[0].score), //First one is the winner as in desc order
             y: parseInt(data[i].no_of_turns)
         });
     }
-    console.log(scatterPlotData);
+    return result;
+}
+
+function renderSimpleLinearRegression(data) {
+    console.log("Called renderSimpleLinearRegression()");
+    //Store In Raw
+    rawResultData = data;
+
+    //Build Data Structure
+    scatterPlotData = convertRawToGraphFormat(data);
+
+    //Store In Dynamic
+    dynamicScatterPlotData = scatterPlotData;
 
     //Define Domains
     x.domain(d3.extent(scatterPlotData, function(d) {return d.x}));
@@ -45,21 +140,21 @@ function renderSimpleLinearRegression(data) {
         .attr("y2", y(lg.ptB.y));
 
     svg.append("g")
-        .attr("class", "x axis")
+        .attr("class", "x-axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
     svg.append("g")
-        .attr("class", "y axis")
+        .attr("class", "y-axis")
         .call(yAxis);
 
     svg.selectAll(".point")
         .data(scatterPlotData)
         .enter().append("circle")
-            .attr("class", "point")
-            .attr("r", 6)
-            .attr("cy", function(d){ return y(d.y); })
-            .attr("cx", function(d){ return x(d.x); });
+        .attr("class", "point")
+        .attr("r", 6)
+        .attr("cy", function(d){ return y(d.y); })
+        .attr("cx", function(d){ return x(d.x); });
 
 
 

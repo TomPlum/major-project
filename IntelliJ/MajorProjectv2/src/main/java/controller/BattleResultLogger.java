@@ -15,17 +15,18 @@ import java.util.ArrayList;
  * @author Thomas Plumpton
  * @version 1.1.0
  */
-public class BattleResultLogger {
+class BattleResultLogger {
     private MongoConnection conn = new MongoConnection("twitter", "results");
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     private LocalDateTime now = LocalDateTime.now();
+    private static String competitorOneScreenName, competitorTwoScreenName;
 
     /**
      * Builds a MongoDB Document containing Robocode battle results from the BattleObserver.
      * The results are then saved to the specified MongoDB Atlas Database Collection.
      * @param results Array of Robocode Battle Results
      */
-    public void saveResultsToDatabase(BattleResults[] results, BattleRules rules, int realTime, int turns) {
+    void saveResultsToDatabase(BattleResults[] results, BattleRules rules, int realTime, int turns) {
         Document finalResults = new Document();
         Document finalRules = new Document();
         ArrayList<Document> formattedResults = new ArrayList<>();
@@ -62,6 +63,24 @@ public class BattleResultLogger {
         finalResults.put("no_of_turns", turns);
         finalResults.put("results", formattedResults);
         finalResults.put("rules", finalRules);
+        finalResults.put("screenNameOne", getCompetitorOneScreenName());
+        finalResults.put("screenNameTwo", getCompetitorTwoScreenName());
         conn.insertDocument(finalResults);
+    }
+
+    public static String getCompetitorOneScreenName() {
+        return competitorOneScreenName;
+    }
+
+    public static void setCompetitorOneScreenName(String competitorOneScreenName) {
+        BattleResultLogger.competitorOneScreenName = competitorOneScreenName;
+    }
+
+    public static String getCompetitorTwoScreenName() {
+        return competitorTwoScreenName;
+    }
+
+    public static void setCompetitorTwoScreenName(String competitorTwoScreenName) {
+        BattleResultLogger.competitorTwoScreenName = competitorTwoScreenName;
     }
 }

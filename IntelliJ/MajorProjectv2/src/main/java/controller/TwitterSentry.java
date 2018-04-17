@@ -14,7 +14,7 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class TwitterSentry extends AdvancedRobot implements BorderSentry {
     // Constants
-    private final double FIREPOWER = 3; // Max. power => violent as this robot can afford it!
+    private final double FIREPOWER = 0.5; // Max. power => violent as this robot can afford it!
     private final double HALF_ROBOT_SIZE = 18; // Robot size is 36x36 units, so the half size is 18 units
 
     // Map containing data for all scanned robots.
