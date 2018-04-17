@@ -37,11 +37,11 @@ function renderResultsOverview(data) {
 
     //Total Number of Robots
     const noOfRobots = $(".noOfRobots .value");
-    noOfRobots.html(data.length * 3);
+    noOfRobots.html(formatLargeNumber(data.length * 3));
 
     //Total No of Turns
     const noOfTurns = $(".noOfTurns .value");
-    noOfTurns.html(calculateTotalNoOfTurns(data));
+    noOfTurns.html(formatLargeNumber(calculateTotalNoOfTurns(data)));
 
     //Total Battle Time
     const battleTime = $(".battleTime .value");
@@ -66,7 +66,9 @@ function calculateTotalBattleTime(data) {
     let seconds = milliseconds / 1000;
     console.log(seconds);
     let minutes = ~~(seconds / 60);
+    let hours = ~~(minutes / 60);
+    let remainingMinutes = ~~(minutes % 60);
     let remainingSeconds = ~~(seconds % 60);
 
-    return minutes + "m " + remainingSeconds + "s";
+    return hours + "h " + remainingMinutes + "m " + remainingSeconds + "s";
 }

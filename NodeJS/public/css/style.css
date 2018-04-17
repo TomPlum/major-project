@@ -170,6 +170,9 @@ body{
 .characterStatsPie, .characterStatsBar {
     display: none;
 }
+.underline {
+    text-decoration: underline;
+}
 
 /* Selecting Twitter User */
 .selectedTwitterUser {

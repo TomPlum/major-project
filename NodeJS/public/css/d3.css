@@ -52,9 +52,22 @@
     border: 1px solid #ce3948;
 }
 
+#pointRadius {
+    font-size: 2em;
+    text-align: center;
+    font-weight: normal;
+    margin: 0 auto;
+    color: #1fcdff;
+}
+
 .regression {
-    stroke-width: 2px;
+    stroke-width: 3px;
     stroke: #4176ff;
+    z-index: 999;
+}
+
+#pointRadiusSlider {
+    padding: 0 50px;
 }
 
 input[type=range] {
@@ -145,4 +158,13 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
     background: #2497E3;
+}
+
+.axis-label {
+    font-size: 1.3em;
+}
+
+.equation {
+    font-size: 1.3em;
+    text-align: center;
 }

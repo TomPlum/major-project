@@ -3,6 +3,14 @@ $(document).ready(() => {
    $("#include-sentry").on("click", includeTwitterSentry);
    $("#exclude-sentry").on("click", excludeTwitterSentry);
    $("#include-all").on("click", includeAllRecords);
+
+   //Bind Point Radius Slider
+    $("#pointRadius").val("6").html("6px");
+    $("#pointRadiusSlider input").on("change", () => {
+        let radius = $("#pointRadiusSlider input").val();
+        changePointRadius(radius);
+        $("#pointRadius").html(radius + "px");
+    })
 });
 
 //Setting The Dimensions Of The Canvas
@@ -29,7 +37,11 @@ let scatterPlotData = [];
 let rawResultData;
 let dynamicScatterPlotData;
 
-function updateSimpleLinearRegression() {
+function changePointRadius(radius) {
+    d3.selectAll("circle").transition().duration(1000).attr("r", radius);
+}
+
+function updateSimpleLinearRegression(radius) {
     console.log("Dynamic Data Length: " + dynamicScatterPlotData.length);
 
     //Re-Define Domains
@@ -45,7 +57,7 @@ function updateSimpleLinearRegression() {
     //Add New Circles
     circles.enter().append("circle")
         .attr("class", "point")
-        .attr("r", 6)
+        .attr("r", radius.toString())
         .attr("cy", function(d){ return y(d.y); })
         .attr("cx", function(d){ return x(d.x); });
 
@@ -74,7 +86,7 @@ function includeTwitterSentry() {
 
     //Convert Into Graph Format To Be Updated
     dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
-    updateSimpleLinearRegression();
+    updateSimpleLinearRegression(6);
 }
 
 function includeAllRecords() {
@@ -83,7 +95,7 @@ function includeAllRecords() {
 
     //Convert Into Graph Format To Be Updated
     dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
-    updateSimpleLinearRegression();
+    updateSimpleLinearRegression(6);
 }
 
 function excludeTwitterSentry() {
@@ -99,7 +111,7 @@ function excludeTwitterSentry() {
 
     //Convert Into Graph Format To Be Updated
     dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
-    updateSimpleLinearRegression();
+    updateSimpleLinearRegression(6);
 }
 
 function convertRawToGraphFormat(data) {
@@ -132,6 +144,7 @@ function renderSimpleLinearRegression(data) {
     // see below for an explanation of the calcLinear function
     let lg = calcLinear(scatterPlotData, "x", "y", d3.min(scatterPlotData, function(d){ return d.x}), d3.min(scatterPlotData, function(d){ return d.x}));
 
+    //Regression Line
     svg.append("line")
         .attr("class", "regression")
         .attr("x1", x(lg.ptA.x))
@@ -139,15 +152,18 @@ function renderSimpleLinearRegression(data) {
         .attr("x2", x(lg.ptB.x))
         .attr("y2", y(lg.ptB.y));
 
+    //X-Axis
     svg.append("g")
         .attr("class", "x-axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
+    //Y-Axis
     svg.append("g")
         .attr("class", "y-axis")
         .call(yAxis);
 
+    //Points
     svg.selectAll(".point")
         .data(scatterPlotData)
         .enter().append("circle")
@@ -156,6 +172,10 @@ function renderSimpleLinearRegression(data) {
         .attr("cy", function(d){ return y(d.y); })
         .attr("cx", function(d){ return x(d.x); });
 
+    //Add Axis Labels
+    svg.append("text").attr("x", (width / 2) - 20).attr("y", height + 45).attr("class", "axis-label").text("Score");
+    svg.append("text").attr("x", 0 - (height / 2)).attr("y", 0 - margin.left - 15).attr("text-anchor", "middle")
+        .attr("transform", "rotate(-90)").attr("class", "axis-label").text("Number of Turns");
 
 
     function calcLinear(data, x, y, minX, minY){
@@ -214,8 +234,8 @@ function renderSimpleLinearRegression(data) {
         b = (e - f) / n;
 
         // Print the equation below the chart
-        document.getElementsByClassName("equation")[0].innerHTML = "y = " + m + "x + " + b;
-        document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b + " ) / " + m;
+        document.getElementsByClassName("equation")[0].innerHTML = "y = " + m.toFixed(2) + "x + " + b.toFixed(2);
+        document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b.toFixed(2) + " ) / " + m.toFixed(2);
 
         // return an object of two points
         // each point is an object with an x and y coordinate

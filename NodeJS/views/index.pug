@@ -507,7 +507,7 @@ html(lang='en')
                                             label Battlefield Size
                                         .col-sm-2
                                             .value
-                                                p 100 px
+                                                p 100px
                                             label Sentry Border Size
                                         .col-sm-2
                                             .value
@@ -529,17 +529,31 @@ html(lang='en')
                                 .container-fluid
                                     .row
                                         .col-sm-12
-                                            h3 Simple Linear Regression
-                                            .row.text-center.bar-chart-sort
-                                                .col-sm-3.col-sm-offset-2
-                                                    label.sort Include All
-                                                    input#include-all(type="radio" name="filter-linear-reg" value="All" checked)
+                                            h3.text-center Simple Linear Regression
+                                            hr
+                                            .row.bar-chart-sort
                                                 .col-sm-3
-                                                    label.sort Include Twitter Sentry
-                                                    input#include-sentry(type="radio" name="filter-linear-reg" value="Include")
+                                                    .row
+                                                        h4.pull-right
+                                                            i.fa.fa-fw.fa-filter
+                                                            |  Filter Border Sentry
+                                                    .row
+                                                        input.pull-right#include-all(type="radio" name="filter-linear-reg" value="All" checked)
+                                                        label.pull-right.sort Include All
+                                                    .row
+                                                        input.pull-right#include-sentry(type="radio" name="filter-linear-reg" value="Include")
+                                                        label.pull-right.sort Include Twitter Sentry
+                                                    .row
+                                                        input.pull-right#exclude-sentry(type="radio" name="filter-linear-reg" value="Exclude")
+                                                        label.pull-right.sort Exclude Twitter Sentry
                                                 .col-sm-3
-                                                    label.sort Exclude Twitter Sentry
-                                                    input#exclude-sentry(type="radio" name="filter-linear-reg" value="Exclude")
+                                                    h4
+                                                        i.fa.fa-fw.fa-circle
+                                                        |  Change Point Radius
+                                                    #pointRadiusSlider
+                                                        input(type="range" min="1" max="6" value="6")
+                                                        label.text-center#pointRadius
+
                                         .col-sm-12
                                             #simple-linear-regression-graph
                                         .col-sm-12
@@ -651,7 +665,7 @@ html(lang='en')
         script(src='js/bootstrap.min.js')
 
         script(src="//d3js.org/d3.v4.min.js")
-        script(src='js/simple-linear-regression.js')
+        script(src='js/simpleLinearRegression.js')
         script(src='js/robocodeResults.js')
         script(src='js/characterStats.js')
         script(src='js/jquery.slicknav.js')

@@ -9,6 +9,7 @@ import view.RobotObserver2;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class TwitterRobot extends AdvancedRobot {
     private static int skippedTurns = 0;
@@ -48,8 +49,14 @@ public abstract class TwitterRobot extends AdvancedRobot {
             //Randomise Robot Values
             rc.randomiseValues();
 
-            //Move Ahead
-            ahead(rc.getMOVE_UP());
+            //Move Some Direction
+            Random rand = new Random();
+            Integer n = rand.nextInt(10);
+            if (n >= 0 && n <= 3) {
+                ahead(rc.getMOVE_UP());
+            } else if (n >= 4 && n <= 6) {
+                back(rc.getMOVE_DOWN());
+            }
 
             //Rotate Robot Body
             if (rc.getROTATE_DIRECTION() == 1) {
@@ -60,9 +67,11 @@ public abstract class TwitterRobot extends AdvancedRobot {
 
             //Rotate Robot Radar (Scanner)
             if (rc.getROTATE_SCANNER_DIRECTION() == 1) {
-                turnRadarRight(rc.getROTATE_SCANNER());
+                turnGunRight(rc.getROTATE_SCANNER());
+                //turnRadarRight(rc.getROTATE_SCANNER());
             } else {
-                turnRadarLeft(rc.getROTATE_SCANNER() * -1);
+                turnGunLeft(rc.getROTATE_SCANNER());
+                //turnRadarLeft(rc.getROTATE_SCANNER() * -1);
             }
 
             //Rotate Robot Gun
@@ -123,7 +132,6 @@ public abstract class TwitterRobot extends AdvancedRobot {
     public void onWin(WinEvent e) {
         //RobotObserver.stopObserving();
     }
-
     /**
      * Called when the battle ends.
      * @param e Robocode BattleEndedEvent
