@@ -23,7 +23,7 @@ public class RobotController {
     private Integer ROTATE_GUN_DIRECTION = 99;
     private Integer ROTATE_SCANNER = 999;
     private Integer ROTATE_SCANNER_DIRECTION = 99;
-    private Integer SCAN_FREQUENCY = -1;
+    //private Integer SCAN_FREQUENCY = -1;
 
     //Components
     private TweetReader tr = new TweetReader();
@@ -37,23 +37,21 @@ public class RobotController {
     private int CHARS_USED = 0;
     private int TWEETS_USED = 0;
 
-
+    /**
+     * Sets the RobotControllers Tweets from the selected user.
+     * Also copies this ArrayList into the current array for manipulation.
+     * @param allTweetsByUser ArrayList of Twitter4J Status Objects (Documents)
+     */
     public void initialiseTweets(ArrayList<Document> allTweetsByUser) {
         allTweets = allTweetsByUser;
         currentTweetArray = allTweetsByUser;
         updateCurrentTweet(); //Set Current Tweet so randomiseValues() has a starting value
+        System.out.println("Tweets Initialised.");
     }
 
-    public void initialiseTweets() {
-        if (USER == null) {
-            System.out.println("RobotController User is not defined!");
-        } else {
-            allTweets = tr.getTweetsByUser(USER);
-            currentTweetArray = new ArrayList<>(allTweets);
-            System.out.println("Tweets Initialised.");
-        }
-    }
-
+    /**
+     * Sets the TwitterRobot's movements and attacking values from the characters in the Tweets.
+     */
     public void randomiseValues() {
         while(true) {
             if (currentTweetIsNotExhausted()) {
@@ -130,6 +128,21 @@ public class RobotController {
                         //System.out.println("ROTATE_GUN: rg1(" + rg1 + "), rg2(" + rg2 + ").");
                         setROTATE_GUN(createAngle(rg1, rg2));
                     }
+
+                    //Set ROTATE_SCANNER
+                    if (!ROTATEisValid(ROTATE_SCANNER)) {
+                        Integer rs1 = parser.getValue(getTweetChar());
+                        Integer rs2 = parser.getValue(getTweetChar());
+                        //System.out.println("ROTATE_SCANNER: rs1(" + rs1 + "), rs2(" + rs2 + ").");
+                        setROTATE_SCANNER(createAngle(rs1, rs2));
+                    }
+
+                    //Set ROTATE_SCANNER_DIRECTION
+                    if (!ROTATE_DIRECTIONisValid(ROTATE_SCANNER_DIRECTION)) {
+                        Integer rsd1 = parser.getValue(getTweetChar());
+                        //System.out.println("ROTATE_SCANNER_DIRECTION: rsd1(" + rsd1 + ")");
+                        setROTATE_SCANNER_DIRECTION(createDirection(rsd1));
+                    }
                 }
             } else {
                 updateCurrentTweet(); //Each time we exhaust a tweet, remove one, but store it as current.
@@ -199,6 +212,10 @@ public class RobotController {
      * @return double in format x.y
      */
     private Double createDouble(Integer s1, Integer s2) {
+        //Sanitise Integers
+        s1 = Math.abs(s1);
+        s2 = Math.abs(s2);
+
         try {
             if (s1 > 10 && s2 > 10) {
                 //If both integers are 2 digits, take first digit from each and concat into double.
@@ -225,6 +242,12 @@ public class RobotController {
         return Double.parseDouble(s1 + "." + s2);
     }
 
+    /**
+     * Creates an angle in degress  (0 - 360 deg) from two integers
+     * @param i1 Integer between 0 and 25
+     * @param i2 Integer between 0 and 25
+     * @return Angle (Degrees) between 0 and 360.
+     */
     private Integer createAngle(Integer i1, Integer i2) {
         //Sanitise Integers
         i1 = Math.abs(i1);
@@ -248,6 +271,9 @@ public class RobotController {
      * @return Integer representing rotational direction
      */
     private Integer createDirection(Integer num) {
+        //Sanitise Integer
+        num = Math.abs(num);
+
         if (num >= 0 && num <= 12) {
             return -1;
         }
@@ -304,6 +330,7 @@ public class RobotController {
     }
 
     public void invalidateAllValues() {
+        //Angles are 0 - 360 so set 999
         FIRE_POWER = -1.0;
         ROTATE_DIRECTION = 99;
         ROTATE = 999;
@@ -313,6 +340,8 @@ public class RobotController {
         MOVE_LEFT = -1;
         ROTATE_GUN_DIRECTION = 99;
         ROTATE = 999;
+        ROTATE_SCANNER = 999;
+        ROTATE_SCANNER_DIRECTION = 99;
     }
 
     public void setUSER(String USER) {
@@ -323,11 +352,11 @@ public class RobotController {
      * Robot Firepower. Min 0.1, Max 3.0
      * @param FIRE_POWER Firepower (0.1 - 3.0)
      */
-    public void setFIRE_POWER(double FIRE_POWER) {
+    private void setFIRE_POWER(double FIRE_POWER) {
         this.FIRE_POWER = Double.parseDouble(dp1.format(FIRE_POWER));
     }
 
-    public void setROTATE(Integer ROTATE) {
+    private void setROTATE(Integer ROTATE) {
         this.ROTATE = ROTATE;
     }
 
@@ -335,7 +364,7 @@ public class RobotController {
         return MOVE_UP;
     }
 
-    public void setMOVE_UP(Integer MOVE_UP) {
+    private void setMOVE_UP(Integer MOVE_UP) {
         this.MOVE_UP = MOVE_UP;
     }
 
@@ -343,7 +372,7 @@ public class RobotController {
         return MOVE_RIGHT;
     }
 
-    public void setMOVE_RIGHT(Integer MOVE_RIGHT) {
+    private void setMOVE_RIGHT(Integer MOVE_RIGHT) {
         this.MOVE_RIGHT = MOVE_RIGHT;
     }
 
@@ -351,7 +380,7 @@ public class RobotController {
         return MOVE_DOWN;
     }
 
-    public void setMOVE_DOWN(Integer MOVE_DOWN) {
+    private void setMOVE_DOWN(Integer MOVE_DOWN) {
         this.MOVE_DOWN = MOVE_DOWN;
     }
 
@@ -359,7 +388,7 @@ public class RobotController {
         return MOVE_LEFT;
     }
 
-    public void setMOVE_LEFT(Integer MOVE_LEFT) {
+    private void setMOVE_LEFT(Integer MOVE_LEFT) {
         this.MOVE_LEFT = MOVE_LEFT;
     }
 
@@ -367,7 +396,7 @@ public class RobotController {
         return ROTATE_DIRECTION;
     }
 
-    public void setROTATE_DIRECTION(Integer ROTATE_DIRECTION) {
+    private void setROTATE_DIRECTION(Integer ROTATE_DIRECTION) {
         this.ROTATE_DIRECTION = ROTATE_DIRECTION;
     }
 
@@ -375,7 +404,7 @@ public class RobotController {
         return ROTATE_GUN;
     }
 
-    public void setROTATE_GUN(Integer ROTATE_GUN) {
+    private void setROTATE_GUN(Integer ROTATE_GUN) {
         this.ROTATE_GUN = ROTATE_GUN;
     }
 
@@ -383,7 +412,7 @@ public class RobotController {
         return ROTATE_GUN_DIRECTION;
     }
 
-    public void setROTATE_GUN_DIRECTION(Integer ROTATE_GUN_DIRECTION) {
+    private void setROTATE_GUN_DIRECTION(Integer ROTATE_GUN_DIRECTION) {
         this.ROTATE_GUN_DIRECTION = ROTATE_GUN_DIRECTION;
     }
 
@@ -391,11 +420,11 @@ public class RobotController {
         return FIRE_POWER;
     }
 
-    public Double getRobotX() {
+    Double getRobotX() {
         return robotX;
     }
 
-    public Double getRobotY() {
+    Double getRobotY() {
         return robotY;
     }
 
@@ -423,16 +452,32 @@ public class RobotController {
         return TWEETS_USED;
     }
 
-    public void setRobotX(Double robotX) {
+    void setRobotX(Double robotX) {
         this.robotX = robotX;
     }
 
-    public void setRobotY(Double robotY) {
+    void setRobotY(Double robotY) {
         this.robotY = robotY;
     }
 
-    public ArrayList<Document> getCurrentTweetArray() {
-        return currentTweetArray;
+    Integer getROTATE_SCANNER() {
+        return ROTATE_SCANNER;
+    }
+
+    private void setROTATE_SCANNER(Integer ROTATE_SCANNER) {
+        this.ROTATE_SCANNER = ROTATE_SCANNER;
+    }
+
+    Integer getROTATE_SCANNER_DIRECTION() {
+        return ROTATE_SCANNER_DIRECTION;
+    }
+
+    private void setROTATE_SCANNER_DIRECTION(Integer ROTATE_SCANNER_DIRECTION) {
+        this.ROTATE_SCANNER_DIRECTION = ROTATE_SCANNER_DIRECTION;
+    }
+
+    public TweetReader getTr() {
+        return tr;
     }
 
     /*---------------------------------------------------

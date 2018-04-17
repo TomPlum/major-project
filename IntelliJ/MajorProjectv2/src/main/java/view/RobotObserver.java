@@ -25,7 +25,7 @@ public class RobotObserver {
 
     //Body: JLabels for Robot One's Information
     private static JLabel xOrdinateOne, yOrdinateOne, firePowerOne, moveUpOne, moveRightOne, moveDownOne, moveLeftOne, rotateOne, rotateDirectionOne;
-    private static JLabel rotateGunOne, rotateGunDirectionOne;
+    private static JLabel rotateGunOne, rotateGunDirectionOne, rotateScannerOne, rotateScannerDirectionOne;
 
     //Body: JLabels for Robot Two's Information
     private static JLabel xOrdinateTwo, yOrdinateTwo;
@@ -47,7 +47,7 @@ public class RobotObserver {
 
     //Body: JTextFields for Robot One's Information
     private static JTextField xOrdinateOneField, yOrdinateOneField, firePowerOneField, moveUpOneField, moveRightOneField, moveDownOneField, moveLeftOneField;
-    private static JTextField rotateOneField, rotateDirectionOneField, rotateGunOneField, rotateGunDirectionOneField;
+    private static JTextField rotateOneField, rotateDirectionOneField, rotateGunOneField, rotateGunDirectionOneField, rotateScannerOneField, rotateScannerDirectionOneField;
 
     //Body: JTextFields for Robot Two's Information
     private static JTextField xOrdinateTwoField, yOrdinateTwoField;
@@ -117,6 +117,8 @@ public class RobotObserver {
         rotateDirectionOne = new JLabel("Rotate Direction");
         rotateGunOne = new JLabel("Rotate Gun");
         rotateGunDirectionOne = new JLabel("Rotate Gun Direction");
+        rotateScannerOne = new JLabel("Rotate Scanner");
+        rotateScannerDirectionOne = new JLabel("Rotate Scanner Direction");
     }
 
     private static void configureFooterLabels() {
@@ -170,6 +172,10 @@ public class RobotObserver {
         bodyOneRight.add(rotateGunDirectionOneField);
         bodyOneRight.add(firePowerOne);
         bodyOneRight.add(firePowerOneField);
+        bodyOneRight.add(rotateScannerOne);
+        bodyOneRight.add(rotateScannerOneField);
+        bodyOneRight.add(rotateScannerDirectionOne);
+        bodyOneRight.add(rotateScannerDirectionOneField);
     }
     
     private static void addRobotTwoLabelsAndFields() {
@@ -223,6 +229,8 @@ public class RobotObserver {
         rotateGunOneField = new JTextField(10);
         rotateGunDirectionOneField = new JTextField(10);
         currentTweetOneField = new JTextField(50);
+        rotateScannerOneField = new JTextField(10);
+        rotateScannerDirectionOneField = new JTextField(10);
     }
     
     private static void configureRobotTwoFields() {
@@ -369,6 +377,22 @@ public class RobotObserver {
 
     public static void setCurrentTweetOne(String tweet) {
         SwingUtilities.invokeLater(() -> currentTweetOneField.setText(tweet));
+    }
+
+    public static void setRotateScannerOne(int rotate) {
+        SwingUtilities.invokeLater(() -> rotateScannerOneField.setText(String.valueOf(rotate)));
+    }
+
+    public static void setRotateScannerDirectionOne(int direction) {
+        SwingUtilities.invokeLater(() -> {
+            if (direction == 1) {
+                rotateScannerDirectionOneField.setText("Clockwise");
+            } else if (direction == -1) {
+                rotateScannerDirectionOneField.setText("Anti-Clockwise");
+            } else {
+                rotateScannerDirectionOneField.setText("Error: " + direction);
+            }
+        });
     }
 
     public static void setTurnNumber(int turn) {

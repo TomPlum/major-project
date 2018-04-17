@@ -2,6 +2,7 @@ package controller;
 
 import org.bson.Document;
 import robocode.*;
+import robocode.control.events.TurnEndedEvent;
 import twitter.TweetSerialiser;
 import view.RobotObserver;
 import view.RobotObserver2;
@@ -22,13 +23,8 @@ public abstract class TwitterRobot extends AdvancedRobot {
         tweets = serialiser.readTweets(id);
         rc.initialiseTweets(tweets);
 
-        //Start Observing
-        /*
-        if (!observer.isOpen()) {
-            observer.startObserving();
-            observer.setOpen(true);
-        }
-        */
+        //Close RobotController TweetReader MongoConnection
+        rc.getTr().getConn().disconnect();
 
         //Set Username
         rc.setUSER(tweets.get(0).get("screenName").toString());
@@ -57,6 +53,20 @@ public abstract class TwitterRobot extends AdvancedRobot {
 
             //Rotate Robot Body
             if (rc.getROTATE_DIRECTION() == 1) {
+                turnRight(rc.getROTATE());
+            } else {
+                turnLeft(rc.getROTATE() * -1);
+            }
+
+            //Rotate Robot Radar (Scanner)
+            if (rc.getROTATE_SCANNER_DIRECTION() == 1) {
+                turnRadarRight(rc.getROTATE_SCANNER());
+            } else {
+                turnRadarLeft(rc.getROTATE_SCANNER() * -1);
+            }
+
+            //Rotate Robot Gun
+            if (rc.getROTATE_GUN_DIRECTION() == 1) {
                 turnGunRight(rc.getROTATE_GUN());
             } else {
                 turnGunLeft(rc.getROTATE_GUN() * -1);
@@ -114,8 +124,13 @@ public abstract class TwitterRobot extends AdvancedRobot {
         //RobotObserver.stopObserving();
     }
 
+    /**
+     * Called when the battle ends.
+     * @param e Robocode BattleEndedEvent
+     */
     public void onBattleEnded(BattleEndedEvent e) {
         //Stop MongoConnection Threads?
+        observer.stopObserving();
     }
 
     /**

@@ -44,3 +44,15 @@
     vertical-align: middle;
     margin: auto 6px;
 }
+
+/* SIMPLE LINEAR REGRESSION */
+
+.point {
+    fill: rgba(255, 65, 73, 0.86);
+    border: 1px solid #ce3948;
+}
+
+.regression {
+    stroke-width: 2px;
+    stroke: #4176ff;
+}

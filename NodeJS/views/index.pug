@@ -465,24 +465,76 @@ html(lang='en')
                                     i.fa.fa-fw.fa-lg.fa-tachometer
                                     |  Overview
                             li
-                                a(href='#', data-toggle='tab')
+                                a(href='#menu2', data-toggle='tab')
                                     i.fa.fa-fw.fa-lg.fa-pie-chart
                                     |  Menu 2
                             li
-                                a(href='#', data-toggle='tab')
+                                a(href='#simple-linear-regression', data-toggle='tab')
                                     i.fa.fa-fw.fa-lg.fa-line-chart
-                                    |  Menu 3
+                                    |  Simple Linear Regression
                         .tab-content
                             #results-overview.tab-pane.active
                                 .container.results-loading
                                 .container-fluid
                                     .row
+                                        .col-sm-12
+                                            h3.text-center Battle Statistics
+                                            hr
                                         .col-sm-3.noOfBattles.text-center
                                             .value
                                             label No. of Battles
                                         .col-sm-3.noOfRobots.text-center
                                             .value
                                             label No. of Robots
+                                        .col-sm-3.noOfTurns.text-center
+                                            .value
+                                            label No. of Turns
+                                        .col-sm-3.battleTime.text-center
+                                            .value
+                                            label Battle Time
+                                    .row.text-center
+                                        .col-sm-12
+                                            h3 Battle Rules
+                                            hr
+                                        .col-sm-2
+                                            .value
+                                                p 1
+                                            label No of Rounds
+                                        .col-sm-2
+                                            .value
+                                                p 1000px
+                                                    sup 2
+                                            label Battlefield Size
+                                        .col-sm-2
+                                            .value
+                                                p 100 px
+                                            label Sentry Border Size
+                                        .col-sm-2
+                                            .value
+                                                p 0.1
+                                            label Gun Cooling Rate
+                                        .col-sm-2
+                                            .value
+                                                p 2000
+                                            label Inactivity Time
+                                        .col-sm-2
+                                            .value
+                                                p False
+                                            label Hide Enemy Names?
+                            #menu2.tab-pane
+                                .container-fluid
+                                    .col-sm-12
+                                        h3 Menu 2
+                            #simple-linear-regression.tab-pane
+                                .container-fluid
+                                    .row
+                                        .col-sm-12
+                                            h3 Simple Linear Regression
+                                        .col-sm-12
+                                            #simple-linear-regression-graph
+                                        .col-sm-12
+                                            .equation
+                                            .equation
 
         section#data-vis
             .line3
@@ -587,6 +639,7 @@ html(lang='en')
         script(src='js/bootstrap.min.js')
 
         script(src="//d3js.org/d3.v4.min.js")
+        script(src='js/simple-linear-regression.js')
         script(src='js/robocodeResults.js')
         script(src='js/characterStats.js')
         script(src='js/jquery.slicknav.js')

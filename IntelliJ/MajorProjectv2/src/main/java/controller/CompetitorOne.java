@@ -44,6 +44,7 @@ public class CompetitorOne extends TwitterRobot implements ITwitterRobot {
         observer.setRotateDirectionOne(rc.getROTATE_DIRECTION());
         observer.setRotateGunDirectionOne(rc.getROTATE_GUN_DIRECTION());
         observer.setCurrentTweetOne(rc.getCurrentTweet().get("text").toString());
-        
+        observer.setRotateScannerDirectionOne(rc.getROTATE_SCANNER_DIRECTION());
+        observer.setRotateScannerOne(rc.getROTATE_SCANNER());
     }
 }

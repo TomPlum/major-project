@@ -25,6 +25,7 @@ public class TweetReader {
                 list.add(cursor.next());
             }
         }
+        conn.disconnect();
         return list;
     }
 
@@ -58,6 +59,7 @@ public class TweetReader {
                 list.add(cursor.next().get("text").toString());
             }
         }
+        conn.disconnect();
         return list;
     }
 
@@ -74,6 +76,7 @@ public class TweetReader {
                 list.add(cursor.next().get(key).toString());
             }
         }
+        conn.disconnect();
         return list;
     }
 
@@ -101,6 +104,7 @@ public class TweetReader {
                 }
             }
         }
+        conn.disconnect();
         return list;
     }
 
@@ -114,6 +118,7 @@ public class TweetReader {
                 screenNames.add(element.get("name").toString());
             }
         }
+        //conn.disconnect();
         return screenNames;
     }
 
@@ -126,6 +131,7 @@ public class TweetReader {
         ArrayList<Document> list = new ArrayList<>();
         Block<Document> addBlock = document -> list.add(document);
         conn.getMongoCollection().find(eq("created_at", date)).forEach(addBlock);
+        conn.disconnect();
         return list;
     }
 

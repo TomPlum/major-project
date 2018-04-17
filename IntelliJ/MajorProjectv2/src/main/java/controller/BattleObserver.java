@@ -2,7 +2,6 @@ package controller;
 
 import robocode.BattleRules;
 import robocode.control.events.*;
-import view.RobotObserver;
 
 /**
  * ---------------------------------------------------------------------------------------------------------
@@ -61,6 +60,14 @@ public class BattleObserver extends BattleAdaptor {
         System.out.println("Err> " + e.getError());
     }
 
+    /**
+     * Called when a turn is started in the current round.
+     * Used to increment the data analysis number of turns statistic.
+     * @param e Robocode TurnStartedEvent
+     */
+    public void onTurnStarted(TurnStartedEvent e) {
+        numberOfTurns++;
+    }
     /**
      * Calculates the time difference between the start and end times.
      * @param start Current System Time At Start
