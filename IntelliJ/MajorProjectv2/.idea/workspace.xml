@@ -4,20 +4,14 @@
     <list default="true" id="d06cb7df-8c9e-4bfc-a32e-c7b16540e8df" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robocode_master/StartRobocodeEngine.bat" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/StartRobocodeEngine.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/GameConfigurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/GameConfigurer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/RobotController.java.old" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/RobotController.java.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobot.java.old" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobot.java.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotData1.ser" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotData1.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotData2.ser" beforeDir="false" afterPath="$PROJECT_DIR$/robocode_master/robots/controller/TwitterRobotData2.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RobotController.java.old" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RobotController.java.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java.old" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TwitterSentry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/TwitterSentry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RobotObserver2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RobotObserver2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../../LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../NodeJS/node_modules/ncp/bin/ncp" beforeDir="false" afterPath="$PROJECT_DIR$/../../NodeJS/node_modules/ncp/bin/ncp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NodeJS/public/css/d3.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../NodeJS/public/css/d3.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../NodeJS/public/js/simpleLinearRegression.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../NodeJS/public/js/simpleLinearRegression.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NodeJS/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/../../NodeJS/views/index.pug" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,7 +43,7 @@
       <file leaf-file-name="CompetitorOne.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/CompetitorOne.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
+            <state relative-caret-position="408">
               <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
             </state>
           </provider>
@@ -58,7 +52,7 @@
       <file leaf-file-name="CompetitorTwo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/CompetitorTwo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
+            <state relative-caret-position="391">
               <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
             </state>
           </provider>
@@ -67,7 +61,7 @@
       <file leaf-file-name="TwitterRobot.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
+            <state relative-caret-position="204">
               <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -79,7 +73,7 @@
       <file leaf-file-name="RobotController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8184">
+            <state relative-caret-position="5780">
               <caret line="345" selection-start-line="345" selection-end-line="345" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -91,7 +85,7 @@
       <file leaf-file-name="BattleObserver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleObserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="888">
+            <state relative-caret-position="629">
               <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -103,7 +97,7 @@
       <file leaf-file-name="BattleResultLogger.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1392">
+            <state relative-caret-position="1241">
               <caret line="83" column="77" selection-start-line="83" selection-start-column="77" selection-end-line="83" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -115,8 +109,8 @@
       <file leaf-file-name="GameConfigurer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+            <state relative-caret-position="129">
+              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,7 +121,7 @@
       <file leaf-file-name="TweetSerialiser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSerialiser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
+            <state relative-caret-position="884">
               <caret line="55" column="58" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -139,7 +133,7 @@
       <file leaf-file-name="StartRobocode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/StartRobocode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="204">
               <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
@@ -278,10 +272,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="2385" />
-    <option name="height" value="1418" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-7" />
+    <option name="width" value="1734" />
+    <option name="height" value="1417" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -291,6 +285,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -388,9 +383,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -682,7 +676,8 @@
       <workItem from="1523698934393" duration="2818000" />
       <workItem from="1523904421908" duration="8462000" />
       <workItem from="1523955143720" duration="15111000" />
-      <workItem from="1524037785704" duration="1077000" />
+      <workItem from="1524037785704" duration="1672000" />
+      <workItem from="1524065208148" duration="758000" />
     </task>
     <servers />
   </component>
@@ -719,11 +714,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255884000" />
+    <option name="totallyTimeSpent" value="257237000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="0" width="1734" height="1417" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="5" />
@@ -731,15 +725,15 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3298887" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50059736" side_tool="true" visible="true" weight="0.32961783" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="right" id="Run" order="10" visible="true" weight="0.29754" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="right" id="Run" order="10" weight="0.3339307" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49940264" visible="true" weight="0.32961783" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10113237" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20609319" />
       <window_info anchor="right" id="Database" order="7" weight="0.32977736" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1112,7 +1106,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/StartRobocode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="204">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
@@ -1120,7 +1114,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterSentry.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleObserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
+        <state relative-caret-position="629">
           <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1130,7 +1124,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/BattleResultLogger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1392">
+        <state relative-caret-position="1241">
           <caret line="83" column="77" selection-start-line="83" selection-start-column="77" selection-end-line="83" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1140,21 +1134,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/CompetitorOne.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
+        <state relative-caret-position="408">
           <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/CompetitorTwo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
+        <state relative-caret-position="391">
           <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/RobotController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8184">
+        <state relative-caret-position="5780">
           <caret line="345" selection-start-line="345" selection-end-line="345" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1164,7 +1158,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/twitter/TweetSerialiser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
+        <state relative-caret-position="884">
           <caret line="55" column="58" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1174,7 +1168,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/TwitterRobot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
+        <state relative-caret-position="204">
           <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1184,8 +1178,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/GameConfigurer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+        <state relative-caret-position="129">
+          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

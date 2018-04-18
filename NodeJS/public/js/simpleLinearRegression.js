@@ -1,10 +1,10 @@
 $(document).ready(() => {
-   //Bind Radio Button Events
-   $("#include-sentry").on("click", includeTwitterSentry);
-   $("#exclude-sentry").on("click", excludeTwitterSentry);
-   $("#include-all").on("click", includeAllRecords);
+    //Bind Radio Button Events
+    $("#include-sentry").on("click", includeTwitterSentry);
+    $("#exclude-sentry").on("click", excludeTwitterSentry);
+    $("#include-all").on("click", includeAllRecords);
 
-   //Bind Point Radius Slider
+    //Bind Point Radius Slider
     $("#pointRadius").val("6").html("6px");
     $("#pointRadiusSlider input").on("change", () => {
         let radius = $("#pointRadiusSlider input").val();
@@ -31,8 +31,6 @@ let svg = d3.select('#simple-linear-regression-graph').append("svg").attr("class
     .attr("width", "100%").attr("height", height + margin.top + margin.bottom)
     .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-let valueline = d3.line().x(function(d) {return x(d._id);}).y(function(d) {return y(d.percentage);});
-
 let scatterPlotData = [];
 let rawResultData;
 let dynamicScatterPlotData;
@@ -42,8 +40,8 @@ function changePointRadius(radius) {
 }
 
 function updateSimpleLinearRegression(radius) {
-    console.log("Dynamic Data Length: " + dynamicScatterPlotData.length);
-
+    console.log("Dynamic Data Length (Inside Update): " + dynamicScatterPlotData.length);
+    console.log("Radius: " + radius);
     //Re-Define Domains
     x.domain(d3.extent(dynamicScatterPlotData, function(d) {return d.x}));
     y.domain(d3.extent(dynamicScatterPlotData, function(d) {return d.y}));
@@ -55,11 +53,11 @@ function updateSimpleLinearRegression(radius) {
     circles.exit().transition().duration(1000).attr("r", 0).remove();
 
     //Add New Circles
-    circles.enter().append("circle")
+    let newCircles = circles.enter().append("circle")
         .attr("class", "point")
-        .attr("r", radius.toString())
         .attr("cy", function(d){ return y(d.y); })
         .attr("cx", function(d){ return x(d.x); })
+        .attr("r", 0) //Initial 0 (Animate To Radius Below)
         .on("mouseover", (d, i) => {
             const floating = $("#simpleLinearRegressionTooltip");
 
@@ -75,19 +73,22 @@ function updateSimpleLinearRegression(radius) {
             //Add HTML
             floating.html(
                 "<div class='container floatingContainer'>" +
-                    "<div class=''>" +
-                        "<h1 class='battle-number'>Battle " + i + "</h1>" +
-                        "<hr class='floatingRule'>" +
-                    "</div>" +
-                    "<div class=''>" +
-                        "<h1 class='floatingData'>" + dateToString(d.date) + "</h1>" +
-                    "</div>" +
-                    "<div class=''>" +
-                        "<h1 class='floatingData'>" + d.turns + " Turns</h1>" +
-                    "</div>" +
-                    "</div>" +
-                        "<h1 class='floatingData'>" + d.score + " Score</h1>" +
-                    "</div>" +
+                "<div class=''>" +
+                "<h1 class='battle-number'>Battle " + i + "</h1>" +
+                "<hr class='floatingRule'>" +
+                "</div>" +
+                "<div class=''>" +
+                "<h1 class='floatingData'>" + dateToString(d.date) + "</h1>" +
+                "</div>" +
+                "<div class=''>" +
+                "<h1 class='floatingData'>" + d.turns + " Turns</h1>" +
+                "</div>" +
+                "<div>" +
+                "<h1 class='floatingData'>" + d.score + " Score</h1>" +
+                "</div>" +
+                "<div>" +
+                "<h1 class='floatingData'>" + d.rules.no_of_rounds + " Rounds</h1>" +
+                "</div>" +
                 "</div>"
 
             );
@@ -104,12 +105,23 @@ function updateSimpleLinearRegression(radius) {
             floating.html("");
         });
 
+    //Animate Radius (Fade's New Circles In)
+    newCircles.transition().duration(1000).attr("r", radius);
+
     console.log("Number of Circles: " + $(".point").length + "\n");
 
     //Transition Remaining Dataset Circles To New Positions
     circles.transition().duration(1000).delay(function(d, i) {
         return i / dynamicScatterPlotData.length * 500;
     }).attr("cx", function(d) { return x(d.x); }).attr("cy", function(d) { return y(d.y); });
+
+    //Adjust Regression Line
+    let lg = calcLinear(dynamicScatterPlotData, "x", "y", d3.min(dynamicScatterPlotData, function(d){ return d.x}), d3.min(dynamicScatterPlotData, function(d){ return d.x}));
+    d3.select(".regression").transition().duration(1000)
+        .attr("x1", x(lg.ptA.x))
+        .attr("y1", y(lg.ptA.y))
+        .attr("x2", x(lg.ptB.x))
+        .attr("y2", y(lg.ptB.y));
 
     //Update Axes
     svg.select(".x-axis").transition().duration(1000).call(xAxis);
@@ -130,6 +142,7 @@ function includeTwitterSentry() {
     //Convert Into Graph Format To Be Updated
     dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
     updateSimpleLinearRegression(6);
+    updatePointTimeSliderMaxValue();
 }
 
 function includeAllRecords() {
@@ -139,6 +152,7 @@ function includeAllRecords() {
     //Convert Into Graph Format To Be Updated
     dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
     updateSimpleLinearRegression(6);
+    updatePointTimeSliderMaxValue();
 }
 
 function excludeTwitterSentry() {
@@ -155,6 +169,7 @@ function excludeTwitterSentry() {
     //Convert Into Graph Format To Be Updated
     dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
     updateSimpleLinearRegression(6);
+    updatePointTimeSliderMaxValue();
 }
 
 function convertRawToGraphFormat(data) {
@@ -189,25 +204,32 @@ function dateToString(obj) {
     return YYYY + "/" + MM + "/" + DD;
 }
 
+function timeToString(obj) {
+    let date = new Date(obj);
+    let HH = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+    let MM = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    let SS = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+    return HH + ":" + MM + ":" + SS;
+}
+
 function renderSimpleLinearRegression(data) {
-    console.log("Called renderSimpleLinearRegression()");
-    //Store In Raw
-    rawResultData = data;
+    //Store In Raw For Reference
+    rawResultData = data.slice(0);
 
     //Build Data Structure
     scatterPlotData = convertRawToGraphFormat(data);
 
     //Store In Dynamic
-    dynamicScatterPlotData = scatterPlotData;
+    dynamicScatterPlotData = scatterPlotData.slice(0);
 
     //Define Domains
     x.domain(d3.extent(scatterPlotData, function(d) {return d.x}));
     y.domain(d3.extent(scatterPlotData, function(d) {return d.y}));
 
-    // see below for an explanation of the calcLinear function
+    //Create Regression Line
     let lg = calcLinear(scatterPlotData, "x", "y", d3.min(scatterPlotData, function(d){ return d.x}), d3.min(scatterPlotData, function(d){ return d.x}));
 
-    //Regression Line
+    //Add Regression Line
     svg.append("line")
         .attr("class", "regression")
         .attr("x1", x(lg.ptA.x))
@@ -215,18 +237,18 @@ function renderSimpleLinearRegression(data) {
         .attr("x2", x(lg.ptB.x))
         .attr("y2", y(lg.ptB.y));
 
-    //X-Axis
+    //Add X-Axis
     svg.append("g")
         .attr("class", "x-axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
-    //Y-Axis
+    //Add Y-Axis
     svg.append("g")
         .attr("class", "y-axis")
         .call(yAxis);
 
-    //Points
+    //Add Scatter Points
     svg.selectAll(".point")
         .data(scatterPlotData)
         .enter().append("circle")
@@ -249,20 +271,23 @@ function renderSimpleLinearRegression(data) {
             //Add HTML
             floating.html(
                 "<div class='container floatingContainer'>" +
-                    "<div class=''>" +
-                        "<h1 class='battle-number'>Battle " + i + "</h1>" +
-                        "<hr class='floatingRule'>" +
-                    "</div>" +
-                    "<div class=''>" +
-                        "<h1 class='floatingData'>" + dateToString(d.date) + "</h1>" +
-                    "</div>" +
-                    "<div class=''>" +
-                        "<h1 class='floatingData'>" + d.turns + " Turns</h1>" +
-                    "</div>" +
-                    "<div>" +
-                    "</div>" +
-                        "<h1 class='floatingData'>" + d.score + " Score</h1>" +
-                    "</div>"
+                "<div class=''>" +
+                "<h1 class='battle-number'>Battle " + i + "</h1>" +
+                "<hr class='floatingRule'>" +
+                "</div>" +
+                "<div class=''>" +
+                "<h1 class='floatingData'>" + dateToString(d.date) + "</h1>" +
+                "</div>" +
+                "<div class=''>" +
+                "<h1 class='floatingData'>" + d.turns + " Turns</h1>" +
+                "</div>" +
+                "<div>" +
+                "<h1 class='floatingData'>" + d.score + " Score</h1>" +
+                "</div>" +
+                "<div>" +
+                "<h1 class='floatingData'>" + d.rules.no_of_rounds + " Rounds</h1>" +
+                "</div>" +
+                "</div>"
 
             );
         })
@@ -284,79 +309,116 @@ function renderSimpleLinearRegression(data) {
         .attr("transform", "rotate(-90)").attr("class", "axis-label").text("Number of Turns");
 
 
-    function calcLinear(data, x, y, minX, minY){
-        /////////
-        //SLOPE//
-        /////////
+    //After we've rendered the Scatter Plot. Bind the slider event as the dataset is now defined
+    //Bind Point Timeline Slider
+    const pointTimeLineSlider = $("#pointTimelineSlider");
+    updatePointTimeSliderMaxValue();
+    updatePointTimeSliderDate();
+    pointTimeLineSlider.on("change", () => {
+        let sliderValue = pointTimeLineSlider.val();
+        console.log("Slider Value: " + sliderValue);
+        console.log("Dynamic Data Length (Before): " + dynamicScatterPlotData.length);
 
-        // Let n = the number of data points
-        let n = data.length;
+        //Sort the dynamicScatterPlotData variable
+        dynamicScatterPlotData.sort((a, b) => {return a.date - b.date;});
 
-        // Get just the points
-        let pts = [];
-        data.forEach(function(d,i){
-            let obj = {};
-            obj.x = d[x];
-            obj.y = d[y];
-            obj.mult = obj.x*obj.y;
-            pts.push(obj);
-        });
+        //Slice The Array
+        dynamicScatterPlotData = dynamicScatterPlotData.slice(0, sliderValue);
+        console.log("Dynamic Data Length (After): " + dynamicScatterPlotData.length);
 
-        // Let a equal n times the summation of all x-values multiplied by their corresponding y-values
-        // Let b equal the sum of all x-values times the sum of all y-values
-        // Let c equal n times the sum of all squared x-values
-        // Let d equal the squared sum of all x-values
-        let sum = 0;
-        let xSum = 0;
-        let ySum = 0;
-        let sumSq = 0;
-        pts.forEach(function(pt){
-            sum = sum + pt.mult;
-            xSum = xSum + pt.x;
-            ySum = ySum + pt.y;
-            sumSq = sumSq + (pt.x * pt.x);
-        });
-        let a = sum * n;
-        let b = xSum * ySum;
-        let c = sumSq * n;
-        let d = xSum * xSum;
+        //Update Scatter Plot (With Currently Selected Radius)
+        updateSimpleLinearRegression($("#pointRadiusSlider input").val());
 
-        // Plug the values that you calculated for a, b, c, and d into the following equation to calculate the slope
-        // slope = m = (a - b) / (c - d)
-        let m = (a - b) / (c - d);
+        //Copy Original Raw Data Into Dynamic Variable
+        dynamicScatterPlotData = convertRawToGraphFormat(rawResultData.slice(0));
+    });
 
-        /////////////
-        //INTERCEPT//
-        /////////////
-
-        // Let e equal the sum of all y-values
-        let e = ySum;
-
-        // Let f equal the slope times the sum of all x-values
-        let f = m * xSum;
-
-        // Plug the values you have calculated for e and f into the following equation for the y-intercept
-        // y-intercept = b = (e - f) / n
-        b = (e - f) / n;
-
-        // Print the equation below the chart
-        document.getElementsByClassName("equation")[0].innerHTML = "y = " + m.toFixed(2) + "x + " + b.toFixed(2);
-        document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b.toFixed(2) + " ) / " + m.toFixed(2);
-
-        // return an object of two points
-        // each point is an object with an x and y coordinate
-        return {
-            ptA : {
-                x: minX,
-                y: m * minX + b
-            },
-            ptB : {
-                y: minY,
-                x: (minY - b) / m
-            }
-        }
-
+    function updatePointTimeSliderDate() {
+        let sortedData = dynamicScatterPlotData.sort((a, b) => {return a.date - b.date;}).slice(0);
+        let earliestDate = sortedData[0].date;
+        let sliderDate = sortedData[$("#pointTimelineSlider").val() - 1].date;
+        $("#pointTimelineSliderDate").html(dateToString(earliestDate) + " " + timeToString(earliestDate) + " - " + dateToString(sliderDate) + " " + timeToString(sliderDate));
     }
 
+    //Update Date Text (On-Input)
+    pointTimeLineSlider.on("input", updatePointTimeSliderDate);
+}
+
+function updatePointTimeSliderMaxValue() {
+    const pointTimeLineSlider = $("#pointTimelineSlider");
+    pointTimeLineSlider.prop("max", dynamicScatterPlotData.length).val(dynamicScatterPlotData.length);
+}
+
+function calcLinear(data, x, y, minX, minY){
+    /////////
+    //SLOPE//
+    /////////
+
+    // Let n = the number of data points
+    let n = data.length;
+
+    // Get just the points
+    let pts = [];
+    data.forEach(function(d,i){
+        let obj = {};
+        obj.x = d[x];
+        obj.y = d[y];
+        obj.mult = obj.x*obj.y;
+        pts.push(obj);
+    });
+
+    // Let a equal n times the summation of all x-values multiplied by their corresponding y-values
+    // Let b equal the sum of all x-values times the sum of all y-values
+    // Let c equal n times the sum of all squared x-values
+    // Let d equal the squared sum of all x-values
+    let sum = 0;
+    let xSum = 0;
+    let ySum = 0;
+    let sumSq = 0;
+    pts.forEach(function(pt){
+        sum = sum + pt.mult;
+        xSum = xSum + pt.x;
+        ySum = ySum + pt.y;
+        sumSq = sumSq + (pt.x * pt.x);
+    });
+    let a = sum * n;
+    let b = xSum * ySum;
+    let c = sumSq * n;
+    let d = xSum * xSum;
+
+    // Plug the values that you calculated for a, b, c, and d into the following equation to calculate the slope
+    // slope = m = (a - b) / (c - d)
+    let m = (a - b) / (c - d);
+
+    /////////////
+    //INTERCEPT//
+    /////////////
+
+    // Let e equal the sum of all y-values
+    let e = ySum;
+
+    // Let f equal the slope times the sum of all x-values
+    let f = m * xSum;
+
+    // Plug the values you have calculated for e and f into the following equation for the y-intercept
+    // y-intercept = b = (e - f) / n
+    b = (e - f) / n;
+
+    // Print the equation below the chart
+    document.getElementsByClassName("equation")[0].innerHTML = "y = " + m.toFixed(2) + "x + " + b.toFixed(2);
+    document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b.toFixed(2) + " ) / " + m.toFixed(2);
+
+    // return an object of two points
+    // each point is an object with an x and y coordinate
+    return {
+        ptA : {
+            x: minX,
+            y: m * minX + b
+        },
+        ptB : {
+            y: minY,
+            x: (minY - b) / m
+        }
+    }
 }
 

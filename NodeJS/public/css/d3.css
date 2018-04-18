@@ -69,7 +69,12 @@
 .regression {
     stroke-width: 3px;
     stroke: #4176ff;
-    z-index: 999;
+    z-index: 9999;
+    transition: all ease 0.5s;
+}
+
+.regression:hover {
+    stroke: #1fcdff;
 }
 
 #pointRadiusSlider {
@@ -216,4 +221,10 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: 1.3em;
     color: #1fcdff;
     margin: 3px 0;
+}
+
+#pointTimelineSliderDate {
+    text-align: center;
+    font-size: 1.3em;
+    color: #1fcdff;
 }
