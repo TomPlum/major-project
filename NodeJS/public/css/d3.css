@@ -50,6 +50,12 @@
 .point {
     fill: rgba(255, 65, 73, 0.86);
     border: 1px solid #ce3948;
+    transition: all ease 0.5s;
+}
+
+.point:hover {
+    fill: #46e6ff;
+    border: 1px solid #1fcdff;
 }
 
 #pointRadius {
@@ -167,4 +173,47 @@ input[type=range]:focus::-ms-fill-upper {
 .equation {
     font-size: 1.3em;
     text-align: center;
+}
+
+.floating-tooltip{
+    position: absolute;
+    float: left;
+    z-index: 99;
+}
+
+.floating-tooltip {
+    box-shadow: 0 0 19px 0 rgba(0,0,0,0.75);
+    /* border: 1px solid #000; */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);
+    border-radius: 8px;
+    display: none;
+}
+
+#simpleLinearRegression > p {
+    margin: 0;
+    padding: 0;
+    color: #1fcdff;
+}
+
+.floatingRule, .floatingData {
+    margin: 2px 0;
+}
+
+.floatingData {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.floatingContainer {
+    padding: 8px;
+    width: auto;
+}
+
+
+.battle-number {
+    text-align: center !important;
+    display: block;
+    font-size: 1.3em;
+    color: #1fcdff;
+    margin: 3px 0;
 }

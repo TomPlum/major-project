@@ -38,7 +38,7 @@ let rawResultData;
 let dynamicScatterPlotData;
 
 function changePointRadius(radius) {
-    d3.selectAll("circle").transition().duration(1000).attr("r", radius);
+    d3.selectAll("circle").transition().duration(500).attr("r", radius);
 }
 
 function updateSimpleLinearRegression(radius) {
@@ -52,14 +52,57 @@ function updateSimpleLinearRegression(radius) {
     let circles = svg.selectAll(".point").data(dynamicScatterPlotData);
 
     //Remove Redundant Circles
-    circles.exit().remove();
+    circles.exit().transition().duration(1000).attr("r", 0).remove();
 
     //Add New Circles
     circles.enter().append("circle")
         .attr("class", "point")
         .attr("r", radius.toString())
         .attr("cy", function(d){ return y(d.y); })
-        .attr("cx", function(d){ return x(d.x); });
+        .attr("cx", function(d){ return x(d.x); })
+        .on("mouseover", (d, i) => {
+            const floating = $("#simpleLinearRegressionTooltip");
+
+            //Bind Mouse Move Event
+            $(document).bind('mousemove', function(e) {
+                floating.css({
+                    left: e.pageX + 15,
+                    top: e.pageY + 25,
+                    display: "initial"
+                });
+            });
+
+            //Add HTML
+            floating.html(
+                "<div class='container floatingContainer'>" +
+                    "<div class=''>" +
+                        "<h1 class='battle-number'>Battle " + i + "</h1>" +
+                        "<hr class='floatingRule'>" +
+                    "</div>" +
+                    "<div class=''>" +
+                        "<h1 class='floatingData'>" + dateToString(d.date) + "</h1>" +
+                    "</div>" +
+                    "<div class=''>" +
+                        "<h1 class='floatingData'>" + d.turns + " Turns</h1>" +
+                    "</div>" +
+                    "</div>" +
+                        "<h1 class='floatingData'>" + d.score + " Score</h1>" +
+                    "</div>" +
+                "</div>"
+
+            );
+        })
+        .on("mouseout", () => {
+            const floating = $("#simpleLinearRegressionTooltip");
+
+            $(document).unbind("mousemove");
+
+            //Remove CSS
+            floating.css("display", "none");
+
+            //Remove HTML From Floating Div
+            floating.html("");
+        });
 
     console.log("Number of Circles: " + $(".point").length + "\n");
 
@@ -119,11 +162,23 @@ function convertRawToGraphFormat(data) {
     for (let i = 0; i < data.length; i++) {
         result.push({
             _id: data[i]._id,
+            date: data[i].date,
+            score: data[i].results[0].score,
+            turns: data[i].no_of_turns,
+            rules: data[i].rules,
             x: parseInt(data[i].results[0].score), //First one is the winner as in desc order
             y: parseInt(data[i].no_of_turns)
         });
     }
     return result;
+}
+
+function dateToString(obj) {
+    let date = new Date(obj);
+    let YYYY = date.getFullYear();
+    let MM = date.getMonth() < 10 ? "0" + date.getMonth() : date.getMonth();
+    let DD = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    return YYYY + "/" + MM + "/" + DD;
 }
 
 function renderSimpleLinearRegression(data) {
@@ -170,7 +225,50 @@ function renderSimpleLinearRegression(data) {
         .attr("class", "point")
         .attr("r", 6)
         .attr("cy", function(d){ return y(d.y); })
-        .attr("cx", function(d){ return x(d.x); });
+        .attr("cx", function(d){ return x(d.x); })
+        .on("mouseover", (d, i) => {
+            const floating = $("#simpleLinearRegressionTooltip");
+
+            //Bind Mouse Move Event
+            $(document).bind('mousemove', function(e) {
+                floating.css({
+                    left: e.pageX + 15,
+                    top: e.pageY + 25,
+                    display: "initial"
+                });
+            });
+
+            //Add HTML
+            floating.html(
+                "<div class='container floatingContainer'>" +
+                    "<div class=''>" +
+                        "<h1 class='battle-number'>Battle " + i + "</h1>" +
+                        "<hr class='floatingRule'>" +
+                    "</div>" +
+                    "<div class=''>" +
+                        "<h1 class='floatingData'>" + dateToString(d.date) + "</h1>" +
+                    "</div>" +
+                    "<div class=''>" +
+                        "<h1 class='floatingData'>" + d.turns + " Turns</h1>" +
+                    "</div>" +
+                    "<div>" +
+                    "</div>" +
+                        "<h1 class='floatingData'>" + d.score + " Score</h1>" +
+                    "</div>"
+
+            );
+        })
+        .on("mouseout", () => {
+            const floating = $("#simpleLinearRegressionTooltip");
+
+            $(document).unbind("mousemove");
+
+            //Remove CSS
+            floating.css("display", "none");
+
+            //Remove HTML From Floating Div
+            floating.html("");
+        });
 
     //Add Axis Labels
     svg.append("text").attr("x", (width / 2) - 20).attr("y", height + 45).attr("class", "axis-label").text("Score");
