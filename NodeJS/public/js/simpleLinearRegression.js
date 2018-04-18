@@ -10,7 +10,7 @@ $(document).ready(() => {
         let radius = $("#pointRadiusSlider input").val();
         changePointRadius(radius);
         $("#pointRadius").html(radius + "px");
-    })
+    });
 });
 
 //Setting The Dimensions Of The Canvas
@@ -171,6 +171,14 @@ function convertRawToGraphFormat(data) {
         });
     }
     return result;
+}
+
+function calculateAvgRounds(data) {
+    let avg = 0;
+    for (let i = 0; i < data.length; i++) {
+        avg += data[i].results[0].firsts + data[i].results[0].seconds + data[i].results[0].thirds;
+    }
+    $("#noOfRounds").html(~~(avg / data.length));
 }
 
 function dateToString(obj) {

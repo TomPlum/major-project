@@ -8,6 +8,7 @@ $(document).ready(() => {
             stopResultsLoading();
             renderResultsOverview(results);
             renderSimpleLinearRegression(results);
+            calculateAvgRounds(results);
             console.log(results);
         },
         error: function(err) {
@@ -32,8 +33,7 @@ function stopResultsLoading() {
 function renderResultsOverview(data) {
     //Total Number of Robocode Battles
     const noOfBattles = $(".noOfBattles .value");
-    console.log(data);
-    noOfBattles.html(data.length);
+    noOfBattles.html(formatLargeNumber(data.length));
 
     //Total Number of Robots
     const noOfRobots = $(".noOfRobots .value");
@@ -47,6 +47,49 @@ function renderResultsOverview(data) {
     const battleTime = $(".battleTime .value");
     battleTime.html(calculateTotalBattleTime(data));
 
+    //Total Score
+    const totalScore = $(".totalScore .value");
+    totalScore.html(formatLargeNumber(calculateTotalScore(data)));
+
+    //Total Bullet Damage
+    const totalBulletDamage = $(".totalBulletDamage .value");
+    totalBulletDamage.html(formatLargeNumber(calculateTotalBulletDamage(data)));
+
+    //Total Ram Damage
+    const totalRamDamage = $(".totalRamDamage .value");
+    totalRamDamage.html(formatLargeNumber(calculateTotalRamDamage(data)));
+
+}
+
+function calculateTotalRamDamage(data) {
+    let ram = 0;
+    for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < data[i].results.length; j++) {
+            ram += data[i].results[j].ram_damage;
+        }
+    }
+    return ram;
+}
+
+function calculateTotalBulletDamage(data) {
+    let dmg = 0;
+    for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < data[i].results.length; j++) {
+            dmg += data[i].results[j].bullet_damage;
+        }
+
+    }
+    return dmg;
+}
+
+function calculateTotalScore(data) {
+    let score = 0;
+    for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < data[i].results.length; j++) {
+            score += data[i].results[j].score;
+        }
+    }
+    return score;
 }
 
 function calculateTotalNoOfTurns(data) {
