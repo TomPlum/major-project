@@ -39,6 +39,21 @@
     transform: scale(1.2);
 }
 
+.results-loading {
+    display: inline;
+    text-align:center;
+    font-size: 2em;
+    line-height: 250px;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+.results-loading svg {
+    display: inline;
+}
+
+
 .sort {
     line-height: 16px;
     vertical-align: middle;

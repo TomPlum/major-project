@@ -14,7 +14,12 @@ $(document).ready(() => {
 
     //Bind Number of Rounds Checkbox Events
     $("input[name='numberOfRounds']").on("change", () => {
-        const val = $("");
+        let checkedBoxes = $("input[name='numberOfRounds']:checked");
+        let roundsToDisplay = [];
+        for (let i = 0; i < checkedBoxes.length; i++) {
+            roundsToDisplay.push(checkedBoxes[i].value);
+        }
+        includeNumberOfRounds(roundsToDisplay);
     });
 
     //Initialise RangeSlider Plugin
@@ -56,6 +61,19 @@ let dynamicScatterPlotData;
 function changePointRadius(radius) {
     d3.selectAll("circle").transition().duration(500).attr("r", radius);
 }
+
+function includeNumberOfRounds(rounds) {
+    //Remove Rounds That Should Not Be Included
+    for (let i = 0; i < dynamicScatterPlotData.length; i++) {
+        if (!rounds.includes(dynamicScatterPlotData[i].rules.rounds)) {
+            dynamicScatterPlotData.splice(0, i);
+        }
+    }
+
+    //Update Graph
+    updateSimpleLinearRegression($("#pointRadiusSlider").val());
+}
+
 
 function updateSimpleLinearRegression(radius) {
     console.log("Dynamic Data Length (Inside Update): " + dynamicScatterPlotData.length);
@@ -133,7 +151,7 @@ function updateSimpleLinearRegression(radius) {
         return i / dynamicScatterPlotData.length * 500;
     }).attr("cx", function(d) { return x(d.x); }).attr("cy", function(d) { return y(d.y); });
 
-    //Adjust Regression Line
+    //Re-Calculate & Adjust Regression Line
     let lg = calcLinear(dynamicScatterPlotData, "x", "y", d3.min(dynamicScatterPlotData, function(d){ return d.x}), d3.min(dynamicScatterPlotData, function(d){ return d.y}));
     d3.select(".regression").transition().duration(1000)
         .attr("x1", x(lg.ptA.x))
@@ -159,8 +177,9 @@ function includeTwitterSentry() {
 
     //Convert Into Graph Format To Be Updated
     dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
-    updateSimpleLinearRegression(6);
+    updateSimpleLinearRegression($("#pointRadiusSlider").val());
     updatePointTimeSliderMaxValue();
+    updatePointTimeSliderDate();
 }
 
 function includeAllRecords() {
@@ -169,8 +188,9 @@ function includeAllRecords() {
 
     //Convert Into Graph Format To Be Updated
     dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
-    updateSimpleLinearRegression(6);
+    updateSimpleLinearRegression($("#pointRadiusSlider").val());
     updatePointTimeSliderMaxValue();
+    updatePointTimeSliderDate();
 }
 
 function excludeTwitterSentry() {
@@ -186,8 +206,9 @@ function excludeTwitterSentry() {
 
     //Convert Into Graph Format To Be Updated
     dynamicScatterPlotData = convertRawToGraphFormat(dynamicScatterPlotData);
-    updateSimpleLinearRegression(6);
+    updateSimpleLinearRegression($("#pointRadiusSlider").val());
     updatePointTimeSliderMaxValue();
+    updatePointTimeSliderDate();
 }
 
 function convertRawToGraphFormat(data) {
@@ -248,12 +269,13 @@ function renderSimpleLinearRegression(data) {
     let lg = calcLinear(scatterPlotData, "x", "y", d3.min(scatterPlotData, function(d){ return d.x}), d3.min(scatterPlotData, function(d){ return d.y}));
 
     //Add Regression Line
+    // noinspection JSSuspiciousNameCombination
     svg.append("line")
         .attr("class", "regression")
-        .attr("x1", x(lg.ptA.x))
-        .attr("y1", y(lg.ptA.y))
-        .attr("x2", x(lg.ptB.x))
-        .attr("y2", y(lg.ptB.y));
+        .attr("x1", x(Math.abs(lg.ptA.x)))
+        .attr("y1", y(Math.abs(lg.ptA.y)))
+        .attr("x2", x(Math.abs(lg.ptB.x)))
+        .attr("y2", y(Math.abs(lg.ptB.y)));
 
     //Add X-Axis
     svg.append("g")
@@ -340,9 +362,35 @@ function renderSimpleLinearRegression(data) {
         //Sort the dynamicScatterPlotData variable
         dynamicScatterPlotData.sort((a, b) => {return a.date - b.date;});
 
-        //Slice The Array
+        //Conform To The Border Sentry Filter Selection
+        const filterBorderSentry = $("input[name='filter-linear-reg']").val();
+        switch(filterBorderSentry) {
+            case "All":
+                //Do Nothing
+                break;
+            case "Exclude":
+                //Remove Results With TwitterSentry
+                for (let i = 0; i < dynamicScatterPlotData.length; i++) {
+                    if (dynamicScatterPlotData[i].results.length === 3) {
+                        dynamicScatterPlotData.splice(i, 1);
+                    }
+                }
+                break;
+            case "Include":
+                //Remove Results Without TwitterSentry
+                for (let i = 0; i < dynamicScatterPlotData.length; i++) {
+                    if (dynamicScatterPlotData[i].results.length !== 3) {
+                        dynamicScatterPlotData.splice(i, 1);
+                    }
+                }
+                break;
+            default:
+                alert("No Value For 'Filter Border Sentry'.");
+                break;
+        }
+
+        //Slice The Array (From The Start --> Selected Slider Length)
         dynamicScatterPlotData = dynamicScatterPlotData.slice(0, sliderValue);
-        console.log("Dynamic Data Length (After): " + dynamicScatterPlotData.length);
 
         //Update Scatter Plot (With Currently Selected Radius)
         updateSimpleLinearRegression($("#pointRadiusSlider input").val());
@@ -351,15 +399,15 @@ function renderSimpleLinearRegression(data) {
         dynamicScatterPlotData = convertRawToGraphFormat(rawResultData.slice(0));
     });
 
-    function updatePointTimeSliderDate() {
-        let sortedData = dynamicScatterPlotData.sort((a, b) => {return a.date - b.date;}).slice(0);
-        let earliestDate = sortedData[0].date;
-        let sliderDate = sortedData[$("#pointTimelineSlider").val() - 1].date;
-        $("#pointTimelineSliderDate").html(dateToString(earliestDate) + " " + timeToString(earliestDate) + " - " + dateToString(sliderDate) + " " + timeToString(sliderDate) + " (Displaying " + $("#pointTimelineSlider").val() + "/" + sortedData.length + " Battles)");
-    }
-
     //Update Date Text (On-Input)
     pointTimeLineSlider.on("input", updatePointTimeSliderDate);
+}
+
+function updatePointTimeSliderDate() {
+    let sortedData = dynamicScatterPlotData.sort((a, b) => {return a.date - b.date;}).slice(0);
+    let earliestDate = sortedData[0].date;
+    let sliderDate = sortedData[$("#pointTimelineSlider").val() - 1].date;
+    $("#pointTimelineSliderDate").html(dateToString(earliestDate) + " " + timeToString(earliestDate) + " - " + dateToString(sliderDate) + " " + timeToString(sliderDate) + " (Displaying " + $("#pointTimelineSlider").val() + "/" + sortedData.length + " Battles)");
 }
 
 function updatePointTimeSliderMaxValue() {
@@ -378,11 +426,11 @@ function calcLinear(data, x, y, minX, minY){
 
     // Get just the points
     let pts = [];
-    data.forEach(function(d,i){
+    data.forEach(function(d){
         let obj = {};
         obj.x = d[x];
         obj.y = d[y];
-        obj.mult = obj.x*obj.y;
+        obj.mult = obj.x * obj.y;
         pts.push(obj);
     });
 
@@ -424,19 +472,27 @@ function calcLinear(data, x, y, minX, minY){
     b = (e - f) / n;
 
     // Print the equation below the chart
-    document.getElementsByClassName("equation")[0].innerHTML = "y = " + m.toFixed(2) + "x + " + b.toFixed(2);
+    let interceptOperator;
+    if (b < 0) {
+        interceptOperator = "-";
+    } else {
+        interceptOperator = "+";
+    }
+    document.getElementsByClassName("equation")[0].innerHTML = "y = " + m.toFixed(2) + "x " + interceptOperator + " " + Math.abs(b.toFixed(2)); //Y = mX + B
     document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b.toFixed(2) + " ) / " + m.toFixed(2);
 
     // return an object of two points
     // each point is an object with an x and y coordinate
+    console.log("m: " + m + ", minX: " + minX + ", b: " + b);
+    console.log("Regression Line Coords: (" + minX + ", " + Math.abs((m * minX) + b) + "), (" + (minY - b) / m + ", " + minY + ")");
     return {
         ptA : {
-            x: Math.abs(minX),
-            y: Math.abs(m * minX + b)
+            x: minX,
+            y: (m * minX) + b
         },
         ptB : {
-            x: Math.abs((minY - b) / m),
-            y: Math.abs(minY)
+            x: (minY - b) / m,
+            y: minY
         }
     }
 }
