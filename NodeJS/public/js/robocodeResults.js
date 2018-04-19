@@ -20,7 +20,7 @@ $(document).ready(() => {
 function startResultsLoading() {
     let el = $(".results-loading");
     el.html("<i class='fa fa-lg fa-fw fa-3x fa-pulse fa-spinner'></i><p>Loading Robocode Results...</p>");
-    el.css("display", "inline");
+    el.css("display", "block");
     $("#results-overview").css("visibility", "hidden");
 }
 
@@ -35,9 +35,13 @@ function renderResultsOverview(data) {
     const noOfBattles = $(".noOfBattles .value");
     noOfBattles.html(formatLargeNumber(data.length));
 
+    //Total Number of Rounds
+    const noOfrounds = $(".noOfRounds .value");
+    noOfrounds.html(formatLargeNumber(calculateTotalNumberOfRounds(data)));
+
     //Total Number of Robots
     const noOfRobots = $(".noOfRobots .value");
-    noOfRobots.html(formatLargeNumber(data.length * 3));
+    noOfRobots.html(formatLargeNumber(calculateTotalNumberOfRobots(data)));
 
     //Total No of Turns
     const noOfTurns = $(".noOfTurns .value");
@@ -58,7 +62,24 @@ function renderResultsOverview(data) {
     //Total Ram Damage
     const totalRamDamage = $(".totalRamDamage .value");
     totalRamDamage.html(formatLargeNumber(calculateTotalRamDamage(data)));
+}
 
+function calculateTotalNumberOfRobots(data) {
+    let robots = 0;
+    for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < data[i].results.length; j++) {
+            robots++;
+        }
+    }
+    return robots;
+}
+
+function calculateTotalNumberOfRounds(data) {
+    let rounds = 0;
+    for (let i = 0; i < data.length; i++) {
+        rounds += data[i].rules.no_of_rounds;
+    }
+    return rounds;
 }
 
 function calculateTotalRamDamage(data) {

@@ -61,8 +61,8 @@
 #pointRadius {
     font-size: 2em;
     text-align: center;
+    display: block;
     font-weight: normal;
-    margin: 0 auto;
     color: #1fcdff;
 }
 
@@ -77,10 +77,7 @@
     stroke: #1fcdff;
 }
 
-#pointRadiusSlider {
-    padding: 0 50px;
-}
-
+/*
 input[type=range] {
     height: 25px;
     -webkit-appearance: none;
@@ -170,7 +167,7 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
     background: #2497E3;
 }
-
+*/
 .axis-label {
     font-size: 1.3em;
 }

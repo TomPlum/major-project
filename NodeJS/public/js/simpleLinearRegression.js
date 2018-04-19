@@ -6,29 +6,47 @@ $(document).ready(() => {
 
     //Bind Point Radius Slider
     $("#pointRadius").val("6").html("6px");
-    $("#pointRadiusSlider input").on("change", () => {
+    $("#pointRadiusSlider input").on("input", () => {
         let radius = $("#pointRadiusSlider input").val();
         changePointRadius(radius);
         $("#pointRadius").html(radius + "px");
+    });
+
+    //Bind Number of Rounds Checkbox Events
+    $("input[name='numberOfRounds']").on("change", () => {
+        const val = $("");
+    });
+
+    //Initialise RangeSlider Plugin
+    $('input[type="range"]').rangeslider({
+        polyfill : false,
+
+        // Default CSS classes
+        rangeClass: 'rangeslider',
+        disabledClass: 'rangeslider--disabled',
+        horizontalClass: 'rangeslider--horizontal',
+        verticalClass: 'rangeslider--vertical',
+        fillClass: 'rangeslider__fill',
+        handleClass: 'rangeslider__handle',
     });
 });
 
 //Setting The Dimensions Of The Canvas
 const margin = {top: 20, right: 20, bottom: 90, left: 50},
-    width = 1000 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    svgWidth = 1000 - margin.left - margin.right,
+    svgHeight = 400 - margin.top - margin.bottom;
 
 //Setting X & Y Ranges
-let x = d3.scaleLinear().range([0, width]);
-let y = d3.scaleLinear().range([height, 0]);
+let x = d3.scaleLinear().range([0, svgWidth]);
+let y = d3.scaleLinear().range([svgHeight, 0]);
 
 //Define The Axes
 let xAxis = d3.axisBottom().scale(x);
 let yAxis = d3.axisLeft().scale(y);
 
 let svg = d3.select('#simple-linear-regression-graph').append("svg").attr("class", "svg-element")
-    .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
-    .attr("width", "100%").attr("height", height + margin.top + margin.bottom)
+    .attr("viewBox", "0 0 " + (svgWidth + margin.left + margin.right) + " " + (svgHeight + margin.top + margin.bottom))
+    .attr("width", "100%").attr("height", svgHeight + margin.top + margin.bottom)
     .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 let scatterPlotData = [];
@@ -116,7 +134,7 @@ function updateSimpleLinearRegression(radius) {
     }).attr("cx", function(d) { return x(d.x); }).attr("cy", function(d) { return y(d.y); });
 
     //Adjust Regression Line
-    let lg = calcLinear(dynamicScatterPlotData, "x", "y", d3.min(dynamicScatterPlotData, function(d){ return d.x}), d3.min(dynamicScatterPlotData, function(d){ return d.x}));
+    let lg = calcLinear(dynamicScatterPlotData, "x", "y", d3.min(dynamicScatterPlotData, function(d){ return d.x}), d3.min(dynamicScatterPlotData, function(d){ return d.y}));
     d3.select(".regression").transition().duration(1000)
         .attr("x1", x(lg.ptA.x))
         .attr("y1", y(lg.ptA.y))
@@ -227,7 +245,7 @@ function renderSimpleLinearRegression(data) {
     y.domain(d3.extent(scatterPlotData, function(d) {return d.y}));
 
     //Create Regression Line
-    let lg = calcLinear(scatterPlotData, "x", "y", d3.min(scatterPlotData, function(d){ return d.x}), d3.min(scatterPlotData, function(d){ return d.x}));
+    let lg = calcLinear(scatterPlotData, "x", "y", d3.min(scatterPlotData, function(d){ return d.x}), d3.min(scatterPlotData, function(d){ return d.y}));
 
     //Add Regression Line
     svg.append("line")
@@ -240,7 +258,7 @@ function renderSimpleLinearRegression(data) {
     //Add X-Axis
     svg.append("g")
         .attr("class", "x-axis")
-        .attr("transform", "translate(0," + height + ")")
+        .attr("transform", "translate(0," + svgHeight + ")")
         .call(xAxis);
 
     //Add Y-Axis
@@ -304,8 +322,8 @@ function renderSimpleLinearRegression(data) {
         });
 
     //Add Axis Labels
-    svg.append("text").attr("x", (width / 2) - 20).attr("y", height + 45).attr("class", "axis-label").text("Score");
-    svg.append("text").attr("x", 0 - (height / 2)).attr("y", 0 - margin.left - 15).attr("text-anchor", "middle")
+    svg.append("text").attr("x", (svgWidth / 2) - 20).attr("y", svgHeight + 45).attr("class", "axis-label").text("Score");
+    svg.append("text").attr("x", 0 - (svgHeight / 2)).attr("y", 0 - margin.left - 15).attr("text-anchor", "middle")
         .attr("transform", "rotate(-90)").attr("class", "axis-label").text("Number of Turns");
 
 
@@ -337,7 +355,7 @@ function renderSimpleLinearRegression(data) {
         let sortedData = dynamicScatterPlotData.sort((a, b) => {return a.date - b.date;}).slice(0);
         let earliestDate = sortedData[0].date;
         let sliderDate = sortedData[$("#pointTimelineSlider").val() - 1].date;
-        $("#pointTimelineSliderDate").html(dateToString(earliestDate) + " " + timeToString(earliestDate) + " - " + dateToString(sliderDate) + " " + timeToString(sliderDate));
+        $("#pointTimelineSliderDate").html(dateToString(earliestDate) + " " + timeToString(earliestDate) + " - " + dateToString(sliderDate) + " " + timeToString(sliderDate) + " (Displaying " + $("#pointTimelineSlider").val() + "/" + sortedData.length + " Battles)");
     }
 
     //Update Date Text (On-Input)
@@ -347,6 +365,7 @@ function renderSimpleLinearRegression(data) {
 function updatePointTimeSliderMaxValue() {
     const pointTimeLineSlider = $("#pointTimelineSlider");
     pointTimeLineSlider.prop("max", dynamicScatterPlotData.length).val(dynamicScatterPlotData.length);
+    pointTimeLineSlider.rangeslider('update', true);
 }
 
 function calcLinear(data, x, y, minX, minY){
@@ -412,12 +431,12 @@ function calcLinear(data, x, y, minX, minY){
     // each point is an object with an x and y coordinate
     return {
         ptA : {
-            x: minX,
-            y: m * minX + b
+            x: Math.abs(minX),
+            y: Math.abs(m * minX + b)
         },
         ptB : {
-            y: minY,
-            x: (minY - b) / m
+            x: Math.abs((minY - b) / m),
+            y: Math.abs(minY)
         }
     }
 }
