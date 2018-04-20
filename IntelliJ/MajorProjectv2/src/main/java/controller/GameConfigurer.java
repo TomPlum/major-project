@@ -14,7 +14,7 @@ import java.io.IOException;
 class GameConfigurer {
     private static final int BATTLEFIELD_W = 1000; //Pixels
     private static final int BATTLEFIELD_H = 1000; //Pixels
-    private static final int NO_OF_ROUNDS = 8; //Default: 10
+    private static final int NO_OF_ROUNDS = 10; //Default: 10
     private static final int INACTIVITY_TIME = 2000; //Default: 450 (Turns)
     private static final double GUN_COOLING_RATE = 0.1; //Default: 0.1
     private static final boolean HIDE_ENEMY_NAMES = false; //Default: false
