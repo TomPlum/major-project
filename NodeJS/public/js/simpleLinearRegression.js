@@ -266,16 +266,24 @@ function renderSimpleLinearRegression(data) {
     y.domain(d3.extent(scatterPlotData, function(d) {return d.y}));
 
     //Create Regression Line
+    let regressionData = create_data(scatterPlotData);
+    regressionData.forEach(function(d) {
+        d.x = +d.x;
+        d.y = +d.y;
+        d.yhat = +d.yhat;
+    });
+    let regressionLine = d3.line().x(function(d){return x(d.x);}).y(function(d){return y(d.yhat);});
     let lg = calcLinear(scatterPlotData, "x", "y", d3.min(scatterPlotData, function(d){ return d.x}), d3.min(scatterPlotData, function(d){ return d.y}));
 
     //Add Regression Line
     // noinspection JSSuspiciousNameCombination
-    svg.append("line")
+    svg.append("path").datum(regressionData).attr("d", regressionLine).attr("class", "regression");
+    /*svg.append("line")
         .attr("class", "regression")
         .attr("x1", x(Math.abs(lg.ptA.x)))
         .attr("y1", y(Math.abs(lg.ptA.y)))
         .attr("x2", x(Math.abs(lg.ptB.x)))
-        .attr("y2", y(Math.abs(lg.ptB.y)));
+        .attr("y2", y(Math.abs(lg.ptB.y)));*/
 
     //Add X-Axis
     svg.append("g")
@@ -433,6 +441,7 @@ function calcLinear(data, x, y, minX, minY){
         obj.mult = obj.x * obj.y;
         pts.push(obj);
     });
+    console.log(pts);
 
     // Let a equal n times the summation of all x-values multiplied by their corresponding y-values
     // Let b equal the sum of all x-values times the sum of all y-values
@@ -443,10 +452,10 @@ function calcLinear(data, x, y, minX, minY){
     let ySum = 0;
     let sumSq = 0;
     pts.forEach(function(pt){
-        sum = sum + pt.mult;
-        xSum = xSum + pt.x;
-        ySum = ySum + pt.y;
-        sumSq = sumSq + (pt.x * pt.x);
+        sum += pt.mult;
+        xSum += pt.x;
+        ySum += pt.y;
+        sumSq += (pt.x * pt.x);
     });
     let a = sum * n;
     let b = xSum * ySum;
@@ -472,12 +481,7 @@ function calcLinear(data, x, y, minX, minY){
     b = (e - f) / n;
 
     // Print the equation below the chart
-    let interceptOperator;
-    if (b < 0) {
-        interceptOperator = "-";
-    } else {
-        interceptOperator = "+";
-    }
+    let interceptOperator = (b < 0) ? "-" : "+";
     document.getElementsByClassName("equation")[0].innerHTML = "y = " + m.toFixed(2) + "x " + interceptOperator + " " + Math.abs(b.toFixed(2)); //Y = mX + B
     document.getElementsByClassName("equation")[1].innerHTML = "x = ( y - " + b.toFixed(2) + " ) / " + m.toFixed(2);
 
@@ -497,3 +501,45 @@ function calcLinear(data, x, y, minX, minY){
     }
 }
 
+function create_data(data) {
+    let x = data.map(function(d){return d.x});
+    let y = data.map(function(d){return d.y});
+    let n = data.length;
+    let x_mean = 0;
+    let y_mean = 0;
+    let term1 = 0;
+    let term2 = 0;
+    // calculate mean x and y
+    x_mean /= n;
+    y_mean /= n;
+    // calculate coefficients
+    let xr = 0;
+    let yr = 0;
+    for (let i = 0; i < x.length; i++) {
+        xr = x[i] - x_mean;
+        yr = y[i] - y_mean;
+        term1 += xr * yr;
+        term2 += xr * xr;
+    }
+    let b1 = term1 / term2;
+    let b0 = y_mean - (b1 * x_mean);
+    // perform regression
+    let yhat = [];
+    // fit line using coeffs
+    for (let i = 0; i < x.length; i++) {
+        yhat.push(b0 + (x[i] * b1));
+    }
+    let data2 = [];
+    for (let i = 0; i < y.length; i++) {
+        data2.push({
+            "yhat": yhat[i],
+            "y": y[i],
+            "x": x[i]
+        })
+    }
+    console.log(data2);
+    //Clear Arrays For Garbage Collection
+    yhat = null;
+
+    return (data2);
+}
