@@ -8,6 +8,7 @@ $(document).ready(() => {
             stopResultsLoading();
             renderResultsOverview(results);
             renderSimpleLinearRegression(results);
+            renderStandardDeviationAndVariance(results);
             calculateAvgRounds(results);
             console.log(results);
         },

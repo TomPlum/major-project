@@ -92,7 +92,7 @@ html(lang='en')
                                 div(data-thumb='', data-src='images/slides/blank.gif')
                                     .img-responsive.camera_caption.fadeFromBottom
                                         h2 Major Project
-                                        h3 Final year disseration project. By Thomas Plumpton.
+                                        h3 Final Year Major Project. By Thomas Plumpton.
                                 div(data-thumb='', data-src='images/slides/blank.gif')
                                     .img-responsive.camera_caption.fadeFromBottom
                                         h2 Pseudo &amp Truly Random
@@ -105,6 +105,10 @@ html(lang='en')
                                     .img-responsive.camera_caption.fadeFromBottom
                                         h2 D3.JS (Data Driven Documents)
                                         h3 Data visualisation powered by D3.JS.
+                                div(data-thumb='', data-src='images/slides/blank.gif')
+                                    .img-responsive.camera_caption.fadeFromBottom
+                                        h2 Mathematical Analysis
+                                        h3 Linear Regression &amp; Standard Deviation
             .container
                 .row
                     .col-md-4.project
@@ -477,6 +481,10 @@ html(lang='en')
                                 a(href='#simple-linear-regression', data-toggle='tab')
                                     i.fa.fa-fw.fa-lg.fa-line-chart
                                     |  Simple Linear Regression
+                            li
+                                a(href="#standard-deviation", data-toggle='tab')
+                                    i.fa.fa-fw.fa-lg.fa-flask
+                                    |  Standard Deviation &amp; Variance
                         .tab-content
                             .results-loading
                             #results-overview.tab-pane.active
@@ -603,6 +611,36 @@ html(lang='en')
                                         .col-sm-12
                                             .equation
                                             .equation
+                            #standard-deviation.tab-pane
+                                .container-fluid
+                                    .row.text-center
+                                        .col-sm-12
+                                            h3.text-center Score Overview
+                                            hr
+                                            .row
+                                                .col-sm-4
+                                                    .value
+                                                        p#scoreMin
+                                                    label Minimum Score
+                                                .col-sm-4
+                                                    .value
+                                                        p#scoreAvg
+
+                                                    label Average Score
+                                                .col-sm-4
+                                                    .value
+                                                        p#scoreMax
+                                                    label Maximum Score
+                                        .col-sm-6
+                                            h3.text-center Standard Deviation
+                                            hr
+                                            .col-sm-4
+                                                .value
+                                                    p#standardDeviation
+                                                label Standard Deviation
+                                        .col-sm-6
+                                            h3 Variance
+                                            hr
         section#data-vis
             .line3
                 .container
@@ -707,6 +745,7 @@ html(lang='en')
 
         script(src="//d3js.org/d3.v4.min.js")
         script(src='js/simpleLinearRegression.js')
+        script(src='js/standardDeviationVariance.js')
         script(src='js/robocodeResults.js')
         script(src='js/characterStats.js')
         script(src='js/jquery.slicknav.js')

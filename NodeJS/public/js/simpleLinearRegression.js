@@ -37,7 +37,7 @@ $(document).ready(() => {
 });
 
 //Setting The Dimensions Of The Canvas
-const margin = {top: 20, right: 20, bottom: 90, left: 50},
+const margin = {top: 20, right: 20, bottom: 50, left: 60},
     svgWidth = 1000 - margin.left - margin.right,
     svgHeight = 400 - margin.top - margin.bottom;
 
@@ -266,24 +266,25 @@ function renderSimpleLinearRegression(data) {
     y.domain(d3.extent(scatterPlotData, function(d) {return d.y}));
 
     //Create Regression Line
+    /*
     let regressionData = create_data(scatterPlotData);
     regressionData.forEach(function(d) {
         d.x = +d.x;
         d.y = +d.y;
         d.yhat = +d.yhat;
     });
-    let regressionLine = d3.line().x(function(d){return x(d.x);}).y(function(d){return y(d.yhat);});
+    let regressionLine = d3.line().x(function(d){return x(d.x);}).y(function(d){return y(d.yhat);});*/
     let lg = calcLinear(scatterPlotData, "x", "y", d3.min(scatterPlotData, function(d){ return d.x}), d3.min(scatterPlotData, function(d){ return d.y}));
 
     //Add Regression Line
     // noinspection JSSuspiciousNameCombination
-    svg.append("path").datum(regressionData).attr("d", regressionLine).attr("class", "regression");
-    /*svg.append("line")
+    //svg.append("path").datum(regressionData).attr("d", regressionLine).attr("class", "regression");
+    svg.append("line")
         .attr("class", "regression")
         .attr("x1", x(Math.abs(lg.ptA.x)))
         .attr("y1", y(Math.abs(lg.ptA.y)))
         .attr("x2", x(Math.abs(lg.ptB.x)))
-        .attr("y2", y(Math.abs(lg.ptB.y)));*/
+        .attr("y2", y(Math.abs(lg.ptB.y)));
 
     //Add X-Axis
     svg.append("g")
@@ -505,6 +506,21 @@ function create_data(data) {
     let x = data.map(function(d){return d.x});
     let y = data.map(function(d){return d.y});
     let n = data.length;
+
+    let xSum = 0;
+    let ySum = 0;
+    let xSumSquared = 0;
+    let xySum = 0;
+    for (let i = 0; i < x.length; i++) {
+        xSum += x[i];
+        ySum += y[i];
+        xySum += (x[i] * y[i]);
+        xSumSquared += (x[i] * x[i]);
+    }
+    let slope = ((n * xySum) - (xSum * ySum)) / ((n * xSumSquared) - Math.pow(xSum, 2));
+    let intercept = (ySum - slope * (xSum)) / n;
+    console.log("y = " + slope.toFixed(2) + "x + " + intercept.toFixed(2));
+
     let x_mean = 0;
     let y_mean = 0;
     let term1 = 0;
