@@ -484,7 +484,7 @@ html(lang='en')
                             li
                                 a(href="#standard-deviation", data-toggle='tab')
                                     i.fa.fa-fw.fa-lg.fa-flask
-                                    |  Standard Deviation &amp; Variance
+                                    |  Standard Deviation
                         .tab-content
                             .results-loading
                             #results-overview.tab-pane.active
@@ -549,8 +549,12 @@ html(lang='en')
                                             label Hide Enemy Names?
                             #statisticsBreakdown.tab-pane
                                 .container-fluid
-                                    .col-sm-12
-                                        h3 Menu 2
+                                    .row
+                                        .col-sm-12
+                                            h3 Statistics Overview Breakdown
+                                            hr
+                                            .row
+
                             #simple-linear-regression.tab-pane
                                 .container-fluid
                                     .row
@@ -631,9 +635,34 @@ html(lang='en')
                                                     .value
                                                         p#scoreMax
                                                     label Maximum Score
+                                            .row
+                                                .col-sm-3
+                                                    .value
+                                                        p#lowerQuartile
+                                                    label Lower Quartile
+                                                .col-sm-3
+                                                    .value
+                                                        p#median
+                                                    label Median
+                                                .col-sm-3
+                                                    .value
+                                                        p#upperQuartile
+                                                    label Upper Quartile
+                                                .col-sm-3
+                                                    .value
+                                                        p#interQuartileRange
+                                                    label Inter-Quartile Range
                                         .col-sm-6
                                             h3.text-center Standard Deviation
                                             hr
+                                            .col-sm-12
+                                                .value
+                                                    p#squaredDifferences
+                                                label Squared Differences
+                                            .col-sm-8
+                                                .value
+                                                    p#squaredDifferencesMean
+                                                label Squared Differences Mean
                                             .col-sm-4
                                                 .value
                                                     p#standardDeviation
@@ -641,6 +670,10 @@ html(lang='en')
                                         .col-sm-6
                                             h3 Variance
                                             hr
+                                            .col-sm-12
+                                                .value
+                                                    p#variance
+                                                label Variance
         section#data-vis
             .line3
                 .container

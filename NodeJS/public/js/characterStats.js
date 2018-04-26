@@ -313,6 +313,18 @@ function formatLargeNumber(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+function formatLargeNumberWithUnits(x) {
+    let withCommas = formatLargeNumber(x);
+    let arr = withCommas.split(",");
+    if (arr.length === 3) {
+        //Then its in the millions
+        return arr[0] + "M";
+    } else if (arr.length === 2) {
+        //Then its in the thousands
+        return arr[0] + "T";
+    }
+}
+
 function updatePieCharts(alpha) {
     for (let i = 0; i < alpha.length; i++) {
         const el = eval($("." + alpha[i].letter.toLowerCase()));
