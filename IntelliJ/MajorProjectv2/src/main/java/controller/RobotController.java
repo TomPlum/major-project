@@ -7,6 +7,15 @@ import twitter.TweetSanitiser;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * ---------------------------------------------------------------------------------------------------------
+ * This class is responsible for controlling the Robot competitors in the Robocode Battle. It utilises a
+ * TweetParser to parse the characters from Tweets and produce Integers and Doubles for the respective values
+ * in the Robot's controls such as movement, firing, scanning and rotating.
+ * ---------------------------------------------------------------------------------------------------------
+ * @author Thomas Plumpton
+ * @version 3.2.4
+ */
 public class RobotController {
     //Robot Attribute Values
     private String USER;
@@ -23,7 +32,6 @@ public class RobotController {
     private Integer ROTATE_GUN_DIRECTION = 99;
     private Integer ROTATE_SCANNER = 999;
     private Integer ROTATE_SCANNER_DIRECTION = 99;
-    //private Integer SCAN_FREQUENCY = -1;
 
     //Components
     private TweetReader tr = new TweetReader();
@@ -280,6 +288,12 @@ public class RobotController {
         return 1;
     }
 
+    /**
+     * Creates a movement integer between 0 and 1000
+     * @param mv1 Parsed Tweet Character (Integer 0-25)
+     * @param mv2 Parsed Tweet Character (Integer 0-25)
+     * @return Integer representing a movement value in pixels.
+     */
     private Integer createMovement(Integer mv1, Integer mv2) {
         try {
             //Sanitise Integers
@@ -303,6 +317,10 @@ public class RobotController {
         }
     }
 
+    /**
+     * Checks if the current working Tweets has any characters left and
+     * updates it to a new one if not.
+     */
     private void updateCurrentTweet() {
         if (currentTweetArray != null && currentTweetArray.size() > 0) {
             currentTweet = currentTweetArray.remove(0);
@@ -316,6 +334,10 @@ public class RobotController {
         }
     }
 
+    /**
+     * Checks if all the Robot values are valid for Robocode
+     * @return true if valid, false if not.
+     */
     private boolean allValuesValidated() {
         //FIRE_POWER
         return FIRE_POWERisValid() &&
@@ -329,6 +351,10 @@ public class RobotController {
                 ROTATEisValid(ROTATE_GUN);
     }
 
+    /**
+     * Sets all the Robot values to ones that are invalid for Robocode.
+     * Such values would cause allValuesValidated() to return false.
+     */
     public void invalidateAllValues() {
         //Angles are 0 - 360 so set 999
         FIRE_POWER = -1.0;
@@ -484,6 +510,11 @@ public class RobotController {
     /*--------------- VALIDATION METHODS ----------------
     /*-------------------------------------------------*/
 
+    /**
+     * Checks if the Robot Fire Power value is within the Robocode
+     * API's given range of 0.0 ---> 3.0
+     * @return true if valid, false if not.
+     */
     private boolean FIRE_POWERisValid() {
         return FIRE_POWER >= 0.0 && FIRE_POWER <= 3.0;
     }

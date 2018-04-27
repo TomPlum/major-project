@@ -68,19 +68,35 @@ class BattleResultLogger {
         conn.insertDocument(finalResults);
     }
 
-    public static String getCompetitorOneScreenName() {
+    /**
+     * Gets the ScreenName of CompetitorOne
+     * @return Twitter Screen Name
+     */
+    private static String getCompetitorOneScreenName() {
         return competitorOneScreenName;
     }
 
-    public static void setCompetitorOneScreenName(String competitorOneScreenName) {
+    /**
+     * Sets the ScreenName of CompetitorOne
+     * @param competitorOneScreenName Twitter Screen Name
+     */
+    static void setCompetitorOneScreenName(String competitorOneScreenName) {
         BattleResultLogger.competitorOneScreenName = competitorOneScreenName;
     }
 
-    public static String getCompetitorTwoScreenName() {
+    /**
+     * Gets the ScreenName of CompetitorTwo
+     * @return Twitter Screen Name
+     */
+    private static String getCompetitorTwoScreenName() {
         return competitorTwoScreenName;
     }
 
-    public static void setCompetitorTwoScreenName(String competitorTwoScreenName) {
+    /**
+     * Sets the ScreenName of CompetitorTwo
+     * @param competitorTwoScreenName Twitter Screen Name
+     */
+    static void setCompetitorTwoScreenName(String competitorTwoScreenName) {
         BattleResultLogger.competitorTwoScreenName = competitorTwoScreenName;
     }
 }

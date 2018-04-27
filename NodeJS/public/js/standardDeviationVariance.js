@@ -6,9 +6,10 @@ function getMinMaxAvg(results) {
     let max = 0;
     let avg = 0;
     let q1, q3, q2;
-
+    let test = [];
     for (let i = 0; i < results.length; i++) {
         let score = results[i].results[0].score;
+        test.push(score);
 
         //Max
         if (score > max) {
@@ -23,7 +24,7 @@ function getMinMaxAvg(results) {
             min = score;
         }
     }
-
+    console.log(test);
     //Lower Quartile
     q1 = Math.round((1 / 4) * (results.length + 1));
     //Mean

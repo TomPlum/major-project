@@ -1,7 +1,5 @@
 package controller;
 
-import view.RobotObserver;
-
 /**
  * ---------------------------------------------------------------------------------------------------
  * This robot's actions are entirely dependent on the character values from Twitter Tweets stored in a
