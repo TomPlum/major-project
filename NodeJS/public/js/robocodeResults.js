@@ -7,6 +7,7 @@ $(document).ready(() => {
         success: function(results) {
             stopResultsLoading();
             renderResultsOverview(results);
+            renderStatisticsBreakdown(results);
             renderSimpleLinearRegression(results);
             renderStandardDeviationAndVariance(results);
             calculateAvgRounds(results);
@@ -63,6 +64,37 @@ function renderResultsOverview(data) {
     //Total Ram Damage
     const totalRamDamage = $(".totalRamDamage .value");
     totalRamDamage.html(formatLargeNumber(calculateTotalRamDamage(data)));
+}
+
+function renderStatisticsBreakdown(data) {
+    const rounds = calculateRoundsBreakdown(data);
+
+    //1 Round
+    $("#oneRounds").html(rounds[1]);
+
+    //3 Rounds
+    $("#threeRounds").html(rounds[3]);
+
+    //5 Rounds
+    $("#fiveRounds").html(rounds[5]);
+
+    //8 Rounds
+    $("#eightRounds").html(rounds[8]);
+
+    //10 Rounds
+    $("#tenRounds").html(rounds[10]);
+}
+
+function calculateRoundsBreakdown(data) {
+    let rounds = {};
+    for (let i = 0; i < data.length; i++) {
+        if (!rounds.hasOwnProperty(data[i].rules.no_of_rounds)) {
+            rounds[data[i].rules.no_of_rounds] = 1;
+        } else {
+            rounds[data[i].rules.no_of_rounds]++;
+        }
+    }
+    return rounds;
 }
 
 function calculateTotalNumberOfRobots(data) {
