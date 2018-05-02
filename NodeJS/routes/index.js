@@ -4,8 +4,8 @@ const analysis = require("../db/models/analysis");
 const tweets = require("../db/models/tweets");
 const results = require("../db/models/results");
 const countryNames = require('i18n-iso-countries');
-const mime = require('mime');
 const fs = require('fs');
+const mime = require('mime');
 
 function encodeRFC5987ValueChars (str) {
     return encodeURIComponent(str).
@@ -15,7 +15,7 @@ function encodeRFC5987ValueChars (str) {
 }
 
 function downloadFile(filepath, filename, res) {
-    const mimeType = mime.lookup(__dirname + filepath);
+    const mimeType = mime.getType(__dirname + filepath);
 
     fs.readFile(filepath, function(err) {
         if (err) console.log(err);
@@ -25,7 +25,6 @@ function downloadFile(filepath, filename, res) {
         filestream.pipe(res);
     });
 }
-
 
 router.get('/', function(req, res) {
     analysis.find().exec({}, function(err, data) {
@@ -52,6 +51,13 @@ router.post('/character-analysis', function(req, res) {
         }
         res.status(200).send(data[0].alpha);
     });
+});
+
+/* Download Dissertation */
+router.get('/dissertation', function(req, res) {
+    const filepath = "public/doc/dissertation.docx";
+    const filename = "Tom Plumpton - University Dissertation.docx";
+    downloadFile(filepath, filename, res);
 });
 
 router.post('/calculate-user-stats', function(req, res) {

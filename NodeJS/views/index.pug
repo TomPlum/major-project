@@ -120,12 +120,12 @@ html(lang='en')
                         h2.main-title Analysing the Randomness of Social Media
                     .col-xs-12
                         h4.sub-title
-                            i.fa.fa-fw.fa-pencil
+                            i.fa.fa-pencil
                             |  Description
                         p Randomness is used in a myriad of industries including; video games; politics; science; cryptography and more. It is important to continuously alter the method in which randomness is generated to make it harder to predict. This project studies the randomness of the social media platform ‘Twitter’, by producing a random number generator from the Tweets of several different users. Tweets are used to produce values that control the AI (Artificial Intelligence) of Robots in the programming game ‘Robocode’ in order to determine the random nature of these values.
                         p The project aims to understand the difference between pseudo and truly random number generation and gain a greater appreciation of the applications of randomness in real world industries. This report describes the concept of a new method of generating random numbers using the aforementioned sources and stimuli.
                     .col-md-6
-                        button.btn.btn-info.btn-lg#downloadDissertation(type="button" role="button")
+                        a.btn.btn-info.btn-lg#downloadDissertation(href="/dissertation" target="_blank" role="button")
                             i.fa.fa-fw.fa-paper-plane
                             |  Download Dissertation
 
@@ -754,7 +754,7 @@ html(lang='en')
                             i.fa.fa-book
                             h4 Language Bias?
                             p
-                                | Does the #[a.page-scroll(href="#overview") variance of characters] in the English language skew the results and change the outcome?
+                                | Does the #[a.page-scroll(href="#visualisation") variance of characters] in the English language skew the results and change the outcome?
         section#reflection
             .line5
                 .container
@@ -777,6 +777,43 @@ html(lang='en')
                             h4 What Would I Change?
                             p
                                 | If I were to do the project again, or continue it. What changes would I make, and why?
+            .container.section-padding
+                .row
+                    .col-xs-12
+                        h4.sub-title
+                            i.fa.fa-check
+                            |  The Good
+                        br
+
+                        br
+                    .col-xs-12
+                        h4.sub-title
+                            i.fa.fa-ban
+                            |  The Bad
+                        br
+                        h4.sub-heading Academic Challenge
+                        p As I progressed deeper into project development, I realised that I’d bitten off more than I could chew. The complexity of the algorithm required to parse the Tweets for Robocode that I had planned was far too great. Looking ahead at what needed be done, and the possible issues that could arise, I decided to simplify the algorithm. Instead of parsing every character in the Tweets (Letters, Numbers, Symbols, Emojis etc.), I decided to sanitise the strings and keep only the letters. These letters would produce a value between 0 and 25. I understood that this would reduce the quality of the data and therefore reflect in the results and conclusion, however, I had to make sure that I could finish the development and build the JavaScript elements for the analysis.
+                        h4.sub-heading Issues with Robocode & Java
+                        p During the Java development stage of the agile process, I had to write a Java program that interfaced with both the Twitter and Robocode API’s. Twitter wasn’t too much of an issue, simple trial and error saw me through the development of the Twitter related classes. Once I had the Tweets downloaded and serialised, I could then work on the Robot classes. I had an issue with loading custom Robot classes into the RobocodeEngine in my GameConfigurer. Weeks elapsed with no progression, I’d tried countless different methods to resolve the issue. After conversing with Flemming N. Larsen, one of the major contributors to the source code of Robocode, I told him my issue and he agreed to take a look. After studying my code and its problem, he debugged it and found the cause. He patched and updated the game, releasing the .JAR of the new version for me. It turned out it was technically impossible for me to fix the problem as it was an issue with the game itself.
+                        h4.sub-heading Time Limitations
+                        p Considering the aforementioned problems regarding the academic challenge, plus all the other smaller issues that I haven’t mentioned, it posed a deadline issue. I decided to cut the development short and produce results with the simplified algorithm, with intention to go back at the end and improve it, if there was time. After developing the website with all the JavaScript functionality, analysis, results, evaluation and conclusion, there just wasn’t enough time.
+                        h4.sub-heading D3.JS Performance
+                        p Because D3 works by manipulating SVG elements in the DOM (Document Object Model), large datasets can cause performance problems for the browser. The scatter diagram had over 1000 records passed to it, meaning that it created over 1000 SVG circles, mouse over and on click events for the browser to handle. This quickly uses up the available memory and
+                        br
+                    .col-xs-12
+                        h4.sub-title
+                            i.fa.fa-refresh
+                            |  What Would I Change?
+                        br
+                        h4.sub-heading Initial Planning Phase
+                        p Given that the Gantt chart solution did not provide any helpful time management for the project, a different approach to the initial planning phase would definitely be helpful if I were to do the project, or something similar, again.
+                        h4.sub-heading Data Visualisation Library
+                        p If I were to do the project again, or improve the existing state of it, I would choose a different data visualisation library for JavaScript that is better suited to large data sets. Such library would have to work differently to D3 in the backend and use something like the HTML canvas instead. This would vastly improve the performance of the graphs on the webpage and would open up the possibility to work with even larger datasets.
+                        h4.sub-heading Robocode Tweet Parsing Algorithm
+                        p One major element of the program that needed improving was the Java code that parsed the Tweets and produced the values for the Robots. This was the major variable in the whole process that determined the results of the project. As mentioned, there was not enough time to make the algorithm as complex as I would have liked. Therefore, if I were to improve the project in the future, I would spend more time improving and testing the TweetParser class that the RobotController uses.
+                        h4.sub-heading Data Collection & Visual Analysis
+                        p As discussed in the conclusion, I felt that the data was skewed and created a bias due to the fact that I had not simulated an even number of battles for each number of rounds. If I were to do the project again or re-collect the data, I would ensure that I keep the sub-sample sizes the same size to ensure that the experiment is fair and eliminates this factor from the analysis.
+
             .lineBlack
                 .container
                     .row.downLine
@@ -784,9 +821,9 @@ html(lang='en')
                             // input  id="searchPattern" type="search" name="pattern" value="Search the Site" onblur="if(this.value=='') {this.value='Search the Site'; }" onfocus="if(this.value =='Search the Site' ) this.value='';this.style.fontStyle='normal';" style="font-style: normal;"/
                             input#searchPattern(type='search', placeholder='Search the Site')
                             i#iS.glyphicon.glyphicon-search(style='font-size: 13px; color:#a5a5a5;')
-                        .col-md-6.text-left.copy
+                        .col-md-5.text-left.copy
                             p Copyright © 2018 Tom Plumpton. All Rights Reserved.
-                        .col-md-6.text-right.dm
+                        .col-md-7.text-right.dm
                             ul#downMenu
                                 li.active
                                     a.page-scroll(href='#overview')

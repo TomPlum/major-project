@@ -25,6 +25,13 @@ body{
     color: #1fcdff;
 }
 
+.sub-heading {
+    margin: 0;
+    padding: 0 0 4px 0;
+    color: #000;
+    font-weight: 600;
+}
+
 .main-title {
     margin: 0;
     font-weight: 500;
@@ -33,6 +40,14 @@ body{
 
 #downloadDissertation {
     transition: all 0.5s ease;
+}
+
+#downloadDissertation i {
+    transition: transform 0.5s ease;
+}
+
+#downloadDissertation:hover i {
+    transform: rotateX(50deg);
 }
 
 .back-to-main {
@@ -1794,20 +1809,21 @@ textarea {
     border-right:none;
 }
 #downMenu li a{
-    padding: 15px;
+    padding: 10px;
     text-decoration: none;
     font-size: 13px;
     font-family: 'Roboto', 'sans-serif';
     font-weight: 300;
     color: #fff;
     margin-top: 10px;
+    transition: color 0.5s ease;
     margin-bottom: 10px;
 }
 #downMenu li:last-child a{
     padding-right:0;
 }
 #downMenu li a:hover{
-    color:#6d6d6d;
+    color: #1fcdff;
 }
 .downLine input{
     max-width: 95px;
