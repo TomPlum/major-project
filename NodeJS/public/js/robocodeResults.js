@@ -5,6 +5,7 @@ $(document).ready(() => {
         type: "POST",
         async: true,
         success: function(results) {
+            //results = generatePseudoRandomData();
             stopResultsLoading();
             renderResultsOverview(results);
             renderStatisticsBreakdown(results);
@@ -83,6 +84,83 @@ function renderStatisticsBreakdown(data) {
 
     //10 Rounds
     $("#tenRounds").html(rounds[10]);
+
+    const turns = calculateTurnsBreakdown(data);
+
+    //Min
+    $("#turnsMin").html(turns.min);
+    //Avg
+    $("#turnsAvg").html(formatLargeNumber(turns.avg));
+    //Max
+    $("#turnsMax").html(turns.max);
+
+    const time = calculateTimeBreakdown(data);
+
+    //Min
+    $("#timeMin").html(formatTime(time.min));
+    //Avg
+    $("#timeAvg").html(formatTime(time.avg));
+    //Max
+    $("#timeMax").html(formatTime(time.max));
+}
+
+function calculateTurnsBreakdown(data) {
+    let roundsMin = 9999;
+    let roundsMax = 0;
+    let roundsAvg = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        let rounds = data[i].no_of_turns;
+        if (rounds < roundsMin) {
+            roundsMin = rounds;
+        }
+        if (rounds > roundsMax) {
+            roundsMax = rounds;
+        }
+        roundsAvg += rounds;
+    }
+
+    roundsAvg = roundsAvg / data.length;
+    return {
+        min: roundsMin,
+        avg: roundsAvg.toFixed(0),
+        max: roundsMax
+    }
+}
+
+function calculateTimeBreakdown(data) {
+    let timeMin = 9999;
+    let timeMax = 0;
+    let timeAvg = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        let time = data[i].real_time;
+        if (time < timeMin) {
+            timeMin = time;
+        }
+        if (time > timeMax) {
+            timeMax = time;
+        }
+        timeAvg += time;
+    }
+
+    timeAvg = timeAvg / data.length;
+    
+    return {
+        min: timeMin,
+        avg: timeAvg.toFixed(1),
+        max: timeMax
+    }
+}
+
+function formatTime(milliseconds) {
+    let seconds = milliseconds / 1000;
+    let minutes = ~~(seconds / 60);
+    let hours = ~~(minutes / 60);
+    let remainingMinutes = ~~(minutes % 60);
+    let remainingSeconds = ~~(seconds % 60);
+
+    return hours + "h " + remainingMinutes + "m " + remainingSeconds + "s";
 }
 
 function calculateRoundsBreakdown(data) {
@@ -161,7 +239,6 @@ function calculateTotalBattleTime(data) {
     }
 
     let seconds = milliseconds / 1000;
-    console.log(seconds);
     let minutes = ~~(seconds / 60);
     let hours = ~~(minutes / 60);
     let remainingMinutes = ~~(minutes % 60);

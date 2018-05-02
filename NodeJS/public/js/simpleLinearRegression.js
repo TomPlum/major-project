@@ -559,3 +559,46 @@ function create_data(data) {
 
     return (data2);
 }
+
+function generatePseudoRandomData() {
+    const scoreFloor = 0;
+    const scoreCeiling = 1019;
+    const turnsFloor = 220;
+    const turnsCeiling = 37605;
+    const timeFloor = 9;
+    const timeCeiling = 737000;
+    const battles = 1381;
+    let data = [];
+
+    for (let i = 0; i < battles; i++) {
+        data.push({
+            real_time: Math.floor((Math.random() * timeCeiling) + timeFloor),
+            no_of_turns: Math.floor((Math.random() * turnsCeiling) + turnsFloor),
+            results: [{
+                name: "controller.CompetitorOne*",
+                score: Math.floor((Math.random() * scoreCeiling) + scoreFloor),
+                bullet_damage: 0,
+                bullet_damage_bonus: 0,
+                firsts: 1,
+                seconds: 0,
+                thirds: 0,
+                last_survivor_bonus: 20,
+                ram_damage: 0,
+                ram_damage_bonus: 0,
+                rank: 1,
+                survival: 50
+            }],
+            rules: {
+                no_of_rounds: Math.floor((Math.random() * 10) + 1),
+                battlefield_h: 1000,
+                battlefield_w: 1000,
+                sentry_border_size: 100,
+                gun_cooling_rate: 0.1,
+                inactivity_time: 2000,
+                hide_enemy_names: false
+            }
+        });
+    }
+
+    return data;
+}
