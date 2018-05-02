@@ -51,7 +51,6 @@ class RobotControllerTest {
     }
     */
 
-
     @AfterAll
     @SuppressWarnings("unused")
     private static void finish() {

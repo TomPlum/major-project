@@ -33,7 +33,7 @@ public class TweetAnalyser {
      * - Maximum Tweet Length
      * - Frequency of Emoji Usage
      */
-    public void analyse() {
+    void analyse() {
         ArrayList<String> tweets = tr.getAllValuesByKey("text");
         tweetCount = tweets.size();
         System.out.println("Counting Characters From " + tweets.size() + " Tweets.");
@@ -92,7 +92,7 @@ public class TweetAnalyser {
     /**
      * Prints the results of analyse() to the console.
      */
-    public void printResults() {
+    void printResults() {
         for (int num : alphabet) {
             totalCharacters += num;
         }
@@ -152,10 +152,10 @@ public class TweetAnalyser {
 
     public static void main(String[] args) {
         TweetAnalyser ta = new TweetAnalyser();
-        //ta.analyse();
-        //ta.printResults();
+        ta.analyse();
+        ta.printResults();
         //ta.saveToDatabase();
 
-        ta.saveUsersToDatabase();
+        //ta.saveUsersToDatabase();
     }
 }
