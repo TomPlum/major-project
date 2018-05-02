@@ -95,8 +95,8 @@ html(lang='en')
                                         h3 Final Year Major Project. By Thomas Plumpton.
                                 div(data-thumb='', data-src='images/slides/blank.gif')
                                     .img-responsive.camera_caption.fadeFromBottom
-                                        h2 Pseudo &amp Truly Random
-                                        h3 Determining whether Twitter's Tweets are Pseudo-Random or Truly-Random.
+                                        h2 Pseudo or Truly-Random?
+                                        h3 Determining the random nature of Tweets.
                                 div(data-thumb='', data-src='images/slides/blank.gif')
                                     .img-responsive.camera_caption.fadeFromBottom
                                         h2 Twitter &amp; Robocode
@@ -107,9 +107,28 @@ html(lang='en')
                                         h3 Data visualisation powered by D3.JS.
                                 div(data-thumb='', data-src='images/slides/blank.gif')
                                     .img-responsive.camera_caption.fadeFromBottom
-                                        h2 Mathematical Analysis
+                                        h2 Statistical Analysis
                                         h3 Linear Regression &amp; Standard Deviation
+                                div(data-thumb='', data-src='images/slides/blank.gif')
+                                    .img-responsive.camera_caption.fadeFromBottom
+                                        h2 Mathematical Analysis
+                                        h3 Sample Size &amp; Inter-Quartile Range.
             .container
+                .row
+                    .col-xs-12.text-center
+                        h4.sub-title Project Title
+                        h2.main-title Analysing the Randomness of Social Media
+                    .col-xs-12
+                        h4.sub-title
+                            i.fa.fa-fw.fa-pencil
+                            |  Description
+                        p Randomness is used in a myriad of industries including; video games; politics; science; cryptography and more. It is important to continuously alter the method in which randomness is generated to make it harder to predict. This project studies the randomness of the social media platform ‘Twitter’, by producing a random number generator from the Tweets of several different users. Tweets are used to produce values that control the AI (Artificial Intelligence) of Robots in the programming game ‘Robocode’ in order to determine the random nature of these values.
+                        p The project aims to understand the difference between pseudo and truly random number generation and gain a greater appreciation of the applications of randomness in real world industries. This report describes the concept of a new method of generating random numbers using the aforementioned sources and stimuli.
+                    .col-md-6
+                        button.btn.btn-info.btn-lg#downloadDissertation(type="button" role="button")
+                            i.fa.fa-fw.fa-paper-plane
+                            |  Download Dissertation
+
                 .row
                     .col-md-4.project
                         h3#counter 0
@@ -132,315 +151,6 @@ html(lang='en')
                             |  Emoji's Counted
                         p
                             | Thousands of annoying little emoji's, varied by Fitzpatrick Modifiers. Yep, there really were that many...
-        section.section-padding
-            .container
-                .row
-                    .col-md-12.cBusiness
-                        h3 Analysing the Randomness of Social Media
-                        h4 Statistical Overview
-            #characterDataVisMenu.container
-                ul.nav.nav-tabs.nav-justified
-                    li.active
-                        a(href='#1', data-toggle='tab')
-                            i.fa.fa-fw.fa-lg.fa-bar-chart
-                            |  Bar Chart
-                    li
-                        a(href='#2', data-toggle='tab')
-                            i.fa.fa-fw.fa-lg.fa-pie-chart
-                            |  Pie Charts
-                    li
-                        a(href='#3', data-toggle='tab')
-                            i.fa.fa-fw.fa-lg.fa-line-chart
-                            |  Line Chart
-                .tab-content
-                    #1.tab-pane.active
-                        .container.loading
-                            i.fa.fa-fw.fa-lg.fa-4x.fa-pulse.fa-spinner
-                            p Analysing Data...
-                        .container.characterStatsBar
-                            .row
-                                #cfbcFloatingDiv
-                                #characterFrequencyBarChart
-                            .row.text-center.bar-chart-sort
-                                .col-sm-2.col-sm-offset-3
-                                    label.sort Alphabetical
-                                    input#sort-alpha(type="radio" name="sort-bar-chart" value="Alpha" checked)
-                                .col-sm-2
-                                    label.sort Ascending
-                                    input#sort-asc(type="radio" name="sort-bar-chart" value="Asc")
-                                .col-sm-2
-                                    label.sort Descending
-                                    input#sort-desc(type="radio" name="sort-bar-chart" value="Desc")
-                    #2.tab-pane
-                        .container-fluid.characterStatsPie
-                            .row
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.a(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 A
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.b(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 B
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.c(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 C
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.d(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 D
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.e(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 E
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.f(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 F
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.g(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 G
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.h(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 H
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.i(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 I
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.j(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 J
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.k(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 K
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.l(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 L
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.m(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 M
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.n(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 N
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.o(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 O
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.p(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 P
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.q(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 Q
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.r(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 R
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.s(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 S
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.t(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 T
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.u(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 U
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.v(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 V
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.w(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 W
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.x(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 X
-                                .col-xs-4.col-md-1.col-md-offset-5.bar
-                                    .progB.chart.y(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 Y
-                                .col-xs-4.col-md-1.bar
-                                    .progB.chart.z(data-animate='3500')
-                                        .chart.chart-content
-                                            .percentage()
-                                                span.percent
-                                    .textP
-                                        h3 Z
-                    #3.tab-pane
-                        h3 Line Chart To Go Here
-        section.section-padding
-            .container
-                .row
-                    .col-md-6
-                        .selectedTwitterUser
-                            .row
-                                .col-md-2
-                                    #profile-image
-                                .col-md-6
-                                    #username
-                                    #screenName
-                                    #stats
-                    .col-md-3
-                        label Select Twitter User
-                        select#twitterUsers.form-control(name="twitterUsers")
-                .row
-                    .col-md-12
-                        hr
-                        .container.character-loading
-                    .selectedTwitterUserAnalysis
-                        .row
-                            .col-md-6
-                                .row
-                                    .col-sm-12.text-center
-                                        label Percentages of Tweet's that Included...
-                                .row
-                                    .col-sm-3
-                                        .progB.chart.tweet-percentage(data-animate='3500')
-                                            .chart.chart-content
-                                                .percentage()
-                                                    span.percent
-                                        p
-                                            i.fa.fa-fw.fa-lg.fa-link
-                                            |  Hyperlinks
-                                    .col-sm-3
-                                        .progB.chart.twitter-used-percentage(data-animate='3500')
-                                            .chart.chart-content
-                                                .percentage()
-                                                    span.percent
-                                        p
-                                            i.fa.fa-fw.fa-lg.fa-twitter
-                                            |  Twitter Mentioned
-                                    .col-sm-3
-                                        .progB.chart.hashtags-percentage(data-animate='3500')
-                                            .chart.chart-content
-                                                .percentage()
-                                                    span.percent
-                                        p
-                                            i.fa.fa-fw.fa-lg.fa-hashtag
-                                            |  Hashtags
-                                    .col-sm-3
-                                        .progB.chart.mentions-percentage(data-animate='3500')
-                                            .chart.chart-content
-                                                .percentage()
-                                                    span.percent
-                                        p
-                                            i.fa.fa-fw.fa-lg.fa-at
-                                            |  Mentions
-                            .col-md-6
-                                .row
-                                    .col-sm-12.tweet-length-analysis
-                                        label Twitter's Maximum Tweet Length (Characters)
-                                        .progress.progress-striped.active.maximum-tweet-length
-                                            .progress-bar.progress-bar-info(role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100")
-                                                p 280
-                                        label Longest Tweet
-                                        .progress.progress-striped.active.longest-tweet
-                                            .progress-bar.progress-bar-success(role="progressbar" aria-valuemin="0" aria-valuemax="100")
-                                                p
-                                        label Average Tweet
-                                        .progress.progress-striped.active.average-tweet
-                                            .progress-bar.progress-bar-warning(role="progressbar" aria-valuemin="0" aria-valuemax="100")
-                                                p
-                                        label Shortest Tweet
-                                        .progress.progress-striped.active.shortest-tweet
-                                            .progress-bar.progress-bar-danger(role="progressbar" aria-valuemin="0" aria-valuemax="100")
-                                                p
-                        .row
-                            .col-sm-12
-                                label Language's Used
-                                .language-breakdown
-                                    .progress
-
 
         //Data Analysis
         section#analysis
@@ -465,6 +175,336 @@ html(lang='en')
                             h4 Statistical Analysis
                             p
                                 | A statistical method useful to the analysis of the data is linear regression, specifically the method of least squares.
+            section.section-padding
+                .container
+                    .row
+                        .col-md-12.cBusiness
+                            h3 Statistical Overview
+                #characterDataVisMenu.container
+                    ul.nav.nav-tabs.nav-justified
+                        li.active
+                            a(href='#1', data-toggle='tab')
+                                i.fa.fa-fw.fa-lg.fa-bar-chart
+                                |  Bar Chart
+                        li
+                            a(href='#2', data-toggle='tab')
+                                i.fa.fa-fw.fa-lg.fa-pie-chart
+                                |  Pie Charts
+                        li
+                            a(href='#3', data-toggle='tab')
+                                i.fa.fa-fw.fa-lg.fa-line-chart
+                                |  Line Chart
+                    .tab-content
+                        #1.tab-pane.active
+                            .container.loading
+                                i.fa.fa-fw.fa-lg.fa-4x.fa-pulse.fa-spinner
+                                p Analysing Data...
+                            .container.characterStatsBar
+                                .row
+                                    #cfbcFloatingDiv
+                                    #characterFrequencyBarChart
+                                .row.text-center.bar-chart-sort
+                                    .col-sm-2.col-sm-offset-3
+                                        label.sort Alphabetical
+                                        input#sort-alpha(type="radio" name="sort-bar-chart" value="Alpha" checked)
+                                    .col-sm-2
+                                        label.sort Ascending
+                                        input#sort-asc(type="radio" name="sort-bar-chart" value="Asc")
+                                    .col-sm-2
+                                        label.sort Descending
+                                        input#sort-desc(type="radio" name="sort-bar-chart" value="Desc")
+                        #2.tab-pane
+                            .container-fluid.characterStatsPie
+                                .row
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.a(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 A
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.b(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 B
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.c(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 C
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.d(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 D
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.e(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 E
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.f(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 F
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.g(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 G
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.h(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 H
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.i(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 I
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.j(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 J
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.k(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 K
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.l(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 L
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.m(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 M
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.n(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 N
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.o(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 O
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.p(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 P
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.q(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 Q
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.r(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 R
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.s(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 S
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.t(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 T
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.u(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 U
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.v(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 V
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.w(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 W
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.x(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 X
+                                    .col-xs-4.col-md-1.col-md-offset-5.bar
+                                        .progB.chart.y(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 Y
+                                    .col-xs-4.col-md-1.bar
+                                        .progB.chart.z(data-animate='3500')
+                                            .chart.chart-content
+                                                .percentage()
+                                                    span.percent
+                                        .textP
+                                            h3 Z
+                        #3.tab-pane
+                            h3 Line Chart To Go Here
+            section.section-padding
+                .container
+                    .row
+                        .col-md-6
+                            .selectedTwitterUser
+                                .row
+                                    .col-md-2
+                                        #profile-image
+                                    .col-md-6
+                                        #username
+                                        #screenName
+                                        #stats
+                        .col-md-3
+                            label Select Twitter User
+                            select#twitterUsers.form-control(name="twitterUsers")
+                    .row
+                        .col-md-12
+                            hr
+                            .container.character-loading
+                        .selectedTwitterUserAnalysis
+                            .row
+                                .col-md-6
+                                    .row
+                                        .col-sm-12.text-center
+                                            label Percentages of Tweet's that Included...
+                                    .row
+                                        .col-sm-3
+                                            .progB.chart.tweet-percentage(data-animate='3500')
+                                                .chart.chart-content
+                                                    .percentage()
+                                                        span.percent
+                                            p
+                                                i.fa.fa-fw.fa-lg.fa-link
+                                                |  Hyperlinks
+                                        .col-sm-3
+                                            .progB.chart.twitter-used-percentage(data-animate='3500')
+                                                .chart.chart-content
+                                                    .percentage()
+                                                        span.percent
+                                            p
+                                                i.fa.fa-fw.fa-lg.fa-twitter
+                                                |  Twitter Mentioned
+                                        .col-sm-3
+                                            .progB.chart.hashtags-percentage(data-animate='3500')
+                                                .chart.chart-content
+                                                    .percentage()
+                                                        span.percent
+                                            p
+                                                i.fa.fa-fw.fa-lg.fa-hashtag
+                                                |  Hashtags
+                                        .col-sm-3
+                                            .progB.chart.mentions-percentage(data-animate='3500')
+                                                .chart.chart-content
+                                                    .percentage()
+                                                        span.percent
+                                            p
+                                                i.fa.fa-fw.fa-lg.fa-at
+                                                |  Mentions
+                                .col-md-6
+                                    .row
+                                        .col-sm-12.tweet-length-analysis
+                                            label Twitter's Maximum Tweet Length (Characters)
+                                            .progress.progress-striped.active.maximum-tweet-length
+                                                .progress-bar.progress-bar-info(role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100")
+                                                    p 280
+                                            label Longest Tweet
+                                            .progress.progress-striped.active.longest-tweet
+                                                .progress-bar.progress-bar-success(role="progressbar" aria-valuemin="0" aria-valuemax="100")
+                                                    p
+                                            label Average Tweet
+                                            .progress.progress-striped.active.average-tweet
+                                                .progress-bar.progress-bar-warning(role="progressbar" aria-valuemin="0" aria-valuemax="100")
+                                                    p
+                                            label Shortest Tweet
+                                            .progress.progress-striped.active.shortest-tweet
+                                                .progress-bar.progress-bar-danger(role="progressbar" aria-valuemin="0" aria-valuemax="100")
+                                                    p
+                            .row
+                                .col-sm-12
+                                    label Language's Used
+                                    .language-breakdown
+                                        .progress
+
+        section#data-vis
+            .line3
+                .container
+                    .row.Fresh
+                        h1.section-title
+                            i.fa.fa-fw.fa-bar-chart
+                            |  Data Visualisation
+                        .col-md-4.analysis-header
+                            i.fa.fa-bar-chart-o
+                            h4 D3.JS
+                            p
+                                | A JavaScript library that manipulates SVG elements in the Document Object Model. A powerful library, bringing dynamic data to life.
+                        .col-md-4.analysis-header
+                            i.fa.fa-pie-chart
+                            h4 Easy Pie Chart
+                            p
+                                | Lightweight plugin to render simple, animated and retina optimized pie charts. Great for displaying relative percentages of data.
+                        .col-md-4.analysis-header
+                            i.fa.fa-search
+                            h4 Analysing Data
+                            p
+                                | This section extends the previous one, providing the means for visual analysis and ultimately concluding results for the next section.
             .container.section-padding
                 .row
                     #resultAnalysisMenu.container
@@ -693,29 +733,6 @@ html(lang='en')
                                                 .value
                                                     p#variance
                                                 label Variance
-        section#data-vis
-            .line3
-                .container
-                    .row.Fresh
-                        h1.section-title
-                            i.fa.fa-fw.fa-bar-chart
-                            |  Data Visualisation
-                        .col-md-4.analysis-header
-                            i.fa.fa-bar-chart-o
-                            h4 D3.JS
-                            p
-                                | A JavaScript library that manipulates SVG elements in the Document Object Model. A powerful library, bringing dynamic data to life.
-                        .col-md-4.analysis-header
-                            i.fa.fa-pie-chart
-                            h4 Easy Pie Chart
-                            p
-                                | Lightweight plugin to render simple, animated and retina optimized pie charts. Great for displaying relative percentages of data.
-                        .col-md-4.analysis-header
-                            i.fa.fa-search
-                            h4 Analysing Data
-                            p
-                                | This section extends the previous one, providing the means for visual analysis and ultimately concluding results for the next section.
-
         section#results
             .line4
                 .container

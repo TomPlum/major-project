@@ -4,6 +4,27 @@ const analysis = require("../db/models/analysis");
 const tweets = require("../db/models/tweets");
 const results = require("../db/models/results");
 const countryNames = require('i18n-iso-countries');
+const mime = require('mime');
+const fs = require('fs');
+
+function encodeRFC5987ValueChars (str) {
+    return encodeURIComponent(str).
+    replace(/['()]/g, escape).
+    replace(/\*/g, '%2A').
+    replace(/%(?:7C|60|5E)/g, unescape);
+}
+
+function downloadFile(filepath, filename, res) {
+    const mimeType = mime.lookup(__dirname + filepath);
+
+    fs.readFile(filepath, function(err) {
+        if (err) console.log(err);
+        res.setHeader("Content-type", mimeType);
+        res.setHeader("Content-disposition", 'download; filename=' + encodeRFC5987ValueChars(filename));
+        const filestream = fs.createReadStream(filepath);
+        filestream.pipe(res);
+    });
+}
 
 
 router.get('/', function(req, res) {
