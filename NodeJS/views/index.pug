@@ -119,39 +119,21 @@ html(lang='en')
                         h4.sub-title Project Title
                         h2.main-title Analysing the Randomness of Social Media
                     .col-xs-12
-                        h4.sub-title
+                        h3.sub-title
                             i.fa.fa-pencil
                             |  Description
-                        p Randomness is used in a myriad of industries including; video games; politics; science; cryptography and more. It is important to continuously alter the method in which randomness is generated to make it harder to predict. This project studies the randomness of the social media platform ‘Twitter’, by producing a random number generator from the Tweets of several different users. Tweets are used to produce values that control the AI (Artificial Intelligence) of Robots in the programming game ‘Robocode’ in order to determine the random nature of these values.
-                        p The project aims to understand the difference between pseudo and truly random number generation and gain a greater appreciation of the applications of randomness in real world industries. This report describes the concept of a new method of generating random numbers using the aforementioned sources and stimuli.
-                    .col-md-6
+                        p.description Randomness is used in a myriad of industries including; video games; politics; science; cryptography and more. It is important to continuously alter the method in which randomness is generated to make it harder to predict. This project studies the randomness of the social media platform ‘Twitter’, by producing a random number generator from the Tweets of several different users. Tweets are used to produce values that control the AI (Artificial Intelligence) of Robots in the programming game ‘Robocode’ in order to determine the random nature of these values.
+                        p.description The project aims to understand the difference between pseudo and truly random number generation and gain a greater appreciation of the applications of randomness in real world industries. This report describes the concept of a new method of generating random numbers using the aforementioned sources and stimuli.
+                    .col-xs-12
                         a.btn.btn-info.btn-lg#downloadDissertation(href="/dissertation" target="_blank" role="button")
                             i.fa.fa-fw.fa-paper-plane
                             |  Download Dissertation
-
-                .row
-                    .col-md-4.project
-                        h3#counter 0
-                        h4
-                            i.fa.fa-fw.fa-twitter
-                            |  Tweets Analysed
-                        p
-                            | Thousands of Tweets stored in the MongoDB Atlas Cluster are parsed using a bespoke Java program and Twitter4J.
-                    .col-md-4.project
-                        h3#counter1 0
-                        h4
-                            i.fa.fa-fw.fa-sort-alpha-asc
-                            |  Characters Counted
-                        p
-                            | Thousands of Tweets means millions of characters. Each character represents a single instruction for a TwitterRobot.
-                    .col-md-4.project
-                        h3#counter2 0
-                        h4
-                            i.fa.fa-fw.fa-smile-o
-                            |  Emoji's Counted
-                        p
-                            | Thousands of annoying little emoji's, varied by Fitzpatrick Modifiers. Yep, there really were that many...
-
+                        a.btn.btn-danger.btn-lg#downloadVivaPresentation(href="/viva-presentation" target="_blank" role="button")
+                            i.fa.fa-fw.fa-file-powerpoint-o
+                            |  Download Viva Presentation
+                        a.btn.btn-primary.btn-lg#viewRepository(href="https://www.github.com/TomPlum/major-project" target="_blank" role="button")
+                            i.fa.fa-fw.fa-lg.fa-github
+                            |  View GitHub Repository
         //Data Analysis
         section#analysis
             .line2
@@ -180,6 +162,29 @@ html(lang='en')
                     .row
                         .col-md-12.cBusiness
                             h3 Statistical Overview
+                    .row
+                        .col-md-4.project
+                            h3#counter 0
+                            h4
+                                i.fa.fa-fw.fa-twitter
+                                |  Tweets Analysed
+                            p
+                                | Thousands of Tweets stored in the MongoDB Atlas Cluster are parsed using a bespoke Java program and Twitter4J.
+                        .col-md-4.project
+                            h3#counter1 0
+                            h4
+                                i.fa.fa-fw.fa-sort-alpha-asc
+                                |  Characters Counted
+                            p
+                                | Thousands of Tweets means millions of characters. Each character represents a single instruction for a TwitterRobot.
+                        .col-md-4.project
+                            h3#counter2 0
+                            h4
+                                i.fa.fa-fw.fa-smile-o
+                                |  Emoji's Counted
+                            p
+                                | Thousands of annoying little emoji's, varied by Fitzpatrick Modifiers. Yep, there really were that many...
+                br
                 #characterDataVisMenu.container
                     ul.nav.nav-tabs.nav-justified
                         li.active
@@ -792,25 +797,25 @@ html(lang='en')
             .container.section-padding
                 .row
                     .col-xs-12
-                        h4.sub-title
+                        h3.sub-title
                             i.fa.fa-random
                             |  Conclusion
-                        p To recap, the difference between pseudo-random and truly-random numbers is that pseudo-random number generators produce numbers that are deterministic. If we can determine them, they must have a discernible trend, pattern and correlation. On the other hand, truly-random generated numbers are the opposite. Like the decay of a radioactive isotope, they are un-predictable. However, given our increasingly better understanding of computing, technology and algorithms, we are able to write pseudo-random number generators that are very close to true ones. This means that the numbers they produce are for all intents and purposes ‘random’, albeit they are pre-determined from a table of values and are therefore technically not truly¬-random.
-                        p With the aforementioned definitions in mind, it didn’t take too long to come to the conclusion that the numbers generated by the Robots in Robocode from the Tweets are not truly-random. As discussed in the evaluation, there are clear patters and correlation to the data plotted on the scatter graph. The relationship between the battle score and number of turns was as expected, as one increases, so does the other. However, it’s not all bad. Although the data was restricted to a range of 0-1019, the spread of the data inside that range was quite sparse. The statistical analysis of the standard deviation and variance does not support this as the standard deviation was quite close to the median value. However, I believe that because the majority of the battles had 3 rounds, it created a bias and skewed the data in favour of that sub-dataset. This is most likely why the interquartile range is so small. Instead, if we take an even number of data from each number of rounds, we can see that they are actually quite sparse within the overall range.
-                        p To elaborate, and solidify the aforementioned justification, the data generated in the evaluation using the pseudo-random JavaScript function shows how the data should have looked if it was truly random. This seems contradictory, but the PRNG algorithms are so sophisticated that they almost identical to true random number generation. At least, this is the case in some scenarios. Regarding the data visualisation from the scatter graph, the interquartile range and standard deviation would provide enough evidence to suggest that the data is truly-random. However, in other cases such as cryptography where there cannot any patterns or trends at all, true-random number generation would be required as PRNG algorithms such as the random() function do show patterns that are visible to even the human eye.
-                        p Finally, regarding the real-world applications of this project, given the strength of correlation that the data expresses, there is no real place for the numbers that the program generates. Given then pre-existing PRNG algorithms, the project would need significant improvement and revision to bring it up to a state where it could complete with the sparsity and randomness of sophisticated pseudo-random algorithms. However, it does not change the fact that there is a real place for random-number generation in real life industries.
-                        p In conclusion, the numbers generated from the Robocode results are pseudo-random.
+                        p.description To recap, the difference between pseudo-random and truly-random numbers is that pseudo-random number generators produce numbers that are deterministic. If we can determine them, they must have a discernible trend, pattern and correlation. On the other hand, truly-random generated numbers are the opposite. Like the decay of a radioactive isotope, they are un-predictable. However, given our increasingly better understanding of computing, technology and algorithms, we are able to write pseudo-random number generators that are very close to true ones. This means that the numbers they produce are for all intents and purposes ‘random’, albeit they are pre-determined from a table of values and are therefore technically not truly¬-random.
+                        p.description With the aforementioned definitions in mind, it didn’t take too long to come to the conclusion that the numbers generated by the Robots in Robocode from the Tweets are not truly-random. As discussed in the evaluation, there are clear patters and correlation to the data plotted on the scatter graph. The relationship between the battle score and number of turns was as expected, as one increases, so does the other. However, it’s not all bad. Although the data was restricted to a range of 0-1019, the spread of the data inside that range was quite sparse. The statistical analysis of the standard deviation and variance does not support this as the standard deviation was quite close to the median value. However, I believe that because the majority of the battles had 3 rounds, it created a bias and skewed the data in favour of that sub-dataset. This is most likely why the interquartile range is so small. Instead, if we take an even number of data from each number of rounds, we can see that they are actually quite sparse within the overall range.
+                        p.description To elaborate, and solidify the aforementioned justification, the data generated in the evaluation using the pseudo-random JavaScript function shows how the data should have looked if it was truly random. This seems contradictory, but the PRNG algorithms are so sophisticated that they almost identical to true random number generation. At least, this is the case in some scenarios. Regarding the data visualisation from the scatter graph, the interquartile range and standard deviation would provide enough evidence to suggest that the data is truly-random. However, in other cases such as cryptography where there cannot any patterns or trends at all, true-random number generation would be required as PRNG algorithms such as the random() function do show patterns that are visible to even the human eye.
+                        p.description Finally, regarding the real-world applications of this project, given the strength of correlation that the data expresses, there is no real place for the numbers that the program generates. Given then pre-existing PRNG algorithms, the project would need significant improvement and revision to bring it up to a state where it could complete with the sparsity and randomness of sophisticated pseudo-random algorithms. However, it does not change the fact that there is a real place for random-number generation in real life industries.
+                        p.description In conclusion, the numbers generated from the Robocode results are pseudo-random.
 
                         br
-                        h4.sub-title
+                        h3.sub-title
                             i.fa.fa-bullseye
                             |  Robocode's Influence
-                        p
+                        p.description
                         br
-                        h4.sub-title
+                        h3.sub-title
                             i.fa.fa-book
                             |  Language Bias
-                        p As illustrated in Chapter 2.1.3 of my dissertation, the frequency of characters different from that of the Oxford English Dictionary. There were some letters that were drastically greater than the other source. We would expect the vowels to be the most common. Letters E, O and A did come up at 2nd, 3rd and 4th respectively. However, the most common occurring character in the Tweets I had collected was the letter ‘T’ at 10.7%. This seemed unusual until I realised that social media posts on Twitter tend to contain a lot of hyperlinks to webpages. The HTTP/HTTPS protocol contains two letter ‘T’s. Furthermore, the word ‘Twitter’ itself contains 3 letter ‘T’s. That’s why I decided to analyse those two statistics in the user analysis.
+                        p.description As illustrated in Chapter 2.1.3 of my dissertation, the frequency of characters different from that of the Oxford English Dictionary. There were some letters that were drastically greater than the other source. We would expect the vowels to be the most common. Letters E, O and A did come up at 2nd, 3rd and 4th respectively. However, the most common occurring character in the Tweets I had collected was the letter ‘T’ at 10.7%. This seemed unusual until I realised that social media posts on Twitter tend to contain a lot of hyperlinks to webpages. The HTTP/HTTPS protocol contains two letter ‘T’s. Furthermore, the word ‘Twitter’ itself contains 3 letter ‘T’s. That’s why I decided to analyse those two statistics in the user analysis.
         section#reflection
             .line5
                 .container
@@ -836,47 +841,44 @@ html(lang='en')
             .container.section-padding
                 .row
                     .col-xs-12
-                        h4.sub-title
+                        h3.sub-title
                             i.fa.fa-check
                             |  The Good
-                        br
                         h4.sub-heading Developing the Web Application
-                        p The third stage of the program development was the smoothest and easiest stage. Because of the prior experience I had with the MEAN Stack, I was able to quickly create and configure the application, set up the basic page and host it on my personal AWS (Amazon Web Services) EC2 (Elastic Compute Cloud) Linux instance. This was useful for the project as it freed up time for me to work on the more important parts of the project such as the development of the JavaScript functionality that was used to visualise the data and perform the statistical analysis.
+                        p.description The third stage of the program development was the smoothest and easiest stage. Because of the prior experience I had with the MEAN Stack, I was able to quickly create and configure the application, set up the basic page and host it on my personal AWS (Amazon Web Services) EC2 (Elastic Compute Cloud) Linux instance. This was useful for the project as it freed up time for me to work on the more important parts of the project such as the development of the JavaScript functionality that was used to visualise the data and perform the statistical analysis.
                         h4.sub-heading Project Management & Organisation
-                        p I planned a lot of the project during the early stages, as documented in Chapter 4 – Analysis & Design. This made the development stages run smoother as I knew what I had to create. There were of course lots of parts that were unexpected and had to be modified or developed on-the-fly, but the vast majority of it was as planned. Furthermore, the usage of Git VCS and GitHub made pushing the web application to the live server easier and provided peace of mind the project files were backed up and audited via Git’s version history of commits. The project was also synced via my personal Dropbox account which ensured that all the files were synched and up-to-date across all my devices during development. This again ensured there was another backup and meant that no duplicates were created, or work was lost.
+                        p.description I planned a lot of the project during the early stages, as documented in Chapter 4 – Analysis & Design. This made the development stages run smoother as I knew what I had to create. There were of course lots of parts that were unexpected and had to be modified or developed on-the-fly, but the vast majority of it was as planned. Furthermore, the usage of Git VCS and GitHub made pushing the web application to the live server easier and provided peace of mind the project files were backed up and audited via Git’s version history of commits. The project was also synced via my personal Dropbox account which ensured that all the files were synched and up-to-date across all my devices during development. This again ensured there was another backup and meant that no duplicates were created, or work was lost.
                         h4.sub-heading Drawing a Conclusion
-                        p This may just be a testament to the correlation and trends in the final visualisation of the results, but the conclusion was an easy decision to make. I knew right from the very start of planning the project that if the data was to produce results and visualisations that had ambiguous correlation, that the decision-making process would be very difficult. It would have required further research into determining whether or not numbers were pseudo or truly random. The fact that the numbers turned out to be pseudo-random does not make the project a failure, in fact, it was something that was expected as a possible outcome due to the nature of the project.
+                        p.description This may just be a testament to the correlation and trends in the final visualisation of the results, but the conclusion was an easy decision to make. I knew right from the very start of planning the project that if the data was to produce results and visualisations that had ambiguous correlation, that the decision-making process would be very difficult. It would have required further research into determining whether or not numbers were pseudo or truly random. The fact that the numbers turned out to be pseudo-random does not make the project a failure, in fact, it was something that was expected as a possible outcome due to the nature of the project.
                         br
                     .col-xs-12
-                        h4.sub-title
+                        h3.sub-title
                             i.fa.fa-ban
                             |  The Bad
-                        br
                         h4.sub-heading Academic Challenge
-                        p As I progressed deeper into project development, I realised that I’d bitten off more than I could chew. The complexity of the algorithm required to parse the Tweets for Robocode that I had planned was far too great. Looking ahead at what needed be done, and the possible issues that could arise, I decided to simplify the algorithm. Instead of parsing every character in the Tweets (Letters, Numbers, Symbols, Emojis etc.), I decided to sanitise the strings and keep only the letters. These letters would produce a value between 0 and 25. I understood that this would reduce the quality of the data and therefore reflect in the results and conclusion, however, I had to make sure that I could finish the development and build the JavaScript elements for the analysis.
+                        p.description As I progressed deeper into project development, I realised that I’d bitten off more than I could chew. The complexity of the algorithm required to parse the Tweets for Robocode that I had planned was far too great. Looking ahead at what needed be done, and the possible issues that could arise, I decided to simplify the algorithm. Instead of parsing every character in the Tweets (Letters, Numbers, Symbols, Emojis etc.), I decided to sanitise the strings and keep only the letters. These letters would produce a value between 0 and 25. I understood that this would reduce the quality of the data and therefore reflect in the results and conclusion, however, I had to make sure that I could finish the development and build the JavaScript elements for the analysis.
                         h4.sub-heading Issues with Robocode & Java
-                        p During the Java development stage of the agile process, I had to write a Java program that interfaced with both the Twitter and Robocode API’s. Twitter wasn’t too much of an issue, simple trial and error saw me through the development of the Twitter related classes. Once I had the Tweets downloaded and serialised, I could then work on the Robot classes. I had an issue with loading custom Robot classes into the RobocodeEngine in my GameConfigurer. Weeks elapsed with no progression, I’d tried countless different methods to resolve the issue. After conversing with Flemming N. Larsen, one of the major contributors to the source code of Robocode, I told him my issue and he agreed to take a look. After studying my code and its problem, he debugged it and found the cause. He patched and updated the game, releasing the .JAR of the new version for me. It turned out it was technically impossible for me to fix the problem as it was an issue with the game itself.
+                        p.description During the Java development stage of the agile process, I had to write a Java program that interfaced with both the Twitter and Robocode API’s. Twitter wasn’t too much of an issue, simple trial and error saw me through the development of the Twitter related classes. Once I had the Tweets downloaded and serialised, I could then work on the Robot classes. I had an issue with loading custom Robot classes into the RobocodeEngine in my GameConfigurer. Weeks elapsed with no progression, I’d tried countless different methods to resolve the issue. After conversing with Flemming N. Larsen, one of the major contributors to the source code of Robocode, I told him my issue and he agreed to take a look. After studying my code and its problem, he debugged it and found the cause. He patched and updated the game, releasing the .JAR of the new version for me. It turned out it was technically impossible for me to fix the problem as it was an issue with the game itself.
                         h4.sub-heading Time Limitations
-                        p Considering the aforementioned problems regarding the academic challenge, plus all the other smaller issues that I haven’t mentioned, it posed a deadline issue. I decided to cut the development short and produce results with the simplified algorithm, with intention to go back at the end and improve it, if there was time. After developing the website with all the JavaScript functionality, analysis, results, evaluation and conclusion, there just wasn’t enough time.
+                        p.description Considering the aforementioned problems regarding the academic challenge, plus all the other smaller issues that I haven’t mentioned, it posed a deadline issue. I decided to cut the development short and produce results with the simplified algorithm, with intention to go back at the end and improve it, if there was time. After developing the website with all the JavaScript functionality, analysis, results, evaluation and conclusion, there just wasn’t enough time.
                         h4.sub-heading D3.JS Performance
-                        p Because D3 works by manipulating SVG elements in the DOM (Document Object Model), large datasets can cause performance problems for the browser. The scatter diagram had over 1000 records passed to it, meaning that it created over 1000 SVG circles, mouse over and on click events for the browser to handle. This quickly uses up the available memory and
+                        p.description Because D3 works by manipulating SVG elements in the DOM (Document Object Model), large datasets can cause performance problems for the browser. The scatter diagram had over 1000 records passed to it, meaning that it created over 1000 SVG circles, mouse over and on click events for the browser to handle. This quickly uses up the available memory and
                         br
                     .col-xs-12
-                        h4.sub-title
+                        h3.sub-title
                             i.fa.fa-refresh
                             |  What Would I Change?
-                        br
                         h4.sub-heading Initial Planning Phase
-                        p Given that the Gantt chart solution did not provide any helpful time management for the project, a different approach to the initial planning phase would definitely be helpful if I were to do the project, or something similar, again.
+                        p.description Given that the Gantt chart solution did not provide any helpful time management for the project, a different approach to the initial planning phase would definitely be helpful if I were to do the project, or something similar, again.
                         h4.sub-heading Data Visualisation Library
-                        p If I were to do the project again, or improve the existing state of it, I would choose a different data visualisation library for JavaScript that is better suited to large data sets. Such library would have to work differently to D3 in the backend and use something like the HTML canvas instead. This would vastly improve the performance of the graphs on the webpage and would open up the possibility to work with even larger datasets.
+                        p.description If I were to do the project again, or improve the existing state of it, I would choose a different data visualisation library for JavaScript that is better suited to large data sets. Such library would have to work differently to D3 in the backend and use something like the HTML canvas instead. This would vastly improve the performance of the graphs on the webpage and would open up the possibility to work with even larger datasets.
                         h4.sub-heading Robocode Tweet Parsing Algorithm
-                        p One major element of the program that needed improving was the Java code that parsed the Tweets and produced the values for the Robots. This was the major variable in the whole process that determined the results of the project. As mentioned, there was not enough time to make the algorithm as complex as I would have liked. Therefore, if I were to improve the project in the future, I would spend more time improving and testing the TweetParser class that the RobotController uses.
+                        p.description One major element of the program that needed improving was the Java code that parsed the Tweets and produced the values for the Robots. This was the major variable in the whole process that determined the results of the project. As mentioned, there was not enough time to make the algorithm as complex as I would have liked. Therefore, if I were to improve the project in the future, I would spend more time improving and testing the TweetParser class that the RobotController uses.
                         h4.sub-heading Data Collection & Visual Analysis
-                        p As discussed in the conclusion, I felt that the data was skewed and created a bias due to the fact that I had not simulated an even number of battles for each number of rounds. If I were to do the project again or re-collect the data, I would ensure that I keep the sub-sample sizes the same size to ensure that the experiment is fair and eliminates this factor from the analysis.
+                        p.description As discussed in the conclusion, I felt that the data was skewed and created a bias due to the fact that I had not simulated an even number of battles for each number of rounds. If I were to do the project again or re-collect the data, I would ensure that I keep the sub-sample sizes the same size to ensure that the experiment is fair and eliminates this factor from the analysis.
                     .col-xs-12
                         br
-                        p(style="opacity: 0.8")
+                        p.description(style="opacity: 0.8")
                             em The information in this section is an excerpt from the 'Reflection' chapter in my dissertation final report. You can download a copy of it #[a(href="/dissertation" target="_blank") here].
             .lineBlack
                 .container

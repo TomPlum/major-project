@@ -60,6 +60,13 @@ router.get('/dissertation', function(req, res) {
     downloadFile(filepath, filename, res);
 });
 
+/* Download Vivia Presentation */
+router.get('/viva-presentation', function(req, res) {
+    const filepath = "public/ppt/viva.pptx";
+    const filename = "Tom Plumpton - Major Project Viva.pptx";
+    downloadFile(filepath, filename, res);
+});
+
 router.post('/calculate-user-stats', function(req, res) {
     tweets.find({user: req.body.username}, (err, data) => {
         if (err) { console.log(err);}

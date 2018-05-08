@@ -38,16 +38,29 @@ body{
     padding: 0 0 20px 0;
 }
 
-#downloadDissertation {
+#downloadDissertation, #downloadVivaPresentation, #viewRepository {
     transition: all 0.5s ease;
+    margin-right: 10px;
 }
 
-#downloadDissertation i {
+#downloadDissertation i, #downloadVivaPresentation i, #viewRepository i {
     transition: transform 0.5s ease;
 }
 
 #downloadDissertation:hover i {
     transform: rotateX(50deg);
+}
+
+#downloadVivaPresentation:hover i {
+    transform: rotateY(50deg);
+}
+
+#viewRepository:hover i {
+    transform: scale(1.1);
+}
+
+.description {
+    font-size: 1.2em;
 }
 
 .back-to-main {
