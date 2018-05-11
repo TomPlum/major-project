@@ -5,14 +5,12 @@ $(document).ready(() => {
         type: "POST",
         async: true,
         success: function(results) {
-            //results = generatePseudoRandomData();
             stopResultsLoading();
             renderResultsOverview(results);
             renderStatisticsBreakdown(results);
             renderSimpleLinearRegression(results);
             renderStandardDeviationAndVariance(results);
             calculateAvgRounds(results);
-            console.log(results);
         },
         error: function(err) {
             console.log(err);
@@ -20,17 +18,62 @@ $(document).ready(() => {
     });
 });
 
+function switchToPRNG() {
+    const results = generatePseudoRandomData();
+    renderResultsOverview(results);
+    renderStatisticsBreakdown(results);
+    //Store In Raw For Reference
+    rawResultData = results.slice(0);
+    //Build Data Structure
+    scatterPlotData = convertRawToGraphFormat(results);
+    //Store In Dynamic
+    dynamicScatterPlotData = scatterPlotData.slice(0);
+    updateSimpleLinearRegression(6);
+    renderStandardDeviationAndVariance(results);
+    calculateAvgRounds(results);
+}
+
+function switchToRobocode() {
+    startResultsLoading();
+    $.ajax({
+        url: "/get-robocode-results",
+        type: "POST",
+        async: true,
+        success: function(results) {
+            const button = $("#toggleDatasetRandomNature");
+            button.html("<i class='fas fa-fw fa-random'></i> Switch To PRNG");
+            button.val("robocode");
+            button.removeClass("btn-info").addClass("btn-primary").prop("disabled", false);
+            stopResultsLoading();
+            renderResultsOverview(results);
+            renderStatisticsBreakdown(results);
+            //Store In Raw For Reference
+            rawResultData = results.slice(0);
+            //Build Data Structure
+            scatterPlotData = convertRawToGraphFormat(results);
+            //Store In Dynamic
+            dynamicScatterPlotData = scatterPlotData.slice(0);
+            updateSimpleLinearRegression(6);
+            renderStandardDeviationAndVariance(results);
+            calculateAvgRounds(results);
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+}
+
 function startResultsLoading() {
     let el = $(".results-loading");
-    el.html("<i class='fa fa-lg fa-fw fa-3x fa-pulse fa-spinner'></i><p>Loading Robocode Results...</p>");
+    el.html("<i class='fas fa-lg fa-fw fa-2x fa-spin fa-cog'></i><p class='loading-text'>LOADING DATA...</p>");
     el.css("display", "block");
-    $("#results-overview").css("visibility", "hidden");
+    $("#results-overview").css("display", "none");
 }
 
 
 function stopResultsLoading() {
     $(".results-loading").html("").css("display", "none");
-    $("#results-overview").css("visibility", "visible");
+    $("#results-overview").css("display", "");
 }
 
 function renderResultsOverview(data) {

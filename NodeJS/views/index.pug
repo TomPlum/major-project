@@ -8,7 +8,7 @@ html(lang='en')
 
         //Stylesheets (CSS & Google Fonts)
         link(rel='stylesheet', type='text/css', href='css/bootstrap.css')
-        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous")
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous")
         link(rel='stylesheet', type='text/css', href='css/animate.css')
         link#camera-css(rel='stylesheet', href='css/camera.css', type='text/css', media='all')
         link(rel='stylesheet', type='text/css', href='css/slicknav.css')
@@ -117,7 +117,7 @@ html(lang='en')
                 .row
                     .col-xs-12.text-center
                         h4.sub-title Project Title
-                        h2.main-title Analysing the Randomness of Social Media
+                        h1.main-title Analysing the Randomness of Social Media
                     .col-xs-12
                         h3.sub-title
                             i.fas.fa-pencil-alt
@@ -704,6 +704,13 @@ html(lang='en')
 
                                                         input(type="checkbox" name="numberOfRounds" value="10" checked)
                                                         label.sort 10
+                                                .col-sm-3
+                                                    h4
+                                                        i.fas.fa-fw.fa-database
+                                                        |  Switch Dataset
+                                                    button#toggleDatasetRandomNature.btn.btn-primary.btn-block(type="button" value='robocode')
+                                                        i.fas.fa-fw.fa-random
+                                                        |  Switch To PRNG
 
                                         .col-sm-12
                                             #simple-linear-regression-graph
@@ -914,7 +921,6 @@ html(lang='en')
                                 // li><a href="#features">Features</a></li
         //script(src='js/jquery.prettyPhoto.js', type='text/javascript', charset='utf-8')
         script(src='js/bootstrap.min.js')
-
         script(src="//d3js.org/d3.v4.min.js")
         script(src='js/simpleLinearRegression.js')
         script(src='js/standardDeviationVariance.js')
@@ -950,15 +956,15 @@ html(lang='en')
                         let curval1 = parseInt($('#counter1').text().replace(' ',''));
                         let curval2 = parseInt($('#counter2').text());
                         if(curval <= tweetCount){
-                            $('#counter').text(curval + 40);
+                            $('#counter').text(curval + 70);
                         }
 
                         if(curval1 <= charCount){
-                            $('#counter1').text(sdf_FTS((curval1 + 1300),0,' '));
+                            $('#counter1').text(sdf_FTS((curval1 + 3500),0,' '));
                         }
 
                         if(curval2 <= emojiCount){
-                            $('#counter2').text(curval2 + 15);
+                            $('#counter2').text(curval2 + 20);
                         }
                     }, 1);
                 }, 500);

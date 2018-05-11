@@ -34,6 +34,24 @@ $(document).ready(() => {
         fillClass: 'rangeslider__fill',
         handleClass: 'rangeslider__handle',
     });
+
+    //Bind Switch Dataset Button
+    $("#toggleDatasetRandomNature").on("click", () => {
+        const button = $("#toggleDatasetRandomNature");
+        const val = button.val();
+        if (val === "robocode") {
+            switchToPRNG();
+            button.html("<i class='fas fa-fw fa-robot'></i> Switch To Robocode");
+            button.val("prng");
+        } else if (val === "prng") {
+            button.html("<i class='fas fa-fw fa-circle-notch fa-spin'></i> Loading...");
+            button.removeClass("btn-primary").addClass("btn-info").prop("disabled", true);
+            switchToRobocode();
+        }
+
+
+
+    });
 });
 
 //Setting The Dimensions Of The Canvas
@@ -574,17 +592,18 @@ function generatePseudoRandomData() {
         data.push({
             real_time: Math.floor((Math.random() * timeCeiling) + timeFloor),
             no_of_turns: Math.floor((Math.random() * turnsCeiling) + turnsFloor),
+            date: new Date(),
             results: [{
                 name: "controller.CompetitorOne*",
                 score: Math.floor((Math.random() * scoreCeiling) + scoreFloor),
-                bullet_damage: 0,
-                bullet_damage_bonus: 0,
+                bullet_damage: Math.floor(Math.random() + 80),
+                bullet_damage_bonus: Math.floor(Math.random() + 40),
                 firsts: 1,
                 seconds: 0,
                 thirds: 0,
                 last_survivor_bonus: 20,
-                ram_damage: 0,
-                ram_damage_bonus: 0,
+                ram_damage: Math.floor(Math.random() + 60),
+                ram_damage_bonus: Math.floor(Math.random() + 30),
                 rank: 1,
                 survival: 50
             }],

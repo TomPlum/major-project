@@ -42,11 +42,19 @@
 .results-loading {
     display: inline;
     text-align:center;
-    font-size: 2em;
-    line-height: 250px;
+    font-size: 1.7em;
+    line-height: 80px;
     vertical-align: middle;
     margin: 0;
-    padding: 0;
+    padding: 10px;
+}
+
+.loading-text {
+    display: inline;
+    margin: 0;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.7em;
 }
 
 .results-loading svg {
