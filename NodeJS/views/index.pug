@@ -8,7 +8,7 @@ html(lang='en')
 
         //Stylesheets (CSS & Google Fonts)
         link(rel='stylesheet', type='text/css', href='css/bootstrap.css')
-        link(rel='stylesheet', type='text/css', href='css/font-awesome.css')
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous")
         link(rel='stylesheet', type='text/css', href='css/animate.css')
         link#camera-css(rel='stylesheet', href='css/camera.css', type='text/css', media='all')
         link(rel='stylesheet', type='text/css', href='css/slicknav.css')
@@ -60,30 +60,30 @@ html(lang='en')
                                     ul#menu
                                         li.active
                                             a.page-scroll(href='#overview')
-                                                i.fa.fa-fw.fa-pencil
+                                                i.fas.fa-fw.fa-pencil-alt
                                                 |  Overview
                                         li
                                             a.page-scroll(href='#analysis')
-                                                i.fa.fa-fw.fa-search
+                                                i.fas.fa-fw.fa-search
                                                 |  Analysis
                                         li
                                             a.page-scroll(href="#data-vis")
-                                                i.fa.fa-fw.fa-bar-chart
+                                                i.far.fa-fw.fa-chart-bar
                                                 |  Visualisation
                                         li
                                             a.page-scroll(href='#results')
-                                                i.fa.fa-fw.fa-clipboard
+                                                i.fas.fa-fw.fa-clipboard-check
                                                 |  Results
                                         li.last
                                             a.page-scroll(href='#reflection')
-                                                i.fa.fa-fw.fa-eye
+                                                i.fas.fa-fw.fa-eye
                                                 |  Reflection
                         .row
                             .col-sm-4.col-sm-offset-8.back-to-main
                                 ul
                                     li
                                         a(href="https://tomplumpton.me")
-                                            i.fa.fa-fw.fa-arrow-left
+                                            i.fas.fa-fw.fa-chevron-left
                                             |  Back to tomplumpton.me
                 .container
                     .row.wrap
@@ -120,7 +120,7 @@ html(lang='en')
                         h2.main-title Analysing the Randomness of Social Media
                     .col-xs-12
                         h3.sub-title
-                            i.fa.fa-pencil
+                            i.fas.fa-pencil-alt
                             |  Description
                         p.description Randomness is used in a myriad of industries including; video games; politics; science; cryptography and more. It is important to continuously alter the method in which randomness is generated to make it harder to predict. This project studies the randomness of the social media platform ‘Twitter’, by producing a random number generator from the Tweets of several different users. Tweets are used to produce values that control the AI (Artificial Intelligence) of Robots in the programming game ‘Robocode’ in order to determine the random nature of these values.
                         p.description The project aims to understand the difference between pseudo and truly random number generation and gain a greater appreciation of the applications of randomness in real world industries. This report describes the concept of a new method of generating random numbers using the aforementioned sources and stimuli.
@@ -129,10 +129,10 @@ html(lang='en')
                             i.fa.fa-fw.fa-paper-plane
                             |  Download Dissertation
                         a.btn.btn-danger.btn-lg#downloadVivaPresentation(href="/viva-presentation" target="_blank" role="button")
-                            i.fa.fa-fw.fa-file-powerpoint-o
+                            i.fas.fa-fw.fa-file-powerpoint
                             |  Download Viva Presentation
                         a.btn.btn-primary.btn-lg#viewRepository(href="https://www.github.com/TomPlum/major-project" target="_blank" role="button")
-                            i.fa.fa-fw.fa-lg.fa-github
+                            i.fab.fa-fw.fa-lg.fa-github
                             |  View GitHub Repository
         //Data Analysis
         section#analysis
@@ -153,7 +153,7 @@ html(lang='en')
                             p
                                 | Statistical attributes such as standard deviation and variance will be measured to gain a more empirical conclusion.
                         .col-md-4.analysis-header
-                            i.fa.fa-line-chart
+                            i.fa.fa-chart-line
                             h4 Statistical Analysis
                             p
                                 | A statistical method useful to the analysis of the data is linear regression, specifically the method of least squares.
@@ -166,21 +166,21 @@ html(lang='en')
                         .col-md-4.project
                             h3#counter 0
                             h4
-                                i.fa.fa-fw.fa-twitter
+                                i.fab.fa-fw.fa-twitter
                                 |  Tweets Analysed
                             p
                                 | Thousands of Tweets stored in the MongoDB Atlas Cluster are parsed using a bespoke Java program and Twitter4J.
                         .col-md-4.project
                             h3#counter1 0
                             h4
-                                i.fa.fa-fw.fa-sort-alpha-asc
+                                i.fas.fa-fw.fa-sort-alpha-down
                                 |  Characters Counted
                             p
                                 | Thousands of Tweets means millions of characters. Each character represents a single instruction for a TwitterRobot.
                         .col-md-4.project
                             h3#counter2 0
                             h4
-                                i.fa.fa-fw.fa-smile-o
+                                i.far.fa-fw.fa-smile
                                 |  Emoji's Counted
                             p
                                 | Thousands of annoying little emoji's, varied by Fitzpatrick Modifiers. Yep, there really were that many...
@@ -189,15 +189,15 @@ html(lang='en')
                     ul.nav.nav-tabs.nav-justified
                         li.active
                             a(href='#1', data-toggle='tab')
-                                i.fa.fa-fw.fa-lg.fa-bar-chart
+                                i.far.fa-fw.fa-lg.fa-chart-bar
                                 |  Bar Chart
                         li
                             a(href='#2', data-toggle='tab')
-                                i.fa.fa-fw.fa-lg.fa-pie-chart
+                                i.fas.fa-fw.fa-lg.fa-chart-pie
                                 |  Pie Charts
                         li
                             a(href='#3', data-toggle='tab')
-                                i.fa.fa-fw.fa-lg.fa-line-chart
+                                i.fas.fa-fw.fa-lg.fa-chart-line
                                 |  Line Chart
                     .tab-content
                         #1.tab-pane.active
@@ -445,7 +445,7 @@ html(lang='en')
                                                     .percentage()
                                                         span.percent
                                             p
-                                                i.fa.fa-fw.fa-lg.fa-twitter
+                                                i.fab.fa-fw.fa-lg.fa-twitter
                                                 |  Twitter Mentioned
                                         .col-sm-3
                                             .progB.chart.hashtags-percentage(data-animate='3500')
@@ -493,20 +493,20 @@ html(lang='en')
                 .container
                     .row.Fresh
                         h1.section-title
-                            i.fa.fa-fw.fa-bar-chart
+                            i.far.fa-fw.fa-chart-bar
                             |  Data Visualisation
                         .col-md-4.analysis-header
-                            i.fa.fa-bar-chart-o
+                            i.fas.fa-chart-bar
                             h4 D3.JS
                             p
                                 | A JavaScript library that manipulates SVG elements in the Document Object Model. A powerful library, bringing dynamic data to life.
                         .col-md-4.analysis-header
-                            i.fa.fa-pie-chart
+                            i.fas.fa-chart-pie
                             h4 Easy Pie Chart
                             p
                                 | Lightweight plugin to render simple, animated and retina optimized pie charts. Great for displaying relative percentages of data.
                         .col-md-4.analysis-header
-                            i.fa.fa-search
+                            i.fas.fa-search
                             h4 Analysing Data
                             p
                                 | This section extends the previous one, providing the means for visual analysis and ultimately concluding results for the next section.
@@ -516,15 +516,15 @@ html(lang='en')
                         ul.nav.nav-tabs.nav-justified
                             li.active
                                 a(href='#results-overview', data-toggle='tab')
-                                    i.fa.fa-fw.fa-lg.fa-tachometer
+                                    i.fas.fa-fw.fa-lg.fa-tachometer-alt
                                     |  Overview
                             li
                                 a(href='#statisticsBreakdown', data-toggle='tab')
-                                    i.fa.fa-fw.fa-lg.fa-pie-chart
+                                    i.fas.fa-fw.fa-lg.fa-chart-pie
                                     |  Statistics Breakdown
                             li
                                 a(href='#simple-linear-regression', data-toggle='tab')
-                                    i.fa.fa-fw.fa-lg.fa-line-chart
+                                    i.fas.fa-fw.fa-lg.fa-chart-line
                                     |  Simple Linear Regression
                             li
                                 a(href="#standard-deviation", data-toggle='tab')
@@ -777,7 +777,7 @@ html(lang='en')
                 .container
                     .row.Fresh
                         h1.section-title
-                            i.fa.fa-fw.fa-clipboard
+                            i.fas.fa-fw.fa-clipboard-check
                             |  Results
                         .col-md-4.analysis-header
                             i.fa.fa-random
@@ -834,7 +834,7 @@ html(lang='en')
                             p
                                 | What went wrong during the project? Was there anything that caused significant issues?
                         .col-md-4.analysis-header
-                            i.fa.fa-refresh
+                            i.fas.fa-sync-alt
                             h4 What Would I Change?
                             p
                                 | If I were to do the project again, or continue it. What changes would I make, and why?
@@ -866,7 +866,7 @@ html(lang='en')
                         br
                     .col-xs-12
                         h3.sub-title
-                            i.fa.fa-refresh
+                            i.fas.fa-sync-alt
                             |  What Would I Change?
                         h4.sub-heading Initial Planning Phase
                         p.description Given that the Gantt chart solution did not provide any helpful time management for the project, a different approach to the initial planning phase would definitely be helpful if I were to do the project, or something similar, again.
@@ -893,23 +893,23 @@ html(lang='en')
                             ul#downMenu
                                 li.active
                                     a.page-scroll(href='#overview')
-                                        i.fa.fa-fw.fa-pencil
+                                        i.fas.fa-fw.fa-pencil-alt
                                         |  Overview
                                 li
                                     a.page-scroll(href='#analysis')
-                                        i.fa.fa-fw.fa-search
+                                        i.fas.fa-fw.fa-search
                                         |  Analysis
                                 li
                                     a.page-scroll(href="#data-vis")
-                                        i.fa.fa-fw.fa-bar-chart
+                                        i.far.fa-fw.fa-chart-bar
                                         |  Visualisation
                                 li
                                     a.page-scroll(href='#results')
-                                        i.fa.fa-fw.fa-clipboard
+                                        i.fas.fa-fw.fa-clipboard-check
                                         |  Results
                                 li.last
                                     a.page-scroll(href='#reflection')
-                                        i.fa.fa-fw.fa-eye
+                                        i.fas.fa-fw.fa-eye
                                         |  Reflection
                                 // li><a href="#features">Features</a></li
         //script(src='js/jquery.prettyPhoto.js', type='text/javascript', charset='utf-8')

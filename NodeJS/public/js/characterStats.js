@@ -158,7 +158,7 @@ function renderTwitterUsers() {
         let userObject = findUser(selectedUser);
         $("#username").html(formatUsername(userObject.username));
         $("#screenName").html("<a href='" + userObject.url + "'> @" + userObject.screen_name + "</a>");
-        $("#stats").html("<i class='fa fa-twitter'></i><p title='Tweets'>" + formatLargeNumber(userObject.statuses) + "</p>" + "<i class='fa fa-fw fa-user'></i>" + formatLargeNumber(userObject.followers));
+        $("#stats").html("<i class='fab fa-twitter'></i><p title='Tweets'>" + formatLargeNumber(userObject.statuses) + "</p>" + "<i class='fa fa-fw fa-user'></i>" + formatLargeNumber(userObject.followers));
         $("#profile-image").html("<img src='" + userObject.profile_https + "' title='" + userObject.username + "' alt='" + userObject.username + " Profile Picture'/>");
 
         startCharacterLoading(formatUsername(userObject.username));
