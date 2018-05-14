@@ -67,6 +67,13 @@ router.get('/viva-presentation', function(req, res) {
     downloadFile(filepath, filename, res);
 });
 
+/* Download Supervisor Log */
+router.get('/supervisor-log', function(req, res) {
+    const filepath = "public/doc/log.docx";
+    const filename = "Tom Plumpton - Supervisor Log.docx";
+    downloadFile(filepath, filename, res);
+});
+
 router.post('/calculate-user-stats', function(req, res) {
     tweets.find({user: req.body.username}, (err, data) => {
         if (err) { console.log(err);}

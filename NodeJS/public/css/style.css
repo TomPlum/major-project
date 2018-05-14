@@ -38,17 +38,20 @@ body{
     padding: 0 0 30px 0;
 }
 
-#downloadDissertation, #downloadVivaPresentation, #viewRepository {
+#downloadDissertation, #downloadVivaPresentation, #viewRepository, #supervisorLog {
     transition: all 0.5s ease;
-    margin-right: 10px;
 }
 
-#downloadDissertation i, #downloadVivaPresentation i, #viewRepository i {
+#downloadDissertation i, #downloadVivaPresentation i, #viewRepository i, #supervisorLog i {
     transition: transform 0.5s ease;
 }
 
 #downloadDissertation:hover i {
     transform: rotateX(50deg);
+}
+
+#supervisorLog:hover i {
+    transform: rotateY(-50deg);
 }
 
 #downloadVivaPresentation:hover i {
