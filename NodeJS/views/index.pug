@@ -968,7 +968,7 @@ html(lang='en')
                     $('#counter').text('0');
                     $('#counter1').text('0');
                     $('#counter2').text('0');
-                    setInterval(function(){
+                    let statisticCounter = setInterval(function(){
                         let curval = parseInt($('#counter').text());
                         let curval1 = parseInt($('#counter1').text().replace(' ',''));
                         let curval2 = parseInt($('#counter2').text());
@@ -983,6 +983,11 @@ html(lang='en')
                         if(curval2 <= emojiCount){
                             $('#counter2').text(curval2 + 20);
                         }
+                        /*
+                        if (curval === tweetCount && curval1 === charCount && curval2 === emojiCount) {
+                            clearTimeout(statisticCounter);
+                            $('#counter').text(formatLargeNumber(curval));
+                        }*/
                     }, 1);
                 }, 500);
             });
